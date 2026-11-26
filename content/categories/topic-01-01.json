@@ -1,5 +1,5 @@
 {
-  "title": "문법 기초 계층 테스트",
-  "parent": "content/categories/topic-04.json",
-  "order": 22
+  "title": "문법 기초",
+  "parent": "content/categories/topic-01-05.json",
+  "order": 10
 }
