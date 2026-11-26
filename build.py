@@ -18,6 +18,7 @@ import yaml
 
 SITE_NAME = "개발 노트"
 SITE_DESCRIPTION = "C/C++, 그래픽스, Unreal Engine을 공부하며 쌓은 기술 노트"
+EDITOR_URL = "https://app.pagescms.org/durumyisking/durumyisking.github.io/main/collection"
 MARKDOWN = MarkdownIt("commonmark", {"html": True}).enable(["table", "strikethrough"])
 SYNTAX = HtmlFormatter(nowrap=True)
 SAFE_TAGS = set("""
@@ -134,7 +135,7 @@ def read_entries(content):
         items = []
         for _, _, _, item in sorted(siblings[parent]):
             if "category" in item:
-                key = item.pop("category")
+                key = item["category"]
                 visited.add(key)
                 item["children"] = nested(key)
             items.append(item)
@@ -146,32 +147,39 @@ def read_entries(content):
     return catalog, bodies
 
 
-def nav_tree(items, prefix, selected="", current_path=()):
+def nav_tree(items, prefix, selected="", current_path=(), edit_category=None):
     result = []
+    if edit_category:
+        link = EDITOR_URL + "/categories/edit/" + quote(edit_category, safe="")
+        result.append(f'<li><small><a href="{link}">카테고리 편집</a></small></li>')
     for item in items:
         title = escape(item["title"])
         if "children" in item:
             open_state = " open" if current_path and item["title"] == current_path[0] else ""
             remaining = current_path[1:] if open_state else ()
-            members = nav_tree(item["children"], prefix, selected, remaining)
+            child_category = item["category"] if edit_category else None
+            members = nav_tree(item["children"], prefix, selected, remaining, child_category)
             result.append(f"<li><details{open_state}><summary>{title}</summary>{members}</details></li>")
         else:
             slug = item["slug"]
             current = ' aria-current="page"' if slug == selected else ""
             link = prefix + "notes/" + quote(slug) + ".html"
+            if edit_category:
+                link = EDITOR_URL + "/articles/edit/" + quote(f"content/articles/{slug}.md", safe="")
             result.append(f'<li><a href="{link}"{current}>{title}</a></li>')
     return "<ul>" + "".join(result) + "</ul>"
 
 
-def layout(title, prefix, body, description=SITE_DESCRIPTION):
+def layout(title, prefix, body, description=SITE_DESCRIPTION, noindex=False):
     escaped = escape(title)
+    robots = '  <meta name="robots" content="noindex">\n' if noindex else ""
     return f"""<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="{escape(description, quote=True)}">
-  <title>{escaped}</title>
+{robots}  <title>{escaped}</title>
   <link rel="stylesheet" href="{prefix}assets/site.css">
 </head>
 <body>
@@ -188,25 +196,30 @@ def layout(title, prefix, body, description=SITE_DESCRIPTION):
 """
 
 
-def homepage(catalog):
+def homepage(catalog, editor=False):
     cards = []
     for i, item in enumerate(catalog):
         count = len(list(flatten(item["children"])))
         title = escape(item["title"])
-        tree = nav_tree(item["children"], "")
+        tree = nav_tree(item["children"], "", edit_category=item["category"] if editor else None)
         cards.append(
             f'<details class="topic" id="topic-{i}"><summary><span>{title}</span>'
             f'<small>{count}개 글</small></summary>{tree}</details>'
         )
-    body = """
+    heading = "블로그 편집 목차" if editor else SITE_NAME
+    intro = (
+        f'<a href="{EDITOR_URL}/articles/new">새 글 작성</a>'
+        if editor else SITE_DESCRIPTION + "입니다."
+    )
+    body = f"""
     <main id="main" class="home">
       <section class="intro">
-        <h1>개발 노트</h1>
-        <p>C/C++, 그래픽스, Unreal Engine을 공부하며 쌓은 기술 노트입니다.</p>
+        <h1>{heading}</h1>
+        <p>{intro}</p>
       </section>
       <section id="topics" class="topics" aria-label="주제별 글 목차">
       """ + "".join(cards) + "</section></main>"
-    return layout(SITE_NAME, "", body)
+    return layout(heading, "../" if editor else "", body, noindex=editor)
 
 
 def article_page(item, parents, content, catalog, position, ordered):
@@ -263,6 +276,9 @@ def build(content, assets, output):
             note.unlink()
     (output / ".nojekyll").touch()
     (output / "index.html").write_text(homepage(catalog), encoding="utf-8")
+    editor = output / "edit"
+    editor.mkdir(exist_ok=True)
+    (editor / "index.html").write_text(homepage(catalog, editor=True), encoding="utf-8")
     for position, (item, parents) in enumerate(ordered):
         html = content_html(bodies[item["slug"]], valid)
         page = article_page(item, parents, html, catalog, position, ordered)

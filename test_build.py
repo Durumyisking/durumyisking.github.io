@@ -3,6 +3,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
+from bs4 import BeautifulSoup
+
 from build import build
 
 
@@ -79,3 +81,22 @@ class EditorialBuildTests(unittest.TestCase):
         self.post("a", "Invalid", "missing", "Body")
         with self.assertRaisesRegex(ValueError, "Unknown category"):
             build(self.content, self.assets, self.output)
+
+    def test_editor_index_links_posts_and_categories_in_catalog_order(self):
+        self.category("first", "First")
+        self.category("nested", "Nested", parent="first")
+        self.post("예제", "Example", "nested", "Example body")
+        build(self.content, self.assets, self.output)
+
+        page = BeautifulSoup(self.html("edit/index.html"), "html.parser")
+        topic = page.select_one("#topics > details")
+        self.assertIn("First", topic.summary.get_text())
+        nested = topic.find("details")
+        self.assertEqual(nested.summary.get_text(), "Nested")
+        self.assertTrue(nested.find("a", href=lambda url: url and url.endswith(
+            "/collection/categories/edit/content%2Fcategories%2Fnested.json"
+        )))
+        self.assertTrue(nested.find("a", href=lambda url: url and url.endswith(
+            "/collection/articles/edit/content%2Farticles%2F%EC%98%88%EC%A0%9C.md"
+        )))
+        self.assertNotIn("app.pagescms.org", self.html("index.html"))
