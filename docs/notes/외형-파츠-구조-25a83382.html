@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / Lyra 구조 분석 / Cosmetics / 외형 파츠 구조">
+  <title>외형 파츠 구조 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details open><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details open><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html" aria-current="page">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>Lyra 구조 분석</li><li>Cosmetics</li></ol>
+        </nav>
+        <article class="article">
+          <h1>외형 파츠 구조</h1>
+          <div class="article-body"><hr/>
+<p>Cosmetic은 말그대로 치장이라는 의미로 사용된다.</p>
+<p>Pawn에 붙는 메시/무기 스킨등을 변경하는데 사용한다고 한다.</p>
+<hr/>
+<p>이를 위해서 <code>UOWPawnComponent_CharacterParts</code>, <code>UOWControllerComponent_CharacterParts</code> 가 사용된다.</p>
+<h5 id="uowcontrollercomponent-characterparts"><b>UOWControllerComponent_CharacterParts </b></h5>
+<p><code>UOWControllerComponent_CharacterParts</code> 는 <code>TArray&lt;FOWControllerCharacterPartEntry&gt;</code> 를 멤버로 갖는다.</p>
+<details>
+<summary><b>FOWControllerCharacterPartEntry (파츠데이터와, Handler Wrapper)</b></summary>
+<pre class="code-block"><code class="language-c++"><span class="c1">// 컨트롤러 컴포넌트에서 요청한 캐릭터 파츠</span>
+<span class="n">USTRUCT</span><span class="p">()</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWControllerCharacterPartEntry</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">FOWControllerCharacterPartEntry</span><span class="p">()</span>
+<span class="w"> </span><span class="p">{}</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="c1">// 이 항목이 나타내는 캐릭터 파츠</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">ShowOnlyInnerProperties</span><span class="p">))</span>
+<span class="w"> </span><span class="n">FOWCharacterPart</span><span class="w"> </span><span class="n">Part</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 이미 Pawn에 적용되었을 때의 핸들</span>
+<span class="w"> </span><span class="c1">// 핸들러가 있으면 나중에 ValidCheck이나 값 조회할때 편하다. 언리얼에서 자주 사용한느 패턴이니 학습하면 좋음</span>
+<span class="w"> </span><span class="n">FOWCharacterPartHandle</span><span class="w"> </span><span class="n">Handle</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 이 파츠의 출처</span>
+<span class="w"> </span><span class="n">ECharacterPartSource</span><span class="w"> </span><span class="n">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ECharacterPartSource</span><span class="o">::</span><span class="n">Natural</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+</details>
+<details>
+<summary><b>FOWCharacterPart (실제 파츠 데이터)</b></summary>
+<pre class="code-block"><code class="language-c++"><span class="c1">// 캐릭터 파츠 요청</span>
+<span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWCharacterPart</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="c1">// 스폰할 파츠</span>
+<span class="w"> </span><span class="c1">// 언리얼에서는 메시 하나하나를 파츠로 보기보다는</span>
+<span class="w"> </span><span class="c1">// 하나의 액터 프리팹을 파츠로 생각한다. (이는 블루프린트 친화성때문이라고 생각한다)</span>
+<span class="w"> </span><span class="c1">// CC에서의 VisualComponents를 생각해보면 편할거같다 (이렇게 액터로 빼면 더 좋았을듯)</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">AActor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PartClass</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 파츠를 부착할 소켓입니다. 없을 수도 있습니다.</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">SocketName</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 파츠의 Primitive 컴포넌트 충돌 처리 방식</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">ECharacterCustomizationCollisionMode</span><span class="w"> </span><span class="n">CollisionMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ECharacterCustomizationCollisionMode</span><span class="o">::</span><span class="n">NoCollision</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 충돌 모드를 무시하고 다른 파츠와 비교합니다.</span>
+<span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">AreEquivalentParts</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWCharacterPart</span><span class="o">&amp;</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FOWCharacterPart</span><span class="o">&amp;</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">PartClass</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">PartClass</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">SocketName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">SocketName</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</details>
+<hr/>
+<p>Cosmetic은 게임 규칙이라기보다는 "Pawn을 어떻게 보이게 할 것인가"에 가까운 영역이다.</p>
+<p>그래서 라이라식 구조에서는 Cosmetic 상태를 Pawn 내부에 직접 하드코딩하지 않고, <b>Controller가 원하는 파츠 목록을 들고 있다가 현재 Possess 중인 Pawn에 적용</b>하는 식으로 나눈다.</p>
+<p>쉽게 말하면</p>
+<ul>
+<li>Controller 쪽 : 플레이어가 어떤 외형을 쓰고 싶은지 기억</li>
+<li>Pawn 쪽 : 지금 화면에 붙어야 하는 파츠 액터를 실제로 스폰/제거</li>
+<li>FastArray : 서버가 정한 파츠 목록을 클라이언트에 효율적으로 복제</li>
+<li>Cosmetic Tag : 붙은 파츠들을 보고 바디 메시/애니 레이어를 고르는 기준</li>
+</ul>
+<hr/>
+<p><b>큰 흐름</b></p>
+<p>현재 Cosmetic 흐름의 핵심은 이거다.</p>
+<pre class="code-block"><code class="language-txt">ControllerComponent_CharacterParts
+    -&gt; PawnComponent_CharacterParts
+        -&gt; FOWCharacterPartList (FastArray Replication)
+            -&gt; FOWAppliedCharacterPartEntry
+                -&gt; UChildActorComponent로 실제 Part Actor 스폰
+                    -&gt; Part Actor의 GameplayTag를 모아 BodyMesh/AnimLayer 선택
+</code></pre>
+<p>왜 이렇게 하냐</p>
+<p>→ Pawn은 리스폰, possession 변경, 관전, 캐릭터 교체 등으로 바뀔 수 있다.</p>
+<p>하지만 플레이어가 선택한 스킨/파츠 요청은 Pawn보다 오래 살아야 할 수 있다.</p>
+<p>그래서 <b>요청 목록은 ControllerComponent가 들고</b>, <b>현재 Pawn에 실제로 붙는 시각화는 PawnComponent가 담당</b>한다.</p>
+<hr/>
+<p><b>FOWCharacterPartHandle</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWCharacterPartHandle</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Reset</span><span class="p">()</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">PartHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsValid</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">PartHandle</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">PartHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">;</span>
+<span class="w"> </span><span class="k">friend</span><span class="w"> </span><span class="n">FOWCharacterPartList</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p>이 핸들은 "내가 추가한 파츠를 나중에 제거하기 위한 표식"이다.</p>
+<p><code>FOWCharacterPart</code> 자체를 비교해서 제거할 수도 있지만, 같은 클래스/소켓의 파츠가 여러 번 추가되거나 출처가 다르면 애매해질 수 있다.</p>
+<p>그래서 Add할 때 <code>PartHandleCounter</code>로 핸들을 만들고, Remove할 때 이 핸들을 기준으로 제거한다.</p>
+<p>중요한 점은 <code>PartHandle</code>이 <code>private</code>이고 <code>FOWCharacterPartList</code>만 friend라는 것이다.</p>
+<p>즉 아무나 핸들 값을 조작하지 못하고, 리스트만 핸들 생성/해석을 담당한다.</p>
+<hr/>
+<p><b>FOWCharacterPart</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWCharacterPart</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">AActor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PartClass</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">SocketName</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">ECharacterCustomizationCollisionMode</span><span class="w"> </span><span class="n">CollisionMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ECharacterCustomizationCollisionMode</span><span class="o">::</span><span class="n">NoCollision</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>FOWCharacterPart</code>는 실제로 붙일 외형 하나에 대한 데이터이다.</p>
+<p>여기서 Mesh를 직접 들고 있지 않고 <code>TSubclassOf&lt;AActor&gt;</code>를 들고 있다는 점이 포인트다.</p>
+<p>왜 Actor냐</p>
+<p>→ Cosmetic Part가 단순 SkeletalMesh 하나일 수도 있지만, 파티클, 사운드, 추가 컴포넌트, GameplayTag, Blueprint 로직을 같이 들 수 있다.</p>
+<p>메시 경로 하나만 들면 확장성이 약한데, Actor 클래스로 빼두면 디자이너가 Blueprint로 파츠 프리팹처럼 다룰 수 있다.</p>
+<p><code>SocketName</code>은 이 파츠가 Pawn의 어느 소켓에 붙을지 결정한다.</p>
+<p>무기, 등 장식, 머리 장식 같은 것들이 모두 같은 시스템을 탈 수 있다.</p>
+<hr/>
+<p><b>UOWControllerComponent_CharacterParts</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">(</span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">BlueprintSpawnableComponent</span><span class="p">))</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UOWControllerComponent_CharacterParts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UControllerComponent</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">protected</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Cosmetics</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FOWControllerCharacterPartEntry</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CharacterParts</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p>ControllerComponent는 실제 스폰된 Actor를 들고 있지 않는다.</p>
+<p>대신 "이 Controller가 현재 Pawn에 적용하고 싶은 파츠 요청 목록"을 들고 있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UOWControllerComponent_CharacterParts::BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HasAuthority</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">OwningController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetController</span><span class="o">&lt;</span><span class="n">AController</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">OwningController</span><span class="o">-&gt;</span><span class="n">OnPossessedPawnChanged</span><span class="p">.</span><span class="n">AddDynamic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">OnPossessedPawnChanged</span><span class="p">);</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="n">ControlledPawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPawn</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">OnPossessedPawnChanged</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n">ControlledPawn</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">ApplyDeveloperSettings</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>서버 권한에서만 <code>OnPossessedPawnChanged</code>를 구독한다.</p>
+<p>Cosmetic은 시각 요소지만, "어떤 파츠가 적용되었는가"라는 durable 상태는 서버가 정해야 한다.</p>
+<p>클라이언트가 마음대로 파츠를 붙이면 다른 클라이언트와 상태가 달라질 수 있기 때문.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UOWControllerComponent_CharacterParts::OnPossessedPawnChanged</span><span class="p">(</span><span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="n">OldPawn</span><span class="p">,</span><span class="w"> </span><span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="n">NewPawn</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">*</span><span class="w"> </span><span class="n">OldCustomizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OldPawn</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">OldPawn</span><span class="o">-&gt;</span><span class="n">FindComponentByClass</span><span class="o">&lt;</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FOWControllerCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">CharacterParts</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">OldCustomizer</span><span class="o">-&gt;</span><span class="n">RemoveCharacterPart</span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">Handle</span><span class="p">);</span>
+<span class="w"> </span><span class="n">Entry</span><span class="p">.</span><span class="n">Handle</span><span class="p">.</span><span class="n">Reset</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">*</span><span class="w"> </span><span class="n">NewCustomizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewPawn</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">NewPawn</span><span class="o">-&gt;</span><span class="n">FindComponentByClass</span><span class="o">&lt;</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FOWControllerCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">CharacterParts</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Entry</span><span class="p">.</span><span class="n">Handle</span><span class="p">.</span><span class="n">IsValid</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="p">.</span><span class="n">Source</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ECharacterPartSource</span><span class="o">::</span><span class="n">NaturalSuppressedViaCheat</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Entry</span><span class="p">.</span><span class="n">Handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewCustomizer</span><span class="o">-&gt;</span><span class="n">AddCharacterPart</span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">Part</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>이 함수가 핵심이다.</p>
+<p>Pawn이 바뀌면 예전 Pawn에서는 파츠를 제거하고, 새 Pawn에는 다시 적용한다.</p>
+<p>그래서 코스메틱 요청은 Controller에 남아있고, 실제 스폰된 파츠는 Pawn 생명주기에 맞춰 갈아탄다.</p>
+<p>굳 포인트</p>
+<p>→ 리스폰이 들어와도 ControllerComponent의 <code>CharacterParts</code>는 유지되고, 새 Pawn에 다시 Add된다.</p>
+<hr/>
+<p><b>ECharacterPartSource</b></p>
+<pre class="code-block"><code class="language-c++"><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ECharacterPartSource</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">uint8</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Natural</span><span class="p">,</span>
+<span class="w"> </span><span class="n">NaturalSuppressedViaCheat</span><span class="p">,</span>
+<span class="w"> </span><span class="n">AppliedViaDeveloperSettingsCheat</span><span class="p">,</span>
+<span class="w"> </span><span class="n">AppliedViaCheatManager</span>
+<span class="p">};</span>
+</code></pre>
+<p>파츠가 어디서 왔는지 기록하는 값이다.</p>
+<p><code>Natural</code>은 원래 적용되어야 하는 파츠이고, Cheat 관련 값들은 개발 중 외형 테스트용이다.</p>
+<p>왜 Source가 필요하냐</p>
+<p>→ 치트로 파츠를 갈아끼울 때 원래 파츠를 정말 삭제해버리면 복구가 어렵다.</p>
+<p>그래서 원래 파츠는 <code>NaturalSuppressedViaCheat</code> 상태로 억제만 해두고, 치트가 꺼지면 다시 적용할 수 있게 만든다.</p>
+<p>현재 코드에서는 <code>ApplyDeveloperSettings</code> 내부가 주석 처리되어 있어서 개발자 설정 적용은 아직 실제 동작하지 않는 상태로 보인다.</p>
+<p>하지만 구조 자체는 Lyra의 개발 편의 장치까지 고려한 흔적이다.</p>
+<hr/>
+<p><b>UOWPawnComponent_CharacterParts</b></p>
+<p>PawnComponent는 실제 시각화 담당이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">(</span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">BlueprintSpawnableComponent</span><span class="p">))</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UOWPawnComponent_CharacterParts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UPawnComponent</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Replicated</span><span class="p">,</span><span class="w"> </span><span class="n">Transient</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FOWCharacterPartList</span><span class="w"> </span><span class="n">CharacterPartList</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Cosmetics</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FOWAnimBodyStyleSelectionSet</span><span class="w"> </span><span class="n">BodyMeshes</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>CharacterPartList</code>는 복제되는 목록이고, <code>BodyMeshes</code>는 현재 붙은 파츠 태그를 보고 Pawn의 기준 Mesh를 고르는 규칙이다. Lyra 예제 기준으로 이 Mesh는 보이는 전신 Mesh가 아니라 <code>SKM_Manny_Invis</code> 같은 Invisible Mesh다.</p>
+<p>실제로 파츠 추가하는 로직이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UOWControllerComponent_CharacterParts::AddCharacterPartInternal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWCharacterPart</span><span class="o">&amp;</span><span class="w"> </span><span class="n">NewPart</span><span class="p">,</span><span class="w"> </span><span class="n">ECharacterPartSource</span><span class="w"> </span><span class="n">Source</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// AddDefaulted_GetRef은 디폴트 값을 Emplace하고 반환합니다.</span>
+<span class="w"> </span><span class="n">FOWControllerCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">NewEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CharacterParts</span><span class="p">.</span><span class="n">AddDefaulted_GetRef</span><span class="p">();</span>
+<span class="w"> </span><span class="n">NewEntry</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewPart</span><span class="p">;</span>
+<span class="w"> </span><span class="n">NewEntry</span><span class="p">.</span><span class="n">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Source</span><span class="p">;</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">*</span><span class="w"> </span><span class="n">PawnCustomizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPawnCustomizer</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NewEntry</span><span class="p">.</span><span class="n">Source</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ECharacterPartSource</span><span class="o">::</span><span class="n">NaturalSuppressedViaCheat</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// AddDefaulted_GetRef을 함으로써 실제로 월드폰에 추가한다.</span>
+<span class="w"> </span><span class="n">NewEntry</span><span class="p">.</span><span class="n">Handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PawnCustomizer</span><span class="o">-&gt;</span><span class="n">AddCharacterPart</span><span class="p">(</span><span class="n">NewPart</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="n">FOWCharacterPartHandle</span><span class="w"> </span><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">::</span><span class="n">AddCharacterPart</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWCharacterPart</span><span class="o">&amp;</span><span class="w"> </span><span class="n">NewPart</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">CharacterPartList</span><span class="p">.</span><span class="n">AddEntry</span><span class="p">(</span><span class="n">NewPart</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">FOWCharacterPartHandle</span><span class="w"> </span><span class="n">FOWCharacterPartList</span><span class="o">::</span><span class="n">AddEntry</span><span class="p">(</span><span class="n">FOWCharacterPart</span><span class="w"> </span><span class="n">NewPart</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">FOWCharacterPartHandle</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">PartHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PartHandleCounter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// 핸들값 부여</span>
+<span class="c1">// Authoriy가 있을때만 Entires에 추가해준다. (외형은 공통적으로 보여야하기때문에 서버에서 관리한다)</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ensure</span><span class="p">(</span><span class="n">OwnerComponent</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">GetOwner</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">GetOwner</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasAuthority</span><span class="p">()))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">NewEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entries</span><span class="p">.</span><span class="n">AddDefaulted_GetRef</span><span class="p">();</span>
+<span class="w"> </span><span class="n">NewEntry</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewPart</span><span class="p">;</span>
+<span class="w"> </span><span class="n">NewEntry</span><span class="p">.</span><span class="n">PartHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="n">PartHandle</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// 실제 액터 생성하고 </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SpawnActorForEntry</span><span class="p">(</span><span class="n">NewEntry</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">BroadcastChanged</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">MarkItemDirty</span><span class="p">(</span><span class="n">NewEntry</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="code-block"><code class="language-c++"><span class="n">UOWPawnComponent_CharacterParts</span><span class="o">::</span><span class="n">UOWPawnComponent_CharacterParts</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FObjectInitializer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ObjectInitializer</span><span class="p">)</span>
+<span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Super</span><span class="p">(</span><span class="n">ObjectInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">SetIsReplicatedByDefault</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UOWPawnComponent_CharacterParts::GetLifetimeReplicatedProps</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="w"> </span><span class="n">FLifetimeProperty</span><span class="w"> </span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutLifetimeProps</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">GetLifetimeReplicatedProps</span><span class="p">(</span><span class="n">OutLifetimeProps</span><span class="p">);</span>
+<span class="w"> </span><span class="n">DOREPLIFETIME</span><span class="p">(</span><span class="n">ThisClass</span><span class="p">,</span><span class="w"> </span><span class="n">CharacterPartList</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>PawnComponent 자체가 replicated이고, 그 안의 <code>FOWCharacterPartList</code>가 FastArray로 복제된다.</p>
+<p>서버가 Add/Remove하면 클라이언트는 변경분만 받아서 파츠 Actor를 스폰/제거한다.</p>
+<hr/>
+<p><b>FOWAppliedCharacterPartEntry</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">USTRUCT</span><span class="p">()</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWAppliedCharacterPartEntry</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FFastArraySerializerItem</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">FOWCharacterPart</span><span class="w"> </span><span class="n">Part</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">NotReplicated</span><span class="p">)</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">PartHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">NotReplicated</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="n">UChildActorComponent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SpawnedComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p>이 구조체는 Pawn에 실제 적용된 파츠 한 칸이다.</p>
+<ul>
+<li><code>Part</code> : 복제되어야 하는 파츠 데이터</li>
+<li><code>PartHandle</code> : 서버에서 제거할 때 쓰는 핸들, 복제 안함</li>
+<li><code>SpawnedComponent</code> : 각 클라이언트에서 실제로 만든 ChildActorComponent, 복제 안함</li>
+</ul>
+<p>왜 <code>SpawnedComponent</code>를 복제하지 않냐</p>
+<p>→ 스폰된 시각 Actor는 각 클라이언트가 자기 월드에서 만들어야 한다.</p>
+<p>서버가 만든 컴포넌트 포인터를 클라이언트에 보내는 게 아니라, 서버는 "무슨 파츠가 필요하다"만 복제하고 클라이언트가 그걸 보고 로컬로 스폰한다.</p>
+<hr/>
+<p><b>FOWCharacterPartList</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWCharacterPartList</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FFastArraySerializer</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">NetDeltaSerialize</span><span class="p">(</span><span class="n">FNetDeltaSerializeInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">DeltaParms</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">FFastArraySerializer</span><span class="o">::</span><span class="n">FastArrayDeltaSerialize</span><span class="o">&lt;</span><span class="n">FOWAppliedCharacterPartEntry</span><span class="p">,</span><span class="w"> </span><span class="n">FOWCharacterPartList</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Entries</span><span class="p">,</span><span class="w"> </span><span class="n">DeltaParms</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Entries</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p>FastArray는 "배열 전체를 매번 복제"하지 않고, 바뀐 Entry만 복제하기 위한 언리얼 패턴이다.</p>
+<p>Cosmetic처럼 파츠가 하나씩 추가/제거되는 데이터에 잘 맞는다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">FOWCharacterPartList::PostReplicatedAdd</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArrayView</span><span class="o">&lt;</span><span class="n">int32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AddedIndices</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">FinalSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bCreatedAnyActors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">Index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">AddedIndices</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entries</span><span class="p">[</span><span class="n">Index</span><span class="p">];</span>
+<span class="w"> </span><span class="n">bCreatedAnyActors</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SpawnActorForEntry</span><span class="p">(</span><span class="n">Entry</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bCreatedAnyActors</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ensure</span><span class="p">(</span><span class="n">OwnerComponent</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">BroadcastChanged</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>복제로 새 Entry가 들어오면 <code>PostReplicatedAdd</code>에서 실제 Actor를 만든다.</p>
+<p>제거되면 <code>PreReplicatedRemove</code>에서 Actor를 제거한다.</p>
+<p>변경되면 기존 Actor를 제거하고 다시 만든다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">FOWCharacterPartList::PreReplicatedRemove</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArrayView</span><span class="o">&lt;</span><span class="n">int32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RemovedIndices</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">FinalSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">Index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">RemovedIndices</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entries</span><span class="p">[</span><span class="n">Index</span><span class="p">];</span>
+<span class="w"> </span><span class="n">DestroyActorForEntry</span><span class="p">(</span><span class="n">Entry</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>왜 이렇게 하냐</p>
+<p>→ 네트워크 상태와 시각 Actor의 생명주기를 FastArray 콜백에 붙이면, 복제 결과와 화면 상태가 같이 움직인다.</p>
+<p>따로 Tick에서 동기화할 필요가 없다. 딸깍 끝.</p>
+<hr/>
+<p><b>SpawnActorForEntry</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">bool</span><span class="w"> </span><span class="nf">FOWCharacterPartList::SpawnActorForEntry</span><span class="p">(</span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ensure</span><span class="p">(</span><span class="n">OwnerComponent</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">IsNetMode</span><span class="p">(</span><span class="n">NM_DedicatedServer</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">Part</span><span class="p">.</span><span class="n">PartClass</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">USceneComponent</span><span class="o">*</span><span class="w"> </span><span class="n">ComponentToAttachTo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">GetSceneComponentToAttachTo</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">UChildActorComponent</span><span class="o">*</span><span class="w"> </span><span class="n">PartComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewObject</span><span class="o">&lt;</span><span class="n">UChildActorComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OwnerComponent</span><span class="o">-&gt;</span><span class="n">GetOwner</span><span class="p">());</span>
+<span class="w"> </span><span class="n">PartComponent</span><span class="o">-&gt;</span><span class="n">SetupAttachment</span><span class="p">(</span><span class="n">ComponentToAttachTo</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="p">.</span><span class="n">Part</span><span class="p">.</span><span class="n">SocketName</span><span class="p">);</span>
+<span class="w"> </span><span class="n">PartComponent</span><span class="o">-&gt;</span><span class="n">SetChildActorClass</span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">Part</span><span class="p">.</span><span class="n">PartClass</span><span class="p">);</span>
+<span class="w"> </span><span class="n">PartComponent</span><span class="o">-&gt;</span><span class="n">RegisterComponent</span><span class="p">();</span>
+<span class="w"> </span><span class="n">Entry</span><span class="p">.</span><span class="n">SpawnedComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PartComponent</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>DedicatedServer에서는 스폰하지 않는다.</p>
+<p>서버는 Cosmetic Actor를 볼 필요가 없고, 충돌도 기본값이 <code>NoCollision</code>이기 때문에 서버 성능을 아끼는게 맞다.</p>
+<p><code>UChildActorComponent</code>를 쓰는 이유는 파츠를 Actor 프리팹처럼 붙이기 위함으로 보인다.</p>
+<p>부착 대상은 Character면 <code>GetMesh()</code>, 아니면 RootComponent다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">USceneComponent</span><span class="o">*</span><span class="w"> </span><span class="nf">UOWPawnComponent_CharacterParts::GetSceneComponentToAttachTo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">USkeletalMeshComponent</span><span class="o">*</span><span class="w"> </span><span class="n">MeshComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetParentMeshComponent</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">MeshComponent</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">OwnerActor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetOwner</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">OwnerActor</span><span class="o">-&gt;</span><span class="n">GetRootComponent</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>Character는 보통 소켓이 SkeletalMesh에 있으니까 Mesh에 붙이고,</p>
+<p>일반 Pawn/Actor면 RootComponent에 붙인다.</p>
+<p>이렇게 해두면 Character 전용 시스템으로 고정되지 않는다.</p>
+<hr/>
+<p><b>GameplayTag 기반 BodyMesh 선택</b></p>
+<p>파츠 Actor가 <code>IGameplayTagAssetInterface</code>를 구현하고 있으면, PawnComponent는 붙은 파츠들의 태그를 모을 수 있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="nf">FOWCharacterPartList::CollectCombinedTags</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWAppliedCharacterPartEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Entries</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">SpawnedComponent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IGameplayTagAssetInterface</span><span class="o">*</span><span class="w"> </span><span class="n">TagInterface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">IGameplayTagAssetInterface</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Entry</span><span class="p">.</span><span class="n">SpawnedComponent</span><span class="o">-&gt;</span><span class="n">GetChildActor</span><span class="p">()))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">TagInterface</span><span class="o">-&gt;</span><span class="n">GetOwnedGameplayTags</span><span class="p">(</span><span class="n">Result</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>이 태그를 기준으로 BodyMesh를 고른다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">USkeletalMesh</span><span class="o">*</span><span class="w"> </span><span class="nf">FOWAnimBodyStyleSelectionSet::SelectBestBodyStyle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">CosmeticTags</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWAnimBodyStyleSelectionEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Rule</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MeshRules</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">Rule</span><span class="p">.</span><span class="n">Mesh</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CosmeticTags</span><span class="p">.</span><span class="n">HasAll</span><span class="p">(</span><span class="n">Rule</span><span class="p">.</span><span class="n">RequiredTags</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Rule</span><span class="p">.</span><span class="n">Mesh</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">DefaultMesh</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>BroadcastChanged</code>에서 이 규칙을 사용한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UOWPawnComponent_CharacterParts::BroadcastChanged</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">USkeletalMeshComponent</span><span class="o">*</span><span class="w"> </span><span class="n">MeshComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetParentMeshComponent</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">MergedTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCombinedTags</span><span class="p">(</span><span class="n">FGameplayTag</span><span class="p">());</span>
+<span class="w"> </span><span class="n">USkeletalMesh</span><span class="o">*</span><span class="w"> </span><span class="n">DesiredMesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BodyMeshes</span><span class="p">.</span><span class="n">SelectBestBodyStyle</span><span class="p">(</span><span class="n">MergedTags</span><span class="p">);</span>
+<span class="w"> </span><span class="n">MeshComponent</span><span class="o">-&gt;</span><span class="n">SetSkeletalMesh</span><span class="p">(</span><span class="n">DesiredMesh</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UPhysicsAsset</span><span class="o">*</span><span class="w"> </span><span class="n">PhysicsAsset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BodyMeshes</span><span class="p">.</span><span class="n">ForcedPhysicsAsset</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">MeshComponent</span><span class="o">-&gt;</span><span class="n">SetPhysicsAsset</span><span class="p">(</span><span class="n">PhysicsAsset</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">OnCharacterPartsChanged</span><span class="p">.</span><span class="n">Broadcast</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>여기서 중요한 점은 파츠 Actor가 실제 보이는 외형을 담당하고, 그 Actor의 Cosmetic Tag가 Pawn MeshComponent의 기준 Mesh 선택에 영향을 준다는 것이다.</p>
+<p>Lyra의 Manny 예제에서는 <code>B_Manny</code> Actor가 <code>SKM_Manny</code>를 실제로 렌더링하고, <code>Cosmetic.AnimationStyle.Masculine</code>, <code>Cosmetic.BodyStyle.Medium</code> 태그를 제공한다. <code>BodyMeshes</code>는 이 태그를 보고 Pawn의 <code>MeshComponent</code>를 <code>SKM_Manny_Invis</code>로 맞춘다. 즉 보이는 Mesh를 중복으로 고르는 게 아니라, 보이는 Cosmetic Actor와 호환되는 숨김 기준 Mesh를 고르는 구조다.</p>
+<hr/>
+<p><b>Animation 선택 구조체</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FOWAnimLayerSelectionEntry</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAnimInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Layer</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">Categories</span><span class="o">=</span><span class="s">"Cosmetic"</span><span class="p">))</span>
+<span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">RequiredTags</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>FOWAnimLayerSelectionSet</code>은 CosmeticTags에 맞는 AnimLayer를 고르는 규칙이다.</p>
+<p>현재 PawnComponent에서 직접 쓰고 있지는 않지만, 구조상 Cosmetic 파츠에 따라 애니 레이어를 바꿀 수 있게 둔 데이터로 보인다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAnimInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FOWAnimLayerSelectionSet</span><span class="o">::</span><span class="n">SelectBestLayer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">CosmeticTags</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FOWAnimLayerSelectionEntry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Rule</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LayerRules</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">Rule</span><span class="p">.</span><span class="n">Layer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CosmeticTags</span><span class="p">.</span><span class="n">HasAll</span><span class="p">(</span><span class="n">Rule</span><span class="p">.</span><span class="n">RequiredTags</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Rule</span><span class="p">.</span><span class="n">Layer</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">DefaultLayer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>RequiredTags</code>가 모두 있으면 해당 Rule을 선택하고, 없으면 Default로 간다.</p>
+<p>즉 Cosmetic 파츠가 애니메이션에도 영향을 줄 수 있게 만들어둔 구조다.</p>
+<p>왜 이렇게 하냐</p>
+<p>→ 외형만 바뀌는 게 아니라, 장비/몸체/스킨에 따라 필요한 애니메이션 레이어가 달라질 수 있다.</p>
+<p>이걸 캐릭터 클래스 분기로 처리하면 영웅/스킨/장비 조합이 늘어날 때 코드가 터진다.</p>
+<p>태그 규칙으로 빼두면 데이터 추가로 확장 가능하다.</p>
+<hr/>
+<details>
+<summary><b>Cosmetic 적용 과정정리</b></summary>
+<ol>
+<li>서버에서 <code>UOWControllerComponent_CharacterParts::AddCharacterPart</code> 호출</li>
+<li>ControllerComponent가 <code>FOWControllerCharacterPartEntry</code>를 추가하고 현재 Pawn의 <code>UOWPawnComponent_CharacterParts</code>를 찾음</li>
+<li>PawnComponent가 <code>FOWCharacterPartList::AddEntry</code>로 적용 목록에 Entry 추가</li>
+<li>서버에서는 <code>MarkItemDirty</code>로 FastArray 복제 변경 표시</li>
+<li>클라이언트는 <code>PostReplicatedAdd</code> 콜백을 통해 <code>SpawnActorForEntry</code> 실행</li>
+<li>DedicatedServer가 아니면 <code>UChildActorComponent</code>를 만들고 <code>PartClass</code> Actor를 소켓에 부착</li>
+<li>파츠 변경 후 <code>BroadcastChanged</code> 호출</li>
+<li>붙은 파츠 Actor들의 GameplayTag를 모아서 <code>BodyMeshes.SelectBestBodyStyle</code>로 바디 메시 선택</li>
+<li>메시/물리 에셋 적용 후 <code>OnCharacterPartsChanged</code> 브로드캐스트</li>
+<li>Pawn이 바뀌면 ControllerComponent가 이전 Pawn에서 제거하고 새 Pawn에 다시 적용</li>
+</ol>
+</details>
+<hr/>
+<p><b>라이라는 왜 이렇게 개발했을까</b></p>
+<p>이 구조는 단순히 스킨 붙이려고 복잡하게 만든 게 아니라, 아래 문제들을 동시에 풀려고 만든 구조로 보인다.</p>
+<ol>
+<li><b>Pawn 생명주기와 Player 선택 상태 분리</b></li>
+</ol>
+<p>Pawn은 죽거나 리스폰되면 바뀐다.</p>
+<p>하지만 플레이어가 선택한 외형은 계속 유지되어야 한다.</p>
+<p>그래서 ControllerComponent가 요청을 들고 PawnComponent가 실제 적용만 한다.</p>
+<ol>
+<li><b>서버 권한과 클라이언트 시각화 분리</b></li>
+</ol>
+<p>서버는 어떤 파츠가 적용되었는지만 결정한다.</p>
+<p>클라이언트는 복제된 목록을 보고 자기 월드에 Cosmetic Actor를 만든다.</p>
+<p>DedicatedServer에서는 <code>SpawnActorForEntry</code>가 스폰하지 않으므로 서버 비용도 줄인다.</p>
+<ol>
+<li><b>Actor 프리팹 기반 확장</b></li>
+</ol>
+<p>파츠를 Mesh 하나로 고정하지 않고 Actor Class로 만들면 Blueprint, Niagara, Audio, GameplayTag 같은 추가 요소를 같이 담을 수 있다.</p>
+<p>스킨이 단순 메시 교체를 넘어갈 때 유리하다.</p>
+<ol>
+<li><b>FastArray로 효율적인 복제</b></li>
+</ol>
+<p>파츠 목록은 배열인데, 전체를 매번 복제할 필요는 없다.</p>
+<p>FastArray를 쓰면 추가/제거된 Entry만 복제하고, 그 콜백에서 스폰/제거를 맞출 수 있다.</p>
+<ol>
+<li><b>GameplayTag로 조합 규칙 처리</b></li>
+</ol>
+<p>붙은 파츠들이 태그를 제공하고, 그 태그를 보고 BodyMesh/AnimLayer를 선택한다.</p>
+<p>즉 "이 파츠면 이 메시" 같은 분기를 코드에 박지 않고 데이터 규칙으로 빼는 구조다.</p>
+<p>쉽게 정리하면</p>
+<p>→ Controller는 요청을 기억하고, Pawn은 현재 몸에 붙이고, FastArray는 네트워크 변경을 전달하고, GameplayTag는 파츠 조합 결과를 해석한다.</p>
+<p>각자 할 일만 한다. 이게 라이라식 느낌이다.</p>
+<hr/>
+<img alt="" decoding="async" loading="lazy" src="../media/98dd448560d0a9ff57ba.png"/>
+<p>ControllerComp와 PawnComp를 BP로 만든다 <br/>(Manny는 PawnComp, PickRandom은 ControllerComp다)</p>
+<p>DefaultMesh는 본정보만 들고있는 안보이는 Mesh, 남캐 여캐는 태그로 애니메이션 스타일을 분리한걸 볼 수 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/90c3a4ebc223517e4bd0.png"/>
+<p><b>ExperienceDefinition에는 ControllerComponent를 추가한다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/f31ecc046ff6bc5a9c2a.png"/>
+<p><b>Pawn은 우리가 사용할 Pawn에 추가를한다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/69e00c90ff093f073342.png"/>
+<p>어? 왜  ControllerComp는 Experience에서 장착하는데<br/>Hero에 PawnCosmetic은 <b>Experience에서 AddComponent로 추가 안하고 BP에 직접 추가</b>해요?</p>
+<aside class="callout">
+<p><i>ControllerComponent는 Experience 규칙이고, PawnComponent_CharacterParts는<br/>Pawn 몸체 규칙이다.</i></p>
+<p><i>그래서 B_CharacterSelection은 Experience에서 붙이고, MannyCosmetic같은 실제 외형 적용자는 Pawn에 붙이는 것이 자연스럽다.</i></p>
+</aside>
+<h3 id="1-experience가-관리해야-하는-것">
+<b>1. Experience가 관리해야 하는 것</b>
+</h3>
+<p>OWController에 B_CharacterSelection을 붙이는 것은 <b>이번 Experience의 플레이 규칙</b>이다.</p>
+<p>예를 들어:</p>
+<ul>
+<li>
+ExperienceA는 B\_CharacterSelection을 사용한다.
+</li>
+<li>
+ExperienceB는 B\_PickRandomCharacter를 사용할 수 있다.
+</li>
+<li>
+다른 Experience는 아예 캐릭터 선택 기능이 없을 수도 있다.
+</li>
+</ul>
+<p>즉, Controller에 어떤 선택 기능이나 요청 기능을 붙일지는 <b>이번 판을 어떻게 조립할 것인가</b>의 문제다.</p>
+<hr/>
+<h3 id="2-pawn이-관리해야-하는-것">
+<b>2. Pawn이 관리해야 하는 것</b>
+</h3>
+<p>반대로 Hero가 MannyCosmetic을 써야 하고, Animal이 AnimalCosmetic을 써야 하는 것은 Experience 규칙이 아니다.</p>
+<p>이건 Pawn 타입의 몸체 규칙이다.</p>
+<ul>
+<li>
+Hero는 Hero의 메시 구조를 가진다.
+</li>
+<li>
+Animal은 Animal의 메시 구조를 가진다.
+</li>
+<li>
+각 Pawn은 서로 다른 소켓, 바디 스타일, PhysicsAsset, Cosmetic 규칙을 가질 수 있다.
+</li>
+<li>
+Experience가 바뀌어도 Hero의 몸체 규칙은 Hero에 속한다.
+</li>
+</ul>
+<p>따라서 실제 CharacterParts 적용 컴포넌트와 Mesh 선택 규칙은 Pawn이 소유하는 것이 맞다.</p>
+<hr/>
+<h3 id="3-experience에-전부-넣으면-생기는-문제">
+<b>3. Experience에 전부 넣으면 생기는 문제</b>
+</h3>
+<p>만약 모든 Cosmetic 컴포넌트와 Mesh 참조를 Experience에 몰아넣는다면, 실제로 사용하지 않는 Pawn의 외형 데이터까지 Experience가 알게 된다.</p>
+<p>예를 들어 어떤 Experience에서 Animal을 한 마리도 소환하지 않는다고 해도, Experience가 AnimalCosmetic을 직접 참조하고 있다면 Animal 관련 외형 데이터가 로드 체인에 딸려올 수 있다.</p>
+<p>이건 두 가지 문제가 있다.</p>
+<ul>
+<li>
+Experience가 Pawn별 몸체 규칙까지 알아야 한다.
+</li>
+<li>
+실제로 쓰지 않는 Cosmetic 참조가 불필요하게 따라올 수 있다.
+</li>
+</ul>
+<hr/>
+<h3 id="책임-분리-요약"><b>책임 분리 요약</b></h3>
+<table>
+<thead>
+<tr>
+<th><b>대상</b></th>
+<th><b>책임</b></th>
+<th><b>예시</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Experience</td>
+<td>이번 판에서 어떤 기능을 켤지 결정</td>
+<td>B_CharacterSelection, B_PickRandomCharacter</td>
+</tr>
+<tr>
+<td>ControllerComponent</td>
+<td>플레이어의 선택/요청 목록 관리</td>
+<td>선택한 캐릭터 파츠 요청</td>
+</tr>
+<tr>
+<td>PawnComponent_CharacterParts</td>
+<td>실제 Pawn 몸체에 파츠 적용</td>
+<td>Mesh, Socket, BodyStyle, PhysicsAsset</td>
+</tr>
+<tr>
+<td>Pawn</td>
+<td>자기 몸의 외형 규칙 소유</td>
+<td>Hero는 Manny, Animal은 Animal</td>
+</tr>
+</tbody>
+</table>
+<p>아무튼..</p>
+<hr/>
+<p><b>B_PickRandomCharacter</b> 구현부</p>
+<img alt="" decoding="async" loading="lazy" src="../media/3a9ced35ec82621c2f02.png"/>
+<p>이런식으로 BeginPlay에서 AddCharacterPart해주면 해당 파츠들이 추가가 된다.</p>
+<hr/>
+<h3 id="lyra-기준-bodymeshes-taggedactor-정리-메모">Lyra 기준 BodyMeshes / TaggedActor 정리 메모</h3>
+<p>결론: Lyra의 Manny 예제에서 <code>B_Manny</code>는 이미 보이는 <code>SKM_Manny</code> 메시를 가진 Cosmetic Actor이고, <code>BodyMeshes.MeshRules</code>는 보이는 메시를 다시 고르는 규칙이 아니다. <code>BodyMeshes</code>는 Pawn의 <code>MeshComponent</code>를 <code>SKM_Manny_Invis</code> 같은 숨김 기준 Mesh로 맞추는 규칙이다.</p>
+<pre class="code-block"><code class="language-txt">B_Manny
+- ChildActorComponent로 Pawn에 붙는 Cosmetic Actor
+- 실제 보이는 Mesh: SKM_Manny
+- StaticGameplayTags:
+  - Cosmetic.AnimationStyle.Masculine
+  - Cosmetic.BodyStyle.Medium
+</code></pre>
+<pre class="code-block"><code class="language-txt">PawnComponent_CharacterParts.BodyMeshes
+- RequiredTags:
+  - Cosmetic.AnimationStyle.Masculine
+  - Cosmetic.BodyStyle.Medium
+- Mesh:
+  - SKM_Manny_Invis
+</code></pre>
+<p>흐름:</p>
+<pre class="code-block"><code class="language-txt">ControllerComponent가 AddPart(B_Manny)
+↓
+Pawn에 ChildActorComponent로 B_Manny가 붙음
+↓
+B_Manny의 SKM_Manny가 실제 화면에 보임
+↓
+CollectCombinedTags가 B_Manny의 StaticGameplayTags를 수집
+↓
+BodyMeshes가 태그를 보고 Pawn MeshComponent를 SKM_Manny_Invis로 변경
+</code></pre>
+<p>따라서 <code>TaggedActor</code>가 필요한 이유는 <code>B_Manny</code> 같은 Cosmetic Actor가 자기 <code>AnimationStyle / BodyStyle</code>을 알려주기 위해서다. <code>MeshRule</code>은 그 태그를 보고 보이는 메시가 아니라 Pawn의 숨김 기준 Mesh를 선택한다.</p>
+<p>오버워치식으로 적용하면:</p>
+<pre class="code-block"><code class="language-txt">B_Tracer_Punk
+- 실제 보이는 전신 Cosmetic Actor
+- Mesh: SKM_Tracer_Punk
+- StaticGameplayTags:
+  - Cosmetic.AnimationStyle.Tracer
+  - Cosmetic.BodyStyle.Small
+</code></pre>
+<pre class="code-block"><code class="language-txt">BP_Tracer 또는 HeroBase의 PawnComponent_CharacterParts.BodyMeshes
+- RequiredTags:
+  - Cosmetic.AnimationStyle.Tracer
+  - Cosmetic.BodyStyle.Small
+- Mesh:
+  - SKM_Tracer_Invis
+</code></pre>
+<p>무기 스킨은 같은 방식으로 <code>WeaponSocket</code>에 붙는 별도 Part Actor가 실제 무기 Mesh를 보여주면 된다.</p>
+<pre class="code-block"><code class="language-txt">B_Tracer_GoldenWeapon
+- Socket: WeaponSocket
+- 실제 보이는 무기 Mesh 보유
+- 필요하면 Cosmetic.Weapon.Golden 태그 제공
+</code></pre>
+<p>책임 분리:</p>
+<ul>
+<li><code>B_Tracer_Punk</code>: 실제 보이는 스킨 Actor</li>
+<li><code>AOWTaggedActor / StaticGameplayTags</code>: 이 Actor의 BodyStyle / AnimationStyle 제공</li>
+<li><code>BodyMeshes.MeshRules</code>: Pawn MeshComponent를 호환되는 Invisible Mesh로 설정</li>
+<li><code>Pawn MeshComponent</code>: 렌더링용 본체가 아니라 기준 Skeleton / PhysicsAsset / 소켓 / 애니메이션 호환 기준</li>
+</ul>
+<p>주의: <code>BodyMeshes</code>에 <code>SKM_Tracer_Punk</code> 같은 보이는 스킨 메시를 넣는 설명은 Lyra Manny 예제 기준으로는 틀리다. Lyra 예제에서는 <code>SKM_Manny_Invis</code>, <code>SKM_Quinn_Invis</code>처럼 보이지 않는 기준 Mesh를 넣는다.</p>
+<hr/>
+<ul>
+<li><a href="ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li>
+</ul>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="commonuser-22583382.html"><small>이전 글</small>CommonUser</a><a href="ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html"><small>다음 글</small>FFastArraySerializer와 Cosmetic 파츠 복제</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

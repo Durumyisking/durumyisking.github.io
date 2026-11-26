@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / 게임플레이 프레임워크 / 엔진 시작과 런타임 / 액터가 월드에 등록되는 과정">
+  <title>액터가 월드에 등록되는 과정 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details open><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details open><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html" aria-current="page">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>게임플레이 프레임워크</li><li>엔진 시작과 런타임</li></ol>
+        </nav>
+        <article class="article">
+          <h1>액터가 월드에 등록되는 과정</h1>
+          <div class="article-body"><details>
+<summary>액터가 World에 등록되는 과정</summary>
+<p><b><code>InitWorld</code></b>이후에 호출되는 함수인 <code>UpdateWorldComponents</code> 함수는</p>
+<p>월드에 있는 모든 레벨에대해서 액터들을 전부 등록하는 함수이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/0d847b8c1b66868a4013.png"/>
+<p>액터는 아래처럼 월드에 보이는 모든것이다. (안보일수도 있긴하지만,)</p>
+<img alt="" decoding="async" loading="lazy" src="../media/aa99c9c05c10b27e3cb5.png"/>
+<p>얘네들은 언제 어떻게 등록되는 것일까??</p>
+<p><b>3줄요약</b></p>
+<aside class="callout">
+<ul>
+<li>레벨은 모든 액터 배열을 부모 액터가 앞에 오도록 한 번 정렬한다.</li>
+<li>정렬된 액터를 앞에서부터 처리하며, 각 액터에게 자기 컴포넌트 등록을 맡긴다.</li>
+<li>한 액터의 등록이 끝나야 다음 액터로 넘어가며, 모두 끝나면 등록 사이클을 완료한다.</li>
+</ul>
+</aside>
+<img alt="" decoding="async" loading="lazy" src="../media/b7fcee48637b5e756844.png"/>
+<h5 id="액터의-등록-액터가-가진-컴포넌트를-월드에-등록하는-과정">액터의 등록 : 액터가 가진 컴포넌트를 월드에 등록하는 과정</h5>
+<p>월드에 있는 액터들은 월드가 생성될때 등록된다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/ecd7b235034b4f9712a1.png"/>
+<p>그냥 이렇게 죄다 한번에 등록하는건 아니고,,</p>
+<details>
+<summary>등록하는 몇가지 방법이 있다.</summary>
+<ol>
+<li>
+<p><b>나눠서 등록</b>
+한 프레임에 모든 액터들을 전부 등록하지 않고, 프레임별로 나눠서 등록한다.</p>
+<p>큰 Hitching을 줄이기 위함이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/e0172485f9e2e9b0d634.png"/>
+</li>
+<li>
+<p><b>액터의 계층 구조를 보장</b>
+계층구조를 가지게 만들어놓은 액터들은 계층의 순서대로 등록이 된다.<br/>(Transform정보부터 부모의 종속이 있기 때문)</p>
+<img alt="" decoding="async" loading="lazy" src="../media/e369ac7f89ecead7948a.png"/>
+<p>그런데 레벨에 액터가 저장될 때 아래처럼 이쁘게 저장되지는 않는다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/f34831057ed59fc63d4a.png"/>
+<p>이런 느낌에 가깝다</p>
+<img alt="" decoding="async" loading="lazy" src="../media/3719093a7a27c13bda97.png"/>
+<p>이럼 루트를 가장 마지막에 등록하면 순회시간이 오래 걸릴 것이다.</p>
+<p>따라서 그 전에 <b><span>정렬 과정</span></b>을 거친다.</p>
+</li>
+<li>
+<p><b>액터들의 컴포넌트들도 나눠서 처리한다.</b>
+액터의 정렬이 끝나면 액터들의 컴포넌트 등록이 시작된다.<br/>위에서 적었듯 초기 월드가 아니라면 프레임단위로 나누어서 처리한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/e14f04c7b67437c7c18b.png"/>
+</li>
+<li>
+<p><b>컴포넌트의 계층구조도 보장을 해야한다.</b>
+컴포넌트 역시 계층구조가 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/81902bb0c0d4eed64539.png"/>
+<p>등록을 요청받은 Component는 아래의 구조를 거친다</p>
+<ol>
+<li>
+계층구조를 타고 부모 Component가 있는지 확인한다.
+<p>a.1. 있으면 등록되었는지 확인한다 ⇒ b<br/>a.2. 없으면 등록한다.</p>
+</li>
+<li>
+부모가 등록되어있는지 확인한다.
+<p>b.1. 등록되어 있으면 등록한다.<br/>b.2. 계층 구조를 타고 부모 Component가 있는지 확인한다. ⇒ a</p>
+</li>
+</ol>
+</li>
+</ol>
+</details>
+<p><b>하지만 충격적인 사실은 초기 엔진 로드하면서 월드를 생성 할 때는 이 방법같은거 안쓰고 그냥 한프레임에 전부 처리한다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/60faa5a9b7bde80f5057.png"/>
+<p><code>IncrementalUpdateComponents</code> 함수에 0을 넣으면 레벨에 있는 모든 Actor/Component들을 한 프레임에 업데이트 하겠다는 것이다.<br/>만약 3넣으면 한 액터의 3개의 컴포넌트만 등록하고 넘어간다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/79389b0b06b5280b9981.png"/>
+<p><b>공부하면서 궁금했던점</b></p>
+<ul>
+<li>
+<p><b><code>NumComponentsToUpdate</code></b><b>를 여러 번 호출하면 매번 액터를 정렬하나?</b></p>
+<aside class="callout">
+<p>아니다. 등록 사이클 시작 시 <code>Init</code> 상태에서 한 번만 정렬한다. 이후에는 현재 액터 위치부터 계속 진행한다. (Finialize 가기 전까지 상태머신은 <b>Register단계에 머문다</b>.)</p>
+</aside>
+</li>
+<li>
+<p><b>컴포넌트 등록이 남아 있으면 </b><b><code>Finalize</code></b><b>에 못 가는데 문제 아닌가?</b></p>
+<aside class="callout">
+<p>정상이다. <code>RegisterInitialComponents</code> 상태와 현재 액터 위치를 유지하고 다음 호출에서 이어서 처리한다.</p>
+</aside>
+</li>
+<li>
+<p><b>등록 중에 액터 배열이 바뀌면 어떡하나?</b></p>
+<aside class="callout">
+<p>일반적인 흐름에서는 현재 스트리밍 중인 레벨의 액터 배열을 중간에 수정하지 않는다. 런타임 Spawn 액터나 다른 스트리밍 레벨은 별도 등록 흐름으로 처리한다.</p>
+<p>즉 <b>일반적인 흐름에서는 등록중인 액터 배열이 바뀔 일이 없어서</b> 재정렬의 걱정을 하지 않아도 된다.</p>
+</aside>
+</li>
+</ul>
+<details>
+<summary><b>Level.IncrementalUpdateComponents.SortActorsHierarchy</b></summary>
+<details>
+<summary><b>코드</b></summary>
+<pre class="code-block"><code class="language-c++"><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">SortActorsHierarchy</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="n">AActor</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">Actors</span><span class="p">,</span><span class="w"> </span><span class="n">ULevel</span><span class="o">*</span><span class="w"> </span><span class="n">Level</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">TMap</span><span class="o">&lt;</span><span class="n">AActor</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DepthMap</span><span class="p">;</span>
+<span class="w"> </span><span class="n">DepthMap</span><span class="p">.</span><span class="n">Reserve</span><span class="p">(</span><span class="n">Actors</span><span class="p">.</span><span class="n">Num</span><span class="p">());</span>
+<span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">AActor</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">TInlineAllocator</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">VisitedActors</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bFoundWorldSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// Depth를 계산하기 위한 Lambda</span>
+<span class="w"> </span><span class="n">TFunction</span><span class="o">&lt;</span><span class="n">int32</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CalcAttachDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">DepthMap</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">VisitedActors</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">CalcAttachDepth</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bFoundWorldSettings</span><span class="p">](</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">Actor</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 이미 Depth를 계산한 경우 중복 계산 방지</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="o">*</span><span class="w"> </span><span class="n">FoundDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DepthMap</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">Actor</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">FoundDepth</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// WorldSetting은 UWorld를 생성할 때 처음 추가되는 액터라서 0번에 저장</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Actor</span><span class="o">-&gt;</span><span class="n">IsA</span><span class="o">&lt;</span><span class="n">AWorldSettings</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bFoundWorldSettings</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TNumericLimits</span><span class="o">&lt;</span><span class="n">int32</span><span class="o">&gt;::</span><span class="n">Lowest</span><span class="p">();</span>
+<span class="w"> </span><span class="n">bFoundWorldSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// Actor가 다른 Actor에게 부착된 경우</span>
+<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">ParentActor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Actor</span><span class="o">-&gt;</span><span class="n">GetAttachParentActor</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 이미 검사를 수행한 Actor인지 판별(재귀적 호출이라 없으면 재귀 탈출 못할 가능성 있음)</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">VisitedActors</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">ParentActor</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 이미 방문한 Actor면 Log</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">VisitedActors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Actor</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// ChildActor인 경우</span>
+<span class="w"> </span><span class="c1">// ChildActor에 부착된 액터들은 AttachChildren 리스트가 아직 완전히 채워지기 전에 등록되면, 부착 정보가 제대로 기록되지 않아 분리될 위험이</span>
+<span class="w"> </span><span class="c1">// 있으므로 반드시 먼저 등록되어야 해서 ChildActor의 자식 액터의 깊이를 일반적인 경우보다 낮게 설정하여, 등록 순서에서 먼저 처리되도록 보장</span>
+<span class="w"> </span><span class="c1">// ┌──────────────────────────┐</span>
+<span class="w"> </span><span class="c1">// │       Owner Actor        │◄─────────────────────────────── Depth = 0 (최상위)</span>
+<span class="w"> </span><span class="c1">// │   (IsChildActor=false)   │</span>
+<span class="w"> </span><span class="c1">// │ ┌──────────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │    RootComponent     │ │</span>
+<span class="w"> </span><span class="c1">// │ ├──────────────────────┤ │</span>
+<span class="w"> </span><span class="c1">// │ │   ChildActorComp     │─┼─(Spawns Child Actor)──────────┐</span>
+<span class="w"> </span><span class="c1">// │ │(UChildActorComponent)│ │                               │</span>
+<span class="w"> </span><span class="c1">// │ └──────────────────────┘ │                               │</span>
+<span class="w"> </span><span class="c1">// └──────────────────────────┘                               │ Spawn &amp; Attach (handled internally)</span>
+<span class="w"> </span><span class="c1">//                                                            │</span>
+<span class="w"> </span><span class="c1">// ┌──────────────────────────┐                               │</span>
+<span class="w"> </span><span class="c1">// │   Attached ChildActor    │◄──────────────────────────────┴─ Depth = CalcAttachDepth(Owner Actor) + 1 = 1</span>
+<span class="w"> </span><span class="c1">// │   (IsChildActor=true)    │</span>
+<span class="w"> </span><span class="c1">// │ ┌──────────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │    RootComponent     │─┼───┐</span>
+<span class="w"> </span><span class="c1">// │ └──────────────────────┘ │   │(Attach Point for Attached Actor)</span>
+<span class="w"> </span><span class="c1">// └──────────────────────────┘   │</span>
+<span class="w"> </span><span class="c1">//                                │</span>
+<span class="w"> </span><span class="c1">// ┌──────────────────────────┐   │</span>
+<span class="w"> </span><span class="c1">// │     Attached Actor       │◄──┴─────────────── Depth = CalcAttachDepth(Spawned ChildActor) - 1 = 0  &lt;== 특별 규칙!</span>
+<span class="w"> </span><span class="c1">// │   (IsChildActor=false)   │</span>
+<span class="w"> </span><span class="c1">// │ ┌──────────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │    RootComponent     │ │</span>
+<span class="w"> </span><span class="c1">// │ └──────────────────────┘ │</span>
+<span class="w"> </span><span class="c1">// └──────────────────────────┘</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ParentActor</span><span class="o">-&gt;</span><span class="n">IsChildActor</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CalcAttachDepth</span><span class="p">(</span><span class="n">ParentActor</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// 일반적인 경우</span>
+<span class="w"> </span><span class="c1">// ┌─────────────────────┐</span>
+<span class="w"> </span><span class="c1">// │       Actor A       │◄────────────────────────── Depth = 0 (최상위)</span>
+<span class="w"> </span><span class="c1">// │(IsChildActor=false) │</span>
+<span class="w"> </span><span class="c1">// │ ┌─────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │  RootComponent  │─│───┐ (Attach Point for Actor B)</span>
+<span class="w"> </span><span class="c1">// │ └─────────────────┘ │   │</span>
+<span class="w"> </span><span class="c1">// └─────────────────────┘   │</span>
+<span class="w"> </span><span class="c1">//                           │</span>
+<span class="w"> </span><span class="c1">// ┌─────────────────────┐   │</span>
+<span class="w"> </span><span class="c1">// │       Actor B       │◄──┴─────────────── Depth = CalcAttachDepth(Actor A) + 1 = 1</span>
+<span class="w"> </span><span class="c1">// │(IsChildActor=false) │                  (ParentActor = Actor A, IsChildActor()=false)</span>
+<span class="w"> </span><span class="c1">// │ ┌─────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │  RootComponent  │─┼───┐(Attach Point for Actor C)</span>
+<span class="w"> </span><span class="c1">// │ └─────────────────┘ │   │</span>
+<span class="w"> </span><span class="c1">// └─────────────────────┘   │</span>
+<span class="w"> </span><span class="c1">//                           │</span>
+<span class="w"> </span><span class="c1">// ┌─────────────────────┐   │</span>
+<span class="w"> </span><span class="c1">// │       Actor C       │◄──┴─────────────── Depth = CalcAttachDepth(Actor B) + 1 = 2</span>
+<span class="w"> </span><span class="c1">// │(IsChildActor=false) │                  (ParentActor = Actor B, IsChildActor()=false)</span>
+<span class="w"> </span><span class="c1">// │ ┌─────────────────┐ │</span>
+<span class="w"> </span><span class="c1">// │ │  RootComponent  │ │</span>
+<span class="w"> </span><span class="c1">// │ └─────────────────┘ │</span>
+<span class="w"> </span><span class="c1">// └─────────────────────┘</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CalcAttachDepth</span><span class="p">(</span><span class="n">ParentActor</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">DepthMap</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="n">Depth</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Depth</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// 모든 Actor를 순회하면서 Depth 계산</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">Actor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Actors</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Actor</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">CalcAttachDepth</span><span class="p">(</span><span class="n">Actor</span><span class="p">);</span>
+<span class="w"> </span><span class="n">VisitedActors</span><span class="p">.</span><span class="n">Reset</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// Depth를 이용한 오름차순 정렬용 Lambda</span>
+<span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">DepthSorter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">DepthMap</span><span class="p">](</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">DepthA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">DepthMap</span><span class="p">.</span><span class="n">FindRef</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MAX_int32</span><span class="p">;</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">DepthB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">DepthMap</span><span class="p">.</span><span class="n">FindRef</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MAX_int32</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">DepthA</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DepthB</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="c1">// MergeSort를 이용하여 정렬</span>
+<span class="w"> </span><span class="n">StableSortInternal</span><span class="p">(</span><span class="n">Actors</span><span class="p">.</span><span class="n">GetData</span><span class="p">(),</span><span class="w"> </span><span class="n">Actors</span><span class="p">.</span><span class="n">Num</span><span class="p">(),</span><span class="w"> </span><span class="n">DepthSorter</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// Actor가 null인 경우도 일단 정렬은 진행해서 제거하기 위한 로직(null은 맨뒤에 몰려있음)</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">RemoveAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Actors</span><span class="p">.</span><span class="n">Num</span><span class="p">();</span>
+<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">RemoveAtIndex</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Actors</span><span class="p">[</span><span class="n">RemoveAtIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="o">--</span><span class="n">RemoveAtIndex</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RemoveAtIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Actors</span><span class="p">.</span><span class="n">Num</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Actors</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">RemoveAtIndex</span><span class="p">,</span><span class="w"> </span><span class="n">Actors</span><span class="p">.</span><span class="n">Num</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">RemoveAtIndex</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><b>참고 함수</b>: <a href="https://app.notion.com/p/ActorClass">ActorClass</a> , <a href="https://app.notion.com/p/GetAttachParentActor">GetAttachParentActor</a></p>
+</details>
+<p>위에서 언급했던 Actor들을 정렬시키는 함수이다.</p>
+<p><a href="%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">좌표값을 가지게 된다.</a>  (<b>USceneComponent</b>)</p>
+<p><a href="%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">UChildActorComponent는 SceneComponent 상속으로 다른 Actor 자체를 부착하는 특수한 컴포넌트이다.
+스폰한 액터를 USceneComponent에 부착하는것과는 다르게,
+월드에서 스폰 전부터 액터가 부착되어있어 뷰포트에서 확인이 가능하다.
+부모 액터와 생명주기를 공유한다.</a>  (<b>UChildActorComponent</b>)</p>
+<img alt="" decoding="async" loading="lazy" src="../media/45290fb3da040d99cae6.png"/>
+<p>함수내부의 <code>CalcAttachDepth</code> 람다 함수를 재귀적으로 돈다.<br/><code>CalcAttachDepth</code> 에서는 그림처럼 ParentActor 포인터를 확인하면서 자기 자신에 Depth값을 매긴다.</p>
+<p>하지만 예외의 경우가 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/baef0012ef5a3d689607.png"/>
+<p>이는 자식 액터가, <b>ChildComponent로 붙인 액터일때 발생</b>한다.</p>
+<p>이런 경우에 <b>ChildComponent에 SceneComponent로 붙인 ChildActor</b>는 <b><span>부모 Depth의 -1 값</span></b>을 가진다.</p>
+<p>이는 <b>ChildComponent의 Actor</b>을 완전히 초기화 된 상태에서 초기화를 진행하기 위함이라고 한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/44ffb477f4871f26eacd.png"/>
+<details>
+<summary><b>왜 ChildActorComp는 그 자식보다 늦게 되는가… 어려워잉</b></summary>
+<p><b>요약</b></p>
+<ul>
+<li>정상적인 최초 게임 등록에서 Child2 재생성이 없다면 특수 정렬은 사실 필요 없음</li>
+</ul>
+<details>
+<summary>최초 등록 도중 Child2 재생성이 가능한 에디터/불일치 경로를 방어하려고 특수 정렬</summary>
+<p><b>재생성 하는 경우 </b>:</p>
+<ul>
+<li>
+ChildActor 클래스가 바뀐 경우: 기존 <code>Child2</code> 클래스와 <code>ChildActorClass</code>가 달라서 재생성
+</li>
+<li>
+<b>원본 BP의 ChildActorTemplate 프로퍼티가 바뀐 경우: 클래스가 같아도 새 템플릿 상태를 반영하기 위해 재생성 ⇒ 사실상 이게 ActorSort단계에서 Depth를 예외적으로 처리하는 이유에 대한 합당한 이유로 보인다.</b>
+<ul>
+<li>
+즉 ChildActorClass는 그대로인데 일부 프로퍼티만 바꿔서 재등록 해야하는 경우가 있을 것이다. 
+</li>
+</ul>
+<p><b>문제의 전조</b></p>
+<pre class="code-block"><code class="language-txt">1. 에디터에서 패키지 로드
+   - Child2, Child5 UObject는 존재
+   - Child5.AttachParent = Child2.Root
+   - Child2.Root.AttachChildren = []  // Transient라 비어 있음
+
+2. ChildActorComponent::PostLoad()
+   - 템플릿 변경 가능성 때문에 bNeedsRecreate = true
+   - 아직 연결 정보를 캐시하지는 않음
+
+3. Actor Sort 및 최초 등록 시작
+
+4. ChildActorComponent::OnRegister()(Child2의 부모 액터의 컴포넌트)
+   - bNeedsRecreate 확인
+   - 여기서 처음 DestroyChildActor() 실행
+   - 바로 이 순간 AttachChildren을 읽어 캐시 생성 시도
+</code></pre>
+<p>정상 순서는:</p>
+<pre class="code-block"><code class="language-txt">1. Child5 등록
+2. Child5가 저장된 AttachParent인 OldChild2.Root를 찾음
+3. OldChild2.Root.AttachChildren.Add(Child5.Root)
+4. ChildActorComponent가 OldChild2.Root.AttachChildren을 캐시
+5. OldChild2 파괴
+6. NewChild2 생성
+7. 캐시된 Child5를 NewChild2.Root에 재부착
+</code></pre>
+<p>반대로 ChildActorComponent가 먼저 등록되면:</p>
+<pre class="code-block"><code class="language-txt">1. OldChild2.Root.AttachChildren이 아직 비어 있음
+UPROPERTY(ReplicatedUsing = OnRep_AttachChildren, Transient)
+TArray&lt;TObjectPtr&lt;USceneComponent&gt;&gt; AttachChildren;
+Transient이기 때문에 레벨 재로드시 비어있다!!
+2. 빈 목록을 캐시
+3. OldChild2 파괴
+4. NewChild2 생성
+5. Child5가 나중에 등록됨
+6. Child5가 알고 있던 부모는 파괴된 OldChild2.Root
+7. NewChild2.Root는 완전히 다른 객체이므로 자동으로 찾을 수 없음
+</code></pre>
+</li>
+<li></li>
+</ul>
+<p>컴포넌트 등록을 위해 Actor를 정렬할 때, 부모 Actor가 ChildActor인 경우 자식 Actor의 Depth를 낮게 계산한다.</p>
+<p><code>UChildActorComponent</code>는 등록 과정의 특정 상황에서 자신이 관리하는 기존 ChildActor를 파괴하고 재생성할 수 있다.</p>
+<p>재생성 후에도 외부 부착 Actor를 유지하려면, 파괴 전에 기존 ChildActor의 <code>RootComponent.AttachChildren</code>을 순회하여 외부 자식의 포인터·소켓·상대 Transform을 캐시해야 한다.</p>
+<p>하지만 <code>AttachChildren</code>은 <code>Transient</code>이므로 패키지 로드 직후에는 비어 있다. 원본 부착 정보는 자식 쪽 <code>AttachParent</code>에만 저장되어 있다.</p>
+<p>따라서 외부 자식 Actor가 먼저 등록되면서 자신의 <code>AttachParent</code>를 확인하고, 기존 ChildActor Root의 <code>AttachChildren</code>에 자신을 추가해야 한다.</p>
+<p>그 후 ChildActor가 재생성되면 <code>UChildActorComponent</code>가 완성된 <code>AttachChildren</code>에서 외부 자식을 캐시하고, 새 ChildActor에 다시 부착할 수 있다.</p>
+<ul>
+<li>저장된 인스턴스가 현재 템플릿과 달라졌을 가능성이 있는 경우: <code>PostLoad()</code>에서 보수적으로 <code>bNeedsRecreate</code> 설정<br/></li>
+</ul>
+<h4 id="실제-자동-경로-에디터-postload">실제 자동 경로: 에디터 <code>PostLoad</code></h4>
+<p>패키지에서 <code>UChildActorComponent</code>가 로드될 때 다음 조건이면:</p>
+<pre class="code-block"><code class="language-txt">if (ChildActor &amp;&amp; ChildActorTemplate &amp;&amp; GetLinker())
+{
+    bNeedsRecreate = true;
+}
+</code></pre>
+<p>이후 최초 컴포넌트 등록에서:</p>
+<pre class="code-block"><code class="language-txt">PostLoad
+→ bNeedsRecreate = true
+→ IncrementalUpdateComponents
+→ SortActorsHierarchy
+→ Root의 컴포넌트 등록
+→ ChildActorComponent::OnRegister
+→ DestroyChildActor()
+→ CreateChildActor()
+</code></pre>
+<p>가 실제로 발생합니다.</p>
+<p><code>OnRegister()</code> 코드에서도 명시적으로 파괴 후 재생성합니다.</p>
+<pre class="code-block"><code class="language-txt">if (bNeedsRecreate)
+{
+    bNeedsRecreate = false;
+    DestroyChildActor();
+    CreateChildActor();
+}
+</code></pre>
+<h4 id="클래스-불일치-경로">클래스 불일치 경로</h4>
+<p>저장된 <code>Child2</code>의 실제 클래스와 <code>ChildActorClass</code>가 다르면 최초 등록 중 재생성합니다.</p>
+<pre class="code-block"><code class="language-txt">if (ChildActor-&gt;GetClass() != ChildActorClass)
+{
+    bNeedsRecreate = true;
+}
+</code></pre>
+<p>이는 에디터가 아니어도 가능한 경로입니다. 에셋 변경, 잘못된 직렬화 상태, 리인스턴싱 등의 결과로 발생할 수 있습니다.</p>
+<h4 id="프로그래머가-발생시키는-경로">프로그래머가 발생시키는 경로</h4>
+<p>등록 콜백 중 이미 등록된 ChildActorComponent에 다음을 호출하면 즉시 파괴·재생성합니다.</p>
+<pre class="code-block"><code class="language-txt">ChildActorComponent-&gt;SetChildActorClass(NewClass);
+</code></pre>
+<p>내부 동작은:</p>
+<pre class="code-block"><code class="language-txt">if (IsRegistered())
+{
+    DestroyChildActor();
+    CreateChildActor();
+}
+</code></pre>
+</details>
+<ul>
+<li>최초 등록이 끝난 뒤 런타임 재등록에서는 이미 <code>AttachChildren</code>이 완성됐으므로 최초 정렬 순서와 무관</li>
+</ul>
+<p>쭉쭉 읽자.. 읽기 힘들것임</p>
+<p><code>Child5</code>가 먼저 등록될 때도 <code>Child2</code>와 <code>Child2.Root</code> UObject는 이미 생성되어 있습니다. 아직 World에 등록되지 않았을 뿐입니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>일반 Actor 부모</th>
+<th>ChildActor 부모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자식 등록 시 부모 객체</td>
+<td>이미 존재</td>
+<td>이미 존재</td>
+</tr>
+<tr>
+<td>원하는 순서</td>
+<td>부모 등록 → 자식 등록</td>
+<td>외부 자식 등록 → ChildActor 등록</td>
+</tr>
+<tr>
+<td>일반적인 이유</td>
+<td>자식이 부모의 완성된 Transform·Socket·Tick·Physics 상태를 안전하게 사용</td>
+<td>재구성 전에 부모의 <code>AttachChildren</code>을 완성해야 함</td>
+</tr>
+<tr>
+<td>자식을 먼저 등록하면</td>
+<td>부모의 World 상태가 아직 완성되지 않아 자식 <code>OnRegister()</code>가 부모 상태를 전제하면 위험</td>
+<td>기본 <code>USceneComponent</code> 부착은 미등록 부모도 지원하므로 역방향 목록을 먼저 채울 수 있음</td>
+</tr>
+<tr>
+<td>부모를 먼저 등록하면</td>
+<td>정상</td>
+<td>ChildActor 재생성 시 외부 자식이 캐시에서 누락될 수 있음</td>
+</tr>
+</tbody>
+</table>
+<p>일반 흐름은 다음입니다.</p>
+<pre class="code-block"><code class="language-txt">Parent.Root 등록
+→ Parent의 Transform/Socket/Physics 상태 준비
+→ Child.Root 등록
+→ 준비된 Parent 상태를 사용해 부착
+</code></pre>
+<p>반면 ChildActor 특례는:</p>
+<pre class="code-block"><code class="language-txt">Child2와 Child2.Root는 이미 존재하지만 미등록
+→ Child5.Root가 AttachParent로 Child2.Root를 이미 알고 있음
+→ Child5.Root.OnPreRegister()
+→ Child2.Root.AttachChildren에 Child5.Root 추가
+→ Child2 등록 또는 재구성
+→ 캐시가 AttachChildren에서 Child5를 발견
+</code></pre>
+<p>미등록 부모에 붙을 수 있는 이유는 <code>USceneComponent::OnPreRegister()</code>의 부착이 아직 렌더링·피직스 상태를 만드는 작업이 아니라, 주로 부모의 <code>AttachChildren</code>에 자신을 넣는 논리적 관계 복원이기 때문입니다.</p>
+<pre class="code-block"><code class="language-txt">Parent-&gt;AttachChildren.Add(this);
+</code></pre>
+<p>따라서 핵심 차이는 다음입니다.</p>
+<blockquote>
+<p>일반 부모는 먼저 등록하여 완성된 부모 상태를 자식에게 제공하는 것이 안전하고, ChildActor 부모는 객체 자체는 이미 존재하므로 자식이 먼저 논리적 부착 관계를 복원할 수 있으며, 오히려 재생성 가능한 부모이기 때문에 자식을 먼저 기록해야 부착 관계를 보존할 수 있습니다.</p>
+</blockquote>
+<p>단, 커스텀 컴포넌트의 <code>OnRegister()</code>에서 “AttachParent는 반드시 이미 등록되어 있다”고 가정하면 ChildActor 특례에서 문제가 될 수 있습니다. 엔진 기본 부착 로직은 그 가정을 하지 않습니다.</p>
+<p>두 경우를 구분해야 합니다.</p>
+<ul>
+<li><code>Child2(ChildActor)</code>의 <code>OnRegister()</code>가 자신의 부모인 <code>Root</code>/<code>ChildActorComponent</code>가 등록됐다고 전제하는 경우: 괜찮습니다. <code>Root(Depth 0)</code>가 <code>Child2(Depth 1)</code>보다 먼저 처리됩니다.</li>
+<li><code>Child5</code>의 <code>OnRegister()</code>가 부모인 <code>Child2</code>가 이미 등록됐다고 전제하는 경우: 맞습니다. 망가질 수 있습니다. <code>Child5(Depth 0)</code>가 <code>Child2(Depth 1)</code>보다 먼저 등록되기 때문입니다.</li>
+</ul>
+<p>엔진 기본 <code>USceneComponent</code>는 미등록 부모에 대한 논리적 부착을 지원하지만, 커스텀 <code>OnRegister()</code> 코드가 다음처럼 가정하면 안전하지 않습니다.</p>
+<pre class="code-block"><code class="language-txt">check(GetAttachParent()-&gt;IsRegistered());
+</code></pre>
+<p>즉, ChildActor에 붙을 수 있는 Actor의 컴포넌트는 <code>OnRegister()</code>에서 외부 AttachParent가 이미 등록됐다고 가정하면 안 됩니다.</p>
+<p>ChildActor 특례는:</p>
+<pre class="code-block"><code class="language-txt">부모가 먼저 등록되어 상태가 준비되는 안전성
+</code></pre>
+<p>보다</p>
+<pre class="code-block"><code class="language-txt">ChildActor 재생성 시 외부 자식의 부착 관계가 유실되지 않는 안전성
+</code></pre>
+<p>을 우선한 선택입니다.</p>
+<p>다만 “기존 보장을 포기했다”기보다는, 부모 선등록은 편의상 제공되는 일반 원칙이지 모든 <code>OnRegister()</code>에서 의존할 수 있는 절대 계약은 아닙니다. 엔진 기본 <code>USceneComponent</code>는 미등록 부모에 붙는 것을 지원합니다.</p>
+<p>따라서 정확히는:</p>
+<blockquote>
+<p>ChildActor 경계에서는 부모 선등록의 편의성을 포기하고 부착 관계 보존을 우선하며, 커스텀 컴포넌트는 외부 AttachParent가 이미 등록됐다고 가정하면 안 됩니다.</p>
+</blockquote>
+<blockquote>
+<p>“부착된 액터가 불완전한 <code>AttachChildren</code> 상태로 등록되어서” 문제가 아니라, 부착된 액터가 아직 등록되지 않아 <code>AttachChildren</code>을 복원하기 전에 ChildActor가 재구성되는 것이 문제입니다.</p>
+</blockquote>
+<p>부착된 액터의 등록은 문제의 원인이 아니라, <code>AttachChildren</code>을 완성하는 작업입니다.</p>
+<hr/>
+<h3 id="2-책임과-경계">2. 책임과 경계</h3>
+<p>부착 관계는 양방향으로 관리됩니다.</p>
+<pre class="code-block"><code class="language-txt">Child 5.Root.AttachParent
+    → Child 2.Root
+
+Child 2.Root.AttachChildren
+    → [Child 5.Root]
+</code></pre>
+<p>하지만 두 정보의 저장 방식이 다릅니다.</p>
+<pre class="code-block"><code class="language-txt">UPROPERTY(ReplicatedUsing = OnRep_AttachParent)
+TObjectPtr&lt;USceneComponent&gt; AttachParent;
+
+UPROPERTY(ReplicatedUsing = OnRep_AttachChildren, Transient)
+TArray&lt;TObjectPtr&lt;USceneComponent&gt;&gt; AttachChildren;
+</code></pre>
+<p>[SceneComponent.h (line 108)](F:/UE_5.7.4/Engine/Source/Runtime/Engine/Classes/Components/SceneComponent.h:108)</p>
+<p>핵심은 <code>AttachChildren</code>이 <code>Transient</code>라는 점입니다.</p>
+<ul>
+<li><code>AttachParent</code>: 자식이 부모를 가리키는 원본 관계</li>
+<li><code>AttachChildren</code>: 부모가 자식을 빠르게 찾기 위한 런타임 역방향 목록</li>
+<li><code>AttachChildren</code>은 저장된 값을 그대로 불러오는 것이 아니라 등록 과정에서 다시 채워져야 함</li>
+</ul>
+<p>따라서 레벨 로드 직후에는 다음 상태가 가능합니다.</p>
+<pre class="code-block"><code class="language-txt">Child5.Root.AttachParent == Child2.Root   // 존재
+Child2.Root.AttachChildren == []          // 아직 복원 전
+</code></pre>
+<hr/>
+<h3 id="3-호출-흐름">3. 호출 흐름</h3>
+<h4 id="정상적인-복원-순서">정상적인 복원 순서</h4>
+<p><code>Child 5</code>의 RootComponent가 등록될 때:</p>
+<pre class="code-block"><code class="language-txt">Child5.Root.OnPreRegister()
+    └─ AttachToParent()
+         └─ AttachToComponent(Child2.Root)
+              └─ Child2.Root.AttachChildren.Add(Child5.Root)
+</code></pre>
+<p>관련 코드:</p>
+<ul>
+<li>[SceneComponent.cpp (line 817)](F:/UE_5.7.4/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp:817)</li>
+<li>[SceneComponent.cpp (line 837)](F:/UE_5.7.4/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp:837)</li>
+<li>[SceneComponent.cpp (line 2487)](F:/UE_5.7.4/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp:2487)</li>
+</ul>
+<p>즉, <code>Child 5</code>가 등록돼야 부모 쪽 역방향 목록이 다음처럼 완성됩니다.</p>
+<pre class="code-block"><code class="language-txt">Child2.Root.AttachChildren = [Child5.Root]
+</code></pre>
+<h4 id="잘못된-순서">잘못된 순서</h4>
+<p>ChildActor 쪽이 먼저 처리되면 다음 순서가 될 수 있습니다.</p>
+<pre class="code-block"><code class="language-txt">1. 레벨 로드
+   Child5.AttachParent = Child2.Root
+   Child2.Root.AttachChildren = []
+
+2. Child2가 먼저 재구성됨
+
+3. 엔진이 Child2에 붙은 외부 Actor를 캐시하려고
+   Child2.Root.AttachChildren을 순회함
+
+4. AttachChildren이 비어 있으므로 Child5를 발견하지 못함
+
+5. 기존 Child2 또는 기존 RootComponent가 파괴됨
+
+6. 새 Child2가 만들어짐
+
+7. 캐시에 Child5 정보가 없으므로 새 Child2에 재부착하지 못함
+</code></pre>
+<p>결과적으로 <code>Child 5</code>는 이전 ChildActor의 사라진 컴포넌트를 부모로 가리키거나, 정리 과정에서 부모 없는 상태가 되어 분리됩니다.<br/><br/><code>AttachChildren</code>이 채워지기 전에 부착 정보가 <code>ComponentInstanceDataCache</code>에서 사라져 detach되는 것을 막기 위한 예외다.</p>
+<p>ChildActorComponent는 수정·재구성 시 CA를 없애고 새로 만든다.</p>
+<p><b>CA가 재생성돼도, 에디터에서 만들어 둔 “X가 CA에 붙어 있는 관계”를 유지하는 것</b>이다.<br/><br/>ChildActor에 부착된 액터들은 AttachChildren 리스트가 아직 완전히 채워지기 전에 등록되면, 부착 정보가 제대로 기록되지 않아 분리될 위험이<br/>있으므로 반드시 먼저 등록되어야 해서 ChildActor의 자식 액터의 깊이를 일반적인 경우보다 낮게 설정하여, 등록 순서에서 먼저 처리되도록 보장</p>
+</details>
+<p>이후 <b>오름차순으로 액터를 정렬</b>하고, <b>null인 Actor을 제거</b>한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/229d7d02b70faee61415.png"/>
+<p>몰려있는 null들을 모아서 한번에 제거한다.</p>
+</details>
+<details>
+<summary><b>Level.IncrementalUpdateComponents.IncrementalRegisterComponents</b></summary>
+<p><img alt="5.6이전버전 코드같다. 참고만하고 아래 사진을더 자세히 보자" decoding="async" loading="lazy" src="../media/ba3d508d86a53fae1a3f.png"/><br/><em>5.6이전버전 코드같다. 참고만하고 아래 사진을더 자세히 보자</em></p>
+<img alt="" decoding="async" loading="lazy" src="../media/7947721cc1457a0d2040.png"/>
+<p>PhyscisState를 사용하는 Component의 OnRegister단계에서</p>
+<p><b>IncrementalComponentState관련해서 5.6버전이후 수정사항</b></p>
+<p><img alt="정리 : 조건 맞으면 PhysicState를 비동기 로드하고 조건 안되면 Register단계에서 CreatePhysicsState함수에서 로드됨" decoding="async" loading="lazy" src="../media/b6648a910b2b2fd25a66.png"/><br/><em>정리 : 조건 맞으면 PhysicState를 비동기 로드하고 조건 안되면 Register단계에서 CreatePhysicsState함수에서 로드됨</em></p>
+<img alt="" decoding="async" loading="lazy" src="../media/74e96583a3cc577e8ef9.png"/>
+<p>모든 액터의 컴포넌트가 등록이 완료되었을때  여기로 오는데<br>여기서 <b>PrimitiveComponent들을 RenderScene에 등록</b>한다.</br></p>
+<p>여기서 모아서 처리하는 이유는 하나 완료될 때 마다 진행하면 병목현상이 발생함 효율적인 등록을 위해서 함수 내부적으로 병렬로 등록함</p>
+<p><b>따라서 Component는 등록될때 PhysicsState, RenderState가 같이 등록된다.</b></p>
+<details>
+<summary><b>아니 그러면 Register단계에서도 PhysicsState 비동기 로딩하면안돼요?</b></summary>
+<p>이제 정확히 이해했습니다. 제안하신 흐름은 이거죠.</p>
+<pre class="code-block"><code class="language-txt">PreRegister
+└─ AsyncPhysics 시작
+
+Register
+├─ AsyncPhysics는 백그라운드에서 계속 실행
+├─ OnRegister 실행
+└─ AsyncPhysics가 끝날 때까지 Register 완료만 보류
+</code></pre>
+<p>결론은:</p>
+<blockquote>
+<p>엔진 구조를 바꾸면 구현은 가능합니다. 하지만 <code>OnRegister()</code> 이후에 동기 <code>CreatePhysicsState()</code>를 호출한다는 사실은 <code>OnRegister()</code>와 PhysicsState 생성을 동시에 실행해도 안전하다는 근거가 아닙니다.</p>
+</blockquote>
+<h4 id="동기-경로와-제안한-경로의-차이">동기 경로와 제안한 경로의 차이</h4>
+<p>현재 동기 경로는:</p>
+<pre class="code-block"><code class="language-txt">OnRegister 시작
+OnRegister 완료
+PhysicsState 생성 시작
+PhysicsState 생성 완료
+</code></pre>
+<p>입니다.</p>
+<p>시간 관계로 쓰면:</p>
+<pre class="code-block"><code class="language-txt">OnRegister.End &lt; CreatePhysicsState.Start
+</code></pre>
+<p>반면 제안한 경로는:</p>
+<pre class="code-block"><code class="language-txt">AsyncPhysics 시작
+OnRegister 시작
+OnRegister 완료
+AsyncPhysics 완료
+</code></pre>
+<p>이므로:</p>
+<pre class="code-block"><code class="language-txt">AsyncPhysics.Start &lt; OnRegister &lt; AsyncPhysics.End
+</code></pre>
+<p>가 됩니다.</p>
+<p>즉 현재 코드는 <b>순차 실행</b>이고, 제안은 <b>동시 실행</b>입니다.</p>
+<pre class="code-block"><code class="language-txt">OnRegister();
+CreatePhysicsState();
+</code></pre>
+<p>라는 순서는 “OnRegister가 PhysicsState 없이 호출될 수 있다”는 뜻이지, “PhysicsState를 다른 스레드에서 만드는 동안 OnRegister를 호출해도 된다”는 뜻은 아닙니다.</p>
+<h4 id="실제-onregister-가-physics-입력을-건드림">실제 <code>OnRegister()</code>가 Physics 입력을 건드림</h4>
+<p><code>UStaticMeshComponent::OnRegister()</code>를 보면:</p>
+<pre class="code-block"><code class="language-txt">NotifyIfStaticMeshChanged();
+
+if (!IsPreRegistered())
+{
+    UpdateCollisionFromStaticMesh();
+}
+</code></pre>
+<p>가 있습니다. [StaticMeshComponent.cpp (line 814)](/F:/UE_5.7.4/Engine/Source/Runtime/Engine/Private/Components/StaticMeshComponent.cpp:814)</p>
+<p><code>UpdateCollisionFromStaticMesh()</code>는 Physics 비동기 작업이 참조하는 다음 데이터에 영향을 줄 수 있습니다.</p>
+<ul>
+<li><code>StaticMesh</code></li>
+<li><code>BodySetup</code></li>
+<li><code>BodyInstance</code></li>
+<li>Collision 설정</li>
+</ul>
+<p>그래서 PreRegister 경로에서는 Physics 작업을 시작하기 전에 미리 실행합니다.</p>
+<pre class="code-block"><code class="language-txt">bool UStaticMeshComponent::ShouldIncrementalPreRegister(...)
+{
+    UpdateCollisionFromStaticMesh();
+    return Super::ShouldIncrementalPreRegister(...);
+}
+</code></pre>
+<p>그리고 나중의 <code>OnRegister()</code>에서는:</p>
+<pre class="code-block"><code class="language-txt">if (!IsPreRegistered())
+{
+    UpdateCollisionFromStaticMesh();
+}
+</code></pre>
+<p>조건으로 중복 수정을 피합니다.</p>
+<p>즉 설계 의도가 명확합니다.</p>
+<pre class="code-block"><code class="language-txt">Collision 입력 확정
+→ Async PhysicsState 생성
+→ 작업 완료
+→ OnRegister
+</code></pre>
+<p>Physics 작업 중간에 <code>OnRegister()</code>가 실행되도록 만든 구조가 아닙니다.</p>
+<p>핵심은 <b>같은 데이터를 건드리는 것 자체가 문제가 아니라, 읽기와 쓰기가 동시에 일어나는 게 문제</b>라는 점입니다.</p>
+<p><code>UpdateCollisionFromStaticMesh()</code>를 <code>CreatePhysicsState()</code>보다 먼저 호출하는 현재 동기 경로는 안전합니다.</p>
+<pre class="code-block"><code class="language-txt">게임 스레드
+──────────────────────────────────
+UpdateCollisionFromStaticMesh 시작
+UpdateCollisionFromStaticMesh 완료
+CreatePhysicsState 시작
+CreatePhysicsState 완료
+</code></pre>
+<p>Physics 생성이 시작될 때 Collision 설정 변경은 이미 끝났습니다.</p>
+<p>반면 제안하신 경로는:</p>
+<pre class="code-block"><code class="language-txt">게임 스레드                    백그라운드 스레드
+─────────────────────────────────────────────
+                              Physics 생성 시작
+OnRegister 시작
+Collision 데이터 변경          Collision 데이터 읽기
+OnRegister 완료                Physics 생성 계속
+</code></pre>
+<p>이렇게 읽기와 쓰기가 겹칠 수 있습니다.</p>
+<h4 id="실제로-어떤-데이터를-변경하나">실제로 어떤 데이터를 변경하나</h4>
+<p><code>UpdateCollisionFromStaticMesh()</code>는 다음을 호출합니다.</p>
+<pre class="code-block"><code class="language-txt">BodyInstance.UseExternalCollisionProfile(BodySetup);
+</code></pre>
+<p>내부에서는:</p>
+<pre class="code-block"><code class="language-txt">ExternalCollisionProfileBodySetup = InBodySetup;
+bPendingCollisionProfileSetup = false;
+LoadProfileData(false);
+</code></pre>
+<p>를 수행합니다. 즉 <code>FBodyInstance</code>의:</p>
+<ul>
+<li>Collision Profile</li>
+<li>Collision Enabled</li>
+<li>Object Type</li>
+<li>Channel Response</li>
+<li>외부 <code>BodySetup</code> 포인터</li>
+</ul>
+<p>등을 갱신합니다.</p>
+<p>반면 PhysicsState 생성은 백그라운드에서 같은 <code>FBodyInstance</code>를 읽습니다.</p>
+<pre class="code-block"><code class="language-txt">const ECollisionEnabled::Type CollisionType =
+    Instance-&gt;GetCollisionEnabled();
+
+ActorParams.bSimulatePhysics =
+    Instance-&gt;ShouldInstanceSimulatingPhysics();
+
+Instance-&gt;BuildBodyFilterData(...);
+
+BodySetup-&gt;AddShapesToRigidActor_AssumesLocked(...);
+</code></pre>
+<p>예를 들어 비동기 작업이 다음 값을 읽는 도중:</p>
+<pre class="code-block"><code class="language-txt">CollisionEnabled = QueryOnly
+ResponseToChannels = 이전 값
+</code></pre>
+<p>게임 스레드가 Profile을 바꾸면 결과가:</p>
+<pre class="code-block"><code class="language-txt">Actor 생성 판단은 이전 CollisionEnabled 사용
+Shape Filter는 새로운 ResponseToChannels 사용
+</code></pre>
+<p>처럼 서로 다른 시점의 설정을 섞어서 사용할 수 있습니다.</p>
+<p>더 근본적으로 C++에서 동기화 없는 동일 메모리의 read/write는 data race라서 결과가 보장되지 않습니다.</p>
+<h4 id="현재-동기-경로">현재 동기 경로</h4>
+<p>현재 Register 경로는:</p>
+<pre class="code-block"><code class="language-txt">OnRegister();              // Collision 설정 변경 완료
+CreatePhysicsState(true);  // 그 후 설정을 읽어서 Body 생성
+</code></pre>
+<p>입니다.</p>
+<p>따라서 순서는:</p>
+<pre class="code-block"><code class="language-txt">Collision 설정 확정
+        ↓
+PhysicsState 생성 시작
+</code></pre>
+<p>입니다.</p>
+<p><code>OnRegister()</code> 다음에 <code>CreatePhysicsState()</code>가 있다는 것은:</p>
+<blockquote>
+<p>OnRegister가 PhysicsState 생성에 사용할 입력을 변경해도 된다.</p>
+</blockquote>
+<p>는 뜻에 가깝습니다.</p>
+<p>반대로:</p>
+<blockquote>
+<p>PhysicsState 생성과 OnRegister를 동시에 실행해도 된다.</p>
+</blockquote>
+<p>는 뜻은 아닙니다.</p>
+<h4 id="현재-비동기-preregister-경로">현재 비동기 PreRegister 경로</h4>
+<p>StaticMeshComponent는 비동기 작업을 시작하기 전에 Collision 설정을 미리 확정합니다.</p>
+<pre class="code-block"><code class="language-txt">bool UStaticMeshComponent::ShouldIncrementalPreRegister(...)
+{
+    UpdateCollisionFromStaticMesh();
+    return Super::ShouldIncrementalPreRegister(...);
+}
+</code></pre>
+<p>그다음:</p>
+<pre class="code-block"><code class="language-txt">UpdateCollisionFromStaticMesh 완료
+        ↓
+Async PhysicsState 시작
+        ↓
+Async PhysicsState 완료
+        ↓
+OnRegister
+</code></pre>
+<p>순서로 갑니다.</p>
+<p>나중에 <code>OnRegister()</code>에서는:</p>
+<pre class="code-block"><code class="language-txt">if (!IsPreRegistered())
+{
+    UpdateCollisionFromStaticMesh();
+}
+</code></pre>
+<p>이므로 PreRegister를 탄 Component는 Collision 설정을 다시 변경하지 않습니다.</p>
+<p>즉 두 경로를 비교하면:</p>
+<pre class="code-block"><code class="language-txt">일반 동기 등록:
+OnRegister에서 입력 확정 → Physics 생성
+
+비동기 PreRegister:
+PreRegister에서 입력 확정 → Physics 생성 완료 → OnRegister
+</code></pre>
+<p>둘 다 Physics 생성 중에는 알려진 Collision 입력을 변경하지 않습니다.</p>
+</details>
+</details>
+<details>
+<summary><b>Actor.IncrementalRegisterComponents</b></summary>
+<blockquote>
+<p>컴포넌트의 계층을 어떻게 올바르게 등록하는지<br>컴포포넌트를 등록하는 함수가 뭔지 집중하자.</br></p>
+</blockquote>
+<p><b>액터의 컴포넌트를 월드에 나눠서 등록하는 함수</b></p>
+<p><img alt="루트컴포넌트는 컴포넌트 등록과정에서 보장되어야하기때문에 가장먼저 등록한다." decoding="async" loading="lazy" src="../media/f835bf97d679623bb9e5.png"/><br/><em>루트컴포넌트는 컴포넌트 등록과정에서 보장되어야하기때문에 가장먼저 등록한다.</em></p>
+<h5 id="컴포넌트-등록-과정-flow">컴포넌트 등록 과정 Flow</h5>
+<ul>
+<li><b>부모 컴포넌트 없을때</b></li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/baf166cc0dec3847452b.png"/>
+<ul>
+<li><b>부모 컴포넌트 있을때</b></li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/6422390b995f2c38e105.png"/>
+<ul>
+<li><b>컴포넌트를 나눠서 등록하는 경우 </b>
+그냥 위 순서를 n개씩 수행한다.</li>
+</ul>
+<details>
+<summary><b>Flow 코드</b></summary>
+<pre class="code-block"><code class="language-c++"><span class="c1">// NumRegisteredComponentsThisRun &lt; NumComponentsToRegister를 통해 증분처리 지원 </span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">CompIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">CompIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Components</span><span class="p">.</span><span class="n">Num</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">NumRegisteredComponentsThisRun</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NumComponentsToRegister</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">CompIdx</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">UActorComponent</span><span class="o">*</span><span class="w"> </span><span class="n">Component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Components</span><span class="p">[</span><span class="n">CompIdx</span><span class="p">];</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Component</span><span class="o">-&gt;</span><span class="n">IsRegistered</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Component</span><span class="o">-&gt;</span><span class="n">bAutoRegister</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">IsValidChecked</span><span class="p">(</span><span class="n">Component</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 컴포넌트 계층을 따라 올라가며, 루트에 가장 가까운 미등록 부모 컴포넌트를 반환</span>
+<span class="w"> </span><span class="n">USceneComponent</span><span class="o">*</span><span class="w"> </span><span class="n">UnregisteredParentComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetUnregisteredParent</span><span class="p">(</span><span class="n">Component</span><span class="p">);</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UnregisteredParentComponent</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bParentAlreadyHandled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="n">RegisteredParents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">UnregisteredParentComponent</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bParentAlreadyHandled</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// 이미 등록되어 있는 대상이라면 문제가 있음</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bParentAlreadyHandled</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">Component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UnregisteredParentComponent</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// CompIdx를 --해서 기존 등록 대상 유지</span>
+<span class="w"> </span><span class="n">CompIdx</span><span class="o">--</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// 부모먼저 된 경우 선형적인 구조로 한번에 계산하기 위해 -- 진행</span>
+<span class="w"> </span><span class="n">NumTotalRegisteredComponents</span><span class="o">--</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">Component</span><span class="o">-&gt;</span><span class="n">Modify</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w"> </span><span class="n">Component</span><span class="o">-&gt;</span><span class="n">RegisterComponentWithWorld</span><span class="p">(</span><span class="n">World</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// 증분의 정확한 계산을 위해 별도로 루프 계산</span>
+<span class="w"> </span><span class="c1">// 이번 run에 몇개나 등록할</span>
+<span class="w"> </span><span class="n">NumRegisteredComponentsThisRun</span><span class="o">++</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">NumTotalRegisteredComponents</span><span class="o">++</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre>
+</details>
+<hr/>
+<img alt="" decoding="async" loading="lazy" src="../media/c769c2e29e20fddeab2c.png"/>
+</details>
+<details>
+<summary><b>ActorComponent.RegisterComponentWithWorld</b></summary>
+<details>
+<summary><b>함수를 배우기 전 등록이라는 개념을 알고가자</b></summary>
+<p>등록은 다음 단계로 이해하면 쉽다</p>
+<ul>
+<li>
+<p><b>부모에 대한 정보를 기준으로 자식을 업데이트한다.</b>
+<img alt="" decoding="async" loading="lazy" src="../media/3f47193841c28982f579.png"/></p>
+<p>가장 간단한 예는 Transform관계가 있겠다.</p>
+</li>
+<li>
+<p><b>컴포넌트를 각각의 전문 월드에 등록한다.</b>
+<img alt="" decoding="async" loading="lazy" src="../media/6309f8acc4f3b7626271.png"/></p>
+<p>컴포넌트들은 각각 자신의 복사본을 만들수 있고,<br>이 복본들을 필요로하는 월드에 등록을한다.</br></p>
+<img alt="" decoding="async" loading="lazy" src="../media/286213d83c022259d8f7.png"/>
+</li>
+</ul>
+<p><b>이 액터의 StaticMeshComponent는 어디에 등록될까?</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/a746f09c0ee13263851f.png"/>
+<ul>
+<li><b>일단 게임 월드에 등록</b>된다. 애초에 게임 월드에 등록되지 않으면 좌표정보같은 기본적인 정보도 없기 때문이다.</li>
+<li>메시에 있는 메시/머티리얼 정보를 사용해 <b>렌더링 씬에 등록을</b> 한다.</li>
+<li>만약 물리적인 상호 작용이 필요하면? <b>피직스 씬에 등록</b>된다.</li>
+</ul>
+<p><b>그래서 왜 복사본 만들어요?</b></p>
+<p>당연하다 예를들어 모든 컴포넌트가 Game/Phys/Render World 쏘다니면 비효율적일 것이다.<br/>그래서 필요한거만 딱딱 처리하기 위해 복사본 만드는거다</p>
+</details>
+<p>만약 컴포넌트가 런타임중에 생성되었을때</p>
+<p>컴포넌트는 등록 과정에서 FTickTaskLevel에 본인의 틱 함수를 등록한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/3a6204fc40cc90517610.png"/>
+<p><b>코드분석</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/ce442bc295571697f4a6.png"/>
+</details>
+</details>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html"><small>이전 글</small>World 초기화</a><a href="%EC%97%94%EC%A7%84-tick-3bb83382.html"><small>다음 글</small>엔진 Tick</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / 게임플레이 프레임워크 / 게임플레이 프레임워크 개요">
+  <title>게임플레이 프레임워크 개요 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details open><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html" aria-current="page">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>게임플레이 프레임워크</li></ol>
+        </nav>
+        <article class="article">
+          <h1>게임플레이 프레임워크 개요</h1>
+          <div class="article-body"><hr/>
+<p><b>언리얼 프레임워크 기능 목록</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/6faedd03df36b72bd1c0.png"/>
+<p><b>초기화 프로세스</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/b4cbc2767e7dd455b544.png"/>
+<details>
+<summary>월드</summary>
+<ul>
+<li>게임 콘텐츠를 담기 위해 제공되는 가상의 공간</li>
+<li>시간, 트랜스폼, 틱 제공</li>
+<li>월드 세팅을 사용해 기본 환경설정 사용</li>
+<li>기본 단위로 액터 사용</li>
+</ul>
+<p><b>게임이 시작하면 World의 BeginPlay가 호출된다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/a6d981932a5b67b13df0.png"/>
+<p>그리고 바로 GameMode의 StartPlay가 실행된다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/ade83bf8a95afb37e244.png"/>
+<p>GameMode superclass의 StartPlay이다 HandleBeginPlay를 통해 월드 내 액터들의 BeginPlay를 호출한다.<br/>그 후에 ChildClass의 StartPlay가 호출된다.<br/>따라서 클라이언트 개발자들이 신경써야 될 부분은 재정의한 GameMode의 StartPlay는 반드시 BeginPlay보다 늦게 호출된다는 것이다.</p>
+</details>
+<details>
+<summary>게임 모드</summary>
+<ul>
+<li>
+<p>게임 규칙을 지정하고 게임을 판정하는 최고 관리자 <b>액터</b></p>
+</li>
+<li>
+<p>1게임 1게임 모드</p>
+</li>
+<li>
+<p>입장할 사용자의 규격 지정 가능</p>
+</li>
+<li>
+<p>멀티플레이어 게임에서 판정 처리 (데이터 검증)</p>
+</li>
+<li>
+<p>GameMode 클래스 내에는 다른 기본 클래스들을 지정할 수 있는 기능을 제공한다.</p>
+<ul>
+<li>Game Session Class : 로그인 승인과 같은 관리자 수준의 게임 흐름을 처리</li>
+<li>Game State : 클라이언트가 게임에서 발생하는 상황을 볼 수 있도록<br/>게임의 상태를 처리한다.</li>
+<li>Player State : 게임 내 플레이어의 현재 상태를 지정한다.</li>
+<li>HUD : 플레이어에게 보여주는 사용자 인터페이스를 처리한다.</li>
+<li>이외에 Player Controller, Default Pawn Class, Spectator 등등의 클래스도 지정이 가능</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>플레이어</summary>
+<ul>
+<li>게임에 입장한 사용자 액터 (형태 X)</li>
+<li>게임 모드의 로그인을 통해 게임 월드에 입장한다 (서버를 통한 로그인 아님)</li>
+<li>싱글 플레이 게임에서는 0번 플에이어 설정</li>
+<li>실 사용자와 최종 커뮤니케이션 담당 (입출력 처리)</li>
+</ul>
+</details>
+<details>
+<summary>액터</summary>
+<ul>
+<li>월드에 속한 콘텐츠의 기본 단위이다.</li>
+<li><b>모든 액터는 Transform을 </b>기본으로 가지고 월드로부터 틱, 시간 서비스 제공</li>
+<li><b>사실 액터는 뭐 없고 여러 컴포넌트 감싸는 컨테이너이다.</b></li>
+<li><b>실질적 구현은 컴포넌트가 맡는다</b>
+<ul>
+<li>다수의 컴포넌트를 대표하는 컴포넌트를 <b>루트 컴포넌트</b> 라고 부른다.</li>
+<li>액터는 이 <b>루트 컴포넌트를 반드시 가져야 한다.</b></li>
+<li><b>액터의 트랜스폼은 루트 컴포넌트의 트랜스폼을 말한다.</b></li>
+</ul>
+</li>
+</ul>
+<h4 id="액터의-라이프-사이클"><b>액터의 라이프 사이클</b></h4>
+<img alt="" decoding="async" loading="lazy" src="../media/5b6501fb5a1b787305a9.png"/>
+<p><b>초기화</b></p>
+<ul>
+<li>디스크에 저장된 레벨 정보가 되면서 초기화</li>
+<li>스크립트를 사용해 런타임에서 초기화 (Spawn)</li>
+<li><b>마지막 단계</b>
+<ul>
+<li>
+<p><b>PostInitializeComponents</b>
+모든 컴포넌트들이 초기화 완료된 후에 호출되는 함수</p>
+<p>액터초기화의 최종 마무리 할 때 사용</p>
+</li>
+<li>
+<p><b>BeginPlay</b>
+게임 시작할 때 초기화</p>
+<p>틱이 시작된다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>틱</b></p>
+</details>
+<details>
+<summary>폰</summary>
+<ul>
+<li>
+<p>액터를 상속받은 특별한 액터</p>
+</li>
+<li>
+<p>플레이어가 빙의해 입출력 처리 가능</p>
+</li>
+<li>
+<p>무형의 액터가 빙의해 플레이어와 연결되는 되는 액터</p>
+</li>
+<li>
+<p>길찾기 사용 가능, 기믹 및 다른 폰과 상호작용</p>
+</li>
+<li>
+<p>폰 중에서 인간형 폰을 별도로 <b>캐릭터</b>로 지칭
+<b>캐릭터</b></p>
+<ul>
+<li>인간형 폰을 구성하도록 언리얼이 제공하는 전문 폰 클래스</li>
+<li>폰을 상속받아 만들어서 3가지 기본 컴포넌트가 있다
+<ul>
+<li>캡슐 컴포넌트 (루트)</li>
+<li>스켈레탈 메시</li>
+<li>캐릭터 무브먼트</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>컴포넌트</summary>
+<h4 id="기본-컴포넌트"><b>기본 컴포넌트</b></h4>
+<p><b>씬 컴포넌트</b></p>
+<p>트랜스폼이 있는 컴포넌트 (씬에 직접 올라가니까 그런듯?</p>
+<ul>
+<li>기믹과 상호작용하는 충돌 컴포넌트 (루트 컴포넌트)</li>
+<li>시각적 비주얼 담당하는 메시 컴포넌트</li>
+</ul>
+<p><b>액터 컴포넌트</b></p>
+<p>트랜스폼이 없는 컴포넌트</p>
+<ul>
+<li>액터의 기능을 확장할 때 컴포넌트로 분리해 모듈화 가능</li>
+</ul>
+<p>ex) 움직임 담당하는 컴포넌트</p>
+<p><b>컴포넌트 생성</b></p>
+<ul>
+<li>컴포넌트는 UObject이므로 UPROPERTY붙인다.</li>
+<li>TObjectPtr사용해서 선언한다.</li>
+</ul>
+<p><b>액터에 컴포넌트 등록</b></p>
+<ul>
+<li>
+CDO(생성자)에서 생성한 컴포넌트는 자동으로 월드에 등록
+</li>
+<li>
+런타임중 NewObject로 생성한 컴포넌트는 등록 절차 거쳐야 함(RegisterComponent) 
+<p><b>잘 사용안함</b></p>
+</li>
+</ul>
+<p><b>컴포넌트 블루프린트에 올리기</b></p>
+<ul>
+<li>UPROPERTY에 <b>지정자</b> 설정해서 한다.</li>
+<li><b>지정자</b>
+<ul>
+<li>
+<p>Visible / Edit : (<b><span>주로 객체 타입에는 Visible</span></b>, <b><span>값 타입에는 Edit 사용한다</span></b>)</p>
+</li>
+<li>
+<p>Anywhere / DefaultsOnly / InstanceOnly : 에디터에서 편집 가능 영역 (주로 <b>Anywhere</b> 사용)
+컴포넌트는 객체니까 VisibleAnywhere사용한다.</p>
+</li>
+<li>
+<p>BlueprintReadOnly / BlueprintReadWrite : 블루프린트 확장시 r / rw 권한 부여</p>
+</li>
+<li>
+<p>Category : 에디터 편집 영역에서 카테고리 설정</p>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>입력</summary>
+<p><b>사용자의 입력 → 컨트롤러 → 폰 </b>으로 이루어져있다.</p>
+<p>입력은 컨트롤러나 폰이 처리할 수 있는데 보통 폰씀 ㅇㅇ</p>
+<p>GTA같이 자동차타고 헬기타고 뭐시기저시기 하는 애들은 플레이어 컨트롤러를 사용하면 코드가 덕지덕지 붙을 것이다.</p>
+<p>그럴 때는 폰에 입력 위임하여 각 액터클래스에서 처리하도록 하면 될 듯 하다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/b64a28e4deab45a66bd5.png"/>
+<h2 id="향상된-입력-시스템">향상된 입력 시스템</h2>
+<p>언리얼4의 입력시스템 개선을 위해 도입</p>
+<ul>
+<li>
+<p>사용자의 입력 설정 변경에 유연하게 대처할 수 있는 구조</p>
+</li>
+<li>
+<p>입력 처리를 4단계로 분류하고 각 입력 설정을 독립적인 에셋으로 대체</p>
+</li>
+<li>
+<p>사용자의 입력 데이터를 최종 함수에 매핑하는 과정을 체계적으로 구성</p>
+</li>
+<li>
+<p>플랫폼에 따른 다양한 입력 장치 설정
+입력 매핑 컨텍스트를 사용해 <b>런타임 중</b>에 입력 플랫폼 변경이 유연하게 처리가 가능하다.</p>
+</li>
+<li>
+<p>입력 값 변경 (반전 같은거 말하는거임)</p>
+</li>
+<li>
+<p>이벤트 발생 조건의 상세 설정</p>
+</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/3893f29ed67e6118f286.png"/>
+</details>
+<details>
+<summary>캐릭터 컨트롤</summary>
+<p>캐릭터 컨트롤은 일반적으로 폰, 카메라, 스프링 암, 캐릭터 무브먼트 다섯가지 요소를 사용해</p>
+<p>설정한다.</p>
+<p>컨트롤러 : 입력자의 의지(목표 지점)을 지정할 때 사용 (ControlRotation)</p>
+<p>폰 : 폰의 트랜스폼 지정</p>
+<p>카메라 : 화면 구도 설정(주로 1인칭)</p>
+<p>스프링 암 : 화면 구도 설정 (주로 3인칭)</p>
+<p>캐릭터 무브먼트 : 캐릭터의 이동과 회전 조</p>
+</details>
+<details>
+<summary>데이터 애셋</summary>
+<p>데이터 애셋을 사용하면 편하게 관리하고 싶은 항목들을 모아서 관리할 수 있다.</p>
+<p>DataAsset/DataAssetPrimary를 상속받아 c++클래스에 리플렉션으로 에디터에 값을 올리면</p>
+<p>원하는 값들을 세팅하고 그것들을 다시 c++에 objectfinder로 불러올 수 있다.</p>
+</details>
+<details>
+<summary>애니메이션</summary>
+<p><b>캐릭터 애니메이션 시스템의 생성</b></p>
+<ol>
+<li>캐릭터 초기화시에 애님인스턴스 클래스 생성</li>
+<li>캐릭터에서 GetAniminstance로 현재 애님인스턴스 획득 가능</li>
+<li>애님 인스턴스는 GetOwingActor사용하면 됨</li>
+</ol>
+<p>애니메이션 블루프린트는 <b><span>이벤트 그래프 </span></b><b>- </b><b><span>애님 그래프로</span></b><span> </span>나뉜다.</p>
+<p><b><span>이벤트 그래프</span></b></p>
+<p>이벤트로부터 상태를 파악할 수 있는 주요 변수 저</p>
+<p>NativeInitializeAnimation : 애니메이션 시스템이 생성될 때 발생</p>
+<p>NativeUpdateAnimation : 프레임마다 발생</p>
+<p><b><span>애님 그래프</span></b></p>
+<p>이벤트 그래프에서 저장된 변수로부터 지정된 상태의 애니메이션 재생</p>
+<p>애님그래프의 복잡한 상태는 State ailias로 분리해서 사용</p>
+</details>
+<details>
+<summary>애니메이션 몽타주</summary>
+<p>몽타주 : 이미지 일부를 잘라내 한 화면에서 합성하는 회화 기법</p>
+<p>애니메이션 클립을 잘라내고 합성한 후 이를 재생하는 기능</p>
+<p>애니메이션 클립을 모아둔 다수의 <b>섹션</b>으로 구성되어 있다.</p>
+<p>섹션끼리 연동할 수 있으며, 스크립트를 통해 원하는 섹션으로 건너뛸 수 있음</p>
+</details>
+<details>
+<summary>충돌</summary>
+<img alt="" decoding="async" loading="lazy" src="../media/d2ab5bd0a0b8a5012e11.png"/>
+<p>LineTrace : 레이트레이싱</p>
+<p>Sweep : Line같이 지정한 방향으로 도형을 투사하여 충돌하는거 있는지 확인</p>
+<p>Overlap : 지정한 영역과 물체가 충돌하는지 검사</p>
+<p><b>캐릭터의 경우에는 2가지 고려하여 충돌 프로필을 생성하여한다.</b></p>
+<ul>
+<li>RootComponent(캡슐) 의 프로필
+<ul>
+<li>폰 끼리의 충돌 수행</li>
+</ul>
+</li>
+<li>스켈레탈메시의 프로필
+<ul>
+<li>
+<p>렉돌 기능 사용할때 사용
+스태틱메시내에서 본끼리 충돌하는거(고이즈미 죽이기 같은거 ㅋㅋ)</p>
+<p>매우 상세한 충돌 구현할때 사용할듯?</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>기믹 트리거용 프로필</b></p>
+<ul>
+<li>폰 캡슐에만 반응하도록 설정</li>
+<li>움직이지 않는 기믹이면 WorldStatic</li>
+</ul>
+<p><b>월드 트레이싱 함수 선택</b></p>
+<ul>
+<li>세 가지 카테고리로 원하는 함수 이름 획득
+<img alt="" decoding="async" loading="lazy" src="../media/718a978339ba5dfb196f.png"/></li>
+</ul>
+</details>
+<details>
+<summary>데미지 처리</summary>
+<p><b>충돌 사용을 가정한다.</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">FHitResult</span><span class="w"> </span><span class="n">OutHitResult</span><span class="p">;</span>
+<span class="c1">// Tag, TraceComplex, Actor</span>
+<span class="c1">// Tag : 태그정보 분석시 식별자로 사용 (언리얼 분석툴에서 Attack이라는 이름으로 조사가 가능하도록 처리)</span>
+<span class="c1">// Complex : 복잡한 형태(convex)의 충돌체도 감지할지의 옵션</span>
+<span class="c1">// Actor : 무시할 액터(우리는 자기자신만)</span>
+<span class="n">FCollisionQueryParams</span><span class="w"> </span><span class="nf">Params</span><span class="p">(</span><span class="n">SCENE_QUERY_STAT</span><span class="p">(</span><span class="n">Attack</span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AttackRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">40.f</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AttackRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50.f</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AttackDamage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30.f</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">FVector</span><span class="w"> </span><span class="n">Start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetActorLocation</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GetActorForwardVector</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">GetCapsuleComponent</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetScaledCapsuleRadius</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">FVector</span><span class="w"> </span><span class="n">End</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GetActorForwardVector</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">AttackRange</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">HitDetected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">SweepSingleByChannel</span><span class="p">(</span><span class="n">OutHitResult</span><span class="p">,</span><span class="w"> </span><span class="n">Start</span><span class="p">,</span><span class="w"> </span><span class="n">End</span><span class="p">,</span><span class="w"> </span><span class="n">FQuat</span><span class="o">::</span><span class="n">Identity</span><span class="p">,</span><span class="w"> </span><span class="n">CCHANNEL_ABACTION</span><span class="p">,</span><span class="w"> </span><span class="n">FCollisionShape</span><span class="o">::</span><span class="n">MakeSphere</span><span class="p">(</span><span class="n">AttackRadius</span><span class="p">),</span><span class="w"> </span><span class="n">Params</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HitDetected</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">FDamageEvent</span><span class="w"> </span><span class="n">DamageEvent</span><span class="p">;</span>
+<span class="w"> </span><span class="n">OutHitResult</span><span class="p">.</span><span class="n">GetActor</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">TakeDamage</span><span class="p">(</span><span class="n">AttackDamage</span><span class="p">,</span><span class="w"> </span><span class="n">DamageEvent</span><span class="p">,</span><span class="w"> </span><span class="n">GetController</span><span class="p">(),</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">AABCharacterBase</span><span class="o">::</span><span class="n">TakeDamage</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">DamageAmount</span><span class="p">,</span><span class="w"> </span><span class="n">FDamageEvent</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">DamageEvent</span><span class="p">,</span><span class="w"> </span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">EventInstigator</span><span class="p">,</span><span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">DamageCauser</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// 가해자		// 가해자가 사용한 무기/빙의한 폰</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">TakeDamage</span><span class="p">(</span><span class="n">DamageAmount</span><span class="p">,</span><span class="w"> </span><span class="n">DamageEvent</span><span class="p">,</span><span class="w"> </span><span class="n">EventInstigator</span><span class="p">,</span><span class="w"> </span><span class="n">DamageCauser</span><span class="p">);</span>
+<span class="w"> </span><span class="n">SetDead</span><span class="p">();</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">DamageAmount</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</details>
+<details>
+<summary>타이머</summary>
+<p>델리게이트 사용한 타이머를 가정</p>
+<pre class="code-block"><code class="language-c++"><span class="n">FTimerHandle</span><span class="w"> </span><span class="n">TimerHandle</span><span class="p">;</span>
+<span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">().</span><span class="n">SetTimer</span><span class="p">(</span><span class="n">TimerHandle</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FTimerDelegate</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">(</span>
+<span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]()</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Event</span><span class="p">();</span>
+<span class="w"> </span><span class="p">})</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">EventDelayTime</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// 마지막 bool 값은 loop이다.</span>
+</code></pre>
+</details>
+<details>
+<summary>위젯</summary>
+<p><b>위젯을 액터에 붙여줄때는</b></p>
+<p><b>UserWidget</b>상태로는 붙여줄 수 없고, <b>WidgetComponent</b>사용해야한다.</p>
+<p>위젯 컴포넌트는 위젯의 컨테이너 역할만 할 뿐이고, 서로 독립적으로 동작한다.</p>
+<p><b>위젯 에디터에서 가져오기</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UABHpBarWidget::NativeConstruct</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">NativeConstruct</span><span class="p">();</span><span class="w"> </span><span class="c1">// 여기서 ui관련해 대부분의 초기화가 일어난다.</span>
+<span class="w"> </span><span class="n">HpProgressBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">UProgressBar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetWidgetFromName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">"PbHpBar"</span><span class="p">)));</span>
+<span class="w"> </span><span class="n">ensure</span><span class="p">(</span><span class="n">HpProgressBar</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><b>위젯 컴포넌트의 초기화 과정</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/d6b7b4723b09f7bfef15.png"/>
+<p>우리는 위젯을 보유하고 있는 위젯 컴포넌트의 Actor를 가져오고 싶을 때가 있다.</p>
+<p>(하지만 이는 현재 언리얼 버전에서 지원하지 않는다)</p>
+<p>우리가 클래스 확장해서 가져와야함</p>
+</details>
+<details>
+<summary>에셋 매니저</summary>
+<ul>
+<li>
+언리얼엔진이 제공하는 애셋을 관리하는 싱글톤 클래스이다.
+</li>
+<li>
+엔진이 초기화될 때 제공되며, 애셋 정보 요청해 받을 수 있음
+</li>
+<li>
+PrimaryAssetId를 사용해 프로젝트 내 애셋의 주소 얻어올 수 있음
+<p>이거쓰면 레퍼런스 주소 얻어서 생성자에서 받는 수고 덜 수 있음</p>
+</li>
+<li>
+PrimaryAssetId는 우리가 지정한 태그와 이름의 두 가지 키 조합으로 구성
+</li>
+<li>
+특정 태그를 가진 모든 애셋 목록을 가져올 수 있음 
+<img alt="" decoding="async" loading="lazy" src="../media/d141cf56b8ab7249b07e.png"/>
+</li>
+</ul>
+</details>
+<details>
+<summary>데이터 처리</summary>
+<p><b>언리얼에서 엑셀파일 Import하려면 csv로 변환 필요</b></p>
+<ul>
+<li>
+<p>데이터 테이블로 받아서 쓴다</p>
+</li>
+<li>
+<p>c++로는 해당 Data들의 행 항목을 FTableRowBase로 받는다.</p>
+<details>
+<summary> <b>예시 코드</b></summary>
+<pre class="code-block"><code class="language-c++"><span class="cp">#include</span><span class="w"> </span><span class="cpf">"CoreMinimal.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Engine/DataTable.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"ABCharacterStat.generated.h"</span>
+<span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FABCharacterStat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FTableRowBase</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="n">FABCharacterStat</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MaxHp</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">),</span><span class="w"> </span><span class="n">Attack</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">),</span><span class="w"> </span><span class="n">AttackRange</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">),</span><span class="w"> </span><span class="n">AttackSpeed</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stat</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MaxHp</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stat</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Attack</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stat</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AttackRange</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stat</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AttackSpeed</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stat</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MovementSpeed</span><span class="p">;</span>
+<span class="w"> </span><span class="n">FABCharacterStat</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FABCharacterStat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ThisPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">OtherPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Other</span><span class="p">);</span>
+<span class="w"> </span><span class="n">FABCharacterStat</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">ResultPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Result</span><span class="p">);</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">StatNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">FABCharacterStat</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span><span class="w"> </span><span class="c1">// MaxHp부터 MovementSpeed까지의 변수 개수가 나오게 된다.</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">StatNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">ResultPtr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThisPtr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">OtherPtr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="c1">// 전부다 float일거니까 이렇게 계산 가능</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</details>
+</li>
+<li>
+<p>에디터 내에서는 FTableRowBase을 상속받은 클래스를 상속받아
+Data Table을 만들 수 있고 해당 Data Table에서 csv파일을 Reimport하여 내용들을 불러올 수 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/85f4c260885f752d8b3f.png"/>
+</li>
+</ul>
+<p>위에서 데이터 테이블을 관리하는 별도의 클래스를 하나 생성할 필요가 있다.</p>
+<ul>
+<li>이러한 클래스들은 게임 내의 단 하나의 인스턴스에서 관리하도록 처리하는게 좋다</li>
+</ul>
+<p>RowName으로 행마다 키 값이 정해진다.</p>
+<p>Key값이 연속적이면 Array로 받는게 좋고 아니면 Map으로 하는게 좋다.</p>
+</details>
+<details>
+<summary>행동트리 (BT)</summary>
+<p><a href="%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동트리</a></p>
+</details>
+<details>
+<summary>HUD</summary>
+<p>플레이어 컨트롤러에 의해 제작되고 관리되는 UI객체</p>
+<p>HUD의 구현은 위젯을 생성하고 플레이어 뷰포트에 띄우는 과정으로 생성된다.</p>
+<p>이 위젯은 자신을 소유한 플레이어 컨트롤러에 접근이 가능하다.</p>
+</details>
+<details>
+<summary>Tick</summary>
+<p>Tick이란 코드나 블루프린트 스크립트를 프레임과 같은 일정한 주기로 실행시키는 것을 의미한다. 게임의 Actor, Component들이 Tick을 수행하는 상대적인 순서를 이해하는 것은 게임 실행 방식의 일관성을 보장하고, 또 엔진에서 따로 수행되는 작업과의 Tick이 어긋나며 생기는 문제를 피할 수 있다.</p>
+<p>Actor와 Component는 설정된 최소 시간 간격으로 프레임 Tick을 설정할 수도 있고, Tick을 전혀 하지 않도록 할 수도 있다. 또한 엔진의 프레임 별 업데이트 루프에서 서로 다른 단계에서 Grouping이 가능하며, 특정 Tick이 완료될 때까지 기다리도록 설정도 가능하다.</p>
+<h4 id="tick-function"><b>Tick Function</b></h4>
+<p>언리얼 엔진에서 Tick을 어떻게 발생시키는지 알아보자. 가장 기본적으로는 FTickFunction 이라는 객체가 있다. 이 객체는 언리얼에서 생기는 모든 Tick에 대해 정의하고, Tick을 요구하는 객체에 Tick 이벤트를 발생시키도록 하며, 각 Tick이 어떤 순서 및 형태로 발생해야하는지에 대해 명세할 수 있다. 가장 많이 사용되는 Actor 객체와 ActorComponent는 Tick을 어떻게 등록하였을까?</p>
+<p>Actor와 Component은 Tick을 수행하기 위해서 각자 FActorTickFunction, FActorComponentTickFunction이라는 객체를 PrimaryActorTick, PrimaryComponentTick이라는 이름으로 갖고 있다.</p>
+<p>Actor의 경우 다음 Tick 함수와 TickFunction 객체를 갖고있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="c1">// Tick 함수</span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Tick</span><span class="p">(</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">DeltaSeconds</span><span class="w"> </span><span class="p">);</span>
+<span class="c1">// Tick Function 객체</span>
+<span class="n">FActorTickFunction</span><span class="w"> </span><span class="n">PrimaryActorTick</span><span class="p">;</span>
+</code></pre>
+<p>Component의 경우 다음 Tick 함수와 TickFunction 객체를 갖고있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="c1">// Tick 함수</span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TickComponent</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">DeltaTime</span><span class="p">,</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">ELevelTick</span><span class="w"> </span><span class="n">TickType</span><span class="p">,</span><span class="w"> </span><span class="n">FActorComponentTickFunction</span><span class="w"> </span><span class="o">*</span><span class="n">ThisTickFunction</span><span class="p">);</span>
+<span class="c1">// Tick Function 객체</span>
+<span class="n">FActorComponentTickFunction</span><span class="w"> </span><span class="n">PrimaryComponentTick</span><span class="p">;</span>
+</code></pre>
+<p>TickFunction은 Tick 처리를 위한 설정값과, TickGroup 지정, Tick Dependency와 같은 데이터를 갖고 있는 객체인데 BeginPlay 시점에 등록된다. (Actor.cpp의 RegisterAllActorTickFunctions 함수 참고) 등록된 TickFunction 객체들은 TickGroup과 Tick Dependency에 맞게 Target의 Tick 함수를 호출시킨다.</p>
+<p><b>엔진코드 분석</b></p>
+<p>등록된 Tick들은 어떤 원리로 동작할까? 먼저 TickFunction의 RegisterTickFunction 함수를 추적해보면 FTickTaskManager에 등록되는 것을 확인할 수 있다.</p>
+<pre class="code-block"><code class="language-cs"><span class="n">FTickTaskManager</span><span class="p">::</span><span class="n">Get</span><span class="p">().</span><span class="n">AddTickFunction</span><span class="p">(</span><span class="n">Level</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+</code></pre>
+<p>그리고 이 함수는 인자로 레벨을 받는데, 이를 통해 Tick이 레벨에 종속적이라는 것을 확인할 수 있다.</p>
+<p>최종적으로 TickFunction이 자리잡는 위치는 FTickTaskLevel이라는 객체의 AddTickFunction이다.</p>
+<p>호출 스택은 다음과 같다.</p>
+<p>TGraphTask:: ExecuteTask</p>
+<p>TickFunctionTask::DoTask (GameThread)</p>
+<p>TickFunction::ExecuteTick</p>
+<p>Actor::TickActor</p>
+<p><b>TickGroup</b></p>
+<p>TickGroup을 통해 Tick의 호출 순서에 대한 명세를 세팅할 수 있다. 이러한 TickGroup은 물리 시뮬레이션과 같은 엔진 내의 여러 작업들 사이 어느 프레임 위치에서 실행시킬지를 결정하기 위해 사용된다.</p>
+<p>각 TickGroup은 그룹 내 모든 Actor와 Component들의 Tick이 끝나고 나서야 다음 TickGroup을 실행시킨다.</p>
+<p>또한 하나의 TickGroup 내에서도 특정 Actor와 Component들 사이의 Tick Dependency를 결정할 수 있다.</p>
+<p>TickGroup을 이용하는 것과 Tick Dependency를 이용하는 것은 게임 내의 물리 의존적인 작업이나 여러 Actor와 Component간 연계된 작업을 처리하기 위해 필수적이다.</p>
+<p>(LevelTick.cpp 1544 line 참고)</p>
+<p>(Link 참고)</p>
+<p><a href="https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Ticking/index.html">docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Ticking/index.html</a></p>
+<p><b>설정값 및 사용방법</b></p>
+<p>TickFunction에는 몇 가지 자주 이용하는 설정값들이 있다.</p>
+<p>1. bCanEverTick</p>
+<p>TickFunction을 이용할 것인지에 대한 설정값이다.</p>
+<p>이 값이 false이면 TickFunction의 등록 자체를 막아버리기 때문에,</p>
+<p>절대로 Tick을 사용하지 않을 객체에 대해서만 false로 처리하도록 한다.</p>
+<p>2. bStartWithTickEnabled</p>
+<p>선택적으로 Tick을 이용하는 상황에 대한 설정값이다.</p>
+<p>이 값이 false로 설정되면 TickFunction은 등록이 되지만,</p>
+<p>실질적인 Tick 함수는 호출이 되지 않는다.</p>
+<p>상황에 맞게 Tick을 껐다 켰다 해야하는 객체에 대해서 사용하면 좋을 것이다.</p>
+<p>3. bTickEvenWhenPaused</p>
+<p>게임이 paused 되었어도 Tick을 호출해야하는 객체에 대해 사용된다.</p>
+<p>4. TickGroup</p>
+<p>TickGroup을 지정한다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="cm">/** Determines which ticking group a tick function belongs to. */</span>
+<span class="n">UENUM</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="kr">enum</span><span class="w"> </span><span class="nc">ETickingGroup</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="cm">/** Any item that needs to be executed before physics simulation starts. */</span>
+<span class="w"> </span><span class="n">TG_PrePhysics</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"Pre Physics"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Special tick group that starts physics simulation. */</span>
+<span class="w"> </span><span class="n">TG_StartPhysics</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">,</span><span class="w"> </span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"Start Physics"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Any item that can be run in parallel with our physics simulation work. */</span>
+<span class="w"> </span><span class="n">TG_DuringPhysics</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"During Physics"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Special tick group that ends physics simulation. */</span>
+<span class="w"> </span><span class="n">TG_EndPhysics</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">,</span><span class="w"> </span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"End Physics"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Any item that needs rigid body and cloth simulation to be complete before being executed. */</span>
+<span class="w"> </span><span class="n">TG_PostPhysics</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"Post Physics"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Any item that needs the update work to be done before being ticked. */</span>
+<span class="w"> </span><span class="n">TG_PostUpdateWork</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"Post Update Work"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Catchall for anything demoted to the end. */</span>
+<span class="w"> </span><span class="n">TG_LastDemotable</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">,</span><span class="w"> </span><span class="n">DisplayName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Last Demotable"</span><span class="p">),</span>
+<span class="w"> </span><span class="cm">/** Special tick group that is not actually a tick group. After every tick group this is repeatedly re-run until there are no more newly spawned items to run. */</span>
+<span class="w"> </span><span class="n">TG_NewlySpawned</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">,</span><span class="w"> </span><span class="n">DisplayName</span><span class="o">=</span><span class="s">"Newly Spawned"</span><span class="p">),</span>
+<span class="w"> </span><span class="n">TG_MAX</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre>
+<p>5. Tick Dependency 설정</p>
+<p>Actor와 Component에는</p>
+<pre class="code-block"><code class="language-arduino"><span class="n">AddTickPrerequisiteComponent</span><span class="p">(</span><span class="n">SomeComponent</span><span class="p">);</span>
+<span class="n">AddTickPrerequisiteActor</span><span class="p">(</span><span class="n">SomeActor</span><span class="p">);</span>
+</code></pre>
+<p>와 같은 함수들이 있는데, 이 함수는 내부적으로 TickFunction에 Tick Dependency를 추가하도록 구현되어 있다.</p>
+<p>A라는 Actor와 C1, C2라는 Component가 있다고 가정해보자.</p>
+<p>여기서 C2는 반드시 A와 C1이 끝난 후에 처리가 되어야 기능이 올바르게 동작한다면,</p>
+<p>다음과 같이 추가해주면 된다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="n">C2</span><span class="p">.</span><span class="n">AddTickPrerequisiteComponent</span><span class="p">(</span><span class="n">C1</span><span class="p">);</span>
+<span class="n">C2</span><span class="p">.</span><span class="n">AddTickPrerequisiteActor</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+</code></pre>
+<p>Actor Tick 설정 예제</p>
+<pre class="code-block"><code class="language-arduino"><span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bCanEverTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bStartWithTickEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bTickEvenWhenPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="c1">// TickGroup</span>
+<span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TG_PrePhysics</span><span class="p">;</span>
+<span class="c1">// Tick Dependency</span>
+<span class="n">AddTickPrerequisiteComponent</span><span class="p">(</span><span class="n">SomeComponent</span><span class="p">);</span>
+<span class="n">AddTickPrerequisiteActor</span><span class="p">(</span><span class="n">SomeActor</span><span class="p">);</span>
+</code></pre>
+<p>Component Tick 설정 예제</p>
+<pre class="code-block"><code class="language-arduino"><span class="n">PrimaryComponentTick</span><span class="p">.</span><span class="n">bCanEverTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="n">PrimaryComponentTick</span><span class="p">.</span><span class="n">bStartWithTickEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="n">PrimaryComponentTick</span><span class="p">.</span><span class="n">bTickEvenWhenPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">true</span><span class="p">;</span>
+<span class="c1">// TickGroup</span>
+<span class="n">PrimaryComponentTick</span><span class="p">.</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TG_PrePhysics</span><span class="p">;</span>
+<span class="c1">// Tick Dependency</span>
+<span class="n">AddTickPrerequisiteComponent</span><span class="p">(</span><span class="n">SomeComponent</span><span class="p">);</span>
+<span class="n">AddTickPrerequisiteActor</span><span class="p">(</span><span class="n">SomeActor</span><span class="p">);</span>
+</code></pre>
+<p><b>틱 추가 호출</b></p>
+<p>하나의 Component에서 물리 이전, 물리 이후 두 번에 걸쳐 처리해야할 작업이 있는 경우를 가정해보자.</p>
+<p>기본적으로 제공되는 TickFunction으로는 PrimaryComponentTick이 있다.</p>
+<p>이 객체를 물리 이전으로 TickGroup을 설정한다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="n">PrimaryComponentTick</span><span class="p">.</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TG_PrePhysics</span><span class="p">;</span>
+</code></pre>
+<p>물리 이후에 처리해야할 Tick을 위해 새로운 TickFunction을 멤버변수로 추가하고 물리 이후로 TickGroup을 설정한다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="c1">// header</span>
+<span class="n">FComponentTickFunction</span><span class="w"> </span><span class="n">PostPhysicsComponentTick</span><span class="p">;</span>
+</code></pre>
+<pre class="code-block"><code class="language-arduino"><span class="c1">// source</span>
+<span class="n">PostPhysicsComponentTick</span><span class="p">.</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TG_PostPhysics</span><span class="p">;</span>
+</code></pre>
+<p>PostPhysicsComponentTick은 PrimaryComponentTick과 달리 따로 관리를 받는 객체가 아니므로 직접 등록을 해주어야 한다. TickFunction 등록을 위해 이미 Super 클래스에서 호출해 주는 RegisterComponentTickFunctions라는 가상함수가 있다. 이 함수를 override 해준다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="c1">// header</span>
+<span class="kr">virtual</span><span class="w"> </span><span class="kr">void</span><span class="w"> </span><span class="nf">RegisterComponentTickFunctions</span><span class="p">(</span><span class="kr">bool</span><span class="w"> </span><span class="n">bRegister</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</code></pre>
+<pre class="code-block"><code class="language-arduino"><span class="c1">// source</span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">UMyComponent::RegisterComponentTickFunctions</span><span class="p">(</span><span class="kr">bool</span><span class="w"> </span><span class="n">bRegister</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">RegisterComponentTickFunctions</span><span class="p">(</span><span class="n">bRegister</span><span class="p">);</span>
+<span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">bRegister</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SetupActorComponentTickFunction</span><span class="p">(</span><span class="o">&amp;</span><span class="n">PostPhysicsComponentTick</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">PostPhysicsComponentTick</span><span class="p">.</span><span class="n">Target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">PostPhysicsComponentTick</span><span class="p">.</span><span class="n">IsTickFunctionRegistered</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">PostPhysicsComponentTick</span><span class="p">.</span><span class="n">UnRegisterTickFunction</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>이렇게 작업을 하면 TickComponent 함수가 한번은 PrimaryComponentTick을 통해서 호출되고,</p>
+<p>한번은 PostPhysicsComponentTick을 통해서 호출될 것이다.</p>
+<p>그러므로 함수 내부에서 이것을 ThisTickFunction을 통해 구분해주어야 한다.</p>
+<pre class="code-block"><code class="language-arduino"><span class="kr">void</span><span class="w"> </span><span class="nf">UMyComponent::TickComponent</span><span class="p">(</span>
+<span class="w"> </span><span class="kr">float</span><span class="w"> </span><span class="n">DeltaTime</span><span class="p">,</span>
+<span class="w"> </span><span class="kr">enum</span><span class="w"> </span><span class="nc">ELevelTick</span><span class="w"> </span><span class="n">TickType</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FActorComponentTickFunction</span><span class="w"> </span><span class="o">*</span><span class="n">ThisTickFunction</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ThisTickFunction</span><span class="o">-&gt;</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ETickingGroup</span><span class="o">::</span><span class="n">TG_PrePhysics</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">TickComponent</span><span class="p">(</span><span class="n">DeltaTime</span><span class="p">,</span><span class="w"> </span><span class="n">TickType</span><span class="p">,</span><span class="w"> </span><span class="n">ThisTickFunction</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// PrePhysics 처리</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ThisTickFunction</span><span class="o">-&gt;</span><span class="n">TickGroup</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ETickingGroup</span><span class="o">::</span><span class="n">TG_PostPhysics</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// PostPhysics 처리</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</details>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html"><small>이전 글</small>빌드·에셋·에디터 사용 팁</a><a href="%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html"><small>다음 글</small>엔진 핵심 클래스</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

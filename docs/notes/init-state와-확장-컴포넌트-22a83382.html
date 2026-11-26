@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / Lyra 구조 분석 / Init State와 확장 컴포넌트">
+  <title>Init State와 확장 컴포넌트 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details open><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html" aria-current="page">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>Lyra 구조 분석</li></ol>
+        </nav>
+        <article class="article">
+          <h1>Init State와 확장 컴포넌트</h1>
+          <div class="article-body"><p>Pawn에다가 이것저것 컴포넌트 붙이면 종속성 문제가 크다고 한다<br/>(근데 애초에 종속성 줄이려고한게 컴포넌트 방식 아닌가..?&gt;?)<br/>아무튼 이거 쓰면 종속성 더 줄일 수 있나보다 써보면서 느껴보자</p>
+<hr/>
+<p><img alt="아래서도 설명할거지만 맨 상단의 PawnExtensionComponent는 하위 컴포넌트들의 초기화 과정을 관리한다." decoding="async" loading="lazy" src="../media/4e49cbb03f6cf2c5b307.png"/><br/><em>아래서도 설명할거지만 맨 상단의 PawnExtensionComponent는 하위 컴포넌트들의 초기화 과정을 관리한다.</em></p>
+<p>아래의 컴포넌트 ABC가있을때 나는 ABC의 준비가 끝나면 그 이후에 ABC순으로 초기화를 진행하고 싶다고 해보자<br>근데 준비가 끝나는 시점이 재각각이면 ABC순으로 초기화를 할 수가 없을 것이다.<br/><s>너가 생각한 당연한 방법 당연한거 맞다 델리게이트 써서 해결한다. </s></br></p>
+<details>
+<summary><b>예시</b></summary>
+<p>PawnExtension이 생성되고 A,B,C가 생성되야 된다고 했을때<br/>A가 PawnExtension보다 먼저 생겨버리면 원래는 PawnExtension이 A를 관리하고 순서를 중재해야하는데 관리해줄애도 없으니 그냥 A혼자 쭉 생성되어버릴 것</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCHeroComponent::CheckDefaultInitialization</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGameplayTag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StateChain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_GameplayReady</span><span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="n">ContinueInitStateChain</span><span class="p">(</span><span class="n">StateChain</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</details>
+<p>이를 해결하기 위한 방법이 <b>InitStateChange</b>이다.</p>
+<p><b>InitStateChange</b>기능을 위해 GameplayTag를 사용한다.<br/>GameplayTag에 커스텀GameplayTag인 InitState타입?의 태그를 만들어 해당 태그로 컴포넌트들의<br/>상태를 추적한다.<br/>c++에서 사용하고싶은 GameplayTag를 만들려면 아래와 같이 싱글톤 구조체를 만들어서<br/>에디터 실행 전 에셋매니저에 올려서 사용한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">FLCGameplayTags::InitializeNativeTags</span><span class="p">()</span><span class="w"> </span><span class="c1">// Call On AssetManager</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">UGameplayTagsManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">GameplayTagsManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UGameplayTagsManager</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="n">GameplayTags</span><span class="p">.</span><span class="n">AddAllTags</span><span class="p">(</span><span class="n">GameplayTagsManager</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">FLCGameplayTags::AddTag</span><span class="p">(</span><span class="n">FGameplayTag</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutTag</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ANSICHAR</span><span class="o">*</span><span class="w"> </span><span class="n">TagName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ANSICHAR</span><span class="o">*</span><span class="w"> </span><span class="n">TagComment</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// 에디터상에 태그 올리는 코드</span>
+<span class="w"> </span><span class="n">OutTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UGameplayTagsManager</span><span class="o">::</span><span class="n">Get</span><span class="p">().</span><span class="n">AddNativeGameplayTag</span><span class="p">(</span><span class="n">FName</span><span class="p">(</span><span class="n">TagName</span><span class="p">),</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">"(Native) "</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="n">TagComment</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">FLCGameplayTags::AddAllTags</span><span class="p">(</span><span class="k">class</span><span class="w"> </span><span class="nc">UGameplayTagsManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Manager</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">	 * GameFrameworkComponentManager init state tags</span>
+<span class="cm">	 */</span>
+<span class="w"> </span><span class="n">AddTag</span><span class="p">(</span><span class="n">InitState_Spawned</span><span class="p">,</span><span class="w"> </span><span class="s">"InitState.Spawned"</span><span class="p">,</span><span class="w"> </span><span class="s">"1: Actor/Component has initially spawned and can be extended"</span><span class="p">);</span>
+<span class="w"> </span><span class="n">AddTag</span><span class="p">(</span><span class="n">InitState_DataAvailable</span><span class="p">,</span><span class="w"> </span><span class="s">"InitState.DataAvailable"</span><span class="p">,</span><span class="w"> </span><span class="s">"2: All required data has been loaded/replicated and is ready for initialization"</span><span class="p">);</span>
+<span class="w"> </span><span class="n">AddTag</span><span class="p">(</span><span class="n">InitState_DataInitialized</span><span class="p">,</span><span class="w"> </span><span class="s">"InitState.DataInitialized"</span><span class="p">,</span><span class="w"> </span><span class="s">"3: The available data has been initialized for this actor/component, but it is not ready for full gameplay"</span><span class="p">);</span>
+<span class="w"> </span><span class="n">AddTag</span><span class="p">(</span><span class="n">InitState_GameplayReady</span><span class="p">,</span><span class="w"> </span><span class="s">"InitState.GameplayReady"</span><span class="p">,</span><span class="w"> </span><span class="s">"4: The actor/component is fully ready for active gameplay"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCAssetManager::StartInitialLoading</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">StartInitialLoading</span><span class="p">();</span>
+<span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">InitializeNativeTags</span><span class="p">();</span><span class="w"> </span><span class="c1">// 에디터 실행 전에 호출된다.</span>
+<span class="p">}</span>
+</code></pre>
+<hr/>
+<p><b>InitStateChangeSystem</b>은 <code>UPawnExtensionComponent</code> 을 사용해서 구현한다.<br/><code>UPawnExtensionComponent</code> 은 Pawn 부착하는 컴포넌트고 해당 Pawn이 들고있는 모든 FeatureComponent의 초기화를 관리하는 컴포넌트이다.<br/><span>FeatureComponent란 </span><span><code>IGameFrameworkInitStateInterface</code></span><span> 를 상속받는 컴포넌트를 말하는 것으로 보인다.</span></p>
+<img alt="" decoding="async" loading="lazy" src="../media/cfe882dc0209486f3ca6.png"/>
+<p>초기 구조는 위와같다.<br/>2번째의 <code>ULCPawnExtensionComponent</code> 는 초기화와 관련된 모든 컴포넌트들을 관리하고 중재한다.<br/>3번째의 <code>ULCHeroComponent</code> 카메라, 입력같이 플레이어가 세팅하는 부분을 처리</p>
+<p><b>우리의 목표</b></p>
+<p><code>ULCPawnExtensionComponent</code> 의 생성을 확인하고 <code>ULCHeroComponent</code> 등의 다른 컴포넌트들이 <br/><code>ULCPawnExtensionComponent</code> 에 부착받기를 윈한다.</p>
+<hr/>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LYRACLONE_API</span><span class="w"> </span><span class="n">ALCCharacter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ACharacter</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="p">...</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="c1">// ULCPawnExtensionComponent를 CDO에 추가해준다.</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">VisibleAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadOnly</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"LC|Character"</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ULCPawnExtensionComponent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PawnExtensionComponent</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="p">};</span>
+<span class="n">ALCCharacter</span><span class="o">::</span><span class="n">ALCCharacter</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// 모든 과정을 델리게이트로 처리할 것이기 때문에 틱은 꺼준다.</span>
+<span class="w"> </span><span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bStartWithTickEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="n">PrimaryActorTick</span><span class="p">.</span><span class="n">bCanEverTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// create pawn ext Comp</span>
+<span class="w"> </span><span class="n">PawnExtensionComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">ULCPawnExtensionComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"PawnExtensionComponent"</span><span class="p">);;</span>
+<span class="p">}</span>
+</code></pre>
+<p>이후 해당 캐릭터를 상속받은 BP클래스에서 다른 컴포넌트들을 추가한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/93c3416fd5ab849e50ef.png"/>
+<p>이렇게 하면 BP생성자는 cpp생성자보다 늦게 호출되기 때문에 반드시<br/><code>HeroComponent</code>같은 다른 컴포넌트 대비  <code>ULCPawnExtensionComponent</code> 의 생성이 먼저 될 것을 보장 받았다.</p>
+<p><b>ULCPawnExtensionComponent 초기화 과정</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::OnRegister</span><span class="p">()</span><span class="w"> </span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">OnRegister</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 생성 시점의 매우 초반에 호출된다.</span>
+<span class="w"> </span><span class="c1">// OnRegister에서 Pawn에 부착하는 단계가 이루어지기때문에 아래 코드는 실패할수가 없다.</span>
+<span class="w"> </span><span class="c1">// 올바른 액터에 등록되었는지 확인</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GetPawn</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogLC</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"this component has been added to a BP whose base class is not a pawn!!"</span><span class="p">));</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// GameFrameworkComponentManager에 InitState 사용을 위해 '등록'진행</span>
+<span class="w"> </span><span class="c1">// - 등록은 상속받았던 IGameFrameworkInitStateInteface::RegisterInitStateFeature() 를 활용</span>
+<span class="w"> </span><span class="n">RegisterInitStateFeature</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 디버깅</span>
+<span class="w"> </span><span class="n">UGameFrameworkComponentManager</span><span class="o">*</span><span class="w"> </span><span class="n">Manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UGameFrameworkComponentManager</span><span class="o">::</span><span class="n">GetForActor</span><span class="p">(</span><span class="n">GetOwningActor</span><span class="p">());</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre>
+<p>우리가 만들었던 InitState을 사용하려면</p>
+<img alt="" decoding="async" loading="lazy" src="../media/cf8a6f7dafb3f15859e8.png"/>
+<p>이 반드시 <b>‘등록’</b> 이라는 과정을 거쳐야 한다.<br/>등록하기위해 <code>IGameFrameworkInitStateInterface</code>를 상속받은 후 <code>RegisterInitStateFeature</code>함수를 호출한다. 이거면 별다른거 안해도 등록 된다.</p>
+<p>그래도 등록 과정이 어떻게 되는지 알아보자</p>
+<p><b>IGameFrameworkInitStateInterface::RegisterInitStateFeature</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">IGameFrameworkInitStateInterface::RegisterInitStateFeature</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">ThisObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">MyActor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetOwningActor</span><span class="p">();</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">UGameFrameworkComponentManager</span><span class="o">*</span><span class="w"> </span><span class="n">Manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UGameFrameworkComponentManager</span><span class="o">::</span><span class="n">GetForActor</span><span class="p">(</span><span class="n">MyActor</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// Feature은 일단 PawnComponent를 하나의 GameFeature단위라고 생각하자</span>
+<span class="w"> </span><span class="c1">// PhysicsCompo, audiocomp 이런것들을 생각해보면 기능단위로 Component로서 액터에</span>
+<span class="w"> </span><span class="c1">// 해당 Feature들을(Physics, audio) 할당하는 것으로 생각하면 된다.</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">MyFeatureName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetFeatureName</span><span class="p">();</span><span class="w"> </span><span class="c1">// 인터페이스 상속받으면 오버라이딩해서 원하는 FeatureName넣는다.</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">MyActor</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Manager</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 	RegisterFeatureImplementer는 Actor에 ThisObject를 FeatureName으로 할당하는 로직</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// - 내부적으로 GameFrameworkComponentManager의 ActorFeatureMap에 의해 관리된다.</span>
+<span class="w"> </span><span class="c1">// ActorFeatureMap의 Key는 FObjectKey이고</span>
+<span class="w"> </span><span class="c1">// Value는 아래 나오는 FActorFeatureData이다.		</span>
+<span class="w"> </span><span class="n">Manager</span><span class="o">-&gt;</span><span class="n">RegisterFeatureImplementer</span><span class="p">(</span><span class="n">MyActor</span><span class="p">,</span><span class="w"> </span><span class="n">MyFeatureName</span><span class="p">,</span><span class="w"> </span><span class="n">ThisObject</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// FObjectKey의 대상은 MyActor이고, ActorFeatureMap의 RegisteredStates에</span>
+<span class="w"> </span><span class="c1">// MyActor의 컴포넌트들이 들어간다.</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><b>UGameFrameworkComponentManager::RegisterFeatureImplementer<br/></b>Actor의 State를 FeatureName을 사용해 찾아서 RegisteredState에 해당 Feature을 등록한다.<b> </b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">bool</span><span class="w"> </span><span class="nf">UGameFrameworkComponentManager::RegisterFeatureImplementer</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">FeatureName</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">Implementer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="p">...</span>
+<span class="w"> </span><span class="n">FActorFeatureData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ActorStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindOrAddActorData</span><span class="p">(</span><span class="n">Actor</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 내부적으로 </span>
+<span class="w"> </span><span class="n">FActorFeatureState</span><span class="o">*</span><span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FActorFeatureState</span><span class="o">&amp;</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ActorStruct</span><span class="p">.</span><span class="n">RegisteredStates</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="n">FeatureName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FeatureName</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// TODO what if it's already in the desired state?</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">State</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">FoundState</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ActorStruct</span><span class="p">.</span><span class="n">RegisteredStates</span><span class="p">.</span><span class="n">Emplace_GetRef</span><span class="p">(</span><span class="n">FeatureName</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="o">-&gt;</span><span class="n">Implementer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Implementer</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>FActorFeatureData의 멤버들</p>
+<img alt="" decoding="async" loading="lazy" src="../media/acf84b656cf81f994076.png"/>
+<p>OnRegister다음으로 Beginplay에 들어오게 된다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 아래 함수의 FeatureName에 Name_None을 넣으면 Actor에 등록된 모든 Feature의 모든InitState 상태를 관찰하겠다는 의미이다.</span>
+<span class="w"> </span><span class="c1">// 특정 컴포넌트만 관찰할거면 해당 컴포넌트의 FeatureName넣으면 될 것</span>
+<span class="w"> </span><span class="n">BindOnActorInitStateChanged</span><span class="p">(</span><span class="n">NAME_None</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="p">(),</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 내부 함수를 보니까 Register에 성공했을때 IGameFrameworkInitStateInterface::OnActorInitStateChanged를 호출하는 델리게이트를</span>
+<span class="w"> </span><span class="c1">// ActorInitStateChangedHandle에 등록한다. (가능하면 즉시호출도 하는걸로 보임)</span>
+<span class="w"> </span><span class="c1">// 다른 예시로</span>
+<span class="w"> </span><span class="c1">// BindOnActorInitStateChanged(NAME_None, FLCGameplayTags::Get().InitState_DataInitialized(), false);</span>
+<span class="w"> </span><span class="c1">// 이렇게 하면 내 모든 Feature(Component)들을 관찰을 할건데 InitState_DataInitialized단계로 넘어가는 컴포넌트만 관찰을 해달라고 요청하는 것</span>
+<span class="w"> </span><span class="c1">// 즉 모든 Feature들이 Data_Initialized단계로넘어갔을때 OnActorInitStateChanged를 호출한다.</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent는 모든 Feature에 대한 모든 State를 관리하는 컴포넌트니까 위의 코드처럼 작성한다.</span>
+<span class="w"> </span><span class="c1">// InitState_Spawned로 상태 변화</span>
+<span class="w"> </span><span class="c1">// TryToChangeInitState는 인자로 넣은 State로 상태변화를 시도한다 (실패 가능성도 있다!)</span>
+<span class="w"> </span><span class="c1">// -TryToChangeInitState는 아래와 같이 진행된다.</span>
+<span class="w"> </span><span class="c1">// 1. CanChangeInitState로 상태 변환 가능성 유무 판단.</span>
+<span class="w"> </span><span class="c1">// 2. HandleChangeInitState로 내부 상태 변경 (Feature Componnet)</span>
+<span class="w"> </span><span class="c1">// 3. 위에서 BindOnActorInitStateChanged로 Bind된 Delegate를 조건에 맞게 호출해 줌</span>
+<span class="w"> </span><span class="c1">//		- LCPawnExtensionComponent의 경우, 모든 Actor의 Feature 상태 변화에 대해 OnActorInitStateChanged()가 호출됨</span>
+<span class="w"> </span><span class="n">ensure</span><span class="p">(</span><span class="n">TryToChangeInitState</span><span class="p">(</span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">().</span><span class="n">InitState_Spawned</span><span class="p">));</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// ForceUpdateInitState를 하는 함수이다  (CanChangeInitState와 HandleChangeInitState를 진행한다.).</span>
+<span class="w"> </span><span class="n">CheckDefaultInitialization</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>주석이 많은데 간단하게 정리하면<br/><b>ULCPawnExtensionComponent에서는 OwnerActor에 붙은 모든 Feature에 대한 모든State를 감시</b></p>
+<p>그리고 감시에 등록하면 InitState가 변화할때 OnActorInitStateChanged함수를 호출해줄거임<br/>위에서 <b>InitState가 변화가 발생했을때</b> <code>BindOnActorInitStateChanged</code> 이 함수 내부에서</p>
+<p><code>ActorInitStateChangedHandle</code> (인터페이스 내 DelegateHandler)에 등록했던 함수가 호출될 수 있음</p>
+<p>마지막으로 CheckDefaultInitialization함수까지 살펴보자</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::CheckDefaultInitialization</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent은 FeatureComponent들의 초기화를 관장하는 Component이다.</span>
+<span class="w"> </span><span class="c1">// - 따라서 Actor에 바인딩된 Feature Comp들에 대해 CheckDefaultInitialization을 호출하게 한다. (바인딩된 FComp들에 대해 강제로 초기화 시키는 느낌)</span>
+<span class="w"> </span><span class="c1">// 위의 기능은 Interface내에 CheckDefaultInitializationForImplementers를 호출하면 수행된다.</span>
+<span class="w"> </span><span class="c1">// Implementers는 FeatureComp를 의미한다.</span>
+<span class="w"> </span><span class="n">CheckDefaultInitializationForImplementers</span><span class="p">();</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 사용자 정의 InitState를 직접 넘겨줘야 한다.</span>
+<span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGameplayTag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StateChain</span>
+<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_GameplayReady</span><span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="c1">// CanChangeInitState()와 HandleChangeInitState() 그리고 ChangeFeatureInitState 호출을 통한 OnActorInitStateChanged Delegate호출까지 진행해준다</span>
+<span class="w"> </span><span class="n">ContinueInitStateChain</span><span class="p">(</span><span class="n">StateChain</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>CheckDefaultInitializationForImplementers</code> 함수를 호출해 OwnerActor의 모든 FeatureComponent들에 대해 <code>CheckDefaultInitialization</code>을 호출하게 한다.<br/>그 다음 <code>ContinueInitStateChain</code> 함수를 통해 내 상태를 InitState_GameplayReady 상태까지 업데이트 한다.</p>
+<p><code>ContinueInitStateChain</code> 함수 내부를 보면 인자로 전해준 StateChain상태를 순회하면서 가능할때까지 CurrentState를 업데이트 시키는 것을 볼 수 있다.<br/>또  <code>HandleChangeInitState</code>함수를 계속해서 호출해서 <code>OnActorInitStateChanged</code> 콜백을 받을 수 있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">FGameplayTag</span><span class="w"> </span><span class="nf">IGameFrameworkInitStateInterface::ContinueInitStateChain</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGameplayTag</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InitStateChain</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">ChainIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">CurrentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Manager</span><span class="o">-&gt;</span><span class="n">GetInitStateForFeature</span><span class="p">(</span><span class="n">MyActor</span><span class="p">,</span><span class="w"> </span><span class="n">MyFeatureName</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// For each state in chain before the last, see if we can transition to the next state</span>
+<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ChainIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">InitStateChain</span><span class="p">.</span><span class="n">Num</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitStateChain</span><span class="p">[</span><span class="n">ChainIndex</span><span class="p">])</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitStateChain</span><span class="p">[</span><span class="n">ChainIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CanChangeInitState</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">,</span><span class="w"> </span><span class="n">DesiredState</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// Perform the local change</span>
+<span class="w"> </span><span class="n">HandleChangeInitState</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">,</span><span class="w"> </span><span class="n">DesiredState</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// Update state and check again</span>
+<span class="w"> </span><span class="n">CurrentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Manager</span><span class="o">-&gt;</span><span class="n">GetInitStateForFeature</span><span class="p">(</span><span class="n">MyActor</span><span class="p">,</span><span class="w"> </span><span class="n">MyFeatureName</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">ChainIndex</span><span class="o">++</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<hr/>
+<p>지금까지의 과정</p>
+<ol>
+<li>ULCPawnExtensionComponent의 OnRegister에서 InitState를 사용하기 위해<br/><code>RegisterInitStateFeature</code>함수를 사용해 <code>GameFrameComponentManager</code>에 등록</li>
+<li>Beginplay에서 <code>BindOnActorInitStateChanged</code> 함수로 OwnerActor의 모든 FeatureComponent들의 모든 Initstate변화 관리를 위해 <code>OnActorInitStateChanged</code> 함수로 콜백 등록</li>
+<li>ULCPawnExtensionComponent의 상태를 InitState_Spawned로 변경 시도</li>
+<li><code>CheckDefaultInitialization</code> 함수에서 하위의 FeatureComponent들이 <code>CheckDefaultInitialization</code> 함수 호출하게 처리 (내부에서 ContinueInitStateChain)</li>
+<li>결과적으로 ULCPawnExtensionComponent의 상태를 InitState_GameReady상태로 만듬</li>
+</ol>
+<hr/>
+<img alt="" decoding="async" loading="lazy" src="../media/938fb77b926a392e98f8.png"/>
+<p><code>OnActorInitStateChanged</code> 에다가 로그 찍으면 잘찍히는거 볼 수있다.</p>
+<p>아래는 InitState는 뭐고 왜 <code>ULCPawnExtensionComponent</code> 를 사용해서 초기화를 하지~~? 라는 의문을 풀 수 있는 <code>CanChangeInitState</code>함수이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">bool</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::CanChangeInitState</span><span class="p">(</span><span class="n">UGameFrameworkComponentManager</span><span class="o">*</span><span class="w"> </span><span class="n">Manager</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">DesiredState</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// true 면 CurrentState에서 DesireState로 넘어가는 함수</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">Manager</span><span class="p">);</span>
+<span class="w"> </span><span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPawn</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// InitState_Spawned초기화</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">CurrentState</span><span class="p">.</span><span class="n">IsValid</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// Pawn이 잘 세팅되어있으면 Spawned로 넘어간다.</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Pawn</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// Spawned -&gt; DataAvailable</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">PawnData</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// LocallyControlled인 Pawn이 Controller가 없으면 에러</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bIsLocallyControlled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pawn</span><span class="o">-&gt;</span><span class="n">IsLocallyControlled</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bIsLocallyControlled</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GetController</span><span class="o">&lt;</span><span class="n">AController</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// DataAvailable -&gt; DataInitialized</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// Pawn에 바인드된 모든 Feature들이 DataAvailable상태일 때 DataInitialized로 넘어감.</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Manager</span><span class="o">-&gt;</span><span class="n">HaveAllFeaturesReachedInitState</span><span class="p">(</span><span class="n">Pawn</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// DataInitialized -&gt; GameplayReady</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_GameplayReady</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>ContinueInitStateChain</code> 내에서 <br/><code>CanChangeInitState</code> 함수와 <code>HandleChangeInitState</code> 함수를 반복해서 호출하게되는데</p>
+<p>위의 <code>CanChangeInitState</code>함수 구현부를 보면 <code>HaveAllFeaturesReachedInitState</code> 에서 모든 Feature의 상태를 체크한 후 다음상태로 넘어가기 때문에 안전한 게임 플로우를 보장받을 수 있다.</p>
+<hr/>
+<p><b>HeroComponent</b></p>
+<p>얘가 뭔 특별한 역할을 하는것을 설명하기 보다는 <code>ULCPawnExtensionComponent</code>가 관리하는 FeatureComponent의 하나라는 것에 집중한다.</p>
+<p>이친구도 Feature이고 <code>IGameFrameworkInitStateInterface</code> 를 상속받은 클래스이기 때문에</p>
+<p><code>ULCPawnExtensionComponent</code> 와 비슷한 초기화 과정을 수행한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCHeroComponent::BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent의 모든 상태를 추적한다.</span>
+<span class="w"> </span><span class="n">BindOnActorInitStateChanged</span><span class="p">(</span><span class="n">ULCPawnExtensionComponent</span><span class="o">::</span><span class="n">NAME_ActorFeatureName</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="p">(),</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// InitState_Spawned로 초기화</span>
+<span class="w"> </span><span class="n">ensure</span><span class="p">(</span><span class="n">TryToChangeInitState</span><span class="p">(</span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">().</span><span class="n">InitState_Spawned</span><span class="p">));</span>
+<span class="w"> </span><span class="c1">// Forceupdate진행</span>
+<span class="w"> </span><span class="n">CheckDefaultInitialization</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>BindOnActorInitStateChanged</code> 의 인자로 들어있는 <code>ULCPawnExtensionComponent::NAME_ActorFeatureName</code> 이 <code>ULCPawnExtensionComponent</code> 과 다른것을 확인할 수 있다.</p>
+<p><code>ULCPawnExtensionComponent</code> 에서는 Name_None으로 하위의 모든 FeatureComp의 상태를 추적하려고 했었고, 여기서는 <code>ULCPawnExtensionComponent</code> 의 상태를 추적한다.</p>
+<p>여기서는 <code>CheckDefaultInitializationForImplementers();</code> 이 함수가 호출이 되지 않은걸 확인할 수 있는데</p>
+<p>당연한게 <code>HeroComponent</code>는 <code>ULCPawnExtensionComponent</code> 의 Implementer이기 때문</p>
+<p><code>HeroComponent</code> 도 <code>CanChangeInitState</code> 를 구현해야한다.</p>
+<p><b>다른 점</b>을 확인하면 <code>Spawned -&gt; DataAvailable</code> 단계에서 Controller가 아니라 PlayerState를 확인하는거을 볼 수 있다.</p>
+<p>그리고 <code>DataAvailable -&gt; DataInitialized</code> 단계를 확인하면<br/><code>ULCPawnExtensionComponent</code>가 <code>InitState_DataInitialized</code>상태가 되는 것을 기다리는데</p>
+<p>위의 <code>ULCPawnExtensionComponent::CanChangeInitState</code> 를 확인해보면<br/><code>InitState_DataAvailable</code> 상태에서 모든 하위 Feature들이 <code>InitState_DataAvailable</code> 상태가 되는 것을 기다린 다음에 <code>InitState_DataInitialized</code> 로 넘어가는것을 확인 할 수 있다.</p>
+<p>따라서 의도된 Flow를 보장하고있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">bool</span><span class="w"> </span><span class="nf">ULCHeroComponent::CanChangeInitState</span><span class="p">(</span><span class="n">UGameFrameworkComponentManager</span><span class="o">*</span><span class="w"> </span><span class="n">Manager</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">DesiredState</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">ALCPlayerState</span><span class="o">*</span><span class="w"> </span><span class="n">LCPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPlayerState</span><span class="o">&lt;</span><span class="n">ALCPlayerState</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">...</span>
+<span class="w"> </span><span class="c1">// Spawned -&gt; DataAvailable</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">LCPS</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// DataAvailable -&gt; DataInitialized</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent가 InitState_DataInitialized상태로 넘어갔으면 그때 this도 InitState_DataInitialized로 넘어감</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">LCPS</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Manager</span><span class="o">-&gt;</span><span class="n">HasFeatureReachedInitState</span><span class="p">(</span><span class="n">Pawn</span><span class="p">,</span><span class="w"> </span><span class="n">ULCPawnExtensionComponent</span><span class="o">::</span><span class="n">NAME_ActorFeatureName</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">...</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCHeroComponent::OnActorInitStateChanged</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FActorInitStateChangedParams</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Params</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Params</span><span class="p">.</span><span class="n">FeatureName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ULCPawnExtensionComponent</span><span class="o">::</span><span class="n">NAME_ActorFeatureName</span><span class="p">)</span><span class="w"> </span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent의 State가 InitState_DataInitialized인것을 확인하고</span>
+<span class="w"> </span><span class="c1">// HeroComponent도 InitState_DataInitialized로 변경한다.</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Params</span><span class="p">.</span><span class="n">FeatureState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">CheckDefaultInitialization</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>그런데 문제가 있다.</p>
+<p>모든 하위 Feature들이 <code>InitState_DataAvailable</code> 가 되는것을 기다린다고 했는데<br/>그걸 어딘가에서 계속 관찰하고 콜백을 받아야 한다.</p>
+<p><br/>그 콜백은 <code>ULCPawnExtensionComponent::OnActorInitStateChanged</code> 여기서 처리한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::OnActorInitStateChanged</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FActorInitStateChangedParams</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Params</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Params</span><span class="p">.</span><span class="n">FeatureName</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NAME_ActorFeatureName</span><span class="p">)</span><span class="w"> </span><span class="c1">// 하위 Feature들만 받겠다는 뜻</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// ULCPawnExtensionComponent::CanChangeInitState에 다른 Feature들의 상태가 DataAvailable로 변하는지 관찰하여 Sync를 맞추는 구간이 있다.</span>
+<span class="w"> </span><span class="c1">// 이를 가능하게 하기 위해 여기서 지속적으로 CheckDefaultInitialization을 호출하여 상태를 확인한다.</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Params</span><span class="p">.</span><span class="n">FeatureState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">CheckDefaultInitialization</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>보면 하위 Feature들의 정보가 해당 함수에 들어왔을때 해당 Feature의 InitState가<br/><code>InitState_DataAvailable</code> 이면 <code>CheckDefaultInitialization</code> 을 호출해서 아래의 과정을 실행하는 것!</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCPawnExtensionComponent::CheckDefaultInitialization</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">CheckDefaultInitializationForImplementers</span><span class="p">();</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();.</span>
+<span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGameplayTag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StateChain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">,</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_GameplayReady</span><span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="n">ContinueInitStateChain</span><span class="p">(</span><span class="n">StateChain</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>그럼 어? <code>OnActorInitStateChanged</code> 에서 나 말고도 다른 Feature들의 State도 받아요?? 라고 할 수 있는데</p>
+<p>함수를 좀 살펴보면 확인이 가능! (주석친부분만 보자)</p>
+<p>우선 결론부터 말하면 <code>BindOnActorInitStateChanged(NAME_None, FGameplayTag(), false);</code> <br/>우리가 <code>ULCPawnExtensionComponent</code> 에서 하위의 모든 Feature들을 State들을 추적하기로 했으니까 <br/><code>OnActorInitStateChanged</code> 에서 하위 Feature의 상태를 받게 되는 것이다. (그래도 못믿으면 로그찍어)</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">UGameFrameworkComponentManager::ProcessFeatureStateChange</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FActorFeatureState</span><span class="o">*</span><span class="w"> </span><span class="n">StateChange</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">StateChangeQueue</span><span class="p">.</span><span class="n">Emplace</span><span class="p">(</span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">StateChange</span><span class="p">);</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentStateChange</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">CurrentStateChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentStateChange</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">StateChangeQueue</span><span class="p">.</span><span class="n">Num</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 여기서 OnActorInitStateChanged호출!</span>
+<span class="w"> </span><span class="n">CallFeatureStateDelegates</span><span class="p">(</span><span class="n">StateChangeQueue</span><span class="p">[</span><span class="n">CurrentStateChange</span><span class="p">].</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">StateChangeQueue</span><span class="p">[</span><span class="n">CurrentStateChange</span><span class="p">].</span><span class="n">Value</span><span class="p">);</span>
+<span class="w"> </span><span class="n">CurrentStateChange</span><span class="o">++</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">StateChangeQueue</span><span class="p">.</span><span class="n">Empty</span><span class="p">();</span>
+<span class="w"> </span><span class="n">CurrentStateChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>위의 함수는 아래의 <code>UGameFrameworkComponentManager::ChangeFeatureInitState</code>함수에서 호출되는 것을 볼 수 있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">bool</span><span class="w"> </span><span class="nf">UGameFrameworkComponentManager::ChangeFeatureInitState</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">FeatureName</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">Implementer</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">FeatureState</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Actor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">FeatureName</span><span class="p">.</span><span class="n">IsNone</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">FeatureState</span><span class="p">.</span><span class="n">IsValid</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// TODO Ensure?</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">FActorFeatureData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ActorStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindOrAddActorData</span><span class="p">(</span><span class="n">Actor</span><span class="p">);</span>
+<span class="w"> </span><span class="n">FActorFeatureState</span><span class="o">*</span><span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 등록된 FeatureState들을 순회하면서 (InitState랑은 관계X)</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FActorFeatureState</span><span class="o">&amp;</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ActorStruct</span><span class="p">.</span><span class="n">RegisteredStates</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="n">FeatureName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FeatureName</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">State</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">FoundState</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ActorStruct</span><span class="p">.</span><span class="n">RegisteredStates</span><span class="p">.</span><span class="n">Emplace_GetRef</span><span class="p">(</span><span class="n">FeatureName</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="o">-&gt;</span><span class="n">CurrentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FeatureState</span><span class="p">;</span>
+<span class="w"> </span><span class="n">FoundState</span><span class="o">-&gt;</span><span class="n">Implementer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Implementer</span><span class="p">;</span>
+<span class="w"> </span><span class="n">ProcessFeatureStateChange</span><span class="p">(</span><span class="n">Actor</span><span class="p">,</span><span class="w"> </span><span class="n">FoundState</span><span class="p">);</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>그리고 이 함수는<code>GameFrameworkInitStateInterface::</code><b><code>ContinueInitStateChain</code></b><b> </b>여기서 호출한다!!!</p>
+<p>흐름을 파악할 수 있따!</p>
+<p>정리하면 모든 Feature들은 <code>OnActorInitStateChanged</code> 에서 자신이 추적중인 모든 Feature들의 상태의 변화를 콜백으로 받는다는 것!</p>
+<hr/>
+<p>지금까지의 구조를 보면<br/><code>ULCPawnExtensionComponent</code> 는 하위의 어떠한 컴포넌트도 알 필요가 없는것을 확인할 수 있다.<br/>코드의 결합도가 매우 느슨해 어떠한 코드의 흐름을 볼때 각 Feature들만 확인해도 된다는 뜻이다.</p>
+<p>상속관계는 아니지만 부모의 관계를 적절하게 가지고 있다고 생각한다.</p>
+<hr/>
+<p>사실 위의 코드만 가지고는 의도된 InitState프로세스를 완료할수 없다.<br/>아직 Pawn의 Possess가 호출되기 전이라 Controller가 없어서<br/><code>ULCPawnExtensionComponent::CanChangeInitState</code> 는 <b>Spawned -&gt; DataAvailable </b>과정에서 막히고</p>
+<pre class="code-block"><code class="language-c++"><span class="w"> </span><span class="c1">// Spawned -&gt; DataAvailable</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">PawnData</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// LocallyControlled인 Pawn이 Controller가 없으면 에러</span>
+<span class="w"> </span><span class="c1">// 기존에는 LocallyControlled가 아니여서 되었던것</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bIsLocallyControlled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pawn</span><span class="o">-&gt;</span><span class="n">IsLocallyControlled</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bIsLocallyControlled</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GetController</span><span class="o">&lt;</span><span class="n">AController</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre>
+<p>PlayerController가 없으면 PlayerState도 없기에 <br/>(GameMode에서 HeroPawn을 DefaultPawn으로 설정하도록 유도했었으니까 PlayerController가 맞음)<br/><code>ULCHeroComponent::CanChangeInitState</code> 도 <b>Spawned -&gt; DataAvailable </b>과정에서 막히게 된다.</p>
+<pre class="code-block"><code class="language-c++"><span class="w"> </span><span class="c1">// Spawned -&gt; DataAvailable</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_Spawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">DesiredState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">LCPS</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre>
+<hr/>
+<p>그럼 Possess이후 나머지 과정을 처리하면 될 것이다.<br/>그러기 위해 Lyra에서는 Possess가 되었음을 반드시 보장받는 함수<br/><b><code>APawn::SetupPlayerInputComponent</code></b> 를 사용해 나머지 과정을 수행했다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCCharacter::SetupPlayerInputComponent</span><span class="p">(</span><span class="n">UInputComponent</span><span class="o">*</span><span class="w"> </span><span class="n">PlayerInputComponent</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">SetupPlayerInputComponent</span><span class="p">(</span><span class="n">PlayerInputComponent</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 반드시 PlayerController가 존재하는 상태이기 때문에 Spawned-&gt;DataAvailable상태를 넘어갈 수 있다.</span>
+<span class="w"> </span><span class="n">PawnExtensionComponent</span><span class="o">-&gt;</span><span class="n">SetupPlayerInputComponent</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="o">=========================================================================================</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">ULCPawnExtensionComponent</span><span class="o">::</span><span class="n">SetupPlayerInputComponent</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// InitStateForceUpdate</span>
+<span class="w"> </span><span class="n">CheckDefaultInitialization</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<details>
+<summary><b>플로우 정리</b></summary>
+<p>ExtComp Beginplay에서<br/>ExtComp가spawned로 변신 성공<br/>(ExtComp::OnActorInitStateChanged)<br/>beginplay 마지막에 CheckDefaultInitialization호출</p>
+<p>CheckDefaultInitialization안에서 CheckDefaultInitializationForImplementers을 호출하나<br/>Implementers들이 아직 Beginplay 전이라서 아무 변화 없음</p>
+<p>ExtComp 본인의 ContinueInitStateChain호출하면서 Spawned -&gt; DataAvailable 검사</p>
+<ul>
+<li>LocallyControlled가 아닐때<br/>ExtComp가 DataAvailable로 변신 성공<br/>(ExtComp::OnActorInitStateChanged)<br/>DataAvailable -&gt; DataInitialized 검사<br/>HaveAllFeaturesReachedInitState로 모든하위 FeatureComp들이 InitState_DataAvailable인지 검사<br/>당연하게도 전부다 실패 HeroComp의 State는 Beginplay전이라 None임</li>
+<li>LocallyControlled일때<br/>PlayerController 바인딩 안되서 실패</li>
+</ul>
+<p>HeroComp의 Beginplay에서<br/>HeroComp가 spawned로 변신 성공<br/>(ExtComp::OnActorInitStateChanged)</p>
+<p>CheckDefaultInitialization에서 ContinueInitStateChain호출</p>
+<p>HeroComp의 Spawned -&gt; DataAvailable검사하나<br/>PlayerState없어서 실패</p>
+<p>엔진 내부에서 플레이어 디폴트 폰의 Possesses호출 PlayerState생성 및 PlayerController 바인딩<br/>엔진 내부에서 플레이어 디폴트 폰의 SetupPlayerInputComponent호출<br/>SetupPlayerInputComponent함수 내부에서 ExtComp::SetupPlayerInputComponent호출</p>
+<p>ExtComp의 SetupPlayerInputComponent에서 CheckDefaultInitialization 호출<br/>CheckDefaultInitializationForImplementers을 다시 호출</p>
+<p>HeroComp가 Spawned -&gt; DataAvailable검사 및 PlayerState가 있으므로<br/>HeroComp가 DataAvailable로 변신 성공<br/>(ExtComp::OnActorInitStateChanged,</p>
+<pre class="code-block"><code class="language-txt">ExtComp::OnActorInitStateChanged내부에서
+	[HeroPawn의 상태 == InitTags.InitState_DataAvailable] 분기에 걸려서
+	ExtComp::CheckDefaultInitialization 호출----
+		CheckDefaultInitializationForImplementers을 다시 호출
+
+		HeroComp가 DataAvailable -&gt; DataInitialized 시도하나
+		[(ExtComp의 상태 == InitTags.InitState_DataInitialized)]함수가 false를 반환해서
+		변신에 실패
+
+		ExtComp가 아직 OnActorInitStateChanged에서 이어진 CheckDefaultInitialization이였으니까 스스로 ContinueInitStateChain호출
+		ExtComp가 DataAvailable -&gt; DataInitialized 시도
+		[모든 하위 FeatureComp들이 InitState_DataAvailable인지 검사]
+		HeroComp의 상태가 DataAvailable으니까 true반환
+		ExtComp가 가 DataInitialized로 변신 성공
+		Chain에서 계속 CanChangeInitState호출 및 DataInitialized -&gt; GameplayReady통과
+		ExtComp가 가 GameplayReady로 변신 성공
+	ExtComp::CheckDefaultInitialization함수 탈출----
+ExtComp의 OnActorInitStateChanged 함수 탈출
+</code></pre>
+<p>(ExtComp::OnActorInitStateChanged,<br/>인자로 들어온 InitState는 아직 GameplayReady가 아니라 DataInitialized<br/>HeroComp::OnActorInitStateChanged<br/>인자로 들어온 InitState는 아직 GameplayReady가 아니라 DataInitialized</p>
+<pre class="code-block"><code class="language-txt">이제서야 HeroComp는 ExtComp가 DataInitialized로 변했다는 콜백을 받음
+[ExtComp가 DataInitialized상태인지 확인 (현재는 GameplayReady상태지만 함수로 들어온 인자는 아직 DataInitialized이다.)]
+통과 및 HeroComp자신의 CheckDefaultInitialization호출
+[(ExtComp의 상태 == InitTags.InitState_DataInitialized)]함수가 true반환
+HeroComp가 DataInitialized로 변신 성공
+Chain에서 계속 CanChangeInitState호출 및 DataInitialized -&gt; GameplayReady통과
+</code></pre>
+<p>(ExtComp::OnActorInitStateChanged, HeroComp::OnActorInitStateChanged) ExtComp의 GameplayReady변화 콜백</p>
+<p>(ExtComp::OnActorInitStateChanged)	HeroComp의 DataInitialized이다변화 콜백<br/>(ExtComp::OnActorInitStateChanged)	HeroComp의 GameplayReady변화 콜백</p>
+<img alt="" decoding="async" loading="lazy" src="../media/b8e047b1070ba8ec54f4.png"/>
+<p><b>만약 LocallyControlled가 true라면</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/863dc9b4b9fec84f20d1.png"/>
+<p>이렇게 나올 것이다.<br/><br/>쉽게 정리하면 ExtComp와 HeroComp의 Beginplay에서 어느정도 InitState가 업데이트 되다가<br/>PlayerState와 PlayerController때문에 잠시 멈췄다가<br/>PlayerController의 Possess단계에서 나머지 InitState가 업데이트 된다.</p>
+</details>
+<hr/>
+<p>아래는 지금까지의 진행 과정에서 InitState의 실사용 예시이다</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCHeroComponent::HandleChangeInitState</span><span class="p">(</span><span class="n">UGameFrameworkComponentManager</span><span class="o">*</span><span class="w"> </span><span class="n">Manager</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">CurrentState</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">DesiredState</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InitTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLCGameplayTags</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// DataAvailable -&gt; DataInitialized성공 단계</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataAvailable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CurrentState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">InitTags</span><span class="p">.</span><span class="n">InitState_DataInitialized</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPawn</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="n">ALCPlayerState</span><span class="o">*</span><span class="w"> </span><span class="n">LCPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPlayerState</span><span class="o">&lt;</span><span class="n">ALCPlayerState</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ensure</span><span class="p">(</span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">LCPS</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bIsLocallyControlled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pawn</span><span class="o">-&gt;</span><span class="n">IsLocallyControlled</span><span class="p">();</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="o">*</span><span class="w"> </span><span class="n">PawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ULCPawnExtensionComponent</span><span class="o">*</span><span class="w"> </span><span class="n">PawnExtensionComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ULCPawnExtensionComponent</span><span class="o">::</span><span class="n">FindPawnExtensionComponent</span><span class="p">(</span><span class="n">Pawn</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">PawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PawnExtensionComponent</span><span class="o">-&gt;</span><span class="n">GetPawnData</span><span class="o">&lt;</span><span class="n">ULCPawnData</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>HeroComp의 DataAvailable -&gt; DataInitialized 상태 전환의 <code>CanChangeInitState</code> 시험을 통과했을때<br/>호출된는 <code>HandleChangeInitState</code> 에서는 PlayerState를 필요로 하기 때문에 PlayerState가 반드시 있음을 보장받아야한다.</p>
+<hr/>
+<p><b>쉽게정리</b></p>
+<ol>
+<li>PawnExtensionComp는 하위 Feature들을 관리하는 컴포넌트이다.</li>
+<li>OnRegister단계에서 Feature들을 ‘<b>등록</b>’하고<br/>UGameFrameworkComponentManager에 액터를 ‘<b>등록</b>’한다.</li>
+<li>PawnExtensionComp→CheckDefaultInitialization으로 초기화를 시작한다.</li>
+<li>ContinueInitStateChain가 CanChangeInitState로 검사 후 HandleChangeInitState을 호출하면서<br/>다음 State로 나아간다.</li>
+<li>PawnExtensionComp은 모든 Feature의 모든 State들에 대해  감시중이기 때문에OnActorInitStateChanged으로 콜백을 받고, 하위 Feature들은 감시 등록한 Feature에 대해 OnActorInitStateChanged으로 콜백을 받는다.</li>
+<li>마지막 단계까지 끝나면 초기화 끝</li>
+</ol>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="experience-18083382.html"><small>이전 글</small>Experience</a><a href="camera-23283382.html"><small>다음 글</small>Camera</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

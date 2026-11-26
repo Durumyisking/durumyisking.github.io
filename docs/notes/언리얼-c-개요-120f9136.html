@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / 에디터와 C++ / 언리얼 C++ 개요">
+  <title>언리얼 C++ 개요 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details open><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html" aria-current="page">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>에디터와 C++</li></ol>
+        </nav>
+        <article class="article">
+          <h1>언리얼 C++ 개요</h1>
+          <div class="article-body"><hr/>
+<p>게임 규모가 대형화 됨에 따라서 c++에도 모던 객체 지향 설계가 필요해졌다.</p>
+<p>이에따라  언리얼엔진은 c++의 장점들을 가져가면서 현대 객체지향의 장점들도 챙겨가기를 원한다.</p>
+<ul>
+<li><b>인터페이스 </b>: 객체 설계의 틀을 제공하는 추상 클래스</li>
+<li><b>리플렉션 </b>: 런타임에서 객체의 구조를 파악하고 객체에 메타데이터 부여</li>
+<li><b>델리게이트 </b>: 프로그램에서 발생한 이벤트를 다수의 객체에 효과적으로 전달하는데 사용</li>
+</ul>
+<p>언리얼은 c++의 매크로 기능을 활용해 모던 객체지향의 기능들을 구현했다.</p>
+<p>따라서 언리얼은 성능+유지보수 두가지의 특성을 모두 가진다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/2a4a16732e221e74b99c.png"/>
+<details>
+<summary>Unreal Object(객체)</summary>
+<p>언리얼 엔진이 설계한 새로운 시스템의 단위이다.</p>
+<h4 id="개요">개요</h4>
+<p>해당 객체를 생성하기 위해서는 아래 문법을 사용한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/43cf1bf954fa7f965bb2.png"/>
+<p>UObject를 쓰면 아래 장점들을 가져갈수있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/36c16db2f6f5fef15fe5.png"/>
+<p>클래스를 생성하면 디폴트 헤더의 모양은 이렇게 생겼다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/9c510efbb2015fc3ba05.png"/>
+<p>프로젝트_API를 붙이면 언리얼의 다른 라이브러리(모듈)에서 사용할 수 있게 개방한다.</p>
+<p>GENERATED_BODY()의 내부를 보면</p>
+<img alt="" decoding="async" loading="lazy" src="../media/8623a650888e435c1454.png"/>
+<p>이렇게 생겼다.</p>
+<p>BODY_MARCO_COMBINE 내의 인자들을 묶어 긴 문자를 만든다고 이해하면 된다.</p>
+<ul>
+<li>CURRENT_FILE_ID : header.generated.h 내에 기록된 정보</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/495e07a3c0076e9ad9f0.png"/>
+<ul>
+<li>LINE : GENERATED_BODY()가 작성된 코드 라인</li>
+<li>GENERATED_BODY : 문자 그대로 ㅇㅇ</li>
+</ul>
+<p><b>결과</b></p>
+<p>이런 문자열이 만들어진다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/71c8f089e3ed543ce9df.png"/>
+<p><b>정리하면</b></p>
+<p>모던 객체지향 기능 제공을 위한 코드들이 header.h.generated.h에 기록되고</p>
+<p>우리의 헤더에는 GENERATED_BODY()라는 코드로 기록된다.</p>
+<h4 id="구성">구성</h4>
+<p>언리얼 오브젝트는 특별한 프로퍼티와 함수 지정이 가능하다.</p>
+<p>멤버 변수 : UPROPERTY</p>
+<p>멤버 함수 : UFUNCTION</p>
+<img alt="" decoding="async" loading="lazy" src="../media/7327f51f399d909cb3c0.png"/>
+</details>
+<details>
+<summary><b>CDO (Class Default Object)</b></summary>
+<p>언리얼 클래스에는 CDO정보가 포함되어있다.</p>
+<p><b>CDO에는 언리얼 객체가 가진 기본값이 보관되는 템플릿 객체이다</b></p>
+<p>CDO는 한 클래스로부터 다수의 물체를 생성해 게임 콘텐츠에 배치할 때 일관성 있는 기본값을 지공하는데에 도움된다.</p>
+<p>UClass와 CDO는 엔진 초기화 단계에서 생성된다 (디버깅 해보면 로딩창때 중단점 걸림)</p>
+<p>따라서 게임 콘텐츠 배치때는 안심하고 쓰자</p>
+<img alt="" decoding="async" loading="lazy" src="../media/f991fe360c92fc37b269.png"/>
+<h4 id="처리">처리</h4>
+<ul>
+<li>
+<p><b>자동 프로퍼티 초기화</b>
+UObject는 생성자 호출 전 자동으로 0으로 채워진다(모든 property에게 일어남). 이후 클래스 생성자의 커스텀 값으로 초기화가 된다.</p>
+</li>
+<li>
+<p><b>레퍼런스 자동 업데이트</b>
+UObject는 언리얼 시스템에서 제공하는 메모리 관리의 이점을 받을 수 있다.</p>
+</li>
+<li>
+<p><a href="%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">Serialization(직렬화)</a></p>
+</li>
+<li>
+<p><b>Serialization중에서도 DeltaSerialization을 사용하기 위함이 크다고 한다.</b></p>
+</li>
+</ul>
+<p>UProperty라고 명시해둔 멤버들은 엔진에서 수정했을때 그 값이 c++상의 UClass수정 없이 저장되고 로드된다.</p>
+<p>예를들어 엔진상에서 hp를 500으로 바꾸고 저장하면(c++에서 저장안하고)</p>
+<p>이후 클래스의 빌드나 엔진의 재시작등이 일어나도 알아서 불러와진다.</p>
+<p><b>이건 네트워크 통신에서도 가능하다!!</b></p>
+<ul>
+<li>
+<p><b>프로퍼티 값 업데이트하기</b>
+CDO가 변경되면 그 클래스의 모든 인스턴스가 로드될 때 알아서 변경된 CDO를 따른다.</p>
+<p>CDO 변경 되기 이전에 CDO와 다른 멤버를 가진 인스턴스가 있다면 그 인스턴스는</p>
+<p>CDO변경을 따르지 않는다. (의도적으로 변경되었다고 판단)</p>
+</li>
+<li>
+<p><b>런타임 유형 정보 및 형변환</b>
+UObject는 리플렉션 시스템의 일부임으로 항상 자신이 무슨 UClass라는걸 알고 있어서</p>
+<p>형변환을 실시간으로 할 수 있다. (Super클래스 같은걸 말함)</p>
+<p>혹여나 캐스팅에 실패했으면 null을 보장해서 우리가 안전하게 코딩 가능</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>언리얼 리플렉션 시스템</summary>
+<p>(프로퍼티 시스템 이라고도 한다)</p>
+<p>언리얼 시스템의 근간을 이루는 리플렉션 시스템에 대해 알아보자<br/></p>
+<p>리플렉션 시스템은 프로그램 실행시간에 자기 자신을 조사하는 기능이다.<br/><b>런타임 단계에서 클래스 정보를 알 수 있게해주는 것</b></p>
+<p>리플렉션 시스템에 보이도록 했으면 하는 유형이나 프로퍼티에 주석을 달아두면</p>
+<p>UHT(unreal header tool)가 그 프로젝트를 컴파일할때 해당 정보를 수집한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="c1">// 예를들어 내가 다음과 같은 클래스를 만들었을때...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MemberA</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MemberB</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>우리는 런타임중에 저 변수의 이름을 문자열로 알 수 없다.<br/>하지만 그것을 알게 해주는것이 리플렉션이다<br/>c++을 사용하니 컴파일러로 뭘 해주는거는 아닐거같고 매크로로 변수 이름을 복사떠서 하는게 아닐까? 싶음</p>
+<p>내부적으로 언리얼 헤더툴을 사용해 C#쓰고있음<br/>코드 쭈르르르륵 읽다가 UPROPERTY UFUNCTION붙이면 UHT가 GeneratedBody/generated.h에 UClass라는것을 만들어서 전부 저장해놓는다</p>
+<img alt="" decoding="async" loading="lazy" src="../media/73b8607dc9c8056a09e8.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/24a1502751ce54bdff8c.png"/>
+<p>이렇게 멤버변수와 함수명이 잘 불러와진걸 확인할 수 있다.<br/>GetType밑으로는 기본적으로 추가되는 함수들인걸로 보인다<br/>(==연산자, 타입 형 받아오기, Class명을 String으로 바꾸는 함수로 예상된다)</p>
+<p>(c++에서는 리플렉션이라는 개념이 없지만 좋은 기능이라 엔진에서 사용할 수 있도록 만든 것)<br/></p>
+<pre class="code-block"><code class="language-c++"><span class="n">UENUM</span><span class="p">(),</span><span class="w"> </span><span class="n">UCLASS</span><span class="p">(),</span><span class="w"> </span><span class="n">USTRUCT</span><span class="p">(),</span><span class="w"> </span><span class="n">UFUNCTION</span><span class="p">(),</span><span class="w"> </span><span class="n">UPROPERTY</span><span class="p">()</span>
+</code></pre>
+<p>위의 코드들을 멤버들 위에 선언하면</p>
+<p><b>언리얼 엔진 시스템에서 해당 멤버들을 관리 받을 수 있다.</b></p>
+<p><b>(언리얼 gc, 엔진상에서 멤버 확인 등등)</b></p>
+<p><b>언리얼 프로퍼티의 계층구조</b>는 아래와 같다</p>
+<img alt="" decoding="async" loading="lazy" src="../media/364568965c81604a721b.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/824264546ea69278e36f.png"/>
+<p>계층구조를 보면 UClass보다 UStruct가 상위 계층인데</p>
+<p>기본적인 종합 구조체(c++클래스 구조체 함수 등등)이며 <b><u>c++구조체와 다르다.</u></b></p>
+<p>계층구조에 따라 UClass는 UFunction, UScriptStruct, UProperty를 포함할 수 있지만</p>
+<p>UFunction, UScriptStruct는 UProperty만 포함이 가능하다.</p>
+<p>UTypeName::StaticClass(), Instance-&gt;GetClass()를 사용해</p>
+<p>내부의 정보들을 빼올 수 있다.</p>
+</details>
+<details>
+<summary>인터페이스</summary>
+<p><b>인터페이스란?</b></p>
+<ul>
+<li>객체가 <b>반드시 구현해야 할 행동을 </b>지정하는데 활용되는 타입</li>
+<li>다형성 구현과, 의존성 분리된 설계에 유용하게 활용된다.</li>
+</ul>
+<p><b>C++ 인터페이스의 특징</b></p>
+<ul>
+<li>
+<p>Java와 C#에서는 추상타입 (구현 불가) 으로만 선언이 가능하지만
+언리얼은 인터페이스에도 구현이 가능하다.</p>
+<p>→ 전부 순수가상함수로 구현한다면 추상타입이 되긴할듯</p>
+</li>
+<li>
+<p>인터페이스를 사용하여 다중 상속을 간편화 시킬 수 있다.
+(복잡한 클래스들을 다중상속 하게 된다면 유지보수가 어려울 수 있다)</p>
+</li>
+<li>
+<p>언리얼에서 인터페이스를 생성하면 2개의 클래스가 생성된다.</p>
+<ul>
+<li>
+<p><b>U로 시작하는 타입 클래스</b>
+클래스 타입 정보를 제공하는 타입 전용클래스</p>
+</li>
+<li>
+<p><b>I로 시작하는 인터페이스 클래스</b>
+실질적 설계 및 구현이 진행되는 부분</p>
+</li>
+</ul>
+</li>
+<li>
+<p>언리얼 c++ 인터페이스는 c++ 기반이기 때문에 추상타입으로 강제되지 않고
+내부 구현도 가능하다.</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>컴포지션</summary>
+<p>객체지향 설계에서 상속이 가진 Is-A 관계만 의존해서는 설계와 유지보수가 어렵다.</p>
+<p>컴포지션은 객체지향 설계에서 Has-A 관계를 구현하는 방법이다.</p>
+<p><b>예시</b></p>
+<ul>
+<li>
+<p>person을 상속받은 student, teacher이 있다고 할 때 학교 출입증이라는 card를
+person에게 쥐어줄수 있다.</p>
+<p>하지만 이렇게 설계하면 person을 상속받은 학교 관계자가 아닌 class를 만들 때</p>
+<p>클래스 네이밍등등 설계부분에서 고쳐야할 부분이 생기게 된다.</p>
+<p>따라서card는 컴포지션이라는 개념으로 분류한다.</p>
+</li>
+<li>
+<p>컴포지션을 사용하면 복합적인 기능을 가진 거대한 클래스를 효과적으로 설계가 가능하다.</p>
+</li>
+</ul>
+<p>컴포지션을 사용하면 모던 cpp solid 기법을 이루는데 도움이 되도록 한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/1629afda8ae40ad810b5.png"/>
+<p><b>언리얼 엔진의 컴포지션 구현 방법</b></p>
+<ul>
+<li>
+<b>필수 포함 : </b>CDO에 미리 언리얼 오브젝트를 생성해 조합한다 
+</li>
+<li>
+<b>선택 포함 : </b>CDO에 빈 포인터만 넣고 런타임에서 언링러 오브젝트를 생성해 조합한다.
+</li>
+</ul>
+<p>위 노드들이 필수 아래가 선택이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/785fb80ae1cf99982783.png"/>
+</details>
+<details>
+<summary>델리게이트</summary>
+<p>델리게이트를 이해하려면 느슨한 결합을 알고가야 된다고 한다.</p>
+<h4 id="강한-결합">강한 결합</h4>
+<ul>
+<li>
+<p>클래스들이 서로 의존성을 가지는 경우를 의미한다.
+ex) 내가 만든 예제에서 person 클래스가 card(학교출입증)클래스를 사용하고 있었다</p>
+<p>이때 person은 card에 대한 의존성을 가진다고 한다.</p>
+<p><b>만약 핸드폰에서도 인증할 수 있는 새로운 수단이 나오면??</b></p>
+<ul>
+<li>기존에 구현한 자식 클래스들의 코드를 전부 수정해야한다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="느슨한-결합">느슨한 결합</h4>
+<ul>
+<li>
+<p>강한 결합에서의 문제를 고치기 위해 나온 개념
+위 예에서 <s><b>카드</b></s>에 중점을 두는게 아니라 <b>인증이라는 수단에 중점을 두는 것이다.</b></p>
+</li>
+<li>
+<p>실물에 의존하지 않고 추상적 설계에 의존하라</p>
+</li>
+<li>
+<p>인증을 처리하는 인터페이스 ICheck를 상속받은 card를 만들어서 처리한다.
+나중에 핸드폰 생기면 ICheck상속해서 핸드폰 만들면됨</p>
+</li>
+</ul>
+<p><b>하지만</b></p>
+<p>매번 이렇게 행동마다 인터페이스 만들면 코드가 커지고 번거로워 질 수 있음</p>
+<p>→ <b>함수를 오브젝트처럼 관리해보자!</b></p>
+<p>함수포인터랑 functional 있잖아요</p>
+<p>→ 함수포인터는 복잡하고, functional은 느리다.</p>
+<p>그래서 언리얼에서는 C#의 델리게이트 키워드를 가져왔다</p>
+<ul>
+<li>함수를 객체처럼 다룰 수 있음</li>
+<li>안정적이면서 간편한 선언</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/be2de67349ce1a30c310.png"/>
+<p><b>페이로드 데이터</b></p>
+<ul>
+<li>묶는 객체에 대한 정보를 지정해서 하나의 구문으로 묶어준다.
+(그냥 문법인듯)</li>
+</ul>
+<p><b>사용 예제</b></p>
+<p>아무데서나 호출하기를 원하는 함수를 가진 클래스가 있다.</p>
+<pre class="code-block"><code class="language-c++"><span class="k">class</span><span class="w"> </span><span class="nc">FLogWriter</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">WriteToLog</span><span class="p">(</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+<p>해당 함수를 호출하려면 함수의 시그니처에 맞는 델리게이트 유형을 생성해야 한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">DECLARE_DELEGATE_OneParam</span><span class="p">(</span><span class="w"> </span><span class="n">FStringDelegate</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// 델리게이트 매크로 사용!</span>
+</code></pre>
+<p>사용 법칙은 아래와 같다</p>
+<img alt="" decoding="async" loading="lazy" src="../media/e6451618f9932cb375f6.png"/>
+<ul>
+<li>
+<p><b>델리게이트 유형</b></p>
+<ul>
+<li>
+<p>1:1 형태로 c++만 지원시 유형은 공란으로
+DECLARE_DELEGATE</p>
+</li>
+<li>
+<p>1:1 형태로 c++만 지원시 유형은 MULTICAST으로
+DECLARE_MULTICAST_DELEGATE</p>
+</li>
+<li>
+<p>1:1 형태로 블루프린트 지원시 유형은 DYNAMIC으로
+DECLARE_DYNAMIC_DELEGATE</p>
+</li>
+<li>
+<p>1:n 형태로 블프 지
+DECLARE_DYNAMIC_MULTICAST_DELEGATE</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>함수 정보 세팅</b></p>
+<ul>
+<li>
+인자가 없고 반환값도 없으면 
+<p>DECLARE_DELEGATE</p>
+</li>
+<li>
+인자가 하나고 반환값이 없으면 OneParam으로 지정한다.
+<p>DECLARE_DELEGATE_OneParam</p>
+</li>
+<li>
+인자가 세 개고 반환값이 있으면
+<p>DECLARE_DELEGATE_RetVal_ThreeParams</p>
+<p>(멀티캐스트는 반환값 지원 X)</p>
+</li>
+<li>
+인자는 최대 9개까지 지원한다.
+</li>
+</ul>
+</li>
+</ul>
+<p>발행 구독 디자인 패턴이란것도 알아야 된다고 한다.</p>
+<p>아래 패턴 구현을 위해 델리게이트가 존재하는 것이기 때문</p>
+<details>
+<summary>발행 구독 디자인 패턴</summary>
+<p>푸시 형태의 notification을 구현하는데 적합한 디자인 패턴</p>
+<p><b>발행자와, 구독자로 구분된다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/5755a50fe0783e26cf3b.png"/>
+<p>이런 꼴로 생김 ㅇㅇ</p>
+<ul>
+<li><b>콘텐츠 제작자 : </b>콘텐츠 생산</li>
+<li><b>콘텐츠 발행자 : </b>콘텐츠 배포</li>
+<li><b>콘텐츠 구독자 : </b>콘텐츠를 받아서 소비</li>
+</ul>
+<p>제작자와 구독자가 서로를 몰라도 발행자를 통해 콘텐츠 생산, 전달, 소비가 이루어진다.</p>
+<p>⇒ 느슨한 결합</p>
+<ul>
+<li>
+<p><b>장점</b>
+느슨한 결합</p>
+<p>유지보수가 쉽고 활용이 유연하며 테스트가 쉬워짐</p>
+<p>기능확장이 용이하고 시스템 스케일 유연하게 조절 가능</p>
+</li>
+</ul>
+</details>
+<p><b>델리게이트를 설계하기 위한 고려사항</b></p>
+<ul>
+<li>
+<p><b>어떤 데이터를 전달하고 받을 것인가?</b>
+인자의 수와 각각의 타입을 설계해야 한다.</p>
+<ul>
+<li>몇 개의 인자를 전달할 것인가?</li>
+<li>어떤 방식으로 전달할 것인가?</li>
+<li>1:1전달</li>
+<li>1:n전달</li>
+</ul>
+</li>
+<li>
+<p><b>프로그래밍 환경 설정</b></p>
+<ul>
+<li>c++ 프로그래밍에서만 사용할것인지</li>
+<li>UFUNCTION(블루프린트 함수)와 사용할 것인지</li>
+</ul>
+</li>
+<li>
+<p><b>어떤 함수와 연결할 것인가?</b></p>
+<ul>
+<li>클래스 외부에 설계된 c++함수</li>
+<li>전역에 설계된 정적 함수</li>
+<li>언리얼 오브젝트의 멤버 함수 (대부분 이거씀 ㅇㅇ)</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>UStruct</summary>
+<p>UStruct는 언리얼의 구조체이다</p>
+<p><b>구조체 위에 USTRUCT() 매크로 추가하고</b></p>
+<p><b>구현부 맨 위에 GENERATED_BODY() 매크로 추가한다. (대부분)</b></p>
+<ul>
+<li>해당 매크로 선언해야 리플렉션, 직렬화같은 혜택 받음</li>
+<li>매크로 선언했을때는 일반적인 USTRUCT가 아니라 UScriptStruct로 구현된다.
+<ul>
+<li>제한적으로 리플렉션 지원한다
+UPROPERTY만 사용이 가능하고 UFUNCTION은 사용이 불가능하다.</li>
+</ul>
+</li>
+</ul>
+<p>구조체 안에도 UPROPERTY() 쓸 수 있다.</p>
+<p><b>구조체는 F로 시작하기 때문에 리플리케이션의 혜택을 받을 수 없다.</b></p>
+<p><b>하지만 구조체 내 변수들은 UProperty라서 리플리케이션 가능</b></p>
+<ul>
+<li>굳이 리플렉션 관리 받고싶지 않으면 안해도 된다.
+<b>(UObject 멤버는 UProperty 무조건 해라!)</b></li>
+</ul>
+<p>구조체는 단순한 데이터 타입에 적합해서 복잡한 애들은 UObject, AActor 쓰자</p>
+</details>
+<details>
+<summary>언리얼 컨테이너</summary>
+<p>언리얼이 자체 제작해 제공하는 자료구조 라이브러리이다.</p>
+<p>줄여서 UCL(unreal container library)라고한다.</p>
+<p>언리얼 오브젝트를 안정적으로 지원하며 다수 오브젝트 처리에 유용하게 사용된다.</p>
+<p>실제 게임에서는 TArray, TMap, TSet 쓴다</p>
+<p><b>그럼 STL 왜 안쓰고?</b></p>
+<ul>
+<li>STL에는 기능이 너무 많아 엮여있어 컴파일 시간이 오래걸림</li>
+<li>언리얼은 언리얼거에만 엮여있으니까 컴파일도 빠르고 언리얼 특화되어있음</li>
+</ul>
+<p><b>알고리즘 라이브러리</b></p>
+<p>Algo/~~~.h 로 include 한다.</p>
+<p>예를들어 Algo/Accumulate.h include 하면</p>
+<p>Algo::Accumulate(container, initvalue) 를 사용해 컨테이너 안의 값들의 합을 구할 수 있다.</p>
+<p>Array Map Set 용도는 모두 같으나</p>
+<p>Map과 Set은 구현방법이 상이하다.</p>
+<h4 id="tarray">TArray</h4>
+<img alt="" decoding="async" loading="lazy" src="../media/e50487577c6f88c2a3d0.png"/>
+<h3 id="tset">TSet</h3>
+<p><b>STL Set vs 언리얼 TSet</b></p>
+<p><b>STL Set </b></p>
+<ul>
+<li>이진트리로 구성되어 있어서 정렬 지원</li>
+<li>이진트리이기 때문에 메모리 구성 나쁨</li>
+<li>요소 삭제시에 균형을 위한 재구성</li>
+<li>자료구조 순회에 적합하지 않음</li>
+</ul>
+<p><b>언리얼 TSet</b></p>
+<ul>
+<li>TSet은 해시테이블 형태라서 검색 빠름</li>
+<li>동적 배열 형태로 데이터가 모여있음</li>
+<li>따라서 순회가 빠름</li>
+<li>데이터 삭제해도 재구축 X</li>
+<li>동적배열에 비어있는 데이터가 있을 수 있음</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/ef71d27d44b49e0f921f.png"/>
+<p>커스텀 구조체나 클래스를 TSet에 저장할 때는</p>
+<p>value가 key로 hashing 되기 때문에 어떤 값을 해싱해줘야할지 또는 어떤 방식으로 해싱할지 정해주어야 한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">uint32</span><span class="w"> </span><span class="nf">GetTypeHash</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FCustomStruct</span><span class="o">&amp;</span><span class="w"> </span><span class="k">struct</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">GetTypeHash</span><span class="p">(</span><span class="n">CustomStructData</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c1">//Data는 int32형</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="tmap">TMap</h4>
+<p><b>STL Map vs 언리얼 TMap</b></p>
+<p><b>STL Map </b></p>
+<ul>
+<li>이진트리로 구성되어 있어서 정렬 지원</li>
+<li>이진트리이기 때문에 메모리 구성 나쁨</li>
+<li>요소 삭제시에 균형을 위한 재구성</li>
+<li>자료구조 순회에 적합하지 않음</li>
+</ul>
+<p><b>언리얼 TMap</b></p>
+<ul>
+<li>TSet은 해시테이블 형태라서 검색 빠름</li>
+<li>동적 배열 형태로 데이터가 모여있음</li>
+<li>따라서 순회가 빠름</li>
+<li>데이터 삭제해도 재구축 X</li>
+<li>동적배열에 비어있는 데이터가 있을 수 있음</li>
+</ul>
+</details>
+<details>
+<summary>가비지 컬렉션</summary>
+<p><b>GC란?</b></p>
+<ul>
+<li>프로그램에서 더 이상 사용하지 않는 객체를 자동으로 감지해 메모리를 회수하는 시스템</li>
+<li>동적으로 생성된 모든 객체를 정보를 모아둔 저장소를 사용해 사용되지 않는 메모리 추적</li>
+<li><b>마크 스윕(mark sweep) 방식의 GC</b>
+<ul>
+<li>저장소에서 최초 검색을 시작하는 루트 객체를 표기</li>
+<li>루트 객체가 참조하는 객체를 찾아 mark 한다</li>
+<li>마크된 객체로부터 다시 참조하는 객체를 찾아 마크하고 이를 반복</li>
+<li>저장소에는 마크 된 객체와 그렇지 않은 객체로 나뉜다.</li>
+<li>마크 안된애들의 메모리를 회수한다 (sweep)</li>
+</ul>
+</li>
+</ul>
+<p><b>언리얼의 GC</b></p>
+<ul>
+<li>
+<p>마크 스윕 방식 자체 구축</p>
+</li>
+<li>
+<p>지정된 주기마다 모아서 없앰 (default 60s)
+(한 번 생성된 언리얼 오브젝트는 바로 삭제가 불가능하다)</p>
+</li>
+<li>
+<p>부하를 줄이기 위해 병렬처리, 클러스터링 등의 기능을 사용한다.</p>
+</li>
+</ul>
+<p> </p>
+<p>언리얼에는 관리되는 모든 UObject의 정보를 저장하는 전역 변수</p>
+<p><b>GUObjectArray</b> 가 있다.</p>
+<p><b>GUObjectArray</b> 의 각 요소에는 Flag가 설정되어 있다.</p>
+<p><b>주요 플래그</b></p>
+<ul>
+<li>
+<p>Garbage flag : 다른 언리얼 오브젝트로부터의 참조가 없어 회수 예정인 오브젝트</p>
+</li>
+<li>
+<p>RootSet flag : 다른 언리얼 오브젝트로부터 참조가 없어도 회수되지 않는 특별한 오브젝트
+만약 시스템 내에서 계속 존재하길 원하는 오브젝트를 <b>AddToRoot 함수</b>를 호출해 플래그를 설정할 수 있다. 메모리 회수로부터의 보호를 풀려면 <b>RemoveFromRoot 함수</b>를 사용하자</p>
+<p>컨텐츠 오브젝트에 RootSet Flag 사용하는건 권장되지 않는다.</p>
+</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/0894037faf2b116e4801.png"/>
+<ul>
+<li>이 외에도 <b>UPROPERTY를 사용하면 객체가 GC에 회수되지 않는다.</b>
+만약 UPROPERTY 쓸 수 없는 상황이면 AddReferencedObject 함수를 통해 참조를 설정해라</li>
+</ul>
+<p><b>언리얼 내에서의 포인터 문제 해결</b></p>
+<p>c++에서는 아래 문제를 개선하기 위해 스마트포인터가 있긴하다.</p>
+<ul>
+<li>메모리 누수
+<ul>
+<li>GC가 알아서 해준다</li>
+</ul>
+</li>
+<li>댕글린 포인터
+<ul>
+<li>이거 확인하라고 IsValid 함수 있는거임</li>
+</ul>
+</li>
+<li>와일드 포인터
+<ul>
+<li>UPROPERTY 매크로 해주면 자동으로 nullptr로 초기화해줌</li>
+</ul>
+</li>
+</ul>
+<p>언리얼 내에서 오브젝트 포인터는 가급적 UPROPERTY쓰고 메모리는 GC가 알아서 하도록</p>
+<p>냅둔다.</p>
+<p><b>언리얼 오브젝트 관리 원칙</b></p>
+<ul>
+<li>생성된 언리얼 오브젝트를 유지하기 위해 레퍼런스 참조 방법 설계
+<ul>
+<li>언리얼 클래스내의 언리얼 오브젝트 : UPROPERTY사용</li>
+<li>일반 c++ 클래스내의 언리얼 오브젝트 : <b>c++클래스를 FGCObject 상속 후 구현</b>
+<ul>
+<li>AddReferencedObjects 함수를 오버라이드 한다.<pre class="code-block"><code class="language-c++"><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddReferencedObjects</span><span class="p">(</span><span class="n">FReferenceCollector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Collector</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">UEObject</span><span class="o">-&gt;</span><span class="n">IsValidLowLevel</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Collector</span><span class="p">.</span><span class="n">AddReferencedObjects</span><span class="p">(</span><span class="n">UEObject</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</li>
+<li>GetReferencerName 함수를 오버라이드 한다.<pre class="code-block"><code class="language-c++"><span class="k">virtual</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="nf">GetReferencerName</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"클래스명"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>생성된 언리얼 오브젝트는 강제로 지우려고 하지 말 것
+<ul>
+<li>참조를 끊는다는 생각으로 설계하라</li>
+<li>GC에게 후딱 회수하라고 시킬 수 있긴함 (ForceGarbageCollection함수)</li>
+<li>콘텐츠 제작에서 Destroy함수 쓸 수 있으나 내부 동작은 동일함 (GC에게 위임하는 것)</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>직렬화 (Serialization)</summary>
+<p><b>직렬화란?</b></p>
+<ul>
+<li>복잡한 오브젝트 정보를 일렬로 정렬된 Byte Stream으로 변환하는 것</li>
+<li>일렬로 저장된 데이터를 오브젝트로 복구하는 작업까지 포함<b>(Deserialization)</b></li>
+<li><b>장점</b>
+<ul>
+<li>현재 프로세스 상태를 저장하고 필요한 때 복원 가능 (게임 저장)</li>
+<li>현재 객체 정보를 클립보드에 복사해 다른 프로세스에 전송 가능</li>
+<li>네트워크를 통해 현재 프로그램 상태를 다른 컴퓨터에 복원 가능 (멀티 플레이어 게임)</li>
+<li>직렬화 된 데이터는 압축, 암호화를 통해 효율적이고 안전하게 보관 가능</li>
+</ul>
+</li>
+</ul>
+<p>직렬화는 <b>일관성 있는 동작</b>을 만들기 위해 <b>다양한 상황을 고려</b>해야 한다.</p>
+<ul>
+<li><b>데이터 레이아웃 </b>: 오브젝트가 가지고 있는 데이터를 어떤식으로 일렬로 세울지 기획 필요</li>
+<li><b>이식성 </b>: 다른 시스템에 전송해도 똑같이 이식이 가능한지 고려</li>
+<li><b>버전 관리</b> : 새로운 기능을 만들면 데이터 레이아웃이 바뀌어 직렬화가 무효화 될 수 있음</li>
+<li><b>성능 </b>: 네트워크 비용을 줄이기 위해 어떤 데이터 형식을 사용할 것인가?</li>
+<li><b>보안 </b>: 다른 사람들이 이 데이터를 봤을 때 오염이 불가능하게</li>
+<li><b>에러 처리</b> : 전송 과정에서 문제가 발생할 경우 어떻게 인식하고 처리할지</li>
+</ul>
+<p>언리얼에서는 <b>FArchive 클래스</b>로 직렬화 기능을 제공하고 있다.</p>
+<ul>
+<li>
+<p>메모리에 전송하는 메모리 아카이브 (FMemoryReader, FMemoryWriter)</p>
+</li>
+<li>
+<p>파일 아카이브 (FArchiveFileReaderGeneric, FArchiveFileWriterGeneric)</p>
+</li>
+<li>
+<p>기타 언리얼 오브젝트와 관련된 아카이브 클래스 (FArchiveUObject)</p>
+</li>
+<li>
+<p>Json 직렬화 기능도 별도 라이브러리를 통해 제공하고 있다.</p>
+<ul>
+<li>
+<p><b>Json 직렬화</b>
+웹 환경에서 서버-클라가 데이터 주고받을 때 사용하는 텍스트 기반 데이터 포멧</p>
+</li>
+<li>
+<p>Json 장점</p>
+<ul>
+<li>텍스트임에도 데이터 크기 가벼움</li>
+<li>사람이 이해하기 편함</li>
+<li>웹표준으로 널리널리 사용중</li>
+</ul>
+</li>
+<li>
+<p>Json 단점</p>
+<ul>
+<li>
+<p>지원하는 타입이 적음 (string, number, bool, null, array, object only)
+ex ) 숫자가와도 이게 int인지 long 인지 그런거 모름</p>
+</li>
+<li>
+<p>텍스트 형식으로만 사용 가능
+가벼운 텍스트지만 서버같은곳에서는 극한의 성능을 요구하는 바가 있기 때문에</p>
+<p>무겁긴함</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>언리얼에서는 Json, JsonUtilities 라이브러리 사용한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/86d21730eea29c0921a2.png"/>
+<pre class="code-block"><code class="language-c++"><span class="cp">#include</span><span class="w"> </span><span class="cpf">"JsonObjectConverter.h"</span>
+<span class="p">...</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">JsonDataFileName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">"StudentJsonData.txt"</span><span class="p">));</span>
+<span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">JsonDataAbsolutePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FPaths</span><span class="o">::</span><span class="n">Combine</span><span class="p">(</span><span class="o">*</span><span class="n">SavedDir</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">JsonDataFileName</span><span class="p">);</span>
+<span class="w"> </span><span class="n">FPaths</span><span class="o">::</span><span class="n">MakeStandardFilename</span><span class="p">(</span><span class="n">JsonDataAbsolutePath</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// UEObj -&gt; JsonObj</span>
+<span class="w"> </span><span class="n">TSharedRef</span><span class="o">&lt;</span><span class="n">FJsonObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">JsonObjectSrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MakeShared</span><span class="o">&lt;</span><span class="n">FJsonObject</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 스키마(데이터 구조)를 알아야 하기때문에 클래스 정보 넘김, 인스턴스 넘김, dest JsonObj 넘김</span>
+<span class="w"> </span><span class="n">FJsonObjectConverter</span><span class="o">::</span><span class="n">UStructToJsonObject</span><span class="p">(</span><span class="n">std1</span><span class="o">-&gt;</span><span class="n">GetClass</span><span class="p">(),</span><span class="w"> </span><span class="n">std1</span><span class="p">,</span><span class="w"> </span><span class="n">JsonObjectSrc</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// build.cs 에서 모듈 포함 가능 </span>
+<span class="w"> </span><span class="c1">// 빌드 오류 발생!!!</span>
+<span class="p">}</span>
+</code></pre>
+<p>해당 코드에는 헤더만 include 되어있고 cpp파일은 모르기 때문에 라이브러리 연동해줘야한다.</p>
+<p>프로젝트.build.cs 파일에서 모듈(라이브러리)를 포함해야한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">PublicDependencyModuleNames</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">string</span><span class="p">[]</span><span class="w"> </span>
+<span class="p">{</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="s">"Json"</span><span class="p">,</span><span class="w"> </span><span class="s">"JsonUtilities"</span><span class="w"> </span><span class="p">});</span>
+</code></pre>
+</li>
+</ul>
+</details>
+<details>
+<summary>언리얼 스마트 포인터</summary>
+<img alt="" decoding="async" loading="lazy" src="../media/7ff3b1dc25ceaee79179.png"/>
+</details>
+<details>
+<summary>언리얼 오브젝트 패키지</summary>
+<p>단일 언리얼 오브젝트가 가진 정보는 저장할 수 있지만, 오브젝트들이 조합되어 있다면?</p>
+<p>(우리가 관리하는 클래스 만들어도 되지만~ 언리얼에서 제공한다.)</p>
+<p>언리얼 오브젝트는 이를 위해 <b>UPackage 단위</b>로 언리얼 오브젝트를 관리한다.</p>
+<p><b>언리얼 오브젝트는 패키지는 언리얼 오브젝트를 감싼 포장 오브젝트이다.</b></p>
+<p>(게임 패키징, pkg 파일과는 다르다)</p>
+<p><b>패키지와 애셋</b></p>
+<p>우리가 지금까지 만들어본 모든 언리얼 오브젝트는 UPackage에 소속되어있다.</p>
+<p><b>애셋 : 언리얼 오브젝트 패키지의 서브 오브젝트</b></p>
+<p>애셋은 다시 다수의 서브 오브젝트를 가질 수 있고 이들은 패키지에 포함된다.(에디터 노출 x)</p>
+<img alt="" decoding="async" loading="lazy" src="../media/fe88d5fee031507fd580.png"/>
+<p>구조상 패키지는 다수의 언리얼 오브젝트를 가질 수 있지만 일반적으로는 한개만 가진다.</p>
+<p>아래 사진의 <b><span>TopStudent가 AssetName</span></b>, <b><span>/Game/Student가 PackageName</span></b>이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/f6516a2eb34951153a1b.png"/>
+<h4 id="애셋-정보의-저장과-로딩-전략">애셋 정보의 저장과 로딩 전략</h4>
+<ul>
+<li>
+<p>게임 제작 단계에서 애셋 간의 연결 작업을 위해 직접 패키지를 불러 할당하는 작업은 부하가 크다.
+<img alt="" decoding="async" loading="lazy" src="../media/17c338a5128b82d5c244.png"/></p>
+<ul>
+<li>애셋로딩 대신 패키지와 오브젝트를 지정한 문자열을 대체해 사용 (오브젝트 경로)</li>
+<li>오브젝트 경로값은 유일값 보장</li>
+<li>오브젝트간의 연결은 오브젝트 경로 값으로 기록 가능</li>
+</ul>
+</li>
+<li>
+<p>애셋 로딩 전략</p>
+<ul>
+<li><b>프로젝트에서 애셋이 반드시 필요한 경우</b> : 생성자 코드에서 미리 로딩</li>
+<li><b>런타임에서 필요한 때 바로 로딩하는 경우</b> : 런타임 로직에서 정적 로딩
+<ul>
+<li>이 경우 다른 프로세스의 실행을 막는다 (게임 멈춤)</li>
+</ul>
+</li>
+<li><b>런타임에서 비동기적으로 로딩하는 경우</b> : 런타임 로직에서 관리자를 사용해 비동기 로딩</li>
+</ul>
+</li>
+</ul>
+<p><b>오브젝트 경로</b></p>
+<ul>
+<li>패키지 이름과 애셋 이름을 한 데 묶은 문자열</li>
+<li>애셋 클래스 정보는 생략 가능</li>
+<li>패키지 내 데이터를 모두 로드하지 않고 오브젝트 경로를 사용해 필요 애셋만 로드가능</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/1e01d533895c5029de66.png"/>
+<p><a href="https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/ProgrammingWithCPP/Assets/ReferencingAssets/">docs.unrealengine.com</a></p>
+<p><b>애셋 스트리밍 관리자 (Streamable Manager)</b></p>
+<ul>
+<li>애셋의 비동기 로딩을 지원하는 관리자 체계</li>
+<li>콘텐츠 제작과 무관한 싱글턴 클래스에 FStreamableManager를 선언해주면 좋음
+<ul>
+<li>GameInstance는 좋은 선택지</li>
+</ul>
+</li>
+<li>다수의 애셋 로딩 가능</li>
+</ul>
+</details>
+<details>
+<summary>언리얼 빌드 시스템</summary>
+<p><b>언리얼 에디터 구성</b></p>
+<ul>
+<li>에디터 : 게임 제작을 위해 제공되는 응용 프로그램 (일반적으로 인식하는 엔진)</li>
+<li>게임 빌드 : EXE파일과 리소스로 이루어진 독립적으로 동작하는 게임 클라이언트</li>
+</ul>
+<p>에디터에서 기획과 개발을 완료하고 게임 빌드를 통해 게임을 만든다.</p>
+<p><b>블루프린트 프로젝트</b></p>
+<ul>
+<li>c++ 코드가 없는 언리얼 프로젝트를 의미</li>
+<li>언리얼 엔진이 제공하는 기본 기능을 활용해 게임을 제작하는 프로젝트</li>
+<li>제작에 필요한 기능을 모듈이라는 단위로 제공</li>
+<li>엔진의 모듈을 상속받아 블루프린트를 활용해 모든 기능과 로직 구현</li>
+</ul>
+<p>프로젝트를 개발하다보면 프로젝트가 커질수록</p>
+<p>내 프로젝트에 필요한 모듈을 설계해서 c++모듈로 만들 필요가 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/1fb9e04ca118392cf307.png"/>
+<p><b>언리얼 c++ 모듈</b></p>
+<ul>
+<li>언리얼 엔진의 소스코드는 모두 모듈 단위로 구성되어 있다.</li>
+<li>모듈을 컴파일해서 에디터,게임에 제작한 로직 공급 가능</li>
+</ul>
+<p>c++소스를 컴파일한 결과물은 아래와 같이 사용된다.</p>
+<p><b>에디터 : DLL동적 라이브러리</b></p>
+<p><b>게임 : 정적 라이브러리</b></p>
+<p><b>모듈 추가방법</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/7249c9066ee01ab05a96.png"/>
+</details>
+<hr/>
+<h3 id="기타">기타</h3>
+<details>
+<summary>프로젝트 레이어</summary>
+<img alt="" decoding="async" loading="lazy" src="../media/0a364ea7511ce73ed35f.png"/>
+<p>ex) 아이템을 먹었을때 캐릭터한테 특정 행동을 수행하라고 명령을 내리는 것은 인터페이스로 구현한다.</p>
+</details>
+<details>
+<summary>소프트레퍼런싱 vs 하드레퍼런싱</summary>
+<ul>
+<li>
+<p>액터 로딩시 TObjectPtr로 선언한 멤버변수 언리얼 오브젝트도 따라 메모리에 로딩됨
+⇒ <b>이게 하드 레퍼런싱임</b></p>
+</li>
+<li>
+<p>기본 클래스에 반드시 필수적인 오브젝트면 상관없지만 아이템은 먹으면 동적할당 하면 됨</p>
+</li>
+<li>
+<p>이를 위해 필요한 데이터만 로딩하도록 TSoftObjectPtr로 선언하고 애셋 주소 문자열을 지정</p>
+</li>
+<li>
+<p>애셋 로딩시간이 소요되긴하나 필요시에만 애셋을 로딩할수 있음</p>
+</li>
+</ul>
+<img alt="" decoding="async" loading="lazy" src="../media/3c00aa885a212e9dc011.png"/>
+</details>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html"><small>이전 글</small>프로젝트 폴더 구조</a><a href="%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html"><small>다음 글</small>기본 타입과 문자열</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

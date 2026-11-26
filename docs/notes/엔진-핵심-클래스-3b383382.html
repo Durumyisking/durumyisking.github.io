@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / 게임플레이 프레임워크 / 엔진 핵심 클래스">
+  <title>엔진 핵심 클래스 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details open><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html" aria-current="page">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>게임플레이 프레임워크</li></ol>
+        </nav>
+        <article class="article">
+          <h1>엔진 핵심 클래스</h1>
+          <div class="article-body"><p><a href="https://www.notion.so/3b38338216a880dcb01be147392f5bf5">프레임워크란?</a> <br/>위 문서에 따르면 Tick은 클래스들이 생성되어 있어야된다. 그러니까 클래스 생성부터 알아보자</p>
+<hr/>
+<img alt="" decoding="async" loading="lazy" src="../media/5f8523d6c51a5da4e158.png"/>
+<details>
+<summary>UObject</summary>
+<blockquote>
+<p>언리얼 엔진 내에서 관리할 클래스의 최상위 클래스</p>
+</blockquote>
+</details>
+<details>
+<summary>UEngine</summary>
+<blockquote>
+<p>UEngine클래스는 UE의 <b>운영체제</b>이다.</p>
+</blockquote>
+<p>UEngine는 UE시스템 전체의 관리자</p>
+<img alt="" decoding="async" loading="lazy" src="../media/32ceaf09a3434a2d714d.png"/>
+<p>이 화면은 UEngine을 상속받은 UEditorEngine클래스로 생성된 화면이다.<br/>UEngine은 UE에서 일어나는 모든 일을 관리한다.</p>
+</details>
+<details>
+<summary>UGameInstnace</summary>
+<blockquote>
+<p>UGameInstnace클래스는 <b>Engine</b>의 <b>Process</b>이다.</p>
+</blockquote>
+<p>Engine이 UE시스템 전체의 관리자였다면 GameInstance는 <b>게임의 관리자</b>이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/0dd3f31bb35e2fd8caa8.png"/>
+<p>이 화면은 GameInstance가 담당하는 게임플레이 화면이다.<br/></p>
+<img alt="" decoding="async" loading="lazy" src="../media/b000c12071b142c190fc.png"/>
+<p>PIE 뷰포트 상단바인데 저기서 실행버튼을 누르면 <b>GameInstance가 하나 생기는 것</b>이다.<br/>반대로 실행 후 게임을 끄면 해당 게임을 끄는 것이다 ⇒ <b>엔진에는 아무런 영향이 없다!</b></p>
+<p>만약 Engine과 Game이 한몸이었다면 게임 끌때마다 엔진도 다시 켰어야 했을 것</p>
+<p><img alt="윈도우가 프로그램을 한번에 여러개 킨것처럼 GameInstnace가 3개가 켜져있는 상황이다." decoding="async" loading="lazy" src="../media/8b20e36b6ccd6951861c.png"/><br/><em>윈도우가 프로그램을 한번에 여러개 킨것처럼 GameInstnace가 3개가 켜져있는 상황이다.</em></p>
+<aside class="callout">
+<p>근데 이게 왜? 당연한거 아니야?</p>
+</aside>
+<p>맞워요 그런데 이게 왜 중요하냐면~~<br>만약 int a = 10이라는 변수를 Engine에 선언했다고 해보자</br></p>
+<img alt="" decoding="async" loading="lazy" src="../media/9b11894f9fef9184f125.png"/>
+<p>그럼 이렇게 쓰레드마냥 한 변수를 여러 게임에서 접근이 가능한 것이다.<br/>편의성도 있지만 엔진단을 구분이 명확하지 않으면 이런 문제가 생길 수 있다.</p>
+<p>그래서 쉽게 말하면</p>
+<p><b>엔진에는 엔진기능! 게임인스턴스에는 게임기능!</b>을 넣는다는 뜻</p>
+<img alt="" decoding="async" loading="lazy" src="../media/35e94d79aa8b05b71468.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/aa941b330f2e316e0777.png"/>
+<p>PIE를 여러개 키면 이렇게 된다.</p>
+</details>
+<details>
+<summary>UWorld</summary>
+<blockquote>
+<p>UWorld클래스는 <b>게임 속의 지구</b>이다.</p>
+</blockquote>
+<p><b>월드 안에는 여러개 레벨이 존재 가능하다.</b></p>
+<p>단 PersistenceLevel은 단 하나만 존재 가능하고, 다른 레벨들은 로드되거나 언로드 된다고해서 월드의 생명주기에 영향을 미치지 않는다.</p>
+<hr/>
+<p><b>언리얼 게임 월드 내 로직은 하나의 씬에서 처리되지 않는다.</b></p>
+<p>우리가 영화를 찍는다고할때 한개의 세트장에서 기획부터 촬영, 특수효과, 편집까지 다 한다고 생각해보자</p>
+<img alt="" decoding="async" loading="lazy" src="../media/fff64188623fe6a3b822.png"/>
+<p>그래서 이렇게 메인세트장, 전투 세트장, vfx세트장등을 나눠서 처리한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/39da19ff9ebc77983161.png"/>
+<p>언리얼도 이렇게 세트장들이 나누어져있다. (다양한 역할의 World들이 있다.)</p>
+<p>언리얼의 <b>메인 세트장은 Game World</b>라고 부른다.<br/>게임의 흐름, 행동 규칙등 게임의 모든것을 총괄하는 월드이다.</p>
+<p><b>물리적인 연산</b>이 이루어지는 <b>Physics Scene</b>가 있다.<br/>엔진 내에서 이루어지는 모든 물리연산은 이곳에서 이루어지고 <b><span>연산량이 가장 높다</span></b>.</p>
+<p>게임의 모든 그래픽적인 요소와 플레이어의 화면에 보여줄것을 그려내는 <b>Render Scene</b>가 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/548acdacc7d0f9766a99.png"/>
+<p>각 세트장에는 Staff들이 필요하다.</p>
+<ul>
+<li>Game World에서는 감독</li>
+<li>PhysicsWorld에서는 물리 연산하는 Staff</li>
+<li>Render World에서는 씬을 촬영하는 Staff이 필요할 것이다.</li>
+</ul>
+<p>이 <b>Staff들을 Thread</b>라고 부른다.</p>
+<p>즉 쓰레드가 GameWorld에서는 감독으로 일하고, 다른월드에서는 그 월드에 맞는 일을하게 된다.</p>
+<aside class="callout">
+<p>만약 쓰레드가 혼자서 각 Wolrd들을 방문하면서 일을 처리한다면??</p>
+</aside>
+<p>⇒ 당연히 일손이 부족할 것이고 Cpu처리 속도가 떨어지게 될 것이다</p>
+<p>그래서 각 World에 전용 쓰레드들을 배치한다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/704dc5d12f904cb3f1f7.png"/>
+<p>즉 <b>언리얼 엔진은 멀티쓰레드 환경</b>으로 돌아간다는 것이다.</p>
+</details>
+<details>
+<summary>ULevel</summary>
+<blockquote>
+<p>ULevel클래스는 <b>지구 속의 나라</b>이다.</p>
+</blockquote>
+<p>여담이지만 예전에는 최적화를 위해서 Static한 Object들만 모아놓은 Level과 Dynamic한 Object들만 모아놓은 Level을 따로 관리해서 최적화를 했다는데 (Static한애들은 Light같은거 bake했겠지)</p>
+<p><b>요즘엔 WorldPartition을 사용</b>하는 방식을 더 자주사용한다 (얘가 패러다임을 많이 바꿨다고 함)</p>
+</details>
+<details>
+<summary>AActor</summary>
+<blockquote>
+<p><b>World에 배치할 수 있는 최소단위</b></p>
+</blockquote>
+<p>UObject는 Transform정보가 없어서 World에 배치할 수 없고, World의 생명주기와도 무관하다<br/>UObject는 자신의 모습을 스스로 형상화 할 수 없다</p>
+<p>AActor클래스는 World의 생명주기와 연관되어있고, Transform 정보가(SceneComponent) 있으니까 월드에 배치할 수 있다.</p>
+<p><b>개념적으로만 보면 그냥 Actor은 UObject에 SceneComponent를 붙인것이다.</b></p>
+<p>SceneComponent계열은 Transform정보를 가지고 있어서 Actor의 RootComponent로 사용이 가능하고, 없는경우 엔진에서 강제로 SceneComponent를 만들어서 Root로 설정한다.</p>
+<p>이 <b>AActor를 상속받으면 클래스 접두사에 A를 붙인다</b>.</p>
+</details>
+<details>
+<summary>AGameMode</summary>
+<blockquote>
+<p><b>World의 관리자</b>이다.</p>
+</blockquote>
+<p>보통 게임의 규칙을 담당하는 클래스로 알고있는데 그건 클라이언트 구현단위에서의 관점이고<br/>엔진에서는 <b>World의 관리자 역할</b>을 하고있다. (애초에 규칙은 관리자만 정할 수 있다.)</p>
+<p>그렇기 때문에 <b>본인이 생성된 World에서만 관리될 수 있도록 Actor형태로 존재</b>한다.</p>
+<p>GameMode는 월드에 단일 객체로 존재한다<br/>만약 서버가 있으면  Host의 월드만 이 GameMode를 가지고 있다.</p>
+</details>
+<details>
+<summary>AGameState</summary>
+<blockquote>
+<p>GameState는 <b>게임의 상태</b>이자 GameMode정보 전달자이다.</p>
+</blockquote>
+<p>이 개념 이해를 위해서는 Dedicate개념을 알아야한다</p>
+<img alt="" decoding="async" loading="lazy" src="../media/13dddcfc2df288dfd29b.png"/>
+<p>위에서 말했듯이 GameMode는 Server에만 존재한다. 그럼 Client들은 어떻게 게임 규칙을 알 수 있을까?<br/><br/>이 문제를 GameState가 해결한다.<br/><b>GameState는 Host</b>에 존재하고 <b>Client들은 그것의 복제본을 소유</b>한다.</p>
+<ul>
+<li>서버 GameState: 실제 상태를 변경하는 권한을 가짐</li>
+<li>클라이언트 GameState: 서버로부터 복제된 상태를 읽고 UI 등에 사용</li>
+</ul>
+<p>왜냐하면 <b>GameMode는 관리자</b>인데 각 클라이언트에서 GameMode에 접근해 수정할수 있으면 모든 클라이언트가 관리자가 되어버린다.</p>
+<p>GameState에서 Replication을 킨 프로퍼티들은 Client들의 GameState로 복제된다.</p>
+</details>
+<details>
+<summary>APlayerController</summary>
+<blockquote>
+<p>World세상의 나를 대변한다.</p>
+</blockquote>
+<p>APlayerController는 형태가 없지만 ‘<i><b>World</b></i>’세상의 나를 대변하기위해 Actor를 상속받는다.</p>
+<p>왜 이름이 컨트롤러냐? ⇒ 우리 게임할때도 컨트롤러만으로는 아무것도 할 수 없잖아 그래서 내가 어떤걸 조종할래! 라고 설정하고 그걸 컨트롤 하는것이다.</p>
+<p>UE에서는 APlayerController가 <b>조종하고싶은 대상의 최소 단위를 APawn</b><br/>APawn을 <b>선택(빙의)하는 행위를 Possess</b>라고 한다.</p>
+<p>따라서 Controller는 Pawn과 종속이 깊다는것을 알 수 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/46953704ae3c97f3d47f.png"/>
+<p>사진처럼 Pawn1,2가 있을때 Controller는 Pawn만 갈아타는 방식으로 빙의 대상을 바꿀 수 있다.</p>
+<details>
+<summary>APlayerCameraManager (Pawn → Controller)</summary>
+<p>UCameraComponent에게 데이터를 받는다.</p>
+<p>Pawn에는 자식으로 Camera들이 붙어있을것이다.<br/>그럼 플레이어 화면에는 어떤 Pawn의 카메라로 화면을 렌더링 할 것인가???</p>
+<p>답은 간단하다 : 빙의중인 Pawn의 Camera로 렌더링하면 된다.</p>
+<aside class="callout">
+<p>그럼 왜? Pawn으로부터 데이터를 받을까?</p>
+</aside>
+<p>이것에대한 답변도 간단하다.</p>
+<p>Pawn에 붙어있는 카메라의 Transform이나 연출같은건 무궁무진 할 것이다.<br/>근데? 이것을 Controller가 다 들고있는거는 상상하고 싶지 않다;;</p>
+</details>
+<details>
+<summary>UPlayerInput (Controller → Pawn)</summary>
+<blockquote>
+<p><b>게임의 매 틱마다 Input을 했다는 사실을 알려준다.</b></p>
+</blockquote>
+<p>UInputComponent에게 데이터를 넘겨준다.</p>
+<p>이것도 당연하다.</p>
+<p>맥크리는 좌클릭때 총을 쏠 것이고, 스타크래프트는 좌클릭때 오브젝트을 선택할 것이다.</p>
+<p>이건 Controller가 아니라 Pawn마다 다른 데이터이다.<br/>따라서 Controller의 PlayerInput은 Pawn의 InputComponent에 어떤 함수들이 바인딩 되어있는지 알 필요가 없다.</p>
+<p>InputComponent에 어떤 키를 눌렀는지만 알려주면 그 이후는 Component가 알아서 일 할 것이다.</p>
+</details>
+</details>
+<details>
+<summary>APlayerState</summary>
+<blockquote>
+<p>PlayerState는 <b>플레이어의 상태</b>이자 PlayerController정보 전달자이다</p>
+</blockquote>
+<p>얘도 네트워크 게임에서 사용되는 내용이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/453b4781c6a28c9b2f6e.png"/>
+<p>사진같은 상황은 있을수는 있지만 일반적이지는 않다.<br/>왜냐하면 이럼 2번컨트롤러가 A와 B를 같이 움직일것이다.</p>
+<p>그래서 <b>네트워크상에서는 상대방의 Controller으로의 접근을 막아</b>놨을 것이다.<br/>(Private한 데이터는 Controller에 Public한 데이터는 ReadOnly로 PlayerState에)<br/>하지만 <b>B는 A의 Hp와 Mp를 알아야 </b>UI에 해당 정보들을 띄울 수 있을 것이다.</p>
+<p>이때 사용되는게 <b>PlayerState</b>이다.</p>
+<p>싱글에서는 딱히 쓸 일 없당</p>
+</details>
+<details>
+<summary>APawn</summary>
+<blockquote>
+<p>APawn은 <b>Controller에게 빙의되서 조종당하는</b> Actor이다.</p>
+</blockquote>
+<details>
+<summary>UCameraComponent (Pawn → Controller)</summary>
+<p>APlayerCameraManager에게 데이터를 넘겨준다.</p>
+</details>
+<details>
+<summary>UInputComponent (Controller → Pawn)</summary>
+<blockquote>
+<p><b>Input과 함수를 Bind한다.</b></p>
+</blockquote>
+<p>UPlayerInput에게 데이터를 받는다.</p>
+<p><img alt="함수와 바인딩하는 코드…" decoding="async" loading="lazy" src="../media/e95b1a3f418ab3c63cdc.png"/><br/><em>함수와 바인딩하는 코드…</em></p>
+</details>
+</details>
+<details>
+<summary>ULocalPlayer</summary>
+<blockquote>
+<p>진짜 나 자신!</p>
+</blockquote>
+<p>얘는 액터가 아니다! ⇒ <b>월드의 생명주기와 무관</b>하다!<br>PlayerController도 나 자신을 대변하지만 PC는 월드가 바뀌면 재생성된다.</br></p>
+<p>로컬플레이어는 GameInstance간 나를 대변한다.</p>
+<p>즉 LocalPlayer는 Engine Level, PlayerController는 World Level이다.</p>
+</details>
+<details>
+<summary>UGameViewportClient</summary>
+<blockquote>
+<p><b>게임 화면이 표시되는 뷰포트와 엔진 사이의 관리자/중계자</b></p>
+</blockquote>
+<img alt="" decoding="async" loading="lazy" src="../media/5fc4c54771f1b1849b49.png"/>
+<p>말그대로 뷰포트를 담당한다. 모니터라고 부르는게 맞는거같음</p>
+<p>그런데 렌더링만 한다는것은 아니고 멀티플랫폼에서의 인풋, 사운드 등의 처리를 한다고한다.</p>
+<h5 id="input-ugameviewportclient-ulocalplayer-uplayerinput">Input (<b>UGameViewportClient → ULocalPlayer → UPlayerInput)</b></h5>
+<img alt="" decoding="async" loading="lazy" src="../media/dc07d1e12aa09565b8b3.png"/>
+<p>예를들어 키보드 W를 누르면<br/>→ 운영체제 → 언리얼 게임 Window → UGameViewportClient → PlayerController → 캐릭터가 앞으로 이동</p>
+<h5 id="rendering-ucameramanager-ulocalplayer-ugameviewportclient">Rendering (<b>UCameraManager → ULocalPlayer → UGameViewportClient )</b></h5>
+<img alt="" decoding="async" loading="lazy" src="../media/6e29d210390a3e3017c4.png"/>
+</details>
+<hr/>
+<h3 id="추가-메모">추가 메모</h3>
+<details>
+<summary>CameraComponent → GameViewportClient 과정</summary>
+<blockquote>
+<p><code>UCameraComponent</code>가 화면을 직접 그리는 것이 아니다.</p>
+<p>카메라 후보 정보를 만들고, <code>UPlayerCameraManager</code>가 최종 카메라를 확정한다.</p>
+<p><code>ULocalPlayer</code>가 그 카메라를 실제 화면 크기에 맞는 렌더링 데이터로 바꾸고,</p>
+<p><code>UGameViewportClient</code>가 모든 플레이어의 화면을 모아서 렌더러에 넘긴다.</p>
+</blockquote>
+<pre class="code-block"><code class="language-mermaid">flowchart TD
+    subgraph A["1. 카메라 갱신 단계"]
+        Pawn["Pawn / SpringArm 이동"] --&gt; CC["CameraComponent&lt;br/&gt;카메라 후보 정보"]
+        PC["PlayerController"] --&gt; PCM["PlayerCameraManager"]
+        PCM --&gt;|"CalcCamera 요청"| CC
+        CC --&gt;|"FMinimalViewInfo"| PCM
+        PCM --&gt; FINAL["최종 카메라 POV 캐시"]
+    end
+
+    subgraph B["2. 화면 생성 단계"]
+        GVC["GameViewportClient::Draw"] --&gt; LP["ULocalPlayer::CalcSceneView"]
+        LP --&gt;|"최종 POV 요청"| FINAL
+        LP --&gt; VIEW["FSceneView&lt;br/&gt;카메라 + 화면 영역 + 투영행렬"]
+        VIEW --&gt; FAMILY["FSceneViewFamily"]
+        FAMILY --&gt; RENDERER["Renderer → Render Thread → GPU"]
+    end
+</code></pre>
+<h3 id="1-ucameracomponent가-하는-일">1. <code>UCameraComponent</code>가 하는 일</h3>
+<p><code>CameraComponent</code>는 쉽게 말하면 <b>카메라의 위치와 렌즈 설정을 보관하는 부품</b></p>
+<details>
+<summary><b>FMinimalViewInfo</b> (위치 회전 시야각 등 카메라 뷰 정보를 담는다)</summary>
+<pre class="code-block"><code class="language-c++"><span class="n">카메라</span><span class="w"> </span><span class="n">위치</span>
+<span class="n">카메라</span><span class="w"> </span><span class="n">회전</span>
+<span class="n">FOV</span>
+<span class="n">원근</span><span class="o">/</span><span class="n">직교</span><span class="w"> </span><span class="n">투영</span><span class="w"> </span><span class="n">방식</span>
+<span class="n">종횡비</span>
+<span class="n">Ortho</span><span class="w"> </span><span class="n">Width</span>
+<span class="n">Post</span><span class="w"> </span><span class="n">Process</span><span class="w"> </span><span class="n">설정</span><span class="w"> </span><span class="n">등등</span>
+<span class="n">USTRUCT</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FMinimalViewInfo</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_USTRUCT_BODY</span><span class="p">()</span>
+<span class="w"> </span><span class="cm">/** Location */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FVector</span><span class="w"> </span><span class="n">Location</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Rotation */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FRotator</span><span class="w"> </span><span class="n">Rotation</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The horizontal field of view (in degrees) in perspective mode (ignored in orthographic mode). */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">FOV</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The originally desired horizontal field of view before any adjustments to account for different aspect ratios */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Transient</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">DesiredFOV</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The horizontal field of view (in degrees) used for primitives tagged as "IsFirstPerson". */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">FirstPersonFOV</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The scale to apply to primitives tagged as "IsFirstPerson". This is used to scale down primitives towards the camera such that they are small enough not to intersect with the scene. */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">FirstPersonScale</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The desired width (in world units) of the orthographic view (ignored in Perspective mode) */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">OrthoWidth</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Option for the Ortho camera to automatically calculated the near/far plane */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bAutoCalculateOrthoPlanes</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Manually adjusts the planes of this camera, maintaining the distance between them. Positive moves out to the farplane, negative towards the near plane */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AutoPlaneShift</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Adjusts the near/far planes and the view origin of the current camera automatically to avoid clipping and light artefacting*/</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bUpdateOrthoPlanes</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** If UpdateOrthoPlanes is enabled, this setting will use the cameras current height to compensate the distance to the general view (as a pseudo distance to view target when one isn't present) */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bUseCameraHeightAsViewTarget</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The near plane distance of the orthographic view (in world units) */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Interp</span><span class="p">,</span><span class="w"> </span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">OrthoNearClipPlane</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The far plane distance of the orthographic view (in world units) */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Interp</span><span class="p">,</span><span class="w"> </span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">OrthoFarClipPlane</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** The near plane distance of the perspective view (in world units). Set to a negative value to use the default global value of GNearClippingPlane */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Interp</span><span class="p">,</span><span class="w"> </span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">PerspectiveNearClipPlane</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// Aspect Ratio (Width/Height)</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">AspectRatio</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// Aspect ratio axis constraint override</span>
+<span class="w"> </span><span class="n">TOptional</span><span class="o">&lt;</span><span class="n">EAspectRatioAxisConstraint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AspectRatioAxisConstraint</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// If bConstrainAspectRatio is true, black bars will be added if the destination view has a different aspect ratio than this camera requested.</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">bConstrainAspectRatio</span><span class="o">:</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w"> </span><span class="c1">// If bUseFirstPersonParameters is true, FirstPersonFOV and FirstPersonScale should be applied to primitives tagged as "IsFirstPerson".</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">bUseFirstPersonParameters</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// If true, account for the field of view angle when computing which level of detail to use for meshes.</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">AdvancedDisplay</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">CameraSettings</span><span class="p">)</span>
+<span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">bUseFieldOfViewForLOD</span><span class="o">:</span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// The type of camera</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TEnumAsByte</span><span class="o">&lt;</span><span class="n">ECameraProjectionMode</span><span class="o">::</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ProjectionMode</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Indicates if PostProcessSettings should be applied. */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">PostProcessBlendWeight</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Post-process settings to use if PostProcessBlendWeight is non-zero. */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">FPostProcessSettings</span><span class="w"> </span><span class="n">PostProcessSettings</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Off-axis / off-center projection offset as proportion of screen dimensions */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">Transient</span><span class="p">,</span><span class="w"> </span><span class="n">VisibleInstanceOnly</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="n">FVector2D</span><span class="w"> </span><span class="n">OffCenterProjectionOffset</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Optional transform to be considered as this view's previous transform */</span>
+<span class="w"> </span><span class="n">TOptional</span><span class="o">&lt;</span><span class="n">FTransform</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PreviousViewTransform</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/** Resolution fraction that scales with the amount of overscan added to the view */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">)</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">OverscanResolutionFraction</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="cm">/** The fraction between 0.0 and 1.0 of the view to crop to during the final post process upscale, with 1.0 meaning no crop */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">ClampMin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">UIMin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">ClampMax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">UIMax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">CropFraction</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">	 * Experimental: The fraction for each edge between 0.0 and 1.0 of the view to crop to during the final post process upscale, with 1.0 meaning no crop.</span>
+<span class="cm">	 * By convention, X is the left edge, Y is the right edge, Z is the top edge, and W is the bottom edge. Stacks with uniform CropFraction.</span>
+<span class="cm">	 */</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="n">Camera</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">ClampMin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">UIMin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">ClampMax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">UIMax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="w"> </span><span class="n">FVector4f</span><span class="w"> </span><span class="n">AsymmetricCropFraction</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w"> </span><span class="cm">/** The amount of overscan that has been applied to the view's frustum, with 0.0 meaning no overscan and 1.0 meaning 100% overscan */</span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Overscan</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">	 * Experimental: The amount of asymmetric overscan that has been applied to the view's frustum, with 0.0 meaning no overscan and 1.0 meaning 100% overscan.</span>
+<span class="cm">	 * By convention, X is the left overscan, Y is the right overscan, Z is the top overscan, and W is the bottom overscan. Stacks with uniform Overscan.</span>
+<span class="cm">	 */</span>
+<span class="w"> </span><span class="n">FVector4f</span><span class="w"> </span><span class="n">AsymmetricOverscan</span><span class="p">;</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// Only used for Ortho camera auto plane calculations, tells the Near plane of the extra distance that needs to be added.</span>
+<span class="w"> </span><span class="n">FVector</span><span class="w"> </span><span class="n">CameraToViewTarget</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</details>
+<p><b>CameraManager가 이 데이터를 가져와서 사용합니다</b>.</p>
+<h3 id="2-aplayercameramanager가-하는-일">2. <code>APlayerCameraManager</code>가 하는 일</h3>
+<p><code>PlayerCameraManager</code>는 <b>해당 플레이어가 이번 프레임에 실제로 사용할 최종 카메라를 결정</b>합니다.</p>
+<p>일반적으로 <code>PlayerController</code> 하나마다 <code>PlayerCameraManager</code> 하나가 있습니다.</p>
+<p>주요 역할은 다음과 같습니다.</p>
+<pre class="code-block"><code class="language-txt">현재 ViewTarget 결정
+CameraComponent의 기본 카메라 정보 가져오기
+카메라 전환 블렌딩
+Camera Shake 적용
+Camera Modifier 적용
+FOV 변경
+Post Process 혼합
+최종 위치와 회전 확정
+최종 POV 캐싱
+</code></pre>
+<p>매 프레임 액터들의 Tick이 끝난 뒤 대략 다음 순서로 호출됩니다.</p>
+<pre class="code-block"><code class="language-txt">// 호출 스택이다.
+APlayerController::UpdateCameraManager()
+→ APlayerCameraManager::UpdateCamera()
+→ APlayerCameraManager::UpdateViewTarget()
+→ ViewTarget Actor::CalcCamera()
+→ UCameraComponent::GetCameraView()
+</code></pre>
+<p><code>PlayerCameraManager::UpdateCamera()</code>는 다른 액터의 Tick이 끝난 뒤 매 프레임 호출됩니다.</p>
+<h4 id="cameracomponent가-항상-사용되는-것은-아님">🤨CameraComponent가 항상 사용되는 것은 아님</h4>
+<p>보통 ViewTarget Actor의 활성화된 CameraComponent를 찾지만 예외도 있습니다.</p>
+<pre class="code-block"><code class="language-txt">Actor가 CalcCamera()를 직접 오버라이드
+CameraComponent가 없는 Actor 사용
+특수 카메라 시스템 사용
+시네마틱 카메라 사용
+</code></pre>
+<p>즉, 정확한 구조는:</p>
+<pre class="code-block"><code class="language-txt">PlayerCameraManager
+→ ViewTarget Actor에게 카메라 계산 요청
+→ Actor가 CameraComponent를 사용할 수도 있음
+</code></pre>
+<h3 id="3-ulocalplayer가-하는-일">3. <code>ULocalPlayer</code>가 하는 일</h3>
+<p><code>ULocalPlayer</code>는 <b>최종 카메라 정보를 실제 화면에 맞는 렌더링 뷰로 변환</b>합니다.</p>
+<p>다음 둘은 서로 다른 개념입니다.</p>
+<pre class="code-block"><code class="language-txt">PlayerController
+= 월드 안에서 플레이어를 조종하는 Actor
+
+ULocalPlayer
+= 이 컴퓨터에서 플레이 중인 로컬 플레이어 객체
+</code></pre>
+<p><code>ULocalPlayer</code>는 다음 관계를 연결합니다.</p>
+<pre class="code-block"><code class="language-txt">PlayerController의 카메라
+↕
+게임 창 안에서 해당 플레이어가 사용할 화면 영역
+</code></pre>
+<p>렌더링할 때 <code>UGameViewportClient</code>가 다음과 비슷한 함수를 호출합니다.</p>
+<pre class="code-block"><code class="language-txt">LocalPlayer-&gt;CalcSceneView(
+    ViewFamily,
+    ViewLocation,
+    ViewRotation,
+    Viewport,
+    ViewDrawer,
+    StereoViewIndex
+);
+</code></pre>
+<p><code>ULocalPlayer::CalcSceneView()</code>는 다음 작업을 합니다.</p>
+<ol>
+<li>PlayerController/PlayerCameraManager에서 최종 POV를 가져옵니다.</li>
+<li>자신에게 할당된 화면 영역을 계산합니다.</li>
+<li>화면 종횡비를 계산합니다.</li>
+<li>FOV와 화면 크기를 이용해 투영행렬을 만듭니다.</li>
+<li>최종 <code>FSceneView</code>를 생성합니다.</li>
+</ol>
+<h4 id="왜-cameramanager가-직접-하면-안-될까">왜 CameraManager가 직접 하면 안 될까?</h4>
+<p>CameraManager는 카메라의 위치와 렌즈 정보는 알지만, 그 카메라가 게임 창의 어느 부분에 표시될지는 모릅니다.</p>
+<p>예를 들어 2인 분할 화면이라면:</p>
+<pre class="code-block"><code class="language-txt">전체 게임 창: 1920 × 1080
+
+LocalPlayer 0: 왼쪽 960 × 1080
+LocalPlayer 1: 오른쪽 960 × 1080
+</code></pre>
+<p>두 플레이어의 CameraManager는 각자의 최종 카메라를 계산합니다.</p>
+<p>하지만 화면을 어디에 배치할지는 <code>UGameViewportClient</code>와 <code>ULocalPlayer</code> 영역입니다.</p>
+<pre class="code-block"><code class="language-txt">CameraManager
+= 어디에서 어느 방향으로 볼 것인가?
+
+ULocalPlayer
+= 그 장면을 화면의 어느 영역에 어떤 투영으로 표시할 것인가?
+</code></pre>
+<h3 id="4-ugameviewportclient가-하는-일">4. <code>UGameViewportClient</code>가 하는 일</h3>
+<p><code>UGameViewportClient</code>는 <b>게임 창 전체의 렌더링을 지휘하는 관리자</b>입니다.</p>
+<p>일반적으로 게임 인스턴스 하나당 하나가 존재합니다.</p>
+<p>매 프레임 <code>UGameViewportClient::Draw()</code>에서 대략 다음 작업을 수행합니다.</p>
+<pre class="code-block"><code class="language-txt">1. 현재 게임 창의 크기 확인
+2. 분할 화면 배치 계산
+3. FSceneViewFamily 생성
+4. 각각의 ULocalPlayer에게 FSceneView 생성 요청
+5. 모든 FSceneView를 FSceneViewFamily에 추가
+6. 렌더러에 ViewFamily 전달
+7. HUD, Canvas, 디버그 표시 등을 처리
+</code></pre>
+<p>대략적인 코드 형태로 표현하면 다음과 같습니다.</p>
+<pre class="code-block"><code class="language-txt">void UGameViewportClient::Draw(
+    FViewport* Viewport,
+    FCanvas* SceneCanvas)
+{
+    LayoutPlayers();
+
+    FSceneViewFamilyContext ViewFamily(...);
+
+    for (ULocalPlayer* LocalPlayer : LocalPlayers)
+    {
+        FSceneView* View =
+            LocalPlayer-&gt;CalcSceneView(
+                &amp;ViewFamily,
+                ViewLocation,
+                ViewRotation,
+                Viewport,
+                nullptr,
+                INDEX_NONE
+            );
+
+        // 생성된 View는 ViewFamily에 포함됨
+    }
+
+    FinalizeViews(&amp;ViewFamily, PlayerViewMap);
+
+    Renderer-&gt;BeginRenderingViewFamily(
+        SceneCanvas,
+        &amp;ViewFamily
+    );
+}
+</code></pre>
+<p>실제 구현은 더 복잡하지만 역할을 이해하기에는 이 형태가 핵심입니다.</p>
+</details>
+<hr/>
+<h3 id="정리">정리</h3>
+<img alt="" decoding="async" loading="lazy" src="../media/2cddb8e18e0c57f27489.png"/>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html"><small>이전 글</small>게임플레이 프레임워크 개요</a><a href="%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html"><small>다음 글</small>씬·프리미티브 컴포넌트</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

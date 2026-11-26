@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / Lyra 구조 분석 / Experience">
+  <title>Experience | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details open><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html" aria-current="page">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>Lyra 구조 분석</li></ol>
+        </nav>
+        <article class="article">
+          <h1>Experience</h1>
+          <div class="article-body"><hr/>
+<p>언리얼에서 게임 규칙은 대게 게임 모드에서 관리한다<br/>예를들어 FPS게임에서 AOS게임으로 모드를 전환한다고 할 때 보통은 게임 모드를 변환한다.</p>
+<p>하지만 언리얼엔진의 게임모드는 무겁다.<br/>GameModeBase를 상속받아도 게임모드의 변경이 무겁다고 한다</p>
+<p>그래서 <b>라이라에서는 1개의 GameMode만 사용한다.</b></p>
+<p>라이라에서는 모드를 변경하고싶을때 Experience라는 것을 변경함으로써 이를 실현시킨다.</p>
+<p><b>Experience : 게임 모드를 대체하는 작은 게임모드</b></p>
+<hr/>
+<p>Experience는<b> </b>UPrimaryDataAsset을 상속받아서 만든다.<br/></p>
+<p>아래는 유저가 처음 맞이할 Experience다</p>
+<p><b>ULCUserFacingExperience.h</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LYRACLONE_API</span><span class="w"> </span><span class="n">ULCUserFacingExperience</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UPrimaryDataAsset</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="s">"Experience"</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="p">(</span><span class="n">AllowedType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Map"</span><span class="p">))</span>
+<span class="w"> </span><span class="n">FPrimaryAssetId</span><span class="w"> </span><span class="n">MapID</span><span class="p">;</span><span class="w"> </span><span class="c1">// Key Value 맵 말고 진짜 그 게임 맵ID</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span><span class="w"> </span><span class="n">EditAnywhere</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Experience"</span><span class="p">,</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">AllowedType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"LCExperienceDefinition"</span><span class="p">))</span>
+<span class="w"> </span><span class="n">FPrimaryAssetId</span><span class="w"> </span><span class="n">ExperienceID</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><b>ULCExperienceDefinition .h<br/>유저가 사용할 Pawn과 게임의 규칙을 담당한다.</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LYRACLONE_API</span><span class="w"> </span><span class="n">ULCExperienceDefinition</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UPrimaryDataAsset</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="n">ULCExperienceDefinition</span><span class="p">();</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditDefaultsOnly</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Gameplay"</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ULCPawnData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DefaultPawnData</span><span class="p">;</span>
+<span class="w"> </span><span class="cm">/*</span>
+<span class="cm">		아래 변수는 단순히 마킹 및 기억용으로 남겨둔다.</span>
+<span class="cm">		- 게임모드에 따른 GameFeature plugin을 로딩하는데 이에 대한 연결고리라고 생각하면 된다.</span>
+<span class="cm">		- 후일 ShooterCore 관련 Plugin할때 사용할거임</span>
+<span class="cm">	*/</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditDefaultsOnly</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Gameplay"</span><span class="p">)</span>
+<span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FString</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GameFeaturesToEnable</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><b>ULCPawnData .h<br/>유저가 사용할 Pawn의 정보를 들고있다.</b></p>
+<pre class="code-block"><code class="language-c++"><span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LYRACLONE_API</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UPrimaryDataAsset</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="w"> </span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="n">ULCPawnData</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FObjectInitializer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ObjectInitializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FObjectInitializer</span><span class="o">::</span><span class="n">Get</span><span class="p">());</span>
+<span class="w"> </span><span class="cm">/*</span>
+<span class="cm">		어떤 폰을 생성할지</span>
+<span class="cm">		입력은 어떻게 받을지</span>
+<span class="cm">		스킬은 어떻게 쓸지등의 정보를 가진다.	</span>
+<span class="cm">	*/</span>
+<span class="p">};</span>
+</code></pre>
+<p>구조를 보면 UserFacingExperience→ExperienceDefinition→ LCPawnData로 포함관계가 되어있는걸 확인할 수 있다.</p>
+<p>아래는 기본적으로 라이라의 Base Experience구조이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/65478d4345cd131d257d.png"/>
+<p><b>GameMode에서 UserFacingExperience를 읽어서 관련된 데이터들을 불러온다.</b></p>
+<p>이제 월드세팅에서 GameMode를 변경하지 않고 프로젝트 세팅에서 디폴트 게임모드를 쭉 사용할 GameMode로 변경한다.</p>
+<hr/>
+<p>아래에 보이는 사진의 판넬 개수가 전부 라이라에서 사용중인 <b>UserFacingExperience</b>들이다.<br/>(데스매치, 테스트게임, 메인메뉴 등등)</p>
+<img alt="" decoding="async" loading="lazy" src="../media/902ef179d7e4ceec3a28.png"/>
+<hr/>
+<p>우리의 목표는 아래의 Playlist폴더에 추가될 UserFacingExperience들을 사용하는 레벨로 향하는 포탈들을 액터로써 레벨에 띄우는 것</p>
+<img alt="" decoding="async" loading="lazy" src="../media/8f15b77eec9eecae9cfe.png"/>
+<p>UserFacingExperience들을 띄울 액터인 <b>B_ExperienceList3D</b>의 동작 목표이다</p>
+<ol>
+<li><b>UserFacingExperience에셋들을 Playlist에서 전부 불러온다 (비동기 로드 사용)</b></li>
+</ol>
+<img alt="" decoding="async" loading="lazy" src="../media/8b261154e81f147fc18c.png"/>
+<ol start="2">
+<li><b>모든 에셋을 불러오면 멤버변수의 배열에 저장한다.</b></li>
+</ol>
+<img alt="" decoding="async" loading="lazy" src="../media/65aa61dbab877d742513.png"/>
+<ol start="3">
+<li><b>배열에 추가된 UserExperience들로 텔레포트 액터 일정한 간격으로 생성</b></li>
+</ol>
+<p><img alt="얘를 생성한다." decoding="async" loading="lazy" src="../media/890c6a4fd15c46feb1a1.png"/><br/><em>얘를 생성한다.</em></p>
+<p><img alt="클래스 변수에 스폰시 노출 켜놓으면 저렇게 스폰과 동시에 값세팅이 가능하다." decoding="async" loading="lazy" src="../media/c1afcd8391453e6bbf96.png"/><br/><em>클래스 변수에 스폰시 노출 켜놓으면 저렇게 스폰과 동시에 값세팅이 가능하다.</em></p>
+<p><b>결과<br/></b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/6841ed4714c7c9d1ae11.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/d0c07ade283c1fac603f.png"/>
+<p>Playlist내 에셋개수만큼 포탈이 생겼다.</p>
+<hr/>
+<p>Experience와 연계해서 사용할 기본 요소들</p>
+<img alt="" decoding="async" loading="lazy" src="../media/af4a10cb0c0b1cd95fb8.png"/>
+<p>라이라의 프로젝트 초기 흐름이다.<br>게임 초기에 게임모드가 어떤 Experience를 로딩할지 결정하는 함수 <br/><b><code>HandleMatchAssignmentIfNotExpectingOne</code></b> 를 호출해야하는데, InitGame당시에는<br/> ExperienceLoad를 맡을 ExperienceManagerComponent가 생성되어있지 않아 로딩된 Experience들이 없다.<br/>그렇다고해서 뭐 델리게이트쓰거나 시점을 어렵게 잡기보다는<br/>다음 프레임 시작전에 ExperienceManagerComponent를 가지는 GameState를 스폰을 하고 <br/><b>SetTimerForNextTick</b>으로 다음프레임에 자동으로 해당 함수가 호출되도록 한다.</br></p>
+<img alt="" decoding="async" loading="lazy" src="../media/2bb63f7f1300739e7cb4.png"/>
+<p>프로젝트 첫 프레임에는 ExperienceLoad를 맡을 ExperienceManagerComponent가 생성되어있지 않음<br/>아래 코드 확인</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::InitGame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">MapName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Options</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ErrorMessage</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">InitGame</span><span class="p">(</span><span class="n">MapName</span><span class="p">,</span><span class="w"> </span><span class="n">Options</span><span class="p">,</span><span class="w"> </span><span class="n">ErrorMessage</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 한 프레임 뒤로 미루는 이유는</span>
+<span class="w"> </span><span class="c1">// Experience의 로딩은 ExperienceManagerComponent에서 맡는데 Init 게임 시점에서는 해당 컴포넌트를 가지는 액터가 스폰되어있지 않다.</span>
+<span class="w"> </span><span class="c1">// 그래서 스폰이후로 시점을 잡기위해 타이머로 한 틱 미룬다.</span>
+<span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">().</span><span class="n">SetTimerForNextTick</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">HandleMatchAssignmentIfNotExpectingOne</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="p">}</span>
+</code></pre>
+<hr/>
+<p>ExperienceLoad를 맡을 ExperienceManagerComponent 클래스이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ELCExperienceLoadState</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Unloaded</span><span class="p">,</span><span class="n">Loading</span><span class="p">,</span><span class="n">Loaded</span><span class="p">,</span><span class="n">Deactivating</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="n">DECLARE_MULTICAST_DELEGATE_OneParam</span><span class="p">(</span><span class="n">FOnLCExperienceLoaded</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ULCExperienceDefinition</span><span class="o">*</span><span class="p">);</span>
+<span class="cm">/**</span>
+<span class="cm">ULCExperienceManagerComponent</span>
+<span class="cm">- 말 그대로, 해당 컴포넌트는 GameState를 Owner로 가지면서 Experience의 상태 정보를 가지고 있는 컴포넌트이다.</span>
+<span class="cm">- 뿐만 아니라, Manager라는 단어가 포함되어 있듯 Experience 로딩 상태 업데이트 및 이벤트 관리를 맡는다.</span>
+<span class="cm"> </span>
+<span class="cm"> */</span>
+<span class="n">UCLASS</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LYRACLONE_API</span><span class="w"> </span><span class="n">ULCExperienceManagerComponent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UGameStateComponent</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsExperienceLoaded</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">LoadState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="o">::</span><span class="n">Loaded</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">CurrentExperience</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// OnExperienceLoaded에 바인딩하거나 Experience로딩이 완료되었다면 즉시 호출 </span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">CallorRegister_OnExperienceLoaded</span><span class="p">(</span><span class="n">FOnLCExperienceLoaded</span><span class="o">::</span><span class="n">FDelegate</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Delegate</span><span class="p">);</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w"> </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<span class="w"> </span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">ULCExperienceDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CurrentExperience</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// Experience상태 모니터링</span>
+<span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="w"> </span><span class="n">LoadState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="o">::</span><span class="n">Unloaded</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// Experience 로딩이 완료된 이후 Broadcasting Delegate</span>
+<span class="w"> </span><span class="n">FOnLCExperienceLoaded</span><span class="w"> </span><span class="n">OnExperienceLoaded</span><span class="p">;</span><span class="w"> </span>
+<span class="p">};</span>
+</code></pre>
+<p>이 함수는 Experience의 로딩이 정확히 언제되는지 모르기때문에 로딩을 요청했을때 이미  로딩이 완료되었으면 델리게이트 즉시 Execute, 아니면 일단 델리게이트에 추가</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCExperienceManagerComponent::CallorRegister_OnExperienceLoaded</span><span class="p">(</span><span class="n">FOnLCExperienceLoaded</span><span class="o">::</span><span class="n">FDelegate</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Delegate</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsExperienceLoaded</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Delegate</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">CurrentExperience</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="cm">/*</span>
+<span class="cm">		 * Delegate 객체를 살펴보면, 내부적으로 필요한 변수들은 메모리 할당해놓는다</span>
+<span class="cm">		 * TArray&lt;int&gt; a = {1,2,3}</span>
+<span class="cm">		 * delegate_type delegate = [a]()</span>
+<span class="cm">		 * {</span>
+<span class="cm">		 *		return a.Num();</span>
+<span class="cm">		 * }</span>
+<span class="cm">		 * a는 delegate_type 내부에 동적할당 되어있다. 복사비용을 낮추기위해 Move사용하는것을 잊지말자</span>
+<span class="cm">		 */</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">OnExperienceLoaded</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">MoveTemp</span><span class="p">(</span><span class="n">Delegate</span><span class="p">));</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>GameMode의 GameState가 생성되고 호출되는 함수 <b>InitGameState에서 OnExperienceLoadedDelegate바인딩</b>해준다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::InitGameState</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// GameState생성 이후에 호출되는 함수</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">InitGameState</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// Experience 비동기 로딩을 위한 Delegate 준비한다.</span>
+<span class="w"> </span><span class="n">ULCExperienceManagerComponent</span><span class="o">*</span><span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">FindComponentByClass</span><span class="o">&lt;</span><span class="n">ULCExperienceManagerComponent</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">ExperienceManagerComponent</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// OnExperienceLoaded 등록</span>
+<span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="o">-&gt;</span><span class="n">CallorRegister_OnExperienceLoaded</span><span class="p">((</span><span class="n">FOnLCExperienceLoaded</span><span class="o">::</span><span class="n">FDelegate</span><span class="o">::</span><span class="n">CreateUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">OnExperienceLoaded</span><span class="p">)));</span>
+<span class="p">}</span>
+</code></pre>
+<p>위에서 델리게이트 바인딩하면 여기로 넘어오게 되는데</p>
+<img alt="" decoding="async" loading="lazy" src="../media/0806dc180713d89cfdc6.png"/>
+<p>아직 <b>이때는 Experience가 로딩이 되었을리가 없다! (next tick에 로딩하라고 명령했기 때문)</b></p>
+<p>그래서 아래 표시한 부분을 지나 Experience가 로딩되고 나면</p>
+<img alt="" decoding="async" loading="lazy" src="../media/4c790f305e4ceb84db7e.png"/>
+<p>RestartPlayerAtPlayerStart를 통해 위의 11.SpawnPlayActor 섹터부터 다시 시작하게 된다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/3f3b7707c22be540b6de.png"/>
+<p>그 전까지 11.SpawnPlayActor 섹터는 <b>Experience로딩 여부가 확인되지 않으면 실행되지 않게 처리할 것이다.</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span><span class="w"> </span><span class="n">NewPlayer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsExperienceLoaded</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 이거 실행 안하면 SpawnDefaultPawnAtTransform_Implementation같은 다음 프로세스의  함수들 호출이 되지 않는다.</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">NewPlayer</span><span class="p">);</span><span class="w"> </span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">APawn</span><span class="o">*</span><span class="w"> </span><span class="nf">ALCGameModeBase::SpawnDefaultPawnAtTransform_Implementation</span><span class="p">(</span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">NewPlayer</span><span class="p">,</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FTransform</span><span class="o">&amp;</span><span class="w"> </span><span class="n">SpawnTransform</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogLC</span><span class="p">,</span><span class="w"> </span><span class="n">Log</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"SpawnDefaultPawnAtTransform_Implementation is Called!"</span><span class="p">));</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">SpawnDefaultPawnAtTransform_Implementation</span><span class="p">(</span><span class="n">NewPlayer</span><span class="p">,</span><span class="w"> </span><span class="n">SpawnTransform</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">ALCGameModeBase::IsExperienceLoaded</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">GameState</span><span class="p">);</span>
+<span class="w"> </span><span class="n">ULCExperienceManagerComponent</span><span class="o">*</span><span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">FindComponentByClass</span><span class="o">&lt;</span><span class="n">ULCExperienceManagerComponent</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">ExperienceManagerComponent</span><span class="p">);</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="o">-&gt;</span><span class="n">IsExperienceLoaded</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><b>Experience로딩이 안되어있으면 HandleStartingNewPlayer_Implementation 함수의 호출을 막는다.</b></p>
+<img alt="" decoding="async" loading="lazy" src="../media/46bf05716bc34d9f718c.png"/>
+<p>그럼 이 함수들이 실행이 안되고 디폴트폰 스폰이 되지 않는다.</p>
+<hr/>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::InitGame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">MapName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Options</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ErrorMessage</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="p">...</span>
+<span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">().</span><span class="n">SetTimerForNextTick</span><span class="p">(</span>
+<span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">HandleMatchAssignmentIfNotExpectingOne</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="p">}</span>
+</code></pre>
+<p>아무튼 InitGame의 다음 틱에 HandleMatchAssignmentIfNotExpectingOne이 실행된다.</p>
+<p><b>HandleMatchAssignmentIfNotExpectingOne</b>함수를 보자</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::HandleMatchAssignmentIfNotExpectingOne</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// 우리는 Experience로딩을 선택하는 과정에서만 쓸건데</span>
+<span class="w"> </span><span class="c1">// 라이라에서는 지금 Experience가(데디서버든, 에디터모드든) 예상된 것이 들어왔는지 아닌지 확인하는 함수로 쓰인다고 한다.</span>
+<span class="w"> </span><span class="c1">// 지금 우리는 디폴트BP만 불러오지만 내부 코드를 보면 우선순위를 통해 현재 우선순위에 맞는 Experience인지를 확인하고 불러온다.</span>
+<span class="w"> </span><span class="c1">// 그리고 모든 Experience로딩에 실패했을떄 Default를 로딩한다.</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// precedence order (highest wins)</span>
+<span class="w"> </span><span class="c1">// - matchmaking assignment (if present)</span>
+<span class="w"> </span><span class="c1">// ... 이 외 다양한 Experience체크</span>
+<span class="w"> </span><span class="c1">// - default experience</span>
+<span class="w"> </span><span class="c1">// 해당 함수에서는 우리가 로딩할 Experience에 대해 PrimaryAssetId를 생성하여, OnMatchAssignmentGiven으로 넘긴다.</span>
+<span class="w"> </span><span class="n">FPrimaryAssetId</span><span class="w"> </span><span class="n">ExperienceId</span><span class="p">;</span>
+<span class="w"> </span><span class="n">UWorld</span><span class="o">*</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">();</span>
+<span class="w"> </span><span class="c1">// 현재 활성화된 ExperienceId가 없으면 디폴트로 사용하기 위해 만들어준 BPClass로 세팅한다.</span>
+<span class="w"> </span><span class="c1">// 우리가 에셋매니저에 올려놨기때문에 아래처럼 사용이 가능하다.</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ExperienceId</span><span class="p">.</span><span class="n">IsValid</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">ExperienceId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FPrimaryAssetId</span><span class="p">(</span><span class="n">FPrimaryAssetType</span><span class="p">(</span><span class="s">"LCExperienceDefinition"</span><span class="p">),</span><span class="w"> </span><span class="n">FName</span><span class="p">(</span><span class="s">"B_LCDefaultExperience"</span><span class="p">));</span><span class="w"> </span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">OnMatchAssignmentGiven</span><span class="p">(</span><span class="n">ExperienceId</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>위 코드에서 마지막에 호출된 <b>OnMatchAssignmentGiven함수</b>이다<b>.</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::OnMatchAssignmentGiven</span><span class="p">(</span><span class="n">FPrimaryAssetId</span><span class="w"> </span><span class="n">ExperienceId</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// ExperienceManagerComponent로 Experience를 로딩하기 위해, ExperienceManagerComponent의 ServerSetCurrentExperience를 호출한다.</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">ExperienceId</span><span class="p">.</span><span class="n">IsValid</span><span class="p">());</span>
+<span class="w"> </span><span class="n">ULCExperienceManagerComponent</span><span class="o">*</span><span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">FindComponentByClass</span><span class="o">&lt;</span><span class="n">ULCExperienceManagerComponent</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">ExperienceManagerComponent</span><span class="p">);</span>
+<span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="o">-&gt;</span><span class="n">ServerSetCurrentExperience</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>라이라는 데디서버 기반이기때문에 ServerSetCurrentExperience이런식으로 이름 지은거임<br/>그리고 원래는 Experience는 서버에서만 로드됨</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCExperienceManagerComponent::ServerSetCurrentExperience</span><span class="p">(</span><span class="n">FPrimaryAssetId</span><span class="w"> </span><span class="n">ExperienceId</span><span class="p">)</span><span class="w"> </span><span class="c1">// 우리 플젝에서는 인자로 ExperienceDefinitionDefault가 들어왔을 것이다.</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">ULCAssetManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">AssetManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ULCAssetManager</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">ULCExperienceDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AssetClass</span><span class="p">;</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// ExperienceDefinition에셋 경로 가져와서</span>
+<span class="w"> </span><span class="n">FSoftObjectPath</span><span class="w"> </span><span class="n">AssetPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetManager</span><span class="p">.</span><span class="n">GetPrimaryAssetPath</span><span class="p">(</span><span class="n">ExperienceId</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 동기로드</span>
+<span class="w"> </span><span class="n">AssetClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">UClass</span><span class="o">&gt;</span><span class="p">(</span><span class="n">AssetPath</span><span class="p">.</span><span class="n">TryLoad</span><span class="p">());</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="c1">// CDO가져오기</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ULCExperienceDefinition</span><span class="o">*</span><span class="w"> </span><span class="n">Experience</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetDefault</span><span class="o">&lt;</span><span class="n">ULCExperienceDefinition</span><span class="o">&gt;</span><span class="p">(</span><span class="n">AssetClass</span><span class="p">);</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">Experience</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">CurrentExperience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// 첫 로딩인데 CurrentExperience가 있을 수 없음</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 그리고 CDO로 CurrentExperience를 설정한다.</span>
+<span class="w"> </span><span class="n">CurrentExperience</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Experience</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">StartExperienceLoad</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>아니 근데 <code>AssetPath.TryLoad()</code> 으로 로딩했는데 왜 또 <code>StartExperienceLoad()</code> 라는 함수로 로딩해요?</p>
+<p>물론 Experience객체 자체는 로드가 되었는 안에 있는 다른 데이터들이 로드되지 않았다.</p>
+<p>그건 아래서 진행한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ULCExperienceManagerComponent::StartExperienceLoad</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">CurrentExperience</span><span class="p">);</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">LoadState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="o">::</span><span class="n">Unloaded</span><span class="p">);</span><span class="w"> </span><span class="c1">// 로드 되어있으면 안된다</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">LoadState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="o">::</span><span class="n">Loading</span><span class="p">;</span>
+<span class="w"> </span><span class="n">ULCAssetManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">AssetManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ULCAssetManager</span><span class="o">::</span><span class="n">Get</span><span class="p">();</span>
+<span class="w"> </span><span class="n">TSet</span><span class="o">&lt;</span><span class="n">FPrimaryAssetId</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BundleAssetList</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// AssetManager.GetPrimaryAssetId()의 결과로</span>
+<span class="w"> </span><span class="c1">// ALCGameModeBase::HandleMatchAssignmentIfNotExpectingOne 여기서 해준</span>
+<span class="w"> </span><span class="c1">// FPrimaryAssetId(FPrimaryAssetType("LCExperienceDefinition"), FName("B_LCDefaultExperience"));</span>
+<span class="w"> </span><span class="c1">// 해당 Id가 불러와 진다고 한다. </span>
+<span class="w"> </span><span class="n">BundleAssetList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">AssetManager</span><span class="p">.</span><span class="n">GetPrimaryAssetId</span><span class="p">());</span><span class="w"> </span><span class="c1">// 이러면 </span>
+<span class="w"> </span><span class="c1">// load assets associated with the experience</span>
+<span class="w"> </span><span class="c1">// 아래는 우리가 후일 GameFeature를 사용하여, Experience에 바인딩된 GameFeature Plugin을 로딩할 Bundle 이름을 추가한다.</span>
+<span class="w"> </span><span class="c1">// - Bundle</span>
+<span class="w"> </span><span class="cm">/* 로딩할 에셋의 카테고리 이름</span>
+<span class="cm">	 * 예를들어 BundleAssetList에 수많은 에셋들이 있는데 여기서 BundleName으로 분류된 특정 에셋들을 가져오고 싶으면</span>
+<span class="cm">	 * AssetManager.ChangeBundleStateForPrimaryAssets함수의 인자 BundlesToLoad로 Bundle이름들을 전달하면</span>
+<span class="cm">	 * 전달한 Bundle이름을 가진 Asset들이 BundleAssetList에 추가되게된다.</span>
+<span class="cm">	 * (Ex: 직업으로 분류된 에셋리스트에서 "전사" 라는 번들을 넣으면 전사관련 에셋들만 불러올 수 있다. </span>
+<span class="cm">	*/</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FName</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BundlesToLoad</span><span class="p">;</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 여기서 주목할 부분은 OwnerNetMode가 NM_Standalone이면 Client/Server 둘 다 로딩에 추가된다는 부분</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ENetMode</span><span class="w"> </span><span class="n">OwnerNetMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetOwner</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetNetMode</span><span class="p">();</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bLoadClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GIsEditor</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">OwnerNetMode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NM_DedicatedServer</span><span class="p">);</span><span class="w"> </span><span class="c1">// 에디터거나 데디가 아니면</span>
+<span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bLoadServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GIsEditor</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">OwnerNetMode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NM_Client</span><span class="p">);</span><span class="w"> </span><span class="c1">// 에디터거나 클라가 아니면</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bLoadClient</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">BundlesToLoad</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">UGameFeaturesSubsystemSettings</span><span class="o">::</span><span class="n">LoadStateClient</span><span class="w"> </span><span class="cm">/*TEXT("Client")*/</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bLoadServer</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">BundlesToLoad</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">UGameFeaturesSubsystemSettings</span><span class="o">::</span><span class="n">LoadStateServer</span><span class="w"> </span><span class="cm">/*TEXT("Server")*/</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">FStreamableDelegate</span><span class="w"> </span><span class="n">OnAssetsLoadedDelegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FStreamableDelegate</span><span class="o">::</span><span class="n">CreateUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">OnExperienceLoadComplete</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// 아래도, 후일 Bundle을 우리가 GameFeature에 연동하면서 더 깊게 알아보기로 하고 일단 디폴트Experience를 로딩해주는 함수라고 생각하자.</span>
+<span class="w"> </span><span class="n">TSharedPtr</span><span class="o">&lt;</span><span class="n">FStreamableHandle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetManager</span><span class="p">.</span><span class="n">ChangeBundleStateForPrimaryAssets</span><span class="p">(</span><span class="w"> </span><span class="c1">// 번들을 비동기로 로딩해주는 함수래요</span>
+<span class="w"> </span><span class="n">BundleAssetList</span><span class="p">.</span><span class="n">Array</span><span class="p">(),</span>
+<span class="w"> </span><span class="n">BundlesToLoad</span><span class="p">,</span>
+<span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">FStreamableDelegate</span><span class="p">(),</span><span class="w"> </span><span class="n">FStreamableManager</span><span class="o">::</span><span class="n">AsyncLoadHighPriority</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Handle</span><span class="p">.</span><span class="n">IsValid</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Handle</span><span class="o">-&gt;</span><span class="n">HasLoadCompleted</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 로딩이 완료되었으면 ExecuteDelegate를 통해 OnAssetsLoadedDelegate를 호출</span>
+<span class="w"> </span><span class="n">FStreamableHandle</span><span class="o">::</span><span class="n">ExecuteDelegate</span><span class="p">(</span><span class="n">OnAssetsLoadedDelegate</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">else</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 로딩 완료 안됐으면 </span>
+<span class="w"> </span><span class="n">Handle</span><span class="o">-&gt;</span><span class="n">BindCompleteDelegate</span><span class="p">(</span><span class="n">OnAssetsLoadedDelegate</span><span class="p">);</span><span class="w"> </span><span class="c1">// 로딩 완료됐을때 OnAssetsLoadedDelegate호출명령</span>
+<span class="w"> </span><span class="n">Handle</span><span class="o">-&gt;</span><span class="n">BindCancelDelegate</span><span class="p">(</span><span class="n">FStreamableDelegate</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="n">OnAssetsLoadedDelegate</span><span class="p">]()</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 만약 문제가 생겨서 취소 되었으면 OnAssetsLoadedDelegate 안전하게 호출</span>
+<span class="w"> </span><span class="n">OnAssetsLoadedDelegate</span><span class="p">.</span><span class="n">ExecuteIfBound</span><span class="p">();</span>
+<span class="w"> </span><span class="p">}));</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ULCExperienceManagerComponent::OnExperienceLoadComplete</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// check Framenubmer</span>
+<span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">OnExperienceLoadComplete_FrameNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GFrameNumber</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// 해당 함수가 불리는 것은 앞서 보았던 StreamableDelegateDelayHelper에 의해 불림</span>
+<span class="w"> </span><span class="n">OnExperienceFullLoadCompleted</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ULCExperienceManagerComponent::OnExperienceFullLoadCompleted</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">LoadState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ELCExperienceLoadState</span><span class="o">::</span><span class="n">Loaded</span><span class="p">;</span>
+<span class="w"> </span><span class="n">OnExperienceLoaded</span><span class="p">.</span><span class="n">Broadcast</span><span class="p">(</span><span class="n">CurrentExperience</span><span class="p">);</span>
+<span class="w"> </span><span class="n">OnExperienceLoaded</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>여기까지가 Experience로딩 과정의 끝이다.</p>
+<details>
+<summary><b>Experience의 로딩 과정정리</b></summary>
+<ol>
+<li>
+<b><code>GameMode::InitGame</code></b>에서 다음틱에 GameState의 ExperienceLoadedComponent가 <code>HandleMatchAssignmentIfNotExpectingOne</code> 함수를 호출하도록 설정
+</li>
+<li>
+<b><code>GameMode::InitGameState</code></b>에서 <code>ExperienceManagerComponent</code> 가 로딩을 마치면 <code>ALCGameModeBase::OnExperienceLoaded</code> 를 호출하도록 ExperienceManagerComponent의 델리게이트 구독 
+</li>
+<li>
+PlayerController가 Spawn되고 나서 PlayerState Spawn
+</li>
+<li>
+PlayerState가 Spawn되면서 <code>ALCPlayerState::PostInitializeComponents</code> 가 호출되고, <code>ExperienceManagerComponent</code> 가 로딩을 마치면 <code>ALCPlayerState::OnExperienceLoaded</code> 를 호출하도록 ExperienceManagerComponent의 델리게이트 구독 
+</li>
+<li>
+PlayActor가 생성될 차례지만 <code>ALCGameModeBase::HandleStartingNewPlayer_Implementation</code> 에서 <code>IsExperienceLoaded</code> 함수로 Experience가 로딩이 되지 않았으면 PlayActor생성을 막음
+</li>
+<li>
+엔진틱 다음틱으로 넘어감
+</li>
+<li>
+ExperienceLoadedComponent가<code>HandleMatchAssignmentIfNotExpectingOne</code> 함수 호출
+</li>
+<li>
+우선순위 따라서 로드할 ExperienceId고르고 ExperienceLoadedComponent에 해당 Id전달
+</li>
+<li>
+ExperienceId를 사용해 ExperienceDefinition에셋 로드 및 클래스 얻음
+</li>
+<li>
+<code>StartExperienceLoad</code> 를 통해 Experience로드 시작
+</li>
+<li>
+<code>StartExperienceLoad</code> 함수내에서 에셋 번들 비동기 로드 시작 및 로드 완료 이벤트로 <code>OnExperienceLoadComplete</code> 함수 구독
+</li>
+<li>
+위의 <code>ALCGameModeBase::OnExperienceLoaded</code> (2번)와 <code>ALCPlayerState::OnExperienceLoaded</code> (4번)가 구독중인 <code>OnExperienceLoaded</code>  델리게이트 브로드 캐스팅
+</li>
+</ol>
+</details>
+<hr/>
+<p><b>Experience 로드 이후</b></p>
+<p><b>ALCPlayerState::OnExperienceLoaded</b></p>
+<pre class="code-block"><code class="language-c++"><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ALCPlayerState::OnExperienceLoaded</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ULCExperienceDefinition</span><span class="o">*</span><span class="w"> </span><span class="n">CurrentExperience</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ALCGameModeBase</span><span class="o">*</span><span class="w"> </span><span class="n">GameMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetAuthGameMode</span><span class="o">&lt;</span><span class="n">ALCGameModeBase</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="o">*</span><span class="w"> </span><span class="n">NewPawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameMode</span><span class="o">-&gt;</span><span class="n">GetPawnDataForController</span><span class="p">(</span><span class="n">GetOwningController</span><span class="p">());</span>
+<span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="w"> </span><span class="n">NewPawnData</span><span class="p">);</span>
+<span class="w"> </span><span class="n">SetPawnData</span><span class="p">(</span><span class="n">NewPawnData</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>위에서 호출된 <b>ALCGameModeBase::GetPawnDataForController</b> 함수이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="k">const</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="o">*</span><span class="w"> </span><span class="nf">ALCGameModeBase::GetPawnDataForController</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">InController</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// 게임 도중에 PawnData가 Override 되었을 경우, PawnData는 PlayerState에서 가져오게 됨</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InController</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ALCPlayerState</span><span class="o">*</span><span class="w"> </span><span class="n">LCPS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InController</span><span class="o">-&gt;</span><span class="n">GetPlayerState</span><span class="o">&lt;</span><span class="n">ALCPlayerState</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="o">*</span><span class="w"> </span><span class="n">PawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LCPS</span><span class="o">-&gt;</span><span class="n">GetPawnData</span><span class="o">&lt;</span><span class="n">ULCPawnData</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">PawnData</span><span class="p">;</span><span class="w"> </span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>함수의 첫번째 분기를 보면 분명히 PlayerState에서 GameMode의 함수를 호출했는데 다시 PlayerState의 PawnData를 받아와서 반환해주는 걸 알 수있다.</p>
+<p>(이 함수는 OnExperience이후에 호출하면 PlayerState의 PawnData를 반환하고, 초기에는 DefaultPawnData를 반환해서 PawnData를 하나의 함수로 받아오기 위함으로 보인다</p>
+<p>만약 이후에 PlayerState에 캐싱 안되어있어도 디폴트 받아오니까 안정성도 굳, PlayerState와 GameState의 느슨한 결합도 구현)</p>
+<p><b>ALCGameMode::OnExperienceLoaded</b></p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::OnExperienceLoaded</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ULCExperienceDefinition</span><span class="o">*</span><span class="w"> </span><span class="n">CurrentExperience</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FConstPlayerControllerIterator</span><span class="w"> </span><span class="n">Iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPlayerControllerIterator</span><span class="p">();</span><span class="w"> </span><span class="n">Iterator</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">Iterator</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">APlayerController</span><span class="o">*</span><span class="w"> </span><span class="n">PC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">APlayerController</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">Iterator</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// PlayerController가 Pawn을 Possess하지 않았다면 RestartPawn을 통해 다시 spawn</span>
+<span class="w"> </span><span class="c1">// 한 번 OnPossess를 보도록 하자</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PC</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PC</span><span class="o">-&gt;</span><span class="n">GetPawn</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerCanRestart</span><span class="p">(</span><span class="n">PC</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">RestartPlayer</span><span class="p">(</span><span class="n">PC</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>RestartPlayer를 왜해주냐</p>
+<p>→ 아까 우리가</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">ALCGameModeBase::HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span><span class="w"> </span><span class="n">NewPlayer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsExperienceLoaded</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="c1">// 이거 실행 안하면 SpawnDefaultPawnAtTransform_Implementation같은 다음 프로세스의  함수들 호출이 되지 않는다.</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">NewPlayer</span><span class="p">);</span><span class="w"> </span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>이렇게 플레이어의 생성을 막아버렸기 때문에 해당 프로세스를 다시 호출하여야 한다.<br/><code>RestartPlayer</code>내부에서 <code>SetPawn</code>이 호출된다</p>
+<p>Character액터가 생성된 걸 볼 수있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/b7b412a25174770def92.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/6e8de6ee1023eba6ce7d.png"/>
+<p>하지만 우리는 아래의 친구가 소환되길 원하고 있는데 타입을보면 LCCharacter인것을 볼 수가 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/92ec589bdc0a43328007.png"/>
+<p>그 이유는 언리얼이 내부적으로 <b><span>Pawn을 생성하려고 하기위해 PawnClass를 Get 하는 함수인</span></b> <b><code>GetDefaultPawnClassForController_Implementation</code></b><b>함수가 DefaultPawnClass</b>를 반환하기 때문이다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/39e08757df57aa7fe3ab.png"/>
+<p>따라서 <b>GetDefaultPawnClassForController_Implementation오버라이딩</b>해서 함수 수정해야한다.</p>
+<pre class="code-block"><code class="language-c++"><span class="n">UClass</span><span class="o">*</span><span class="w"> </span><span class="nf">ALCGameModeBase::GetDefaultPawnClassForController_Implementation</span><span class="p">(</span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">InController</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="c1">// GetPawnDataForController를 활용해 PawnData로부터 PawnClass를 유도한다.</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ULCPawnData</span><span class="o">*</span><span class="w"> </span><span class="n">PawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPawnDataForController</span><span class="p">(</span><span class="n">InController</span><span class="p">))</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PawnData</span><span class="o">-&gt;</span><span class="n">PawnClass</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">PawnData</span><span class="o">-&gt;</span><span class="n">PawnClass</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">GetDefaultPawnClassForController_Implementation</span><span class="p">(</span><span class="n">InController</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<img alt="" decoding="async" loading="lazy" src="../media/e81eab060d05af1b2a96.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/a2239255f7e73d800008.png"/>
+<details>
+<summary><b>PawnData의 로딩 과정정리</b></summary>
+<ol>
+<li>Experience로드 후 <code>ALCGameModeBase::OnExperienceLoaded</code> <code>ALCPlayerState::OnExperienceLoaded</code> 델리게이트 브로드 캐스팅</li>
+<li><code>ALCGameModeBase::OnExperienceLoaded</code> 에서  Experience를 로드하지 못해 생성하지 못했던 플레이어를 <b><code>RetartPlayer</code></b>함수를 통해 Spawn시도합니다.<br/>이때 RestartPlayer내부에서 폰을 설정할때 <code>GetDefaultPawnClassForController_Implementation</code> 함수를 통해 DefaultPawnClass로 Pawn을 생성하려고 하므로 CustomPawnClass를 return해주기 위해서는 <code>GetDefaultPawnClassForController_Implementation</code><br/>함수를 오버라이딩하고 함수 내부에서  <code>ALCGameModeBase::GetPawnDataForController</code> 함수를 통해 PawnData를 받고 PawnData내의 PawnClass를 반환시킵니다.</li>
+<li><code>ALCPlayerState::OnExperienceLoaded</code> 에서 <code>ALCGameModeBase::GetPawnDataForController</code> 함수를 통해 PawnData를 Setting합니다.</li>
+</ol>
+<hr/>
+</details>
+<p>마지막으로 플레이어 Start 세팅도 잘 동작하는걸 확인할 수 있다.</p>
+<img alt="" decoding="async" loading="lazy" src="../media/3a7abf8c0a0050e970b5.png"/>
+<img alt="" decoding="async" loading="lazy" src="../media/9c1ffdd5cb0eee4ee877.png"/>
+<hr/>
+<ul>
+<li><code>AOWGameMode</code> : 어떤 Experience를 쓸지 고르고, 플레이어 시작을 조율</li>
+<li><code>AOWGameState</code> : <code>UOWExperienceManagerComponent</code>를 소유</li>
+<li><code>UOWExperienceManagerComponent</code> : Experience 로드, Bundle 로드, GameFeature 활성화, Action 실행</li>
+<li><code>UOWExperienceDefinition</code> : 기본 PawnData, GameFeature 목록, ActionSet/Action 소유</li>
+</ul>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">AOWGameMode::InitGame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InMapName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InOptions</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutErrorMessage</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">InitGame</span><span class="p">(</span><span class="n">InMapName</span><span class="p">,</span><span class="w"> </span><span class="n">InOptions</span><span class="p">,</span><span class="w"> </span><span class="n">OutErrorMessage</span><span class="p">);</span>
+<span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">().</span><span class="n">SetTimerForNextTick</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ThisClass</span><span class="o">::</span><span class="n">HandleMatchAssignmentIfNotExpectingOne</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>InitGame</code>에서 바로 Experience를 정하지 않고 다음 틱으로 미룬다.</p>
+<p>왜냐하면 GameState와 GameStateComponent 준비 타이밍을 기다려야 하기 때문이다.</p>
+<pre class="code-block"><code class="language-c++"><span class="kt">void</span><span class="w"> </span><span class="nf">AOWGameMode::HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span><span class="w"> </span><span class="n">InNewPlayer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsExperienceLoaded</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Super</span><span class="o">::</span><span class="n">HandleStartingNewPlayer_Implementation</span><span class="p">(</span><span class="n">InNewPlayer</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>Experience가 로드되기 전에는 Pawn spawn을 막는다.</p>
+<p>PawnClass는 <code>DefaultPawnClass</code>가 아니라 <code>PawnData</code>에서 결정되기 때문에, Experience 로드 전에는 플레이어를 시작시키면 안된다.</p>
+<pre class="code-block"><code class="language-c++"><span class="k">const</span><span class="w"> </span><span class="n">UOWPawnData</span><span class="o">*</span><span class="w"> </span><span class="nf">AOWGameMode::GetPawnDataForController</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AController</span><span class="o">*</span><span class="w"> </span><span class="n">InController</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InController</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AOWPlayerState</span><span class="o">*</span><span class="w"> </span><span class="n">PlayerState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InController</span><span class="o">-&gt;</span><span class="n">GetPlayerState</span><span class="o">&lt;</span><span class="n">AOWPlayerState</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UOWPawnData</span><span class="o">*</span><span class="w"> </span><span class="n">PawnData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerState</span><span class="o">-&gt;</span><span class="n">GetPawnData</span><span class="o">&lt;</span><span class="n">UOWPawnData</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">PawnData</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">UOWExperienceDefinition</span><span class="o">*</span><span class="w"> </span><span class="n">Experience</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExperienceManagerComponent</span><span class="o">-&gt;</span><span class="n">GetCurrentExperienceChecked</span><span class="p">();</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Experience</span><span class="o">-&gt;</span><span class="n">DefaultPawnData</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>이 함수가 굳 포인트다.</p>
+<p>나중에 영웅 선택 같은 것으로 PlayerState가 PawnData를 override하면 그 값을 쓰고, 아니면 Experience의 기본 PawnData를 쓴다.</p>
+<p>즉 GameMode는 "어디서 가져올지"만 조율하고, 실제 데이터의 소유는 PlayerState/Experience 쪽에 남겨둔다.</p>
+<details>
+<summary><b>Experience 로딩 과정정리</b></summary>
+<ol>
+<li><code>AOWGameMode::InitGame</code>에서 다음 틱에 <code>HandleMatchAssignmentIfNotExpectingOne</code> 예약</li>
+<li>URL Option의 <code>Experience</code> 값을 우선 확인하고, 없으면 기본 Experience 사용</li>
+<li><code>AOWGameMode::OnMatchAssignmentGiven</code>이 <code>UOWExperienceManagerComponent::ServerSetCurrentExperience</code> 호출</li>
+<li>Experience PrimaryAsset을 로드하고 <code>CurrentExperience</code> 설정</li>
+<li><code>StartExperienceLoad</code>에서 Experience와 ActionSet의 Bundle을 Client/Server NetMode에 맞게 로드</li>
+<li><code>OnExperienceLoadComplete</code>에서 Experience/ActionSet의 <code>GameFeaturesToEnable</code>을 모아 GameFeature Plugin 로드 및 활성화</li>
+<li><code>OnExperienceFullLoadCompleted</code>에서 Experience Actions와 ActionSet Actions를 실행</li>
+<li><code>OnExperienceLoaded</code> 브로드캐스트</li>
+<li>GameMode는 대기 중이던 PlayerController를 <code>RestartPlayer</code>로 정상 시작</li>
+</ol>
+</details>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html"><small>이전 글</small>명령줄 인자로 애셋 로드 기록</a><a href="init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html"><small>다음 글</small>Init State와 확장 컴포넌트</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

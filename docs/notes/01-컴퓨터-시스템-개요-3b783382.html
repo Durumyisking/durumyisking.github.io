@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="컴퓨터 구조와 운영체제 / 컴퓨터 구조 / 01. 컴퓨터 시스템 개요">
+  <title>01. 컴퓨터 시스템 개요 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details open><summary>컴퓨터 구조와 운영체제</summary><ul><li><details open><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html" aria-current="page">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>컴퓨터 구조와 운영체제</li><li>컴퓨터 구조</li></ol>
+        </nav>
+        <article class="article">
+          <h1>01. 컴퓨터 시스템 개요</h1>
+          <div class="article-body"><hr/>
+<p>&lt;컴퓨터 시스템&gt;</p>
+<ul>
+<li>소프트웨어: 정보처리의 종류와 그 수행시간을 지정해주는 command 들의 집합</li>
+<li>하드웨어: 중앙처리장치(CPU), 기억장치(주, 보조), 입출력장치, power, fan, ect...</li>
+</ul>
+<hr/>
+<blockquote>
+<p>소프트웨어는 하드웨어에 의존적이다.</p>
+<p>즉, 컴퓨터의 수행속도는 근본적으로는 하드웨어에 달려있고 소프트웨어의 질에 따라 하드웨어의 사용 효율이 더 향상될 수 있다.</p>
+</blockquote>
+<h5 id="1-1-컴퓨터의-기본-구조-15-16-page"><b>1.1 컴퓨터의 기본 구조 _15~16 page.</b></h5>
+<p>컴퓨터는 프로그램 코드를 정해진 순서대로 실행(execute)한다. 그 과정에서 컴퓨터는 필요한 데이터를 read, processing, store 한다.</p>
+<p><img alt="" decoding="async" loading="lazy" src="https://camo.githubusercontent.comhttps://www.notion.so/cc9698de208c771d2fc47c1c1c051d954aeedd354a6ebcc899968fc442a43e8chttps://www.notion.so/68747470733a2f2f696d67312e6461756d63646e2e6e65742f7468756d622f5237323078302e7138302f3f73636f64653d6d746973746f727926666e616d653d687474702533412532462532466366696c6532342e75662e746973746f72792e636f6d253246696d61676525324632333041424334323532433535463030324138383337"/></p>
+<p>&lt;컴퓨터의 기본구조&gt;</p>
+<ul>
+<li>CPU(Processor): 프로그램 실행 및 데이터 처리 - 중추적인 기능 담당</li>
+<li>기억장치: 주 기억장치와 보조 기억 장치로 나뉜다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><b>주 기억장치</b></th>
+<th><b>보조기억장치</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>빠른 액세스</td>
+<td>느린 액세스</td>
+</tr>
+<tr>
+<td>가격이 비쌈</td>
+<td>가격이 저렴함</td>
+</tr>
+<tr>
+<td>저장능력: 휘발성</td>
+<td>저장능력: 영구</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>입출력장치: 각 장치마다 있는 별도의 제어장치에 의해 동작. 유저와 컴퓨터간의 소통을 위한 도구.</li>
+</ul>
+<h5 id="1-2-정보의-표현과-저장-17-20-page"><b>1.2 정보의 표현과 저장 _ 17~20 page.</b></h5>
+<p>컴퓨터가 처리하는 정보의 종류: <i><b>Code</b></i> , <i><b>Data</b></i> -&gt; bit의 조합으로 표현</p>
+<ul>
+<li>고급 언어(high-level language): 사람에게 편한 언어</li>
+<li>컴파일러(Compiler): 고급 언어를 기계어로 변환해주는 소프트웨어</li>
+<li>기계어(Mauchine language): 기계(컴퓨터의 하드웨어)가 이해할 수 있는 언어</li>
+<li>어셈블리 언어(Assembly language): 고급 언어를 기계어로 바꿔주는 중간 언어</li>
+</ul>
+<blockquote>
+<p>CPU의 종류 마다 내부 구조가 다르기 때문에 서로 다른 종류의 CPU의 기계어는 달라진다. 따라서 고급 언어를 기계어로 바꿔주는 과정의 중간에 해당하는 어셈블리 언어가 이를 해결해준다.</p>
+</blockquote>
+<p>고급-언어 프로그램이 기계어 프로그램으로 번역되는 과정은 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th><b>고급 언어 프로그램</b></th>
+<th><b>어셈블리 프로그램</b></th>
+<th><b>기계어 프로그램</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[예] Z = X + Y</td>
+<td>LOAD A, X: 기억장치 X번지 값을 레지스터A에 적재</td>
+<td>001 / 00101</td>
+</tr>
+<tr>
+<td>-</td>
+<td>ADD A, Y: 기억장치 Y번지 값을 A 와 더한 후 A에 적재</td>
+<td>100 / 00110</td>
+</tr>
+<tr>
+<td>-</td>
+<td>STOR Z, A: A의 내용을 기억장치 Z번지에 저장</td>
+<td>010 / 00111</td>
+</tr>
+<tr>
+<td>-</td>
+<td><i><b>LOAD, ADD, STOR</b></i> 을 <i><b>니모닉스</b></i> 라고 부른다.</td>
+<td><i><b>opcode 명령/operand 주소</b></i></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>기계어 프로그램에서 oprand는 0번지부터 저장되어있고 계산에 사용될 데이터는 X번지 부터 저장</li>
+<li>CPU에서 한번에 처리될 수 있는 비트들의 그룹을 <b>WORD</b> 라고 한다</li>
+</ul>
+<h5 id="1-3-시스템의-구성-21-27-page"><b>1.3 시스템의 구성 _ 21 ~ 27 page.</b></h5>
+<hr/>
+<p>CPU와 기억장치 및 I/O 장치의 상호작용을 분석해보고 컴퓨터시스템의 구성방법 및 동작원리에 대해 알아본다.</p>
+<hr/>
+<p><b>1.3.1 CPU와 기억장치의 접속</b></p>
+<p>&lt;CPU와 시스템 버스&gt;</p>
+<ul>
+<li>시스템 버스: CPU와 시스템 내의 다른 요소들 사이에 정보를 교환하는 통로
+<ul>
+<li>주소 버스: CPU가 외부로 발생하는 주소 정보를 전송하는 신호들의 집합</li>
+<li>데이터 버스: CPU가 기억장치 혹은 I/O장치 사이에 데이터를 전송하기 위한 신호 선들의 집합</li>
+<li>제어 버스: CPU가 시스템 내의 각종 요소들의 동작 제어에 필요한 신호 선들의 집합</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>주소는 CPU에 의해 발생되어 기억장치 및 I/O 장치로 보내지는 정보이기 때문에 주소 버스는 단방향성이다.</p>
+<p>데이터 버스는 읽기 및 쓰기를 지원하므로 양방향성이다. (제어 버스도 마찬가지)</p>
+</blockquote>
+<ul>
+<li>액세스: CPU가 기억장치에 데이터를 쓰거나, 저장된 내용을 읽는 동작</li>
+</ul>
+<p><img alt="" decoding="async" loading="lazy" src="https://github.com/okskna/ComputerArchitecture_Summary/raw/master/img/CPU%EC%99%80%20%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98%EC%9D%98%20%EC%A0%91%EC%86%8D.JPG"/></p>
+<p>&lt;CPU와 기억장치의 접속&gt;</p>
+<ul>
+<li>Read할 경우 CPU가 보내줘야 하는 정보: 주소, 읽기신호</li>
+<li>Write할 경우 CPU가 보내줘야 하는 정보: 주소, 쓰기신호, 데이터(무엇을 쓸지에 대한)</li>
+</ul>
+<p>따라서 CPU와 기억장치 사이에는 주소 버스, 데이터 버스, 제어(쓰기, 읽기 신호 제어) 버스가 필요하다.</p>
+<p><img alt="" decoding="async" loading="lazy" src="https://camo.githubusercontent.comhttps://www.notion.so/a45377201c4e144789484005ed651a6ca7407016d51d15027bb59a11e977729chttps://www.notion.so/687474703a2f2f6d626c6f677468756d62342e7068696e662e6e617665722e6e65742f32303132313132325f35312f647566766e64726e6a735f313335333539313930303939396a4d7a43375f4a5045472f2542312545322542452545462543302545352543342541315f2542452544372542432542432542442542415f2542352542462543302544422543302543375f2542442543332542302541335f2543382545352542382541372542352542352e4a50473f747970653d7732"/></p>
+<p>&lt;기억장치 액세스 동작의 시간 흐름도&gt;</p>
+<ul>
+<li>쓰기 동작의 경우 CPU가 주소, 데이터를 보내는 동시에 쓰기 신호를 활성화 한다. CPU가 주소와 데이터를 보낸 순간부터 기억장치에 저장이 완료될 때 까지의 시간을 <b>기억장치 쓰기시간</b>이라고 한다.</li>
+<li>읽기 동작의 경우 CPU가 주소를 보내는 동시에 읽기 신호를 활성화한다. 일정 <b>지연 시간</b>이 흐른 후 읽힌 데이터가 데이터 버스에 실리게 되며 CPU는 그 데이터를 버스 인터페이스 회로를 통하여 읽어들인다. CPU가 주소를 발생한 시간부터 읽기 동작이 완료될 때까지의 시간을 <b>기억장치 읽기 시간</b>이라고 한다.</li>
+<li><b>지연 시간</b>: 주소를 해독(decode)하는 시간 + 기억장치로 부터 데이터를 인출하는데 걸리는 시간</li>
+</ul>
+<p><b>1.3.2 CPU와 I/O장치의 접속</b></p>
+<p>I/O 장치와 보조저장장치는 CPU가 직접 제어하지 못하고 별도의 제어기(또는 인터페이스 회로)를 통해야 한다.</p>
+<p><img alt="" decoding="async" loading="lazy" src="https://github.com/okskna/ComputerArchitecture_Summary/raw/master/img/CPU%EC%99%80%20I_O%20%EC%9E%A5%EC%B9%98%EB%93%A4%20%EA%B0%84%EC%9D%98%20%EC%A0%91%EC%86%8D.JPG"/></p>
+<p>&lt;CPU와 I/O 장치들 간의 접속&gt;</p>
+<p>CPU가 키보드로부터 데이터를 읽어들이는 과정은 다음과 같다.</p>
+<ul>
+<li>키보드의 어느 한 키를 누른다 -&gt; 그에 대응되는 데이터가 키보드 제어기의 데이터 레지스터에 저장된다. -&gt; 상태 레지스터의 입력데이터가 준비되었다는 것을 의미하는 비트(예시에서는 In_RDY)가 활성화된다.</li>
+<li>CPU는 In_RDY비트가 활성화되어 있는지를 검사한다.
+<ul>
+<li>In_RDY가 활성인 경우: 데이터 레지스터의 내용을 CPU로 읽어들인다.</li>
+<li>In_RDY가 비활성인 경우: In_RDY가 활성화될 때까지 상태 레지스터를 검사하고 이를 반복한다.</li>
+</ul>
+</li>
+</ul>
+<p>CPU가 데이터를 프린트하는 과정은 다음과 같다.</p>
+<ul>
+<li>데이터를 프린터로 보내기 전에 CPU는 프린터 제어기 내의 상태 레지스터를 읽어 데이터 출력 준비(Out_RDY)비트를 검사한다. -&gt; Out_RDY비트가 활성상태라면 CPU는 데이터를 프린터 제어기의 데이터 레지스터(데이터 버퍼)로 Write 한다.</li>
+</ul>
+<p>CPU는 시스템에 접속되어 있는 I/O 장치들을 직접 제어하지는 않지만, 각 장치의 제어기가 수행할 동작을 지정하는 명령(Command)을 보내거나 상태 정보와 데이터를 주고 받을 수 있어야 한다. 따라서 CPU는 각 I/O 장치의 제어기를 구분하고 정보를 주고받을 수 있어야 한다.</p>
+<ul>
+<li>각 제어기 내부의 상태 레지스터와 데이터 레지스터를 각각 한 WORD 길이의 기억장치로 간주하면 가능하다. 즉, CPU가 제어기 내부 레지스터의 주소를 이용하여 I/O 장치를 제어할 수 있다.</li>
+</ul>
+<p><b>1.3.3 전체 시스템의 구성</b></p>
+<p><img alt="" decoding="async" loading="lazy" src="https://camo.githubusercontent.comhttps://www.notion.so/1bdde8b32f5fc8ebeeab51073009b034570c0b76a9842d24e3849a7de07ffb99https://www.notion.so/687474703a2f2f6366696c653230382e75662e6461756d2e6e65742f696d6167652f31323230353531463442314432454239303544424630"/></p>
+<p>&lt;컴퓨터시스템의 전체 구성도&gt;</p>
+<ul>
+<li>프로그램 실행: CPU가 주기억장치로부터 프로그램 코드를 읽어서 실행한다.</li>
+<li>데이터 저장: 프로그램 실행 결과로서 얻어진 데이터를 주기억장치에 저장한다.</li>
+<li>데이터 이동: 디스크나 CD-ROM에 저장되어 있는 프로그램과 데이터 블록을 주기억장치로 이동한다.</li>
+<li>데이터 입력 및 출력: 사용자가 키보드를 통하여 보내는 명령이나 데이터를 읽어 들인다. 또한 CPU가 처리한결과 값이나 기억장치의 내용을 프린터(혹은 모니터)로 출력한다.</li>
+<li>제어: 프로그램이 순서대로 실행되도록 혹은 필요에 따라 실행 순서를 변경하도록 조정하며, 각종 제어 신호들을 발생한다.</li>
+</ul>
+<h5 id="1-4-컴퓨터-구조의-발전-과정-28-36-page"><b>1.4 컴퓨터 구조의 발전 과정 _ 28 ~ 36 page.</b></h5>
+<hr/>
+<p>초기의 컴퓨터들은 relay와 같은 기계식 부품들로 이루어 만들어졌다. 시간이 흘러 주요 부품들이 TR, IC 칩으로 대체되어 성능이 좋아지고 있다. CPU의 수를 증가시키거나 하나의 칩에 여러 CPU 코어를 포함시키기도 하며 많은 개선이 이루어지고 있다. 그럼에도 컴퓨터의 근본적인 설계 개념은 크게 바뀌지 않고있다.</p>
+<p>컴퓨터의 근본적인 설계 개념은 누구에 의해 제안되었는가? 그 당시에 구현된 초기 컴퓨터의 구조를 분석하고 발전 경위를 살펴본다.</p>
+<hr/>
+<p><b>1.4.1 초기 컴퓨터들의 구조</b></p>
+<ul>
+<li>
+<p>1642 Biaise Pascal: 덧셈, 뺄셈</p>
+</li>
+<li>
+<p>1671 Leibniz: 산술연산</p>
+</li>
+<li>
+<p>18xx Charles Babbage: Difference Engine(덧셈, 뺄셈 및 프린트 기능)
+: Analytical Engine(산술연산 및 프린트 기능)</p>
+<p>-&gt; Mill(연산), Store(기억), 카드판독기(입력), 프린터와 카드천공기(출력)</p>
+</li>
+<li>
+<p>19xx von Neumann: ENIAC(진공관을 이용한 전자식 컴퓨터)</p>
+<ul>
+<li>단점: 프로그램을 저장하고 변경하는 것이 불가능</li>
+<li>위의 단점을 해결하기 위한 설계 개념: Stored-program
+<ul>
+<li>2진수 체계</li>
+<li>프로그램과 데이터를 내부에 저장</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>1952 von neumann: IAS 컴퓨터(위의 설계개념을 적용한 디지털 컴퓨터)</p>
+<ul>
+<li>프로그램 제어 유닛: 주기억장치로부터 명령어들을 한 개씩 가져와서 실행(IAS 작동)함.</li>
+<li>산술논리연산장치(ALU)</li>
+<li>주기억장치: 명령어와 데이터 모두 저장</li>
+<li>입출력장치</li>
+<li>특이사항: 한번에 두 개의 명령어가 인출된다. 하나의 명령어는 프로그램 제어 유닛으로 바로 들어가고 나머지 하나는 명령어 버퍼에 저장되어 있다가 다음 명령어 실행 사이클에 실핸된다. 이로 인해 기억장치 액세스 시간이 단축된다.</li>
+</ul>
+</li>
+</ul>
+<p>![](img\IAS 컴퓨터의 구조.JPG)</p>
+<p>&lt;IAS 컴퓨터의 구조&gt;</p>
+<p>이와 같이 폰노이만의 설계 개념을 따르는 컴퓨터들은 프로그램이 기억장치에 저장된 순서대로 실행된다. 그 기억장치의 주소는 PC(program counter)에 의해 지정된다.</p>
+<p><i><b>폰노이만 아키텍쳐</b></i>: 기억장치에 저장된 프로그램을 PC가 지정하는 순서대로 실행시킴. 데이터 메모리와 프로그램 메모리가 구분되어있지 않고 하나의 버스를 갖는 구조를 폰노이만 아키텍쳐라고 부른다.</p>
+<p><b>1.4.2 주요 컴퓨터 부품들의 발전 경위</b></p>
+<ul>
+<li>진공관 -&gt; TR -&gt; IC칩</li>
+<li>IC칩의 제조과정:
+<ul>
+<li>Ingot 성장 -&gt; 슬라이스 -&gt; 실리콘웨이퍼 -&gt; 조각내고 회로를 집적 -&gt; IC칩 -&gt; 패키징</li>
+<li>집적도에 따라 분류하면 다음과 같다
+<ul>
+<li>SSI(Small Scale IC): 소규모, 기본적인 디지털 게이트</li>
+<li>MSI(Medium Scale IC): 수백 개의 TR들이 집적되어있음. counter, decoder, shift register 등.</li>
+<li>LSI(Large Scale IC): 수천 개의 TR. 8bit 마이크로프로세서 칩 등.</li>
+<li>VLSI(Very Large Scale IC): 수만~수십만 개의 TR. 마이크로프로세서 칩, 대용량 반도체 기억장치 등.</li>
+<li>ULSI(Ultra Large Scale IC): 수백만 개 이상의 TR.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>높은 집적도의 IC 칩들로 인해 시스템은 다음과 같은 이점을 얻을 수 있다</p>
+<ul>
+<li>회로들이 더 근접 -&gt; 전기적 통로의 길이(버스 등)가 줄어들어 동작속도 향상</li>
+<li>컴퓨터의 크기가 감소</li>
+<li>회로들간의 연결이 칩 내부에서 발생 -&gt; 불량(예를들면 냉납 등)률 감소 -&gt; 부품들의 신뢰성 상승</li>
+<li>전력 소모 감소, 냉각장치가 간단해짐</li>
+<li>집적도와 상관없이 칩의 가격은 유지되어 컴퓨터 가격 하락</li>
+</ul>
+<p><b>1.4.3 컴퓨터시스템의 분류와 발전 동향</b></p>
+<p>1970년 마이크로프로세서의 출현으로 미니컴퓨터의 시장이 성장했다.</p>
+<ul>
+<li>개인용 컴퓨터: 마이크로프로세서라는 획기적인 반도체 칩의 출현과 더불어 개발되기 시작한 컴퓨터.
+<ul>
+<li>컴퓨터 구조상의 주요 동향은 다음과 같다.
+<ul>
+<li>매 3~4년 마다 새로운 마이크로프로세서가 등장함.</li>
+<li>칩의 집적도 상승으로 속도와 신뢰성 향상.</li>
+<li>CPU 내부 구조가 슈퍼스칼라 구조로 발전하며 명령어 실행 속도 향상.</li>
+<li>멀티-코어 프로세서의 출현으로 여러 프로그램의 동시 처리 가능.</li>
+<li>다양한 입출력이 가능해지면서 멀티미디어 PC로 발전.</li>
+<li>GUI 제공 소프트웨어 탑재.</li>
+<li>고속 I/O 장치를 위한 새로운 버스 규격이 생김.</li>
+<li>기억장치의 용량이 크게 증가. 종류도 다양해짐.</li>
+</ul>
+</li>
+<li>데스크탑 컴퓨터, 노트북 컴퓨터, 넷북, 태블릿 PC, 포켓 PC 등 다양한 제품이 출현함.</li>
+</ul>
+</li>
+<li>임베디드 컴퓨터: 기계장치, 전자장치의 내부에 포함되어 그 장치들의 동작을 제어하는 컴퓨터들을 뜻한다. 임베디드 컴퓨터는 실시간으로 프로그램을 처리하는 경우가 많은데 이를 위하여 특수 설계된 하드웨어와 소프트웨어를 결합한 형태를 갖게된다. 또한 기억장치 용량을 줄이고 전력을 최소화 하는 등 자원을 최적화시키는 것이 특징 -&gt; 유비쿼터스 컴퓨팅.</li>
+<li>중형급 컴퓨터시스템: 워크스테이션과 슈퍼미니컴퓨터로 구분된다.
+<ul>
+<li>워크스테이션: 64비트 마이크로프로세서를 CPU로 갖으며 고속 그래픽 처리를 위한 하드웨어를 갖고있다. CAD, 동영상처리, 시뮬레이션 등에 사용함. 특징으로는 LINUX, UNIX를 OS로 사용한다.</li>
+<li>슈퍼미니컴퓨터: 미니컴퓨터보다 수십배의 성능을 내는 컴퓨터. 다중프로세서 시스템으로 구성되고 있다.일반적으로 하나의 시스템 버스에 다수의 프로세서와 주기억장치, I/O 장치들이 접속되어있다.</li>
+<li>대형 컴퓨터시스템을 사용하기 보다 여러 개의 중형급 컴퓨터시스템으로 컴퓨팅 환경을 구축하는 경향으로 가고있다. 이를 다운사이징이라 한다.</li>
+</ul>
+</li>
+<li>대형 메인프레임 컴퓨터: 댱ㅅㅇ령 조정정차, 다중 I/O 채널을 이용한 고속 I/O 처리능력을 갖고있다. 정부기관, 은행, 대형 인터넷포털사이트 등에서 데이터베이스 저장 및 관리용으로 사용함.</li>
+<li>슈퍼컴퓨터: 현존하는 컴퓨터들 중 속도가 현저하게 높은 컴퓨터들을 슈퍼컴퓨터라 한다. 주로 대규모 과학계산 및 시뮬레이션에 사용.
+<ul>
+<li>슈퍼컴퓨터는 구조적 특징에 따라 구분가능하다.
+<ul>
+<li>파이프라인 슈퍼컴퓨터: CPU 내에 다수의 연산장치가 포함됨.</li>
+<li>대규모 병렬컴퓨터: 한 시스템 내에 수천~수만 개 이상의 프로세서를 포함. 하나의 큰 작업을 나누어 병렬처리함. 프로세서들 간의 통신 시간을 최소화할 수 있는 상호연결망 설계가 핵심이다.</li>
+<li>클러스터 컴퓨터: 고속 LAN이나 네트웨크 스위치에 의해 서로 연결된 PC들의 집합체를 뜻함. 각각의 PC를 노드라고 부르며 노드들에 포함된 모든 자원들을 통합하여 사용한다. 이를 단일 시스템 이미지라고 한다. 클러스터 컴퓨터는 시스템 신뢰도가 높다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html"><small>다음 글</small>02. CPU의 구조와 기능</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

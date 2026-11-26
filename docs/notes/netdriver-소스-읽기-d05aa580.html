@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unreal Engine / 네트워킹 / NetDriver 소스 읽기">
+  <title>NetDriver 소스 읽기 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details><summary>자료구조와 알고리즘</summary><ul><li><details><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details open><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details open><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html" aria-current="page">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>Unreal Engine</li><li>네트워킹</li></ol>
+        </nav>
+        <article class="article">
+          <h1>NetDriver 소스 읽기</h1>
+          <div class="article-body"><hr/>
+<details>
+<summary>원문</summary>
+<pre class="code-block"><code class="language-c++"><span class="cm">/**</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * NetDrivers, NetConnections, and Channels</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * UNetDrivers are responsible for managing sets of UNetConnections, and data that can be shared between them.</span>
+<span class="cm"> * There is typically a relatively small number of UNetDrivers for a given game. These may include:</span>
+<span class="cm"> *	- The Game NetDriver, responsible for standard game network traffic.</span>
+<span class="cm"> *	- The Demo NetDriver, responsible for recording or playing back previously recorded game data. This is how Replays work.</span>
+<span class="cm"> *	- The Beacon NetDriver, responsible for network traffic that falls outside of "normal" gameplay traffic.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Custom NetDrivers can also be implemented by games or applications and used.</span>
+<span class="cm"> * NetConnections represent individual clients that are connected to a game (or more generally, to a NetDriver).</span>
+<span class="cm"> *</span>
+<span class="cm"> * End point data isn't directly handled by NetConnections. Instead NetConnections will route data to Channels.</span>
+<span class="cm"> * Every NetConnection will have its own set of channels.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Common types of channels:</span>
+<span class="cm"> *</span>
+<span class="cm"> *	- A Control Channel is used to send information regarding state of a connection (whether or not the connection should close, etc.)</span>
+<span class="cm"> *	- A Voice Channel may be used to send voice data between client and server.</span>
+<span class="cm"> *	- A Unique Actor Channel will exist for every Actor replicated from the server to the client.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Custom Channels can also be created and used for specialized purposes (although, this isn't very common).</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Game Net Drivers, Net Connections, and Channels</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * Under normal circumstances, there will exist only a single NetDriver (created on Client and Server) for "standard" game traffic and connections.</span>
+<span class="cm"> *</span>
+<span class="cm"> * The Server NetDriver will maintain a list of NetConnections, each representing a player that is in the game. It is responsible for</span>
+<span class="cm"> * replicating Actor Data.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Client NetDrivers will have a single NetConnection representing the connection to the Server.</span>
+<span class="cm"> *</span>
+<span class="cm"> * On both Server and Client, the NetDriver is responsible for receiving Packets from the network and passing those to the appropriate</span>
+<span class="cm"> * NetConnection (and establishing new NetConnections when necessary).</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Initiating Connections / Handshaking Flow.</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * UIpNetDriver and UIpConnection (or derived classes) are the engine defaults for almost every platform, and everything below</span>
+<span class="cm"> * describes how they establish and manage connections. These processes can differ between implementations of NetDriver, however.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Both Server and Clients will have have their own NetDrivers, and all UE Replicated Game traffic will be sent by or Received</span>
+<span class="cm"> * from the IpNetDriver. This traffic also includes logic for establishing connections, and re-establishing connections when</span>
+<span class="cm"> * something goes wrong.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Handshaking is split across a couple of different places: NetDriver, PendingNetGame, World, PacketHandlers, and maybe others.</span>
+<span class="cm"> * The split is due to having separate needs, things such as: determining whether or not an incoming connection is sending data in "UE-Protocol",</span>
+<span class="cm"> * determining whether or not an address appears to be malicious, whether or not a given client has the correct version of a game, etc.</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Startup and Handshaking</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * Whenenever a server Loads a map (via UEngine::LoadMap), we will make a call into UWorld::Listen.</span>
+<span class="cm"> * That code is responsible for creating the main Game Net Driver, parsing out settings, and calling UNetDriver::InitListen.</span>
+<span class="cm"> * Ultimately, that code will be responsible for figuring out what how exactly we listen for client connections.</span>
+<span class="cm"> * For example, in IpNetDriver, that is where we determine the IP / Port we will bind to by calls to our configured Socket Subsystem</span>
+<span class="cm"> * (see ISocketSubsystem::GetLocalBindAddresses and ISocketSubsystem::BindNextPort).</span>
+<span class="cm"> *</span>
+<span class="cm"> * Once the server is listening, it's ready to start accepting client connections.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Whenever a client wants to Join a server, they will first establish a new UPendingNetGame in UEngine::Browse with the server's IP.</span>
+<span class="cm"> * UPendingNetGame::Initialize and UPendingNetGame::InitNetDriver are responsible for initializing settings and setting up the NetDriver respectively.</span>
+<span class="cm"> * Clients will immediately setup a UNetConnection for the server as a part of this initialization, and will start sending data to the server on that connection,</span>
+<span class="cm"> * initiating the handshaking process.</span>
+<span class="cm"> *</span>
+<span class="cm"> * On both Clients and Server, UNetDriver::TickDispatch is typically responsible for receiving network data.</span>
+<span class="cm"> * Typically, when we receive a packet, we inspect its address and see whether or not it's from a connection we already know about.</span>
+<span class="cm"> * We determine whether or not we've established a connection for a given source address by simply keeping a map from FInternetAddr to UNetConnection.</span>
+<span class="cm"> *</span>
+<span class="cm"> * If a packet is from a connection that's already established, we pass the packet along to the connection via UNetConnection::ReceivedRawPacket.</span>
+<span class="cm"> * If a packet is not from a connection that's already established, we treat is as "connectionless" and begin the handshaking process.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See StatelessConnectionHandlerComponent.cpp for details on how this handshaking works.</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * UWorld / UPendingNetGame / AGameModeBase Startup and Handshaking</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * After the UNetDriver and UNetConnection have completed their handshaking process on Client and Server,</span>
+<span class="cm"> * UPendingNetGame::SendInitialJoin will be called on the Client to kick off game level handshaking.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Game Level Handshaking is done through a more structured and involved set of FNetControlMessages.</span>
+<span class="cm"> * The full set of control messages can be found in DataChannel.h.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Most of the work for handling these control messages are done either in UWorld::NotifyControlMessage,</span>
+<span class="cm"> * and UPendingNetGame::NotifyControlMessage. Briefly, the flow looks like this:</span>
+<span class="cm"> *</span>
+<span class="cm"> * Client's UPendingNetGame::SendInitialJoin sends NMT_Hello.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Server's UWorld::NotifyControlMessage receives NMT_Hello, sends NMT_Challenge.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Client's UPendingNetGame::NotifyControlMessage receives NMT_Challenge, and sends back data in NMT_Login.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Server's UWorld::NotifyControlMessage receives NMT_Login, verifies challenge data, and then calls AGameModeBase::PreLogin.</span>
+<span class="cm"> * If PreLogin doesn't report any errors, Server calls UWorld::WelcomePlayer, which call AGameModeBase::GameWelcomePlayer,</span>
+<span class="cm"> * and send NMT_Welcome with map information.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Client's UPendingNetGame::NotifyControlMessage receives NMT_Welcome, reads the map info (so it can start loading later),</span>
+<span class="cm"> * and sends an NMT_NetSpeed message with the configured Net Speed of the client.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Server's UWorld::NotifyControlMessage receives NMT_NetSpeed, and adjusts the connections Net Speed appropriately.</span>
+<span class="cm"> *</span>
+<span class="cm"> * At this point, the handshaking is considered to be complete, and the player is fully connected to the game.</span>
+<span class="cm"> * Depending on how long it takes to load the map, the client could still receive some non-handshake control messages</span>
+<span class="cm"> * on UPendingNetGame before control transitions to UWorld.</span>
+<span class="cm"> *</span>
+<span class="cm"> * There are also additional steps for handling Encryption when desired.</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Reestablishing Lost Connections</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * Throughout the course of a game, it's possible for connections to be lost for a number of reasons.</span>
+<span class="cm"> * Internet could drop out, users could switch from LTE to WIFI, they could leave a game, etc.</span>
+<span class="cm"> *</span>
+<span class="cm"> * If the server initiated one of these disconnects, or is otherwise aware of it (due to a timeout or error),</span>
+<span class="cm"> * then the disconnect will be handled by closing the UNetConnection and notifying the game.</span>
+<span class="cm"> * At that point, it's up to a game to decide whether or not they support Join In Progress or Rejoins.</span>
+<span class="cm"> * If the game does support it, we will completely restart the handshaking flow as above.</span>
+<span class="cm"> *</span>
+<span class="cm"> * If something just briefly interrupts the client's connection, but the server is never made aware,</span>
+<span class="cm"> * then the engine / game will typically recover automatically (albeit with some packet loss / lag spike).</span>
+<span class="cm"> *</span>
+<span class="cm"> * However, if the Client's IP Address or Port change for any reason, but the server isn't aware of this,</span>
+<span class="cm"> * then we will begin a recovery process by redoing the low level handshake. In this case, game code</span>
+<span class="cm"> * will not be alerted.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This process is covered in StatlessConnectionHandlerComponent.cpp.</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Data Transmission</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * Game NetConnections and NetDrivers are generally agnostic to the underlying communication method / technology used.</span>
+<span class="cm"> * That is is left up to subclasses to decide (classes such as UIpConnection / UIpNetDriver or UWebSocketConnection / UWebSocketNetDriver).</span>
+<span class="cm"> *</span>
+<span class="cm"> * Instead, UNetDriver and UNetConnection work with Packets and Bunches.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Packets are blobs of data that are sent between pairs of NetConnections on Host and Client.</span>
+<span class="cm"> * Packets consist of meta data about the packet (such as header information and acknowledgments), and Bunches.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Bunches are blobs of data that are sent between pairs of Channels on Host and Client.</span>
+<span class="cm"> * When a Connection receives a Packet, that packet will be disassembled into individual bunches.</span>
+<span class="cm"> * Those bunches are then passed along to individual Channels to be processed further.</span>
+<span class="cm"> *</span>
+<span class="cm"> * A Packet may contain no bunches, a single bunch, or multiple bunches.</span>
+<span class="cm"> * Because size limits for bunches may be larger than the size limits of a single packet, UE supports</span>
+<span class="cm"> * the notion of partial bunches.</span>
+<span class="cm"> *</span>
+<span class="cm"> * When a bunch is too large, before transmission we will slice it into a number of smaller bunches.</span>
+<span class="cm"> * these bunches will be flagged as PartialInitial, Partial, or PartialFinal. Using this information,</span>
+<span class="cm"> * we can reassemble the bunches on the receiving end.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Example: Client RPC to Server.</span>
+<span class="cm"> *		- Client makes a call to Server_RPC.</span>
+<span class="cm"> *		- That request is forwarded (via NetDriver and NetConnection) to the Actor Channel that owns the Actor on which the RPC was called.</span>
+<span class="cm"> *		- The Actor Channel will serialize the RPC Identifier and parameters into a Bunch. The Bunch will also contain the ID of its Actor Channel.</span>
+<span class="cm"> *		- The Actor Channel will then request the NetConnection send the Bunch.</span>
+<span class="cm"> *		- Later, the NetConnection will assemble this (and other) data into a Packet which it will send to the server.</span>
+<span class="cm"> *		- On the Server, the Packet will be received by the NetDriver.</span>
+<span class="cm"> *		- The NetDriver will inspect the Address that sent the Packet, and hand the Packet over to the appropriate NetConnection.</span>
+<span class="cm"> *		- The NetConnection will disassemble the Packet into its Bunches (one by one).</span>
+<span class="cm"> *		- The NetConnection will use the Channel ID on the bunch to Route the bunch to the corresponding Actor Channel.</span>
+<span class="cm"> *		- The ActorChannel will them disassemble the bunch, see it contains RPC data, and use the RPC ID and serialized parameters</span>
+<span class="cm"> *			to call the appropriate function on the Actor.</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> * Reliability and Retransmission</span>
+<span class="cm"> *****************************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> * UE Networking typically assumes reliability isn't guaranteed by the underlying network protocol.</span>
+<span class="cm"> * Instead, it implements its own reliability and retransmission of both packets and bunches.</span>
+<span class="cm"> *</span>
+<span class="cm"> * When a NetConnection is established, it will establish a Sequence Number for its packets and bunches.</span>
+<span class="cm"> * These can either be fixed, or randomized (when randomized, the sequence will be sent by the server).</span>
+<span class="cm"> *</span>
+<span class="cm"> * The packet number is per NetConnection, incremented for every packet sent, every packet will include its packet number,</span>
+<span class="cm"> * and we will never retransmit a packet with the same packet number.</span>
+<span class="cm"> *</span>
+<span class="cm"> * The bunch number is per Channel, incremented for every **reliable** bunch sent, and every **reliable** bunch will</span>
+<span class="cm"> * include its bunch number. Unlike packets, though, exact (reliable) bunches may be retransmitted. This means we</span>
+<span class="cm"> * will resend bunches with the same bunch number.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Note, throughout the code what are described above as both bunch numbers and packet numbers are commonly referred to</span>
+<span class="cm"> * just as sequence numbers. We make the distinction here for clearer understanding.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	--- Detecting Incoming Dropped Packets ---</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *	By assigning packet numbers, we can easily detect when incoming packets are lost.</span>
+<span class="cm"> *	This is done simply by taking the difference between the last successfully received packet number, and the</span>
+<span class="cm"> *	packet number of the current packet being processed.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Under good conditions, all packets will be received in the order they are sent. This means that the difference will</span>
+<span class="cm"> *	be +1.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	If the difference is greater than 1, that indicates that we missed some packets. We will just</span>
+<span class="cm"> *	assume that the missing packets were dropped, but consider the current packet to have been successfully received,</span>
+<span class="cm"> *	and use its number going forward.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	If the difference is negative (or 0), that indicates that we either received some packets out of order, or an external</span>
+<span class="cm"> *	service is trying to resend data to us (remember, the engine will not reuse sequence numbers).</span>
+<span class="cm"> *</span>
+<span class="cm"> *	In either case, the engine will typically ignore the missing or invalid packets, and will not send ACKs for them.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	We do have methods for "fixing" out of order packets that are received on the same frame.</span>
+<span class="cm"> *	When enabled, if we detect missing packets (difference &gt; 1), we won't process the current packet immediately.</span>
+<span class="cm"> *	Instead, it will add it to a queue. The next time we receive a packet successfully (difference == 1), we will</span>
+<span class="cm"> *	see if the head of our queue is properly ordered. If so, we will process it, otherwise we will continue</span>
+<span class="cm"> *	receiving packets.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Once we've read all packets that are currently available, we will flush this queue processing any remaining packets.</span>
+<span class="cm"> *	Anything that's missing at this point will be assumed to have been dropped.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Every packet successfully received will have its packet number sent back to the sender as an acknowledgment (ACK).</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *	--- Detecting Outgoing Dropped Packets ---</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *	As mentioned above, whenever a packet is received successfully the recipient will send back an ACK.</span>
+<span class="cm"> *	These ACKs will contain the packet numbers of successfully received packets, in sequence order.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Similar to how the recipient tracks the packet number, the sender will track the highest ACKed packet number.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	When ACKs are being processed, any ACK below our last received ACK is ignored and any gaps in packet</span>
+<span class="cm"> *	numbers are considered Not Acknowledged (NAKed).</span>
+<span class="cm"> *</span>
+<span class="cm"> *	It is the sender's responsibility to handle these ACKs and NAKs and resend any missing data.</span>
+<span class="cm"> *	The new data will be added to new outgoing packets (again, we will not resend packets we've already sent,</span>
+<span class="cm"> *	or reuse packet sequence numbers).</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *	--- Resending Missing Data ---</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *	As mentioned above, packets alone don't contain useful game data. Instead, it's the bunches that comprise them</span>
+<span class="cm"> *	that have meaningful data.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Bunches can either be marked as Reliable or Unreliable.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	The engine will make no attempt at resending unreliable bunches if they are dropped. Therefore, if bunches</span>
+<span class="cm"> *	are marked unreliable, the game / engine should be able to continue without them, or external retry</span>
+<span class="cm"> *	mechanisms must be put in place, or the data must be sent redundantly. Therefore, everything below only</span>
+<span class="cm"> *	applies to reliable bunches.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	However, the engine will attempt to resend reliable bunches. Whenever a reliable bunch is sent, it will</span>
+<span class="cm"> *	be added to a list of un-ACKed reliable bunches. If we receive a NAK for a packet that contained the bunch,</span>
+<span class="cm"> *	the engine will retransmit an exact copy of that bunch. Note, because bunches may be partial, dropping even</span>
+<span class="cm"> *	a single partial bunch will result in retransmission of the entire bunch. When all packets containing a bunch</span>
+<span class="cm"> *	have been ACKed, we will remove it from the list.</span>
+<span class="cm"> *</span>
+<span class="cm"> *	Similar to packets, we will compare the bunch number for received reliable bunches to the last successfully</span>
+<span class="cm"> *	received bunch. If we detect that the difference is negative, we simply ignore the bunch. If the difference</span>
+<span class="cm"> *	is greater than one, we will assume we missed a bunch. Unlike packet handling, we will not discard this data.</span>
+<span class="cm"> *	Instead, we will queue the bunch and pause processing of **any** bunches, reliable or unreliable.</span>
+<span class="cm"> *	Processing will not be resumed until we detect have received the missing bunches, at which point we will process</span>
+<span class="cm"> *	them, and then start processing our queued bunches.</span>
+<span class="cm"> *	Any new bunches that are received while waiting for the missing bunches, or while we still have any bunches in our</span>
+<span class="cm"> *	queue, will be added to the queue instead of being processed immediately.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+</code></pre>
+<p>/** ***************************************************************************************** * NetDrivers, NetConnections, 그리고 Channels ***************************************************************************************** * * * UNetDrivers는 UNetConnection 집합과 그들 사이에 공유될 수 있는 데이터를 관리하는 책임이 있습니다. * 주어진 게임에 대해 일반적으로 상대적으로 적은 수의 UNetDrivers가 있습니다. 이들에는 일반적으로 다음이 포함됩니다: * - 표준 게임 네트워크 트래픽을 담당하는 Game NetDriver입니다. * - 이전에 기록된 게임 데이터를 기록하거나 재생하는 데 책임이 있는 Demo NetDriver입니다. 이것이 Replay가 작동하는 방식입니다. * - "정상적인" 게임플레이 트래픽 외의 네트워크 트래픽을 담당하는 Beacon NetDriver입니다. * * 게임 또는 응용 프로그램에서 사용할 사용자 정의 NetDrivers도 구현할 수 있고 사용할 수 있습니다. * NetConnections은 게임에 연결된 개별 클라이언트를 나타냅니다 (또는 더 일반적으로 NetDriver에 연결됩니다). * * 엔드포인트 데이터는 NetConnections에서 직접 처리되지 않습니다. 대신 NetConnections는 데이터를 채널로 라우팅합니다. * 각 NetConnection은 고유한 채널 세트를 가지게 됩니다. * * 일반적인 채널 유형: * * - 제어 채널은 연결의 상태에 대한 정보를 보내는 데 사용됩니다 (연결을 닫아야 하는지 여부 등). * - 음성 채널은 클라이언트와 서버 간에 음성 데이터를 보낼 때 사용될 수 있습니다. * - 고유한 액터 채널은 서버에서 클라이언트로 복제된 모든 액터에 대해 존재합니다. * * 특수 목적으로 사용자 정의 채널도 생성하여 사용할 수 있습니다 (하지만 이는 매우 흔하지 않습니다). * * ***************************************************************************************** * 게임 네트워크 드라이버, 네트워크 연결 및 채널 ***************************************************************************************** * * * 보통은 "표준" 게임 트래픽 및 연결을 위해 클라이언트와 서버에 각각 하나의 NetDriver가 있습니다. * * 서버 NetDriver는 게임에 참여하는 각 플레이어를 나타내는 NetConnections 목록을 유지합니다. 이는 * 액터 데이터를 복제하는 데 책임이 있습니다. * * 클라이언트 NetDrivers는 서버에 대한 연결을 나타내는 단일 NetConnection을 갖게 됩니다. * * 서버 및 클라이언트 모두에서 NetDriver는 네트워크에서 패킷을 수신하고 해당 패킷을 적절한 * NetConnection에 전달하고 필요할 때 새로운 NetConnections를 설정하는 데 책임이 있습니다. * * ***************************************************************************************** ***************************************************************************************** ***************************************************************************************** * 연결 초기화 / 핸드셰이크 흐름. ***************************************************************************************** ***************************************************************************************** ***************************************************************************************** * * * UIpNetDriver 및 UIpConnection (또는 파생된 클래스)은 거의 모든 플랫폼에 대한 엔진 기본값입니다. * 아래에 설명된 모든 내용은 연결을 설정하고 관리하는 방법에 대한 것입니다. 그러나 NetDriver 구현에 따라 이러한 프로세스는 달라질 수 있습니다. * * 서버 및 클라이언트 모두에 자체 NetDrivers가 있으며 모든 UE 복제 게임 트래픽은 IpNetDriver에서 * 보내거나 받습니다. 이 트래픽에는 연결 설정 및 다시 연결 설정 로직도 포함됩니다. * * 핸드셰이킹은 다양한 위치에 분할되어 있습니다: NetDriver, PendingNetGame, World, PacketHandlers 및 기타 여러 곳입니다. * 이 분할은 "UE-프로토콜"을 사용하여 들어오는 연결이 데이터를 보내고 있는지 여부, 주소가 악의적인 것으로 보이는지 여부, * 특정 클라이언트가 게임의 올바른 버전을 가지고 있는지 여부 등과 같은 것들을 분리합니다. * * ***************************************************************************************** * 시작 및 핸드셰이킹 ***************************************************************************************** * * * 서버가 지도를 로드할 때마다 (UEngine::LoadMap를 통해), 우리는 UWorld::Listen으로 호출합니다. * 해당 코드는 주요 게임 네트워크 드라이버를 생성하고 설정을 파싱하며 UNetDriver::InitListen을 호출하는 책임이 있습니다. * 최종적으로 해당 코드는 클라이언트 연결을 어떻게 듣는지를 정확하게 파악하는 것을 책임집니다. * 예를 들어, IpNetDriver에서는 구성된 소켓 서브시스템에 대한 호출을 통해 바인딩할 IP / 포트를 결정합니다. * * 서버가 수신 대기 상태인 경우 클라이언트 연결을 수락할 준비가되어 있습니다. * * 클라이언트가 서버에 참여하려고 할 때마다, 우선 UEngine::Browse에서 서버 IP를 사용하여 새로운 UPendingNetGame를 설정합니다. * UPendingNetGame::Initialize 및 UPendingNetGame::InitNetDriver는 설정을 초기화하고 NetDriver를 설정하는 책임이 있습니다. * 클라이언트는이 초기화의 일부로 서버에 대한 UNetConnection을 즉시 설정하고 해당 연결을 통해 서버로 데이터를 보내기 시작하여 * 핸드셰이킹 프로세스를 시작합니다. * * 클라이언트와 서버 모두에서 UNetDriver::TickDispatch가 일반적으로 네트워크 데이터를 수신하는 데 책임이 있습니다. * 일반적으로 패킷을 수신하면 해당 주소를 검사하고 이미 알고있는 연결에서 온 것인지 여부를 확인합니다. * 주어진 소스 주소에 대한 연결을 설정했는지 여부를 확인하기 위해 FInternetAddr에서 UNetConnection으로의 맵을 단순히 유지함으로써 결정합니다. * * 패킷이 이미 설정된 연결에서 왔으면 UNetConnection::ReceivedRawPacket을 통해 패킷을 해당 연결로 전달합니다. * 패킷이 이미 설정된 연결에서 오지 않은 경우 "연결 없음"으로 처리하고 핸드셰이킹 프로세스를 시작합니다. * * 이 핸드셰이킹이 작동하는 방법에 대한 자세한 내용은 StatelessConnectionHandlerComponent.cpp를 참조하십시오. * * ***************************************************************************************** * UWorld / UPendingNetGame / AGameModeBase 시작 및 핸드셰이킹 ***************************************************************************************** * * * 클라이언트 및 서버에서 UNetDriver 및 UNetConnection이 핸드셰이킹 프로세스를 완료하면 * UPendingNetGame::SendInitialJoin이 클라이언트에서 호출되어 게임 레벨 핸드셰이킹을 시작합니다. * * 게임 레벨 핸드셰이킹은 더 구조화되고 관련된 일련의 FNetControlMessages를 통해 수행됩니다. * 제어 메시지의 전체 세트는 DataChannel.h에서 찾을 수 있습니다. * * 이러한 제어 메시지를 처리하는 대부분의 작업은 UWorld::NotifyControlMessage 또는 * UPendingNetGame::NotifyControlMessage에서 수행됩니다. 간략히 말하면 흐름은 다음과 같습니다: * * 클라이언트의 UPendingNetGame::SendInitialJoin이 NMT_Hello를 보냅니다. * * 서버의 UWorld::NotifyControlMessage가 NMT_Hello를 수신하고 NMT_Challenge를 보냅니다. * * 클라이언트의 UPendingNetGame::NotifyControlMessage가 NMT_Challenge를 수신하고 NMT_Login에서 데이터를 보냅니다. * * 서버의 UWorld::NotifyControlMessage가 NMT_Login을 수신하고 도전 데이터를 확인한 다음 AGameModeBase::PreLogin을 호출합니다. * PreLogin에서 오류가보고되지 않으면 서버는 UWorld::WelcomePlayer를 호출하고 AGameModeBase::GameWelcomePlayer를 호출하여 맵 정보와 함께 NMT_Welcome을 보냅니다. * * 클라이언트의 UPendingNetGame::NotifyControlMessage가 NMT_Welcome을 수신하고 맵 정보를 읽어들입니다 (나중에 로드를 시작할 수 있도록). * 그런 다음 구성된 클라이언트의 네트워크 속도와 함께 NMT_NetSpeed 메시지를 보냅니다. * * 서버의 UWorld::NotifyControlMessage가 NMT_NetSpeed를 수신하고 연결의 네트워크 속도를 적절하게 조정합니다. * * 이 시점에서 핸드셰이킹은 완료된 것으로 간주되며 플레이어는 게임에 완전히 연결됩니다. * 맵을로드하는 데 걸리는 시간에 따라 클라이언트가 여전히 UPendingNetGame에서 일부 핸드셰이크 제어 메시지를 * 수신 할 수 있습니다. 제어가 UWorld로 전환되기 전에 * * 원하는 경우 암호화를 처리하는 추가 단계도 있습니다. * * ***************************************************************************************** * 연결 잃어버린 연결 다시 설정하기 ***************************************************************************************** * * * 게임 진행 중에 연결이 여러 이유로 끊길 수 있습니다. * 인터넷 연결이 끊어질 수 있고 사용자가 LTE에서 WIFI로 전환할 수 있으며 게임을 나갈 수 있습니다. * * 서버가 이러한 연결 중 하나를 시작하거나 (타임아웃이나 오류로 인한) 다른 방식으로 인식하면 * 연결이 닫히고 게임에 통보됩니다. * 그 시점에서 게임은 Join In Progress 또는 Rejoin을 지원하는지 여부를 결정합니다. * 게임이 지원하는 경우 우리는 위의 핸드셰이킹 흐름을 완전히 다시 시작할 것입니다. * * 클라이언트의 연결이 잠시 끊어지면서도 서버가 이를 인식하지 못하는 경우 * 그러면 엔진 / 게임은 일반적으로 자동으로 복구합니다 (그러나 일부 패킷 손실 / 레이트 스파이크가 발생할 수 있음). * * 그러나 클라이언트의 IP 주소나 포트가 어떤 이유로 변경되지만 서버가 이를 인식하지 못하는 경우 * 그런 다음 저수준 핸드셰이킹을 다시 수행하여 복구 프로세스를 시작합니다. 이 경우 게임 코드 * 경고되지 않습니다. * * 이 프로세스는 StatlessConnectionHandlerComponent.cpp에서 다루어집니다. * * ***************************************************************************************** ***************************************************************************************** ***************************************************************************************** * 데이터 전송 ***************************************************************************************** ***************************************************************************************** ***************************************************************************************** * * * 게임 NetConnections 및 NetDrivers는 기본 통신 방법 / 기술에 대해 일반적으로 중립적입니다. * 이것은 하위 클래스가 결정하도록 남겨집니다 (UIpConnection / UIpNetDriver 또는 UWebSocketConnection / UWebSocketNetDriver와 같은 클래스). * * 대신, UNetDriver 및 UNetConnection은 패킷과 묶음으로 작업합니다. * * 패킷은 호스트 및 클라이언트 간의 네트워크 연결 사이에서 보내지는 데이터 덩어리입니다. * 패킷은 패킷에 대한 메타 데이터 (헤더 정보 및 확인)와 묶음을 포함합니다. * * 묶음은 호스트 및 클라이언트 간의 채널 사이에서 보내지는 데이터 덩어리입니다. * 연결이 패킷을 수신하면 해당 패킷은 개별 묶음으로 분해됩니다. * 그 묶음은 그런 다음 개별 채널로 전달되어 추가 처리됩니다. * * 패킷은 묶음을 포함하지 않을 수 있고, 단일 묶음 또는 여러 묶음을 포함할 수 있습니다. * 묶음의 크기 제한이 단일 패킷의 크기 제한보다 큰 경우를 고려하여 UE는 부분적인 묶음의 개념을 지원합니다. * * 묶음이 너무 큰 경우, 전송 전에 여러 개의 더 작은 묶음으로 슬라이스합니다. * 이러한 묶음은 부분적인 초기, 부분적 또는 부분적 최종로 플래그가 지정됩니다. 이 정보를 사용하여 * 수신 측에서 묶음을 다시 조립할 수 있습니다. * * 예: 클라이언트에서 서버로 RPC. * - 클라이언트가 Server_RPC를 호출합니다. * - 해당 요청은 (NetDriver 및 NetConnection을 통해) RPC가 호출된 액터를 소유하는 액터 채널로 전달됩니다. * - 액터 채널은 RPC 식별자와 매개변수를 묶음으로 직렬화합니다. 묶음에는 해당 Actor 채널의 ID도 포함됩니다. * - 그런 다음 액터 채널은 NetConnection에게 묶음을 보내도록 요청합니다. * - 나중에 NetConnection은이 (및 기타) 데이터를 패킷으로 조립하고 서버로 보낼 것입니다. * - 서버에서 패킷은 NetDriver에 의해 수신됩니다. * - NetDriver는 패킷을 보낸 주소를 검사하고 패킷을 적절한 NetConnection에게 전달합니다. * - NetConnection은 패킷을 묶음으로 분해합니다 (하나씩). * - NetConnection은 묶음의 채널 ID를 사용하여 해당하는 액터 채널로 묶음을 라우팅합니다. * - 액터 채널은 묶음을 분해하고 RPC 데이터가 포함되어 있는지 확인하고 RPC ID 및 직렬화된 매개변수를 사용하여 * Actor에서 해당하는 함수를 호출합니다. * * ***************************************************************************************** * 신뢰성 및 재전송 ***************************************************************************************** * * * UE 네트워킹은 일반적으로 기본 네트워크 프로토콜에서 신뢰성이 보장되지 않는다고 가정합니다. * 대신, 패킷과 묶음의 신뢰성 및 재전송을 자체적으로 구현합니다. * * NetConnection이 설정되면 해당 패킷 및 묶음에 대한 일련 번호를 설정합니다. * 이것들은 고정 될 수도 있고 (고정 된 경우, 순서는 서버에서 보내집니다), * * 패킷 번호는 NetConnection 당이며, 보낸 모든 패킷마다 증가하며, 모든 패킷에는 해당 패킷 번호가 포함되며, * 동일한 패킷 번호로 패킷을 다시 전송하지 않습니다. * * 묶음 번호는 채널 당이며, <b>신뢰할 수있는</b> 묶음마다 증가하며, <b>신뢰할 수있는</b> 묶음은 * 해당 묶음 번호가 포함됩니다. 그러나 패킷과 달리 정확한 (신뢰할 수있는) 묶음은 다시 전송 될 수 있습니다. 이것은 * 동일한 묶음 번호로 묶음을 다시 전송 할 것입니다. * * 코드 전체에서 위에서 설명한 것처럼 묶음 번호와 패킷 번호 모두 단순히 순차 번호로 참조됩니다. 여기서는 더 명확한 이해를 위해 구별합니다. * * --- 수신된 드롭된 패킷 감지 --- * * * 패킷 번호를 할당함으로써 우리는 들어오는 패킷이 손실되었는지 쉽게 감지 할 수 있습니다. * 이것은 마지막으로 받은 패킷보다 큰 패킷 번호를 가진 패킷을받은 경우로 간주됩니다. * 이 경우, 드라이버가 손실된 패킷에 대한 재전송을 요청합니다. * * --- 수신된 드롭된 묶음 감지 --- * * * 묶음 번호를 할당함으로써 우리는 들어오는 묶음이 손실되었는지 쉽게 감지 할 수 있습니다. * 만약 마지막으로 받은 묶음 번호보다 1 큰 묶음을 수신한 경우 손실된 것으로 간주됩니다. * 이 경우, 드라이버가 손실된 묶음에 대한 재전송을 요청합니다. * * --- 수신된 드롭된 부분적인 묶음 감지 --- * * * 부분적 또는 부분적 최종 묶음이 손실되면 이를 감지하기가 더 어려울 수 있습니다. * 따라서 여기에는 패킷 번호 및 묶음 번호에서의 마지막 재전송을 사용하여 처리하는 추가 로직이 포함됩니다. * * --- 재전송이 필요한 패킷 및 묶음 --- * * * UNetDriver는 재전송이 필요한 모든 패킷과 묶음을 추적합니다. * 손실된 패킷을 수신하면 해당 패킷을 재전송하고, 묶음이 손실된 경우 해당 묶음에있는 모든 패킷을 재전송합니다. * * --- 재전송 간격 --- * * * 재전송 간격은 일반적으로 손실되었다고 가정되는 패킷 및 묶음에 대한 재전송 간격입니다. * 일반적으로 TCP의 지수 백오프 알고리즘과 유사한 로직을 사용하여이 값을 결정합니다. * 재전송 시간이 각 재전송 후 지수적으로 증가하므로 네트워크 장애가 일시적 인 경우 * 다수의 재전송을 유발하지 않습니다. * * --- 제한적인 실패 --- * * * 재전송 횟수에 제한을 두는 것이 중요합니다. 네트워크 장애가있는 경우 * 계속해서 동일한 패킷을 전송하려고 시도하면 문제를 야기 할 수 있습니다. * 따라서 재전송 시도 횟수에는 제한이 있습니다. * * 이러한 감지 및 재전송 메커니즘은 UE4의 가장 중요한 네트워킹 시스템 중 하나입니다. * 이는 네트워크 연결의 신뢰성을 유지하고 게임이 지속적으로 실행되는 데 필수적입니다. * * ***************************************************************************************** * RPC (Remote Procedure Call) ***************************************************************************************** * * * RPC는 게임 서버에서 클라이언트로 또는 클라이언트에서 게임 서버로 호출되는 함수입니다. * * RPC는 다양한 상황에서 사용됩니다. 예를 들어, 플레이어가 총을 발사하거나, 플레이어의 위치를 업데이트하거나, * 특정 상호 작용이 게임 상태에 영향을 미치는 동안 서버 또는 클라이언트 측에서 실행해야하는 모든 유형의 작업입니다. * * RPC는 메시지로써 게임 서버 및 클라이언트 간에 교환됩니다. 이러한 메시지는 네트워크 통신을 통해 * 게임 서버 또는 클라이언트로 보내지며, 이러한 호출에는 게임 상태를 변경하는 기능을 실행하는 것이 포함됩니다. * * RPC는 보통 UFUNCTION 매크로로 지정되는 특정 함수로 정의되며, 해당 함수는 네트워크에서 호출 될 수 있도록 준비됩니다. * RPC 호출은 기본적으로 게임의 내부 로직에서 호출되지만 이러한 호출은 게임의 상태를 변경하는 데 사용됩니다. * * ***************************************************************************************** * 동기화된 액터 상태 ***************************************************************************************** * * * RPC가 게임 서버에서 클라이언트로 또는 클라이언트에서 게임 서버로 호출될 때 주요 목적 중 하나는 액터의 상태를 동기화하는 것입니다. * 이것은 일반적으로 특정 액터의 위치, 회전, 스케일 등의 변경 사항을 전파하는 데 사용됩니다. * * 액터의 상태를 동기화하는 경우, 서버에서 상태 변경이 발생하면 해당 변경 사항을 모든 관련 클라이언트에 알리기 위해 * RPC를 사용할 수 있습니다. 마찬가지로 클라이언트에서 상태 변경이 발생하면 이를 서버에 알리기 위해 RPC를 사용할 수 있습니다. * * ***************************************************************************************** */</p>
+</details>
+<details>
+<summary>요약</summary>
+<p><b>구글 AI요약</b></p>
+<hr/>
+<p>This section of NetDriver.h explains how Unreal Engine manages network connections and data transfer for multiplayer games. Here's a breakdown of the key points:</p>
+<p><b>Components:</b></p>
+<ul>
+<li><b>NetDrivers:</b> Manage sets of <b>NetConnections</b> and the data they share.</li>
+<li><b>NetConnections:</b> Represent individual clients connected to a game.</li>
+<li><b>Channels:</b> Routes data between <b>NetConnections</b>. Each connection has different channels, like control, voice, and actor channels.</li>
+</ul>
+<p><b>Handshake Flow:</b></p>
+<ul>
+<li>Server listens for connections, clients initiate them.</li>
+<li>Handshake involves verifying addresses, protocols, and game versions.</li>
+<li>Both server and client use <b>UNetDriver</b> for standard game traffic.</li>
+</ul>
+<p><b>Data Transmission:</b></p>
+<ul>
+<li>Packets carry data between connections, containing meta-data and <b>Bunches</b>.</li>
+<li>Bunches hold the actual game data and can be reliable or unreliable (retransmitted).</li>
+<li>Channels receive bunches and process their data (e.g., calling RPCs on actors).</li>
+</ul>
+<p><b>Reliability and Retransmission:</b></p>
+<ul>
+<li>Unreal Engine implements its own reliability for packets and bunches.</li>
+<li>Sequence numbers track order and detect missing/out-of-order data.</li>
+<li>Unreliable bunches are not guaranteed to arrive but should be handled by the game.</li>
+<li>Reliable bunches are retransmitted if not acknowledged by the recipient.</li>
+</ul>
+<p><b>Additional Notes:</b></p>
+<ul>
+<li>This summary captures the main points; the actual code contains more details.</li>
+<li>Different NetDriver implementations (like UIpNetDriver) have specific ways of handling connections and data.</li>
+<li>The comments also cover scenarios like lost connections and rejoining games.</li>
+</ul>
+<hr/>
+<p><b>NetDriver.h</b>는 언리얼 엔진의 멀티플레이어 네트워킹 시스템에 대한 주요 정보를 담고 있습니다. 아래는 주석의 주요 내용을 요약한 것입니다.</p>
+<p><b>구성 요소:</b></p>
+<ul>
+<li>
+<b>NetDriver:</b> 여러 <b>NetConnection</b>과 그들이 공유하는 데이터를 관리합니다.
+<ul>
+<li>
+<p>용도에 따라 패킷을 처리하는 다양한 NetDriver 클래스 제공한다.
+<b>GameNetDriver </b>: 게임 데이터를 처리하는데 사용되는 네트워크 드라이버</p>
+<p><b>DemoNetDriver </b>: 게임 리플레이 데이터를 처리하는데 사용되는 네트워크 드라이버</p>
+<p><b>BeaconNetDriver </b>: 게임 외 데이터를 처리하는데 사용되는 네트워크 드라이버</p>
+</li>
+<li>
+<p>언리얼 엔진에서는 게임 데이터를 처리하는 GameNetDriver로<br/><b>IPNetDriver </b>클래스(IP주소 기반으로 네트워크 통신을 담당)를 사용한다.</p>
+</li>
+</ul>
+</li>
+<li>
+<b>NetConnection:</b> 게임에 연결된 개별 클라이언트를 나타냅니다. <br/>데이터를 직접 처리하지 않고 채널로 라우팅합니다.
+</li>
+<li>
+<b>Channel:</b> 특정 데이터 유형에 대한 전용 경로입니다. <br/>NetConnection 사이의 데이터를 라우팅합니다. 
+<ul>
+<li>일반적인 유형:
+<ul>
+<li>제어 채널</li>
+<li>음성 채널</li>
+<li>복제된 액터를 위한 고유한 액터 채널</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>연결 및 핸드쉐이킹:</b></p>
+<ul>
+<li><b>연결</b>
+<ul>
+<li><b>서버:</b>
+<ul>
+<li>NetConnection 목록(플레이어)을 유지 관리하고 액터 데이터를 복제합니다.</li>
+</ul>
+</li>
+<li><b>클라이언트:</b>
+<ul>
+<li>서버에 대한 단일 NetConnection을 가지고 있으며 NetDriver를 통해 패킷을 수신합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>핸드쉐이킹</b>
+<ul>
+<li>서버는 연결을 수신 대기하고 클라이언트는 연결을 시작합니다.</li>
+<li>핸드쉐이크는 주소, 프로토콜 및 게임 버전 확인을 포함합니다.</li>
+<li>서버와 클라이언트 모두 <b>UNetDriver</b>를 사용하여 표준 게임 트래픽을 처리합니다.</li>
+</ul>
+</li>
+<li><b>연결 손실 시 재연결</b>
+<ul>
+<li><b>게임:</b>
+<ul>
+<li>연결을 닫고 재가입을 허용하여 연결 끊김을 처리할 수 있습니다.</li>
+</ul>
+</li>
+<li><b>서버 인식:</b>
+<ul>
+<li>짧은 중단은 자동으로 복구될 수 있지만 IP/포트 변경은 더 낮은 수준에서 복구를 트리거합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>데이터 전송:</b></p>
+<ul>
+<li><b>Packet</b>은 연결 간 데이터를 전송하며 메타데이터와 <b>Bunch</b>를 포함합니다.</li>
+<li><b>Bunch</b>는 실제 게임 데이터를 보유하며 신뢰할 수 있거나 신뢰할 수 없습니다.
+<ul>
+<li>손실시 재 전송</li>
+<li>배송 보장 없음</li>
+</ul>
+</li>
+<li><b>Channel</b>은 <b>Bunch</b>를 수신하고 데이터를 처리합니다 (예: 액터에서 RPC 호출).
+<ul>
+<li>
+<p>언리얼 엔진에서 Bunch를 처리하는데 사용하는 주요 채널
+<b>ControlChannel</b> : 클라이언트 서버 간의 커넥션을 다룰 때 사용하는 채널<br/>(초기 접속에 관련된 데이터 패킷을 분석한다)</p>
+<p><b>ActorChannel </b>: 액터 리플리케이션 작업을 다룰 때 사용하는 채널</p>
+<p><b>VoidChannel </b>: 음성 데이터를 전달할 때사 용</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>신뢰성 및 재전송:</b></p>
+<ul>
+<li>언리얼 엔진은 패킷과 <b>Bunch</b>에 대한 자체적인 신뢰성을 구현합니다.</li>
+<li>시퀀스 번호는 순서를 추적하고 누락된/잘못된 데이터를 감지합니다.</li>
+<li>신뢰할 수 없는 <b>Bunch</b>는 도착하지 않을 수 있지만 게임에서 처리해야 합니다.</li>
+<li>신뢰할 수 있는 <b>Bunch</b>는 수신자가 확인하지 않으면 재전송됩니다.</li>
+</ul>
+<p><b>참고 사항:</b></p>
+<ul>
+<li>이 요약은 주요 내용을 담고 있으며 실제 코드에는 더 많은 세부 정보가 포함됩니다.</li>
+<li>UIpNetDriver와 같은 다른 <b>NetDriver</b> 구현은 연결 및 데이터 처리에 대한 고유한 방식을 가지고 있습니다.</li>
+<li>주석은 연결 손실 및 다시 참여와 같은 시나리오도 다룹니다.</li>
+</ul>
+</details>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html"><small>이전 글</small>언리얼 네트워크와 복제</a><a href="%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html"><small>다음 글</small>언리얼 UI 구조와 성능</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>

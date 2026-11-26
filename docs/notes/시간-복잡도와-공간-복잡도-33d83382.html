@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="자료구조와 알고리즘 / 알고리즘 기초 / 시간 복잡도와 공간 복잡도">
+  <title>시간 복잡도와 공간 복잡도 | 개발 노트</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a href="#main" class="skip">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">개발 노트</a>
+      <a class="header-link" href="../index.html#topics">전체 목차</a>
+    </div>
+  </header>
+  
+    <div class="reader">
+      <aside class="contents">
+        <details class="contents-body" open>
+          <summary>전체 목차</summary>
+          <nav aria-label="주제별 글 목차"><ul><li><details><summary>C/C++</summary><ul><li><details><summary>문법 기초</summary><ul><li><a href="../notes/%EB%B3%80%EC%88%98%EC%99%80-%EC%9E%90%EB%A3%8C%ED%98%95-4d6b8aba.html">변수와 자료형</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90-fa6248f5.html">기본 연산자</a></li><li><a href="../notes/%EB%B0%98%EB%B3%B5%EB%AC%B8-3fa78a27.html">반복문</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-7a4772a9.html">함수</a></li><li><a href="../notes/%EA%B5%AC%EC%A1%B0%EC%B2%B4-8f9905d7.html">구조체</a></li><li><a href="../notes/%EB%B0%B0%EC%97%B4-add5f6ba.html">배열</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-d7387a5d.html">문자열</a></li><li><a href="../notes/%EC%9E%AC%EA%B7%80-2225fabd.html">재귀</a></li><li><a href="../notes/c-%ED%82%A4%EC%9B%8C%EB%93%9C-%EB%A9%94%EB%AA%A8-4febdfa0.html">C++ 키워드 메모</a></li></ul></details></li><li><details><summary>포인터와 메모리</summary><ul><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%9C%EC%9A%A9-c38c378a.html">포인터 기초와 활용</a></li><li><a href="../notes/%EC%B0%B8%EC%A1%B0%EC%9E%90-%EB%AC%B8%EB%B2%95-32c5f25d.html">참조자 문법</a></li><li><a href="../notes/%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EB%B9%84%EA%B5%90-8d5238f9.html">포인터와 참조 비교</a></li><li><a href="../notes/%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90%EB%A1%9C-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EC%B0%B8%EC%A1%B0-%EC%A0%84%EB%8B%AC-246c7281.html">함수 인자로 포인터와 참조 전달</a></li><li><a href="../notes/const-%EC%B0%B8%EC%A1%B0-81936fa3.html">const 참조</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-1decf578.html">동적 메모리 할당</a></li><li><a href="../notes/%EB%8F%99%EC%A0%81-2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EC%9D%B4%EC%A4%91-%ED%8F%AC%EC%9D%B8%ED%84%B0-76aabbca.html">동적 2차원 배열과 이중 포인터</a></li><li><a href="../notes/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-379c3520.html">문자열 리터럴</a></li><li><a href="../notes/raii%EC%99%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%ED%8F%AC%EC%9D%B8%ED%84%B0-1ebe4990.html">RAII와 스마트 포인터</a></li></ul></details></li><li><details><summary>클래스와 객체 수명</summary><ul><li><a href="../notes/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%EB%84%A4-%EA%B0%80%EC%A7%80-%ED%8A%B9%EC%A7%95-c3da3954.html">객체지향의 네 가지 특징</a></li><li><a href="../notes/%ED%81%B4%EB%9E%98%EC%8A%A4-d8e0ad5d.html">클래스</a></li><li><a href="../notes/%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-e444d841.html">연산자 오버로딩</a></li><li><a href="../notes/%EC%83%81%EC%86%8D-7bc782fc.html">상속</a></li><li><a href="../notes/%EB%8B%A4%EC%A4%91-%EC%83%81%EC%86%8D-a51a07e1.html">다중 상속</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-bffbab7e.html">가상 함수의 동작 원리</a></li><li><a href="../notes/%EA%B0%80%EC%83%81-%EC%86%8C%EB%A9%B8%EC%9E%90-addedbbd.html">가상 소멸자</a></li><li><a href="../notes/%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-8b00fd8e.html">얕은 복사와 깊은 복사</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%83%9D%EC%84%B1%EC%9E%90-45a4e854.html">복사·이동 생성자</a></li><li><a href="../notes/rvalue-%EC%B0%B8%EC%A1%B0-adb6f979.html">rvalue 참조</a></li><li><a href="../notes/%EB%B3%B5%EC%82%AC-%EC%83%9D%EB%9E%B5-aeb0f99e.html">복사 생략</a></li><li><a href="../notes/rule-of-three-five-zero-53e94fe0.html">Rule of Three, Five, Zero</a></li></ul></details></li><li><details><summary>함수·형 변환·템플릿</summary><ul><li><a href="../notes/%ED%95%A8%EC%88%98-%ED%8F%AC%EC%9D%B8%ED%84%B0-f705b107.html">함수 포인터</a></li><li><a href="../notes/%EB%9E%8C%EB%8B%A4-b51e5b5a.html">람다</a></li><li><a href="../notes/std-function-3e652abf.html">std::function</a></li><li><a href="../notes/inline-%ED%95%A8%EC%88%98-6a4bb285.html">inline 함수</a></li><li><a href="../notes/%ED%98%95-%EB%B3%80%ED%99%98-feb496ab.html">형 변환</a></li><li><a href="../notes/%EC%95%94%EC%8B%9C%EC%A0%81-%EB%B3%80%ED%99%98%EA%B3%BC-explicit-49b44978.html">암시적 변환과 explicit</a></li><li><a href="../notes/if-constexpr-39083382.html">if constexpr</a></li><li><a href="../notes/%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B9%EC%88%98%ED%99%94-39083382.html">템플릿 특수화</a></li></ul></details></li><li><details><summary>빌드와 디버깅</summary><ul><li><a href="../notes/c-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-afd890ca.html">C++ 빌드 과정</a></li><li><a href="../notes/%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-bf32577f.html">전처리기</a></li><li><a href="../notes/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%A0%81-%EB%B3%80%EC%88%98-extern-c5983ac9.html">전역 변수·정적 변수·extern</a></li><li><a href="../notes/unity-build-178a9adf.html">Unity Build</a></li><li><a href="../notes/visual-studio-%EB%94%94%EB%B2%84%EA%B9%85-%EA%B8%B0%EC%B4%88-93ebf7f6.html">Visual Studio 디버깅 기초</a></li></ul></details></li></ul></details></li><li><details open><summary>자료구조와 알고리즘</summary><ul><li><details open><summary>알고리즘 기초</summary><ul><li><a href="../notes/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-33d83382.html" aria-current="page">시간 복잡도와 공간 복잡도</a></li><li><a href="../notes/%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html">인벤토리 정렬 사례</a></li></ul></details></li><li><details><summary>자료구조와 STL</summary><ul><li><a href="../notes/%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%EC%8A%A4%ED%83%9D-d4f3d414.html">연결 리스트와 스택</a></li><li><a href="../notes/stl-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%ED%8A%B8%EB%A6%AC-%EA%B7%B8%EB%9E%98%ED%94%84-9c4e3447.html">STL 컨테이너와 트리·그래프</a></li><li><a href="../notes/%EB%8D%B1-std-deque-c3f51734.html">덱(std::deque)</a></li><li><a href="../notes/vector-list-deque%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%97%B0%EC%82%B0-%EB%B9%84%EC%9A%A9-d1515b19.html">vector·list·deque의 구조와 연산 비용</a></li><li><a href="../notes/vector-list-deque-%EC%A4%91%EA%B0%84-%EC%82%AD%EC%A0%9C-%EC%8B%A4%EC%B8%A1-2a1d9c19.html">vector·list·deque 중간 삭제 실측</a></li><li><a href="../notes/vector-bool-%EA%B3%BC-bitset-de26749a.html">vector&lt;bool&gt;과 bitset</a></li><li><a href="../notes/%EB%B9%84%ED%8A%B8-%ED%94%8C%EB%9E%98%EA%B7%B8-12e6440c.html">비트 플래그</a></li></ul></details></li></ul></details></li><li><details><summary>컴퓨터 구조와 운영체제</summary><ul><li><details><summary>컴퓨터 구조</summary><ul><li><a href="../notes/01-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B0%9C%EC%9A%94-3b783382.html">01. 컴퓨터 시스템 개요</a></li><li><a href="../notes/02-cpu%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EA%B8%B0%EB%8A%A5-3b783382.html">02. CPU의 구조와 기능</a></li><li><a href="../notes/03-%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%82%B0%EC%88%A0%EA%B3%BC-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-3b783382.html">03. 컴퓨터 산술과 논리연산</a></li></ul></details></li><li><details><summary>프로세스와 스레드</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EB%A0%88%EB%93%9C-40bb7690.html">프로그램·프로세스·스레드</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-20548056.html">프로세스 스케줄링</a></li><li><a href="../notes/%EB%AC%B8%EB%A7%A5-%EA%B5%90%ED%99%98-a9065dde.html">문맥 교환</a></li><li><a href="../notes/%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-ed43e3e7.html">스레드 동기화</a></li></ul></details></li><li><details><summary>메모리 구조</summary><ul><li><a href="../notes/%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80-%EB%AC%BC%EB%A6%AC-%EB%A9%94%EB%AA%A8%EB%A6%AC-04dbcb61.html">가상 메모리와 물리 메모리</a></li><li><a href="../notes/bss%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-bfa0254d.html">BSS와 데이터 세그먼트</a></li><li><a href="../notes/%EC%8A%A4%ED%83%9D%EA%B3%BC-%ED%9E%99%EC%9D%98-%ED%95%A0%EB%8B%B9-%EB%B9%84%EC%9A%A9-0d5c3e76.html">스택과 힙의 할당 비용</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94-1efa9b56.html">메모리 단편화</a></li><li><a href="../notes/%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%92%80-9b24cd90.html">메모리 풀</a></li></ul></details></li></ul></details></li><li><details><summary>게임 수학</summary><ul><li><details><summary>벡터와 행렬</summary><ul><li><a href="../notes/%EB%B2%A1%ED%84%B0-61e3907a.html">벡터</a></li><li><a href="../notes/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%99%B8%EC%A0%81-90e24d9d.html">내적과 외적</a></li><li><a href="../notes/%EC%A7%81%EA%B5%90-%ED%88%AC%EC%98%81-7b136818.html">직교 투영</a></li><li><a href="../notes/%ED%96%89%EB%A0%AC-fc364502.html">행렬</a></li></ul></details></li><li><details><summary>보간과 곡선</summary><ul><li><a href="../notes/%EC%84%A0%ED%98%95%EB%B3%B4%EA%B0%84-5fe5801b.html">선형보간</a></li><li><a href="../notes/%EC%8A%A4%ED%94%8C%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%B2%A0%EC%A7%80%EC%97%90-%EA%B3%A1%EC%84%A0-b65c7b3c.html">스플라인과 베지에 곡선</a></li></ul></details></li><li><details><summary>좌표 변환과 회전</summary><ul><li><a href="../notes/%EC%82%BC%EA%B0%81%ED%95%A8%EC%88%98%EC%99%80-%ED%9A%8C%EC%A0%84-4c57b3d8.html">삼각함수와 회전</a></li><li><a href="../notes/2d-%ED%9A%8C%EC%A0%84%EA%B3%BC-%EB%B3%80%ED%99%98-%ED%96%89%EB%A0%AC-ee8e834d.html">2D 회전과 변환 행렬</a></li><li><a href="../notes/%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-9a646497.html">선형 변환</a></li><li><a href="../notes/%EC%95%84%ED%95%80-%EB%B3%80%ED%99%98-75e2109f.html">아핀 변환</a></li><li><a href="../notes/%EC%98%A4%EC%9D%BC%EB%9F%AC%EC%99%80-%EC%BF%BC%ED%84%B0%EB%8B%88%EC%96%B8-b7f48ef9.html">오일러와 쿼터니언</a></li></ul></details></li></ul></details></li><li><details><summary>그래픽스</summary><ul><li><details><summary>렌더링 파이프라인</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B0%9C%EC%9A%94-41c367ed.html">렌더링 파이프라인 개요</a></li><li><a href="../notes/%EC%A0%95%EC%A0%90-%EB%B3%80%ED%99%98-05bbfc1b.html">정점 변환</a></li><li><details><summary>래스터화</summary><ul><li><a href="../notes/rasterization-46413112.html">Rasterization</a></li><li><a href="../notes/%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-%EC%A2%8C%ED%91%9C-1eee8fc0.html">무게중심 좌표</a></li><li><a href="../notes/%EB%9E%98%EC%8A%A4%ED%84%B0%ED%99%94%EC%97%90%EC%84%9C%EC%9D%98-%EC%A2%8C%ED%91%9C-%EB%B3%80%ED%99%98-283f4caf.html">래스터화에서의 좌표 변환</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-dc082298.html">깊이 버퍼</a></li><li><a href="../notes/%EB%B0%B1%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%BB%AC%EB%A7%81-c07b94f3.html">백페이스 컬링</a></li><li><a href="../notes/%EC%9B%90%EA%B7%BC-%ED%88%AC%EC%98%81-cc6d9cd4.html">원근 투영</a></li></ul></details></li><li><a href="../notes/%ED%94%84%EB%9F%AC%EC%8A%A4%ED%85%80-%EC%BB%AC%EB%A7%81%EA%B3%BC-%ED%81%B4%EB%A6%AC%ED%95%91-a72c7102.html">프러스텀 컬링과 클리핑</a></li><li><details><summary>드로우 콜</summary><ul><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%B0%9C%EC%83%9D-f97d8ce6.html">드로우 콜의 개념과 발생</a></li><li><a href="../notes/%EB%93%9C%EB%A1%9C%EC%9A%B0-%EC%BD%9C-%EC%B5%9C%EC%A0%81%ED%99%94-e62dc2b0.html">드로우 콜 최적화</a></li></ul></details></li><li><a href="../notes/%EB%A0%88%EC%9D%B4-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8B%B1-5c6b1792.html">레이 트레이싱</a></li></ul></details></li><li><details><summary>셰이더와 GPU 리소스</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%8B%A8%EA%B3%84-edf01eb1.html">셰이더 단계</a></li><li><a href="../notes/%ED%97%90-%EC%85%B0%EC%9D%B4%EB%8D%94-09f14454.html">헐 셰이더</a></li><li><a href="../notes/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-e816cb04.html">도메인 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94-a527c9e3.html">지오메트리 셰이더</a></li><li><a href="../notes/%EC%A7%80%EC%98%A4%EB%A9%94%ED%8A%B8%EB%A6%AC-%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%85%8C%EC%85%80%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B9%84%EA%B5%90-a4118ed9.html">지오메트리 셰이더와 테셀레이션 비교</a></li><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%8A%B8-%EC%85%B0%EC%9D%B4%EB%8D%94-f450be76.html">컴퓨트 셰이더</a></li><li><a href="../notes/constant-buffer%EC%99%80-structured-buffer-279b5774.html">Constant Buffer와 Structured Buffer</a></li><li><a href="../notes/direct3d-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EB%B7%B0-rtv-dsv-srv-uav-4cdd019d.html">Direct3D 리소스 뷰(RTV·DSV·SRV·UAV)</a></li></ul></details></li><li><details><summary>텍스처와 샘플링</summary><ul><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80-%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-e32b5c91.html">텍스처와 스프라이트</a></li><li><a href="../notes/%ED%85%8D%EC%8A%A4%EC%B2%98%EB%A7%81-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%83%98%ED%94%8C%EB%A7%81-bff73a45.html">텍스처링 개요와 샘플링</a></li><li><a href="../notes/%EC%9E%84%ED%8F%AC%ED%84%B4%EC%8A%A4-%EC%83%98%ED%94%8C%EB%A7%81-ba646584.html">임포턴스 샘플링</a></li><li><a href="../notes/%EB%85%B8%EB%A9%80%EB%A7%B5%EC%9D%B4-%ED%8C%8C%EB%9E%80-%EC%9D%B4%EC%9C%A0-341b366f.html">노멀맵이 파란 이유</a></li><li><a href="../notes/%ED%81%90%EB%B8%8C-%EB%A7%A4%ED%95%91-1818f9f9.html">큐브 매핑</a></li></ul></details></li><li><details><summary>빛과 셰이딩</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%94%A9-%EA%B8%B0%EC%B4%88-903e2de4.html">셰이딩 기초</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EB%B0%98%EC%82%AC-df13dada.html">빛의 반사</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90-%EC%A2%85%EB%A5%98-c90cfd72.html">광원 종류</a></li><li><a href="../notes/phong%EA%B3%BC-blinn-phong-35050b82.html">Phong과 Blinn-Phong</a></li><li><details><summary>PBR</summary><ul><li><a href="../notes/pbr-%EA%B0%9C%EC%9A%94-8bc1dd4b.html">PBR 개요</a></li><li><a href="../notes/%EC%9D%B8%EA%B0%84%EA%B3%BC-%EB%B9%9B-467aca61.html">인간과 빛</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%99%80-%ED%9C%98%EB%8F%84-0f8b3147.html">조도와 휘도</a></li><li><a href="../notes/%EB%B9%9B%EC%9D%98-%EA%B0%90%EC%87%A0-f507bea2.html">빛의 감쇠</a></li><li><a href="../notes/%EA%B4%91%EC%9B%90%EC%9D%98-%EB%B0%9D%EA%B8%B0-%EA%B4%91%EC%86%8D-2aa738aa.html">광원의 밝기(광속)</a></li><li><a href="../notes/%EC%A1%B0%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-6ac0e7c8.html">조도의 측정</a></li><li><a href="../notes/%ED%9C%98%EB%8F%84%EC%9D%98-%EC%B8%A1%EC%A0%95-f9eeb76d.html">휘도의 측정</a></li></ul></details></li><li><a href="../notes/%EA%B5%AC%EB%A9%B4-%EC%A1%B0%ED%99%94-%ED%95%A8%EC%88%98-0b61f923.html">구면 조화 함수</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%BC%EC%9E%90-d827b49a.html">그림자</a></li></ul></details></li><li><details><summary>렌더링 기법과 후처리</summary><ul><li><a href="../notes/%EC%B9%B4%ED%88%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-subdivision-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8B%B1-9f6fb057.html">카툰 렌더링·Subdivision·인스턴싱</a></li><li><a href="../notes/%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%95%84%ED%84%B0%EB%A7%81-kernel-e49ab977.html">이미지 필터링 Kernel</a></li><li><a href="../notes/%EB%B8%94%EB%9F%AC-d122f0a3.html">블러</a></li><li><a href="../notes/%EB%B8%94%EB%A3%B8-7878906e.html">블룸</a></li><li><a href="../notes/%ED%9B%84%EC%B2%98%EB%A6%AC-%ED%9A%A8%EA%B3%BC-%EA%B5%AC%ED%98%84-ef96eed0.html">후처리 효과 구현</a></li></ul></details></li><li><details><summary>DirectX 구현</summary><ul><li><a href="../notes/direct3d-11-%EC%B4%88%EA%B8%B0%ED%99%94-62cab2c5.html">Direct3D 11 초기화</a></li><li><a href="../notes/msaa-%EC%84%A4%EC%A0%95-50533355.html">MSAA 설정</a></li><li><a href="../notes/com-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-comptr-2145078b.html">COM 인터페이스와 ComPtr</a></li><li><details><summary>2D 렌더링</summary><ul><li><a href="../notes/directx-2d-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B0%9C%EC%9A%94-e9fa6ea4.html">DirectX 2D 렌더링 개요</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%9A%A9%EC%96%B4%EC%A7%91-63d4e2f7.html">렌더링 용어집</a></li><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B5%AC%EC%A1%B0-821c71be.html">렌더링 애플리케이션 구조</a></li><li><details><summary>GPU 렌더링 초기화와 그리기</summary><ul><li><a href="../notes/gpu-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-27eb3c91.html">GPU 디바이스 생성</a></li><li><a href="../notes/%EC%8A%A4%EC%99%91-%EC%B2%B4%EC%9D%B8%EA%B3%BC-rtv-%EC%83%9D%EC%84%B1-5ccb2811.html">스왑 체인과 RTV 생성</a></li><li><a href="../notes/%EA%B9%8A%EC%9D%B4-%EB%B2%84%ED%8D%BC-%EC%83%9D%EC%84%B1-0b5a8623.html">깊이 버퍼 생성</a></li><li><details><summary>렌더러 초기화</summary><ul><li><a href="../notes/%EB%A0%8C%EB%8D%94%EB%9F%AC-%EC%B4%88%EA%B8%B0%ED%99%94-%EC%88%9C%EC%84%9C-879cf548.html">렌더러 초기화 순서</a></li><li><details><summary>셰이더 로드</summary><ul><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%A1%9C%EB%93%9C-%ED%9D%90%EB%A6%84-7dae979c.html">셰이더 로드 흐름</a></li><li><a href="../notes/hlsl-%EC%85%B0%EC%9D%B4%EB%8D%94-%ED%8C%8C%EC%9D%BC-71f377db.html">HLSL 셰이더 파일</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94-%EC%83%9D%EC%84%B1-c17658e6.html">셰이더 생성</a></li></ul></details></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EA%B3%BC-%EC%83%81%ED%83%9C-%EC%84%A4%EC%A0%95-ee03bda4.html">입력 레이아웃과 상태 설정</a></li><li><a href="../notes/%EB%B2%84%ED%8D%BC-%EB%A1%9C%EB%93%9C-edb4d22d.html">버퍼 로드</a></li></ul></details></li><li><details><summary>프레임 렌더링</summary><ul><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%88%9C%EC%84%9C-4bd44d8d.html">그리기 순서</a></li><li><a href="../notes/%ED%99%94%EB%A9%B4-%EC%A7%80%EC%9A%B0%EA%B8%B0-e0e8accf.html">화면 지우기</a></li><li><a href="../notes/%EC%83%81%EC%88%98-%EB%B2%84%ED%8D%BC-%EC%A0%84%EB%8B%AC-9c2c5899.html">상수 버퍼 전달</a></li><li><a href="../notes/%EB%B7%B0%ED%8F%AC%ED%8A%B8-%EC%A1%B0%EC%A0%95-51295f0a.html">뷰포트 조정</a></li><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EB%B2%84%ED%8D%BC-%EB%B0%94%EC%9D%B8%EB%94%A9-c7403c1e.html">메시 버퍼 바인딩</a></li><li><a href="../notes/%EC%85%B0%EC%9D%B4%EB%8D%94%EC%99%80-%ED%86%A0%ED%8F%B4%EB%A1%9C%EC%A7%80-%EC%84%A4%EC%A0%95-04582104.html">셰이더와 토폴로지 설정</a></li><li><a href="../notes/%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%98%B8%EC%B6%9C-0daaa319.html">그리기 호출</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="../notes/2d%EC%97%90%EC%84%9C-3d%EB%A1%9C-%EB%B0%94%EB%80%8C%EB%8A%94-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%8B%A8%EA%B3%84-82bd215e.html">2D에서 3D로 바뀌는 렌더링 단계</a></li></ul></details></li></ul></details></li><li><details><summary>게임 프로그래밍</summary><ul><li><details><summary>WinAPI</summary><ul><li><a href="../notes/winapi-%EA%B0%9C%EC%9A%94-5d0f84e2.html">WinAPI 개요</a></li><li><a href="../notes/intersectrect%EC%99%80-%EC%82%AC%EA%B0%81%ED%98%95-%EC%B6%A9%EB%8F%8C-%EA%B2%80%EC%82%AC-da2ca10d.html">IntersectRect와 사각형 충돌 검사</a></li><li><a href="../notes/getkeystate%EC%99%80-getasynckeystate-528d47a2.html">GetKeyState와 GetAsyncKeyState</a></li><li><a href="../notes/%EA%B3%A0%ED%95%B4%EC%83%81%EB%8F%84-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A1%9C-%EB%8D%B8%ED%83%80-%ED%83%80%EC%9E%84-%EA%B3%84%EC%82%B0-89392e67.html">고해상도 타이머로 델타 타임 계산</a></li><li><a href="../notes/%EC%B0%BD-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%95%EA%B3%BC-%EB%8D%94%EB%B8%94-%EB%B2%84%ED%8D%BC%EB%A7%81-129f7081.html">창 크기 조정과 더블 버퍼링</a></li><li><a href="../notes/%EC%B9%B4%EB%A9%94%EB%9D%BC-%EB%B2%94%EC%9C%84-%EA%B8%B0%EB%B0%98-%ED%83%80%EC%9D%BC-%EB%A0%8C%EB%8D%94%EB%A7%81-b79bfda6.html">카메라 범위 기반 타일 렌더링</a></li></ul></details></li><li><details><summary>게임플레이와 엔진 구조</summary><ul><li><a href="../notes/%EB%90%98%EA%B0%90%EA%B8%B0%EC%99%80-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81-%EB%A9%94%EB%AA%A8-9d66d219.html">되감기와 오브젝트 풀링 메모</a></li><li><a href="../notes/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%B0%B0%EC%B9%98%EC%99%80-ecs-5e6dbc37.html">컴포넌트 배치와 ECS</a></li><li><a href="../notes/%ED%96%89%EB%8F%99-%ED%8A%B8%EB%A6%AC-35971329.html">행동 트리</a></li></ul></details></li></ul></details></li><li><details><summary>Unreal Engine</summary><ul><li><details><summary>에디터와 C++</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%90%EB%94%94%ED%84%B0-%EB%91%98%EB%9F%AC%EB%B3%B4%EA%B8%B0-b9d9d98f.html">언리얼 에디터 둘러보기</a></li><li><a href="../notes/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-d92f8436.html">프로젝트 폴더 구조</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-c-%EA%B0%9C%EC%9A%94-120f9136.html">언리얼 C++ 개요</a></li><li><a href="../notes/%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-3b189455.html">기본 타입과 문자열</a></li><li><a href="../notes/%EC%A7%81%EB%A0%AC%ED%99%94-8afb86fd.html">직렬화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%B9%8C%EB%93%9C-%EA%B3%BC%EC%A0%95-39583382.html">언리얼 빌드 과정</a></li><li><a href="../notes/%ED%97%A4%EB%8D%94-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A4%84%EC%9D%B4%EA%B8%B0-126ae805.html">헤더 의존성 줄이기</a></li><li><a href="../notes/%EB%B9%8C%EB%93%9C-%EC%97%90%EC%85%8B-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9-%ED%8C%81-22483382.html">빌드·에셋·에디터 사용 팁</a></li></ul></details></li><li><details><summary>게임플레이 프레임워크</summary><ul><li><a href="../notes/%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EA%B0%9C%EC%9A%94-d40fdffb.html">게임플레이 프레임워크 개요</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%ED%95%B5%EC%8B%AC-%ED%81%B4%EB%9E%98%EC%8A%A4-3b383382.html">엔진 핵심 클래스</a></li><li><a href="../notes/%EC%94%AC-%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-3b783382.html">씬·프리미티브 컴포넌트</a></li><li><details><summary>엔진 시작과 런타임</summary><ul><li><a href="../notes/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%A7%80%EC%A0%90-3bb83382.html">프로그램의 시작 지점</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">엔진 초기화</a></li><li><a href="../notes/world-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">World 초기화</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EA%B0%80-%EC%9B%94%EB%93%9C%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95-3bb83382.html">액터가 월드에 등록되는 과정</a></li><li><a href="../notes/%EC%97%94%EC%A7%84-tick-3bb83382.html">엔진 Tick</a></li><li><a href="../notes/world-pie-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-3bb83382.html">World (PIE) 생성 과정</a></li><li><a href="../notes/%EC%95%A1%ED%84%B0%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94-3bb83382.html">액터의 초기화</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%9E%85%EB%A0%A5-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%EC%A1%B0-3bd83382.html">언리얼 입력 시스템 구조</a></li></ul></details></li><li><a href="../notes/%EC%97%94%EC%A7%84%EA%B3%BC-%EC%9B%94%EB%93%9C%EC%9D%98-%EC%88%98%EB%AA%85-%EA%B4%80%EB%A0%A8-%EB%A9%94%EB%AA%A8-a042f70f.html">엔진과 월드의 수명 관련 메모</a></li></ul></details></li><li><details><summary>네트워킹</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%99%80-%EB%B3%B5%EC%A0%9C-5382a0f1.html">언리얼 네트워크와 복제</a></li><li><a href="../notes/netdriver-%EC%86%8C%EC%8A%A4-%EC%9D%BD%EA%B8%B0-d05aa580.html">NetDriver 소스 읽기</a></li></ul></details></li><li><details><summary>UI</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ui-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%B1%EB%8A%A5-39083382.html">언리얼 UI 구조와 성능</a></li><li><a href="../notes/slate%EC%99%80-swidget-90c1e327.html">Slate와 SWidget</a></li><li><a href="../notes/mvvm-%EC%98%88%EC%A0%9C-%EB%B6%84%EC%84%9D-33f83382.html">MVVM 예제 분석</a></li><li><a href="../notes/%EB%AA%A8%EB%93%88%ED%99%94-%EC%9C%84%EC%A0%AF-%EA%B5%AC%EC%84%B1-2a783382.html">모듈화 위젯 구성</a></li></ul></details></li><li><details><summary>Gameplay Ability System</summary><ul><li><a href="../notes/gas-%EA%B0%9C%EC%9A%94-18283382.html">GAS 개요</a></li><li><a href="../notes/gas-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%B4%88-18283382.html">GAS 사용 기초</a></li><li><a href="../notes/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%9D%98-asc-%EC%84%A4%EC%A0%95-18383382.html">플레이어 캐릭터의 ASC 설정</a></li><li><a href="../notes/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EA%B3%BC-gameplay-event-18e83382.html">애니메이션과 Gameplay Event</a></li><li><a href="../notes/abilitytask-18e83382.html">AbilityTask</a></li><li><a href="../notes/gameplay-ability-target-actor-19183382.html">Gameplay Ability Target Actor</a></li><li><a href="../notes/attribute-19183382.html">Attribute</a></li></ul></details></li><li><details><summary>Lyra 구조 분석</summary><ul><li><a href="../notes/%EB%AA%A8%EB%93%88%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-17c83382.html">모듈과 의존성</a></li><li><a href="../notes/%EB%A1%9C%EA%B9%85-17c83382.html">로깅</a></li><li><a href="../notes/%EC%9E%85%EB%A0%A5-23e83382.html">입력</a></li><li><details><summary>Asset Manager</summary><ul><li><a href="../notes/%EC%95%A0%EC%85%8B-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%9D%98-%EA%B5%AC%EC%A1%B0-18083382.html">애셋 매니저의 구조</a></li><li><a href="../notes/assetscan-22583382.html">AssetScan</a></li><li><a href="../notes/%EB%AA%85%EB%A0%B9%EC%A4%84-%EC%9D%B8%EC%9E%90%EB%A1%9C-%EC%95%A0%EC%85%8B-%EB%A1%9C%EB%93%9C-%EA%B8%B0%EB%A1%9D-22483382.html">명령줄 인자로 애셋 로드 기록</a></li></ul></details></li><li><a href="../notes/experience-18083382.html">Experience</a></li><li><a href="../notes/init-state%EC%99%80-%ED%99%95%EC%9E%A5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-22a83382.html">Init State와 확장 컴포넌트</a></li><li><a href="../notes/camera-23283382.html">Camera</a></li><li><details><summary>Game Features</summary><ul><li><a href="../notes/game-feature%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%ED%99%9C%EC%84%B1%ED%99%94-22583382.html">Game Feature의 구조와 활성화</a></li><li><a href="../notes/commonuser-22583382.html">CommonUser</a></li></ul></details></li><li><details><summary>Cosmetics</summary><ul><li><a href="../notes/%EC%99%B8%ED%98%95-%ED%8C%8C%EC%B8%A0-%EA%B5%AC%EC%A1%B0-25a83382.html">외형 파츠 구조</a></li><li><a href="../notes/ffastarrayserializer%EC%99%80-cosmetic-%ED%8C%8C%EC%B8%A0-%EB%B3%B5%EC%A0%9C-35683382.html">FFastArraySerializer와 Cosmetic 파츠 복제</a></li></ul></details></li><li><a href="../notes/%EC%9E%A5%EB%B9%84%EC%99%80-%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-35c83382.html">장비와 인벤토리</a></li><li><a href="../notes/lyra%EC%9D%98-gas-%EA%B5%AC%EC%84%B1-34783382.html">Lyra의 GAS 구성</a></li></ul></details></li><li><details><summary>렌더링·월드·애니메이션</summary><ul><li><a href="../notes/%EB%A9%94%EC%8B%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-3e283382.html">메시 그리기 파이프라인</a></li><li><a href="../notes/gfurcomponent-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B3%91%EB%AA%A9-3eb83382.html">GFurComponent 렌더링 병목</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%A0%88%EB%B2%A8%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-72363159.html">언리얼 레벨스트리밍</a></li><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-ik-%EB%B6%84%EC%84%9D-2debaa68.html">언리얼 IK 분석</a></li><li><a href="../notes/niagara-user-parameter%EB%A5%BC-details%EC%97%90-%EB%85%B8%EC%B6%9C%ED%95%98%EA%B8%B0-29383382.html">Niagara User Parameter를 Details에 노출하기</a></li></ul></details></li><li><details><summary>현지화</summary><ul><li><a href="../notes/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%98%84%EC%A7%80%ED%99%94-53576408.html">언리얼 현지화</a></li></ul></details></li></ul></details></li><li><details><summary>네트워크와 서버</summary><ul><li><details><summary>네트워크 기초</summary><ul><li><a href="../notes/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EB%9E%80-698cce43.html">컴퓨터 네트워크란?</a></li><li><a href="../notes/%ED%8C%A8%ED%82%B7-%ED%86%B5%EC%8B%A0-898b58b8.html">패킷 통신</a></li><li><a href="../notes/ip-aadd85cc.html">IP</a></li><li><a href="../notes/tcp-72a97d90.html">TCP</a></li><li><a href="../notes/%ED%8F%AC%ED%8A%B8%EB%B2%88%ED%98%B8-294464fc.html">포트번호</a></li><li><a href="../notes/http-eeffdfe9.html">HTTP</a></li></ul></details></li><li><details><summary>소켓과 서버 설계</summary><ul><li><a href="../notes/winsock2-%EC%B4%88%EA%B8%B0%ED%99%94%EC%99%80-%ED%95%B4%EC%A0%9C-99d53bd5.html">Winsock2 초기화와 해제</a></li><li><a href="../notes/%EB%A6%B4%EB%A0%88%EC%9D%B4-%EC%84%9C%EB%B2%84%EC%99%80-%EB%B8%94%EB%A1%9C%ED%82%B9-%EC%86%8C%EC%BC%93-480bd0ae.html">릴레이 서버와 블로킹 소켓</a></li><li><a href="../notes/c-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EC%84%A4%EA%B3%84-a328ef63.html">C++ 채팅 서버 설계</a></li></ul></details></li></ul></details></li><li><details><summary>개발 환경</summary><ul><li><details><summary>버전 관리</summary><ul><li><a href="../notes/svn-7a6a6f48.html">SVN</a></li></ul></details></li><li><details><summary>CI/CD</summary><ul><li><a href="../notes/ci-cd-d4466258.html">CI/CD</a></li><li><a href="../notes/jenkins-%EC%82%AC%EC%9A%A9%EB%B2%95-402581dd.html">Jenkins 사용법</a></li></ul></details></li></ul></details></li></ul></nav>
+        </details>
+      </aside>
+      <main id="main" class="reading">
+        <nav aria-label="현재 위치">
+          <ol class="breadcrumbs"><li><a href="../index.html#topics">전체 목차</a></li><li>자료구조와 알고리즘</li><li>알고리즘 기초</li></ol>
+        </nav>
+        <article class="article">
+          <h1>시간 복잡도와 공간 복잡도</h1>
+          <div class="article-body"><hr/>
+<h2 id="개요">개요</h2>
+<p><b><span>시간복잡도</span></b>와 <b><span>공간복잡도</span></b>는 입력 크기가 커질수록 알고리즘이 <b><span>얼마나 느려지고</span></b>, <b><span>얼마나 많은 메모리</span></b>를 쓰는지를 표현하는 기준</p>
+<h3 id="1-기본-용어-정리"><b>1. 기본 용어 정리</b></h3>
+<h4 id="알고리즘"><b>알고리즘</b></h4>
+<p>문제를 해결하는 절차입니다.</p>
+<h4 id="입력-크기-n"><b>입력 크기 n</b></h4>
+<p>복잡도를 계산할 때 기준이 되는 값입니다.</p>
+<p>예:</p>
+<ul>
+<li>배열 길이</li>
+<li>문자열 길이</li>
+<li>노드 개수</li>
+<li>간선 개수</li>
+</ul>
+<h4 id="연산-횟수"><b>연산 횟수</b></h4>
+<p>알고리즘이 수행하는 핵심 작업 수입니다.</p>
+<p>예:</p>
+<ul>
+<li>비교 횟수</li>
+<li>대입 횟수</li>
+<li>반복문 실행 횟수</li>
+</ul>
+<p>정확한 초/밀리초보다 이런 연산 수 증가를 먼저 봅니다.</p>
+<hr/>
+<h3 id="2-시간복잡도란"><b>2. 시간복잡도란</b></h3>
+<p>시간복잡도는 입력 크기 n이 커질 때 실행 시간이 어떻게 증가하는지를 나타냅니다.</p>
+<p>예를 들어:</p>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    Sum += Arr[i];
+}
+</code></pre>
+<p>이 코드는 원소를 n개 한 번씩 보므로 시간복잡도는 보통 O(n)입니다.</p>
+<h4 id="왜-중요한가"><b>왜 중요한가</b></h4>
+<p>입력이 작을 때는 다 비슷해 보여도, 입력이 커지면 차이가 매우 커집니다.</p>
+<p>예:</p>
+<ul>
+<li>O(n)은 100만 개여도 가능할 수 있음</li>
+<li>O(n^2)은 100만 개면 사실상 불가능한 경우가 많음</li>
+</ul>
+<hr/>
+<h3 id="3-공간복잡도란"><b>3. 공간복잡도란</b></h3>
+<p>공간복잡도는 알고리즘이 사용하는 메모리 양이 입력 크기에 따라 어떻게 증가하는지 나타냅니다.</p>
+<p>예:</p>
+<p><code>vector&lt;int&gt; Copy = Arr;</code></p>
+<p>배열 전체를 복사하면 입력 크기만큼 추가 메모리가 필요하므로 보통 O(n) 추가 공간이 듭니다.</p>
+<h4 id="공간복잡도에서-자주-보는-구분"><b>공간복잡도에서 자주 보는 구분</b></h4>
+<ul>
+<li>전체 공간: 입력 자체까지 포함</li>
+<li>보조 공간(Auxiliary Space): 입력 외에 알고리즘이 추가로 쓰는 메모리</li>
+</ul>
+<p>실전에서는 보통 추가로 얼마나 더 쓰는지를 많이 봅니다.</p>
+<hr/>
+<h3 id="4-점근적-표기법"><b>4. 점근적 표기법</b></h3>
+<h4 id="big-o-표기법-o"><b>Big-O 표기법: O(...)</b></h4>
+<p>상한을 나타냅니다.</p>
+<p>보통 “최악의 경우 기준으로 이 정도로 증가한다”고 이해하면 됩니다.</p>
+<p>예:</p>
+<ul>
+<li>O(1) 상수 시간</li>
+<li>O(log n) 로그 시간</li>
+<li>O(n) 선형 시간</li>
+<li>O(n log n) 준선형</li>
+<li>O(n^2) 제곱 시간</li>
+</ul>
+<h4 id="big-omega-표기법-ω"><b>Big-Omega 표기법: Ω(...)</b></h4>
+<p>하한을 나타냅니다.</p>
+<p>적어도 이 정도는 걸린다는 뜻입니다.</p>
+<h4 id="big-theta-표기법-θ"><b>Big-Theta 표기법: Θ(...)</b></h4>
+<p>상한과 하한이 같은 경우입니다.</p>
+<p>즉, 증가율이 정확히 그 정도라고 볼 수 있습니다.</p>
+<h4 id="공부-초반에는-이렇게-이해하시면-충분합니다"><b>공부 초반에는 이렇게 이해하시면 충분합니다</b></h4>
+<ul>
+<li>가장 많이 쓰는 것은 O(...)</li>
+<li>문제 풀이에서는 거의 항상 시간복잡도 = O(...) 형태로 말함</li>
+</ul>
+<hr/>
+<h3 id="5-자주-나오는-복잡도-순서"><b>5. 자주 나오는 복잡도 순서</b></h3>
+<p>빠른 것부터 느린 것 순서입니다.</p>
+<p><code>O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n) &lt; O(n!)</code></p>
+<h4 id="각각의-느낌"><b>각각의 느낌</b></h4>
+<ul>
+<li>O(1): 입력 크기와 무관</li>
+<li>O(log n): 매우 효율적</li>
+<li>O(n): 입력 한 번 순회</li>
+<li>O(n log n): 정렬류에서 자주 나옴</li>
+<li>O(n^2): 이중 반복문</li>
+<li>O(2^n), O(n!): 완전탐색, 조합 폭발</li>
+</ul>
+<hr/>
+<h3 id="6-시간복잡도-계산-기본-규칙"><b>6. 시간복잡도 계산 기본 규칙</b></h3>
+<h4 id="1-상수는-무시"><b>1. 상수는 무시</b></h4>
+<p>O(2n)은 O(n)으로 씁니다.</p>
+<p>이유:</p>
+<p>입력이 커질수록 2배 같은 상수보다 n 자체의 증가가 더 중요하기 때문입니다.</p>
+<h4 id="2-낮은-차수는-무시"><b>2. 낮은 차수는 무시</b></h4>
+<p>O(n^2 + n + 1)은 O(n^2)입니다.</p>
+<h4 id="3-순차-실행은-더함"><b>3. 순차 실행은 더함</b></h4>
+<pre class="code-block"><code>for (...) { ... }   // O(n)
+for (...) { ... }   // O(n)
+</code></pre>
+<p>전체는 O(n + n) = O(n)입니다.</p>
+<h4 id="4-중첩-반복은-곱함"><b>4. 중첩 반복은 곱함</b></h4>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    for (int j = 0; j &lt; n; ++j)
+    {
+        ...
+    }
+}
+</code></pre>
+<p>전체는 O(n^2)입니다.</p>
+<h4 id="5-입력이-다른-두-개면-변수도-나눠서-봄"><b>5. 입력이 다른 두 개면 변수도 나눠서 봄</b></h4>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i) { ... }
+for (int j = 0; j &lt; m; ++j) { ... }
+</code></pre>
+<p>전체는 O(n + m)입니다.</p>
+<p>무조건 O(n)으로 뭉개면 안 됩니다.</p>
+<hr/>
+<h3 id="7-공간복잡도-계산-기본-규칙"><b>7. 공간복잡도 계산 기본 규칙</b></h3>
+<h4 id="o-1-공간"><b>O(1) 공간</b></h4>
+<p>추가 변수 몇 개만 쓰는 경우</p>
+<pre class="code-block"><code>int Sum = 0;
+int MaxValue = 0;
+</code></pre>
+<p>입력이 커져도 변수 개수는 늘지 않으므로 O(1)입니다.</p>
+<h4 id="o-n-공간"><b>O(n) 공간</b></h4>
+<p>입력 크기만큼 추가 저장</p>
+<p><code>vector&lt;int&gt; Temp(n);</code></p>
+<h4 id="재귀도-공간을-씁니다"><b>재귀도 공간을 씁니다</b></h4>
+<p>재귀 호출은 호출 스택을 사용하므로 깊이에 따라 공간이 듭니다.</p>
+<p>예:</p>
+<ul>
+<li>깊이 n 재귀면 보통 O(n) 스택 공간</li>
+</ul>
+<hr/>
+<h3 id="8-예제로-보는-감각"><b>8. 예제로 보는 감각</b></h3>
+<h4 id="예제-1-배열-합-구하기"><b>예제 1: 배열 합 구하기</b></h4>
+<pre class="code-block"><code>int Sum = 0;
+for (int i = 0; i &lt; n; ++i)
+{
+    Sum += Arr[i];
+}
+</code></pre>
+<ul>
+<li>시간복잡도: O(n)</li>
+<li>공간복잡도: O(1)</li>
+</ul>
+<h4 id="예제-2-모든-쌍-비교"><b>예제 2: 모든 쌍 비교</b></h4>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    for (int j = 0; j &lt; n; ++j)
+    {
+        ...
+    }
+}
+</code></pre>
+<ul>
+<li>시간복잡도: O(n^2)</li>
+<li>공간복잡도: O(1)</li>
+</ul>
+<h4 id="예제-3-이진-탐색"><b>예제 3: 이진 탐색</b></h4>
+<p>정렬된 배열에서 중간값 기준으로 반씩 버립니다.</p>
+<ul>
+<li>시간복잡도: O(log n)</li>
+<li>공간복잡도:
+<ul>
+<li>반복문 구현: O(1)</li>
+<li>재귀 구현: O(log n)</li>
+</ul>
+</li>
+</ul>
+<h4 id="예제-4-병합-정렬"><b>예제 4: 병합 정렬</b></h4>
+<ul>
+<li>시간복잡도: O(n log n)</li>
+<li>공간복잡도: O(n) 추가 배열 필요</li>
+</ul>
+<hr/>
+<h3 id="9-최선-평균-최악-경우"><b>9. 최선, 평균, 최악 경우</b></h3>
+<p>같은 알고리즘도 경우에 따라 다를 수 있습니다.</p>
+<p>예: 선형 탐색</p>
+<ul>
+<li>최선: 첫 번째에서 찾음 → O(1)</li>
+<li>최악: 끝까지 감 → O(n)</li>
+</ul>
+<p>초반 공부에서는 보통 최악의 경우를 기준으로 봅니다.</p>
+<hr/>
+<h3 id="10-실전에서-자주-헷갈리는-포인트"><b>10. 실전에서 자주 헷갈리는 포인트</b></h3>
+<h4 id="1-for문이-있다고-무조건-o-n-은-아닙니다"><b>1. for문이 있다고 무조건 O(n)은 아닙니다</b></h4>
+<pre class="code-block"><code>for (int i = 1; i &lt; n; i *= 2)
+{
+    ...
+}
+</code></pre>
+<p>이건 1, 2, 4, 8, ... 식으로 증가하므로 O(log n)입니다.</p>
+<h4 id="2-재귀는-시간과-공간을-따로-봐야-합니다"><b>2. 재귀는 시간과 공간을 따로 봐야 합니다</b></h4>
+<p>피보나치 단순 재귀:</p>
+<ul>
+<li>시간복잡도: 매우 큼, 대략 O(2^n)</li>
+<li>공간복잡도: 호출 깊이만큼 O(n)</li>
+</ul>
+<h4 id="3-컬렉션-연산도-복잡도가-있습니다"><b>3. 컬렉션 연산도 복잡도가 있습니다</b></h4>
+<p>예:</p>
+<ul>
+<li>배열 인덱스 접근: 보통 O(1)</li>
+<li>정렬: 보통 O(n log n)</li>
+<li>해시 조회: 평균 O(1), 최악은 더 커질 수 있음</li>
+</ul>
+<h4 id="4-입력-저장-공간과-추가-공간을-구분해야-합니다"><b>4. 입력 저장 공간과 추가 공간을 구분해야 합니다</b></h4>
+<p>입력 배열 자체가 n개라는 사실과, 알고리즘이 추가로 n개 더 만드는 것은 다릅니다.</p>
+<hr/>
+<h3 id="11-왜-시간복잡도와-공간복잡도를-같이-봐야-하나"><b>11. 왜 시간복잡도와 공간복잡도를 같이 봐야 하나</b></h3>
+<p>둘은 종종 트레이드오프 관계입니다.</p>
+<p>예:</p>
+<ul>
+<li>더 빠르게 하려고 메모리를 더 쓸 수 있음</li>
+<li>메모리를 아끼려면 시간이 더 걸릴 수 있음</li>
+</ul>
+<p>예시:</p>
+<ul>
+<li>해시맵 사용: 공간 증가, 시간 단축</li>
+<li>제자리 정렬: 공간 절약, 구현 복잡도 증가 가능</li>
+</ul>
+<hr/>
+<h3 id="12-공부할-때-추천-순서"><b>12. 공부할 때 추천 순서</b></h3>
+<ol>
+<li>O(1), O(log n), O(n), O(n^2) 감각 익히기</li>
+<li>반복문 보고 복잡도 계산하기</li>
+<li>재귀 호출 깊이와 호출 횟수 구분하기</li>
+<li>정렬/탐색의 대표 복잡도 외우기</li>
+<li>자료구조 연산별 복잡도 정리하기</li>
+<li>문제 풀 때 “왜 이 복잡도인지” 말로 설명해보기</li>
+</ol>
+<hr/>
+<h3 id="13-아주-짧은-암기표"><b>13. 아주 짧은 암기표</b></h3>
+<pre class="code-block"><code>시간복잡도 = 얼마나 오래 걸리는가
+공간복잡도 = 얼마나 많은 메모리를 쓰는가
+
+O(1)     상수
+O(log n) 로그
+O(n)     선형
+O(n log n) 준선형
+O(n^2)   이차
+O(2^n)   지수
+</code></pre>
+<hr/>
+<h3 id="14-처음-공부할-때의-기준-문장"><b>14. 처음 공부할 때의 기준 문장</b></h3>
+<p>문제를 볼 때 이렇게 생각하시면 됩니다.</p>
+<ul>
+<li>입력 크기 n이 무엇인지 먼저 정한다</li>
+<li>핵심 연산이 몇 번 반복되는지 센다</li>
+<li>추가 메모리가 입력에 비례해 늘어나는지 본다</li>
+<li>상수와 낮은 차수는 버리고 가장 크게 증가하는 항만 남긴다</li>
+</ul>
+<hr/>
+<h2 id="문제">문제</h2>
+<h3 id="문제-1"><b>문제 1</b></h3>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    cout &lt;&lt; i &lt;&lt; "\n";
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<h3 id="문제-2"><b>문제 2</b></h3>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    for (int j = 0; j &lt; n; ++j)
+    {
+        cout &lt;&lt; i &lt;&lt; j &lt;&lt; "\n";
+    }
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<h3 id="문제-3"><b>문제 3</b></h3>
+<pre class="code-block"><code>for (int i = 1; i &lt; n; i *= 2)
+{
+    cout &lt;&lt; i &lt;&lt; "\n";
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<p>원하시면 답을 바로 말하지 않고,</p>
+<p>제가 한 문제씩 채점 + 왜 그런지 설명 방식으로 같이 진행해드릴게요.</p>
+<p>1번 n 2번 n제곱 3번 로그n</p>
+<p>결론부터 말씀드리면, 3문제 모두 정답입니다.</p>
+<p>간단히 이유만 바로 붙이면:</p>
+<ol>
+<li>
+<p>O(n)
+반복문이 n번 돕니다.</p>
+</li>
+<li>
+<p>O(n^2)
+바깥 루프 n번, 안쪽 루프 n번이므로 n * n입니다.</p>
+</li>
+<li>
+<p>O(log n)
+i가 1, 2, 4, 8, ...처럼 2배씩 증가하므로 반복 횟수는 log₂ n입니다. 복잡도 표기에서는 O(log n)으로 씁니다.</p>
+</li>
+</ol>
+<p>짧은 체크 포인트:</p>
+<ul>
+<li>1개씩 증가하면 보통 O(n)</li>
+<li>중첩으로 n번씩 돌면 O(n^2)</li>
+<li>2배씩 증가하거나 절반씩 감소하면 O(log n)</li>
+</ul>
+<p>다음 연습으로 넘어가면 가장 좋은 단계는 헷갈리기 쉬운 문제입니다.</p>
+<p>원하시면 이번엔 O(n + m), O(n log n), O(1) 섞어서 3문제 더 드리겠습니다.</p>
+<p>응응</p>
+<p>좋습니다. 이번에는 조금 더 실전 느낌으로 내드리겠습니다.</p>
+<h3 id="문제-1-2"><b>문제 1</b></h3>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    cout &lt;&lt; i &lt;&lt; "\n";
+}
+
+for (int j = 0; j &lt; m; ++j)
+{
+    cout &lt;&lt; j &lt;&lt; "\n";
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<h3 id="문제-2-2"><b>문제 2</b></h3>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    for (int j = 1; j &lt; n; j *= 2)
+    {
+        cout &lt;&lt; i &lt;&lt; j &lt;&lt; "\n";
+    }
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<h3 id="문제-3-2"><b>문제 3</b></h3>
+<pre class="code-block"><code>int Value = Arr[0];
+cout &lt;&lt; Value &lt;&lt; "\n";
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는 무엇인가?</li>
+</ul>
+<hr/>
+<p>답은 1번, 2번, 3번 순서로 적어주시면 바로 채점해드리겠습니다.</p>
+<p>1. n<br/>2. n제곱<br/>3. 1</p>
+<p>결론부터 말씀드리면, 1번 정답, 2번 오답, 3번 정답입니다.</p>
+<ol>
+<li>
+<p>O(n + m)
+사용자님은 n이라고 답하셨지만, 정확히는 O(n + m)입니다.</p>
+<p>첫 번째 반복문은 n번, 두 번째 반복문은 m번이라서 더해야 합니다.</p>
+</li>
+<li>
+<p>O(n log n)
+이 문제는 바깥쪽이 n번, 안쪽이 1, 2, 4, 8, ...처럼 증가해서 log n번 돕니다.</p>
+<p>그래서 전체는:</p>
+</li>
+</ol>
+<p><code>n * log n = O(n log n)</code></p>
+<p>O(n^2)가 되려면 안쪽도 n번 돌아야 합니다.</p>
+<ol>
+<li>O(1)배열 첫 원소 접근 한 번, 출력 한 번이므로 상수 시간입니다.</li>
+</ol>
+<p>짧게 정리하면:</p>
+<ul>
+<li>순서대로 따로 돌면 더하기</li>
+<li>중첩 반복이면 곱하기</li>
+<li>안쪽이 2배씩 증가하면 log n</li>
+</ul>
+<p>정답표:</p>
+<ul>
+<li>1번: O(n + m)</li>
+<li>2번: O(n log n)</li>
+<li>3번: O(1)</li>
+</ul>
+<p>원하시면 다음엔 제가 조금 더 헷갈리는 문제 3개를 내고, 이번에는 공간복잡도도 같이 붙여서 연습하게 해드리겠습니다.</p>
+<p>준선형은 어떤때 볼수있지 보통?</p>
+<p>결론부터 말씀드리면, 준선형 O(n log n)은 보통 n개를 처리하는데 각 처리마다 log n 정도의 비용이 드는 경우나 분할정복으로 계속 반씩 나누면서 전체를 다시 합치는 경우에 자주 나옵니다.</p>
+<p>대표적으로는 정렬에서 가장 많이 봅니다.</p>
+<h3 id="가장-자주-보는-경우-1-정렬"><b>가장 자주 보는 경우 1: 정렬</b></h3>
+<p>예:</p>
+<ul>
+<li>병합 정렬</li>
+<li>힙 정렬</li>
+<li>퀵 정렬 평균</li>
+</ul>
+<p>왜 O(n log n)이냐면:</p>
+<ul>
+<li>데이터를 log n단계 정도로 반씩 나누고</li>
+<li>각 단계에서 전체 원소 n개를 한 번씩 다루는 경우가 많기 때문입니다.</li>
+</ul>
+<p>병합 정렬 감각은 이렇게 보면 됩니다.</p>
+<pre class="code-block"><code>1단계: n개 처리
+2단계: n개 처리
+3단계: n개 처리
+...
+총 log n 단계
+</code></pre>
+<p>그래서:</p>
+<p><code>n * log n = O(n log n)</code></p>
+<hr/>
+<h3 id="가장-자주-보는-경우-2-n번-반복-안에-log-n-연산"><b>가장 자주 보는 경우 2: n번 반복 안에 log n 연산</b></h3>
+<p>예를 들면 균형 잡힌 트리 자료구조를 쓸 때입니다.</p>
+<ul>
+<li>원소 n개를 하나씩 삽입</li>
+<li>삽입 1번당 O(log n)</li>
+</ul>
+<p>그러면 전체는 보통 O(n log n)입니다.</p>
+<p>예:</p>
+<ul>
+<li>set, map에 n개 삽입</li>
+<li>우선순위 큐에 n번 넣기</li>
+<li>원소마다 이진 탐색 1번씩 하기</li>
+</ul>
+<p>예시 느낌:</p>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    Set.insert(Arr[i]); // 보통 O(log n)
+}
+</code></pre>
+<p>전체:</p>
+<p><code>n * log n = O(n log n)</code></p>
+<hr/>
+<h3 id="가장-자주-보는-경우-3-분할정복"><b>가장 자주 보는 경우 3: 분할정복</b></h3>
+<p>패턴이 이렇습니다.</p>
+<ul>
+<li>문제를 반으로 나눈다</li>
+<li>나눈 문제를 재귀로 푼다</li>
+<li>합칠 때 전체를 한 번 훑는다</li>
+</ul>
+<p>이 구조가 자주 O(n log n)으로 나옵니다.</p>
+<p>대표 예:</p>
+<ul>
+<li>병합 정렬</li>
+<li>세그먼트 트리 빌드 일부 설명에서 관련 감각 익히기</li>
+<li>divide and conquer 류 문제들</li>
+</ul>
+<hr/>
+<h3 id="직관적으로-외우는-법"><b>직관적으로 외우는 법</b></h3>
+<ul>
+<li>O(n): 전체를 한 번 훑음</li>
+<li>O(log n): 절반씩 줄임</li>
+<li>O(n log n): 전체를 훑는 일을 log n번 반복함</li>
+</ul>
+<p>이 한 줄 감각이 제일 중요합니다.</p>
+<hr/>
+<h3 id="실전에서-자주-보는-키워드"><b>실전에서 자주 보는 키워드</b></h3>
+<p>문제에서 이런 느낌이 보이면 O(n log n)을 의심하시면 됩니다.</p>
+<ul>
+<li>정렬을 사용함</li>
+<li>각 원소마다 이진 탐색함</li>
+<li>각 원소마다 set, map, priority_queue 연산함</li>
+<li>반으로 나누는 분할정복 구조임</li>
+<li>“브루트포스 O(n^2)는 너무 크고, 정렬이나 로그 자료구조를 써야 한다”는 상황</li>
+</ul>
+<hr/>
+<h3 id="반대로-아닌-경우"><b>반대로 아닌 경우</b></h3>
+<p>이것도 같이 구분하시면 좋습니다.</p>
+<ul>
+<li>단순 한 번 순회 -&gt; O(n)</li>
+<li>이중 반복으로 전부 비교 -&gt; O(n^2)</li>
+<li>절반씩 줄이기만 함 -&gt; O(log n)</li>
+</ul>
+<p>즉 준선형은 보통</p>
+<p>선형보다 느리지만, 제곱보다는 훨씬 빠른 중간급 고효율이라고 보면 됩니다.</p>
+<p>원하시면 다음에는 제가</p>
+<p>O(n) / O(n log n) / O(n^2)를 구분하는 문제를 5개만 딱 내드리겠습니다.</p>
+<p>조금 더 헷갈리는 문제 3개를 내고, 이번에는 공간복잡도도 같이 붙여서 연습하게 해줘</p>
+<p>좋습니다. 이번에는 시간복잡도 + 공간복잡도를 같이 보게끔, 조금 헷갈리게 섞어서 3문제 드리겠습니다.</p>
+<p>기준은 추가 공간, 즉 보조 공간복잡도로 답하시면 됩니다.</p>
+<p>답은 예를 들어 1번: 시간 O(...), 공간 O(...) 형식으로 적어주시면 됩니다.</p>
+<h3 id="문제-1-3"><b>문제 1</b></h3>
+<pre class="code-block"><code>int Sum = 0;
+
+for (int i = 0; i &lt; n; ++i)
+{
+    Sum += Arr[i];
+}
+
+for (int j = 1; j &lt; n; j *= 2)
+{
+    Sum += j;
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는?</li>
+<li>공간복잡도는?</li>
+</ul>
+<hr/>
+<h3 id="문제-2-3"><b>문제 2</b></h3>
+<pre class="code-block"><code>vector&lt;int&gt; Temp;
+
+for (int i = 0; i &lt; n; ++i)
+{
+    Temp.push_back(Arr[i]);
+}
+
+for (int i = 0; i &lt; n; ++i)
+{
+    cout &lt;&lt; Temp[i] &lt;&lt; "\n";
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는?</li>
+<li>공간복잡도는?</li>
+</ul>
+<hr/>
+<h3 id="문제-3-3"><b>문제 3</b></h3>
+<pre class="code-block"><code>for (int i = 0; i &lt; n; ++i)
+{
+    for (int j = i; j &lt; n; ++j)
+    {
+        cout &lt;&lt; i &lt;&lt; j &lt;&lt; "\n";
+    }
+}
+</code></pre>
+<p>질문:</p>
+<ul>
+<li>시간복잡도는?</li>
+<li>공간복잡도는?</li>
+</ul>
+<p>힌트는 짧게만 드리면:</p>
+<ul>
+<li>문제 1은 더하기가 핵심입니다.</li>
+<li>문제 2는 추가 배열이 생깁니다.</li>
+<li>문제 3은 안쪽 반복문이 매번 n번은 아닙니다.</li>
+</ul>
+<p>답 적어주시면 바로 채점하고, 왜 헷갈리기 쉬운지도 같이 설명드리겠습니다.</p>
+</div>
+        </article>
+        <nav class="adjacent" aria-label="인접 글"><a href="%EC%9D%B8%EB%B2%A4%ED%86%A0%EB%A6%AC-%EC%A0%95%EB%A0%AC-%EC%82%AC%EB%A1%80-e522fef0.html"><small>다음 글</small>인벤토리 정렬 사례</a></nav>
+      </main>
+    </div>
+    
+</body>
+</html>
