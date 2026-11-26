@@ -1,3 +1,8 @@
+---
+title: "버퍼 로드"
+category: content/categories/topic-05-06-04-04-04.json
+order: 40
+---
 Renderer.cpp
 
 ```c++

@@ -1,4 +1,9 @@
 ---
+title: "Direct3D 11 초기화"
+category: content/categories/topic-05-06.json
+order: 10
+---
+---
 
 <b>DXGI</b> : 어떤 버전의 directX에서든 공통적으로 사용할 수 있도록 directX의 저수준 제어의 묶음
 

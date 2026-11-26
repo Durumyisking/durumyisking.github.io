@@ -1,3 +1,8 @@
+---
+title: "가상 소멸자"
+category: content/categories/topic-01-03.json
+order: 70
+---
 그러게요 왜? 쓸까요?
 
 ---

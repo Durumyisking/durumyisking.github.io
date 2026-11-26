@@ -1,3 +1,8 @@
+---
+title: "후처리 효과 구현"
+category: content/categories/topic-05-05.json
+order: 50
+---
 렌더타겟에 모든 오브젝트를 그리고 나온 결과물을 텍스처로 만든다
 
 그렇게 만든 텍스처에 PostEffect를 추가시킨다.

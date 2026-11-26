@@ -1,4 +1,9 @@
 ---
+title: "휘도의 측정"
+category: content/categories/topic-05-04-05.json
+order: 70
+---
+---
 
 휘도는 특정 방향으로 이동하는 단위 면적당 광도(luminance)를 측정한 것이다.
 

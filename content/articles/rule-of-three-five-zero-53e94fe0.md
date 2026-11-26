@@ -1,3 +1,8 @@
+---
+title: "Rule of Three, Five, Zero"
+category: content/categories/topic-01-03.json
+order: 120
+---
 뭔지 모르겠지만.. 알아보자\~
 
 ---

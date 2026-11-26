@@ -1,4 +1,9 @@
 ---
+title: "Phong과 Blinn-Phong"
+category: content/categories/topic-05-04.json
+order: 40
+---
+---
 
 가장 기본적인 3d 렌더링 모델이다
 

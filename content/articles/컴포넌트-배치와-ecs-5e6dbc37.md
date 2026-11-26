@@ -1,3 +1,8 @@
+---
+title: "컴포넌트 배치와 ECS"
+category: content/categories/topic-06-02.json
+order: 20
+---
 😡
 
 - 우리가 현재 개발하는것처럼 컴포턴트 사용해서 개발하면 동적할당을 사용하기 때문에

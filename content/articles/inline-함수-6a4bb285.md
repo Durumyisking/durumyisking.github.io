@@ -1,3 +1,8 @@
+---
+title: "inline 함수"
+category: content/categories/topic-01-04.json
+order: 40
+---
 인라인함수 헤더에 선언하면 알아서 된다는데 뭐에요??
 
 ---

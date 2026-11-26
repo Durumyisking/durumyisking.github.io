@@ -1,3 +1,8 @@
+---
+title: "World 초기화"
+category: content/categories/topic-07-02-04.json
+order: 30
+---
 <details>
 <summary>World 초기화</summary>
 

@@ -1,4 +1,9 @@
 ---
+title: "HTTP"
+category: content/categories/topic-08-01.json
+order: 60
+---
+---
 
 ### HTTP 통신
 

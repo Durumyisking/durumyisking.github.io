@@ -1,3 +1,8 @@
+---
+title: "vector·list·deque 중간 삭제 실측"
+category: content/categories/topic-02-02.json
+order: 50
+---
 데이터가 많을 때 이론상 벡터가 가장 느리고 리스트가 가장 빠를 것이라고 
 
 예상이 된다. 그 말이 사실인지 알아보자\~

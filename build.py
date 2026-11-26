@@ -1,4 +1,5 @@
 import argparse
+from collections import defaultdict
 from html import escape
 import json
 from pathlib import Path
@@ -12,6 +13,7 @@ from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import TextLexer, get_lexer_by_name
 from pygments.util import ClassNotFound
+import yaml
 
 
 SITE_NAME = "개발 노트"
@@ -89,6 +91,59 @@ def flatten(items, parents=()):
             yield from flatten(item["children"], (*parents, item["title"]))
         else:
             yield item, parents
+
+
+def read_entries(content):
+    categories = {}
+    siblings = defaultdict(list)
+    bodies = {}
+
+    def add_entry(path, fields, parent, item):
+        title = fields.get("title")
+        order = fields.get("order")
+        if order is None:
+            order = 1000
+        if not isinstance(title, str) or not title.strip():
+            raise ValueError(f"Missing title in {path}")
+        if isinstance(order, bool) or not isinstance(order, int):
+            raise ValueError(f"Expected an integer order in {path}")
+        if parent is not None and (not isinstance(parent, str) or parent not in categories):
+            raise ValueError(f"Unknown category {parent!r} in {path}")
+        siblings[parent].append((order, title.casefold(), path.name, item | {"title": title}))
+
+    for path in sorted((content / "categories").glob("*.json")):
+        key = f"content/categories/{path.name}"
+        categories[key] = (path, json.loads(path.read_text(encoding="utf-8")))
+    for key, (path, fields) in categories.items():
+        add_entry(path, fields, fields.get("parent") or None, {"category": key})
+
+    for path in sorted((content / "articles").glob("*.md")):
+        markdown = path.read_text(encoding="utf-8")
+        frontmatter = re.match(r"\A---[^\S\n]*\n(.*?)^---[^\S\n]*(?:\n|\Z)", markdown, re.DOTALL | re.MULTILINE)
+        if not frontmatter:
+            raise ValueError(f"Missing article metadata in {path}")
+        fields = yaml.safe_load(frontmatter[1])
+        if not isinstance(fields, dict) or not fields.get("category"):
+            raise ValueError(f"Missing article category in {path}")
+        add_entry(path, fields, fields["category"], {"slug": path.stem})
+        bodies[path.stem] = markdown[frontmatter.end():]
+
+    visited = set()
+
+    def nested(parent):
+        items = []
+        for _, _, _, item in sorted(siblings[parent]):
+            if "category" in item:
+                key = item.pop("category")
+                visited.add(key)
+                item["children"] = nested(key)
+            items.append(item)
+        return items
+
+    catalog = nested(None)
+    if visited != categories.keys():
+        raise ValueError("Category cycle involving " + ", ".join(sorted(categories.keys() - visited)))
+    return catalog, bodies
 
 
 def nav_tree(items, prefix, selected="", current_path=()):
@@ -191,7 +246,7 @@ def article_page(item, parents, content, catalog, position, ordered):
 
 
 def build(content, assets, output):
-    catalog = json.loads((content / "catalog.json").read_text(encoding="utf-8"))
+    catalog, bodies = read_entries(content)
     ordered = list(flatten(catalog))
     valid = {item["slug"] for item, _ in ordered}
     notes = output / "notes"
@@ -209,8 +264,7 @@ def build(content, assets, output):
     (output / ".nojekyll").touch()
     (output / "index.html").write_text(homepage(catalog), encoding="utf-8")
     for position, (item, parents) in enumerate(ordered):
-        markdown = (content / "articles" / (item["slug"] + ".md")).read_text(encoding="utf-8")
-        html = content_html(markdown, valid)
+        html = content_html(bodies[item["slug"]], valid)
         page = article_page(item, parents, html, catalog, position, ordered)
         (notes / (item["slug"] + ".html")).write_text(page, encoding="utf-8")
     return len(ordered)

@@ -1,3 +1,8 @@
+---
+title: "RAII와 스마트 포인터"
+category: content/categories/topic-01-02.json
+order: 90
+---
 shared\_ptr, weak\_ptr, unique\_ptr
 
 스마트포인터는 메모리 해제를 자동으로 해주어 사고를 미연에 방지한다.

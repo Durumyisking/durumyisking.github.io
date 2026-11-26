@@ -1,4 +1,9 @@
 ---
+title: "COM 인터페이스와 ComPtr"
+category: content/categories/topic-05-06.json
+order: 30
+---
+---
 
 <b>COM 오브젝트 (directX에서 사용하는 인터페이스들)</b>에 대해 사용하는 <b>스마트 포인터</b>이다.
 

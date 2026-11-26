@@ -1,3 +1,8 @@
+---
+title: "Slate와 SWidget"
+category: content/categories/topic-07-04.json
+order: 20
+---
 <b>Slate (슬레이트)</b> 는 언리얼 엔진 4 와 함께 제공되는 플랫폼 무관, 완벽한 커스텀 유저 인터페이스 프레임워크로, 언리얼 에디터와 같은 툴과 어플리케이션에 쓸 유저 인터페이스나 게임내 유저 인터페이스의 재미와 효율을 높일 수 있도록 디자인된 것입니다. 서술형(declarative) 문법에 쉬운 디자인, 레이아웃, 스타일 요소가 결합된 Slate 를 통해 쉬운 UI 제작 및 반복작업이 가능할 것입니다.<br />
 
 Plugin SRadar Chart를 분석하면서 배워봅시다.

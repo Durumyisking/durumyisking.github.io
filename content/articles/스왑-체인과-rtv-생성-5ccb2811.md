@@ -1,3 +1,8 @@
+---
+title: "스왑 체인과 RTV 생성"
+category: content/categories/topic-05-06-04-04.json
+order: 20
+---
 SwapChain 초기화 및 객체 생성
 
 ```c++

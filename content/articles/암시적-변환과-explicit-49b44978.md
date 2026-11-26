@@ -1,4 +1,9 @@
 ---
+title: "암시적 변환과 explicit"
+category: content/categories/topic-01-04.json
+order: 60
+---
+---
 
 명시적 형 변환은 우리가 잘아는 (int), static\_cast\<int> 등등을 말한다.
 

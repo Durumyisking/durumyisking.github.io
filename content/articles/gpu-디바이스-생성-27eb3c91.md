@@ -1,3 +1,8 @@
+---
+title: "GPU 디바이스 생성"
+category: content/categories/topic-05-06-04-04.json
+order: 10
+---
 GPU devcie 객체 생성
 
 ```c++

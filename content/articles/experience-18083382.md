@@ -1,4 +1,9 @@
 ---
+title: "Experience"
+category: content/categories/topic-07-06.json
+order: 50
+---
+---
 
 언리얼에서 게임 규칙은 대게 게임 모드에서 관리한다<br />예를들어 FPS게임에서 AOS게임으로 모드를 전환한다고 할 때 보통은 게임 모드를 변환한다.
 

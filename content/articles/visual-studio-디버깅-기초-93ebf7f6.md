@@ -1,3 +1,8 @@
+---
+title: "Visual Studio 디버깅 기초"
+category: content/categories/topic-01-05.json
+order: 50
+---
 <ul>
 <li>
 디버깅 때는 프로그램 생성 안됨 ⇒ 빌드해야 생성

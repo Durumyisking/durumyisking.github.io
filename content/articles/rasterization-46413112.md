@@ -1,4 +1,9 @@
 ---
+title: "Rasterization"
+category: content/categories/topic-05-01-03.json
+order: 10
+---
+---
 
 레이트레이싱은 모든 픽셀에 대해 ray를 쏘고 물체하고 부딪힐지 말지를 결정하는 방식이라
 

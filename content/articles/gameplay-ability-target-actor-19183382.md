@@ -1,3 +1,8 @@
+---
+title: "Gameplay Ability Target Actor"
+category: content/categories/topic-07-05.json
+order: 60
+---
 (이하 TA)
 
 ---

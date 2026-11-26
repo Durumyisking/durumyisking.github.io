@@ -1,3 +1,8 @@
+---
+title: "GetKeyState와 GetAsyncKeyState"
+category: content/categories/topic-06-01.json
+order: 30
+---
 왜 Getkeystate를 안쓰고 Asynckeystate를 사용할까?? 왜 사용하는지 어떻게 사용하는지 알아보자.
 
 ---

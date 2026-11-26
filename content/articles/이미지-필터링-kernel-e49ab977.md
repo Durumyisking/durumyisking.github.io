@@ -1,4 +1,9 @@
 ---
+title: "이미지 필터링 Kernel"
+category: content/categories/topic-05-05.json
+order: 20
+---
+---
 
 - 이미지에서의 커널은 이미지 필터링을 위해 사용하는 정방행렬을 의미한다.
   filter나 window라고 부르기도 한다.

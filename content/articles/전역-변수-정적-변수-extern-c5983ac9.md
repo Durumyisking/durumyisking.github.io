@@ -1,3 +1,8 @@
+---
+title: "전역 변수·정적 변수·extern"
+category: content/categories/topic-01-05.json
+order: 30
+---
 <a href="http://chfhrqnfrhc.tistory.com/entry/전역변수와-전적변수">chfhrqnfrhc.tistory.com</a>
 
 ---

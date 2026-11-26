@@ -1,3 +1,8 @@
+---
+title: "HLSL 셰이더 파일"
+category: content/categories/topic-05-06-04-04-04-02.json
+order: 20
+---
 셰이더 언어인 HLSL을 사용해서 만듬
 
 언어인데 막 개복잡한게 아니라 그냥 구조체처럼 쓸 수 있나봄

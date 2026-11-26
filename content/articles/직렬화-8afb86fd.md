@@ -1,4 +1,9 @@
 ---
+title: "직렬화"
+category: content/categories/topic-07-01.json
+order: 50
+---
+---
 
 직렬화는 객체를 바이트 스트림으로 만든다는 것을 뜻한다.
 

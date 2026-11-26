@@ -1,4 +1,9 @@
 ---
+title: "원근 투영"
+category: content/categories/topic-05-01-03.json
+order: 60
+---
+---
 
 Raytracing 에서는 우리는 스크린에 ray를 쐈을대 <b>가상 공간의 물체에 부딪히면 그 픽셀의 색을 가져왔음</b>
 

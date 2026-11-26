@@ -1,3 +1,8 @@
+---
+title: "배열"
+category: content/categories/topic-01-01.json
+order: 60
+---
 ### <b>배열</b>
 
 - 메모리에 데이터가 들어가는 위치는 원래 랜덤임

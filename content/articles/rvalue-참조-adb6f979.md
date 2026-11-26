@@ -1,3 +1,8 @@
+---
+title: "rvalue 참조"
+category: content/categories/topic-01-03.json
+order: 100
+---
 c++ 11의 핵심 기능 우측값 참조에 대해 알아보자\~
 
 ---

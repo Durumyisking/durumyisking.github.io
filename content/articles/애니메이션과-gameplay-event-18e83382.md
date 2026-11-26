@@ -1,4 +1,9 @@
 ---
+title: "애니메이션과 Gameplay Event"
+category: content/categories/topic-07-05.json
+order: 40
+---
+---
 
 기존의 Animnotify에서 캐릭터가 들고있는 공격 함수를 직접 호출하는 방법에서<br />GA를 실행시키는 방법으로 변경해보자
 

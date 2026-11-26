@@ -1,4 +1,9 @@
 ---
+title: "Jenkins 사용법"
+category: content/categories/topic-09-02.json
+order: 20
+---
+---
 
 <details>
 <summary>설치</summary>

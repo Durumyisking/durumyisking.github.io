@@ -1,4 +1,9 @@
 ---
+title: "빛의 반사"
+category: content/categories/topic-05-04.json
+order: 20
+---
+---
 
 ### <b>Ambient Reflection</b>
 

@@ -1,4 +1,9 @@
 ---
+title: "셰이더 단계"
+category: content/categories/topic-05-02.json
+order: 10
+---
+---
 
 렌더링 파이프라인 단계에서 개발자들이 사용하는 영역을 쉐이더라고 부른다.
 

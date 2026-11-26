@@ -1,3 +1,8 @@
+---
+title: "입력 레이아웃과 상태 설정"
+category: content/categories/topic-05-06-04-04-04.json
+order: 30
+---
 Renderer.cpp
 
 ```c++

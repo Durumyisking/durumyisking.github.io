@@ -1,3 +1,8 @@
+---
+title: "형 변환"
+category: content/categories/topic-01-04.json
+order: 50
+---
 <b>StaticCast</b>
 
 <b>DynamicCast</b>

@@ -1,3 +1,8 @@
+---
+title: "Constant Buffer와 Structured Buffer"
+category: content/categories/topic-05-02.json
+order: 70
+---
 그래픽 파이프라인에서 데이터를 읽고쓰는데 사용되는 두 버퍼들의 차이점을 알아보자
 
 ---

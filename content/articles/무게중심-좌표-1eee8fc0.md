@@ -1,3 +1,8 @@
+---
+title: "무게중심 좌표"
+category: content/categories/topic-05-01-03.json
+order: 20
+---
 영어는 어려워보이는데 크게 어려울거 없다.
 
 보간을 이용한 내용임

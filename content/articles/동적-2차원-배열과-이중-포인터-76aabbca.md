@@ -1,3 +1,8 @@
+---
+title: "동적 2차원 배열과 이중 포인터"
+category: content/categories/topic-01-02.json
+order: 70
+---
 아니 메모리 연속성 있어서 싱글포인터로 되는데 왜 더블포인터 쓰는지 알아보자\~
 
 ---

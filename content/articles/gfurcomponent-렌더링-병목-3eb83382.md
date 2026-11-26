@@ -1,3 +1,8 @@
+---
+title: "GFurComponent 렌더링 병목"
+category: content/categories/topic-07-07.json
+order: 20
+---
 😡언리얼 대표적인 털 렌더링 플러그인인 GFurComponent를 사용하던 도중 렌더링/LOD 관련 문제를 발견했다. 
 
 1. 우선 가장 큰 문제는, <b>Fur객체가 화면 밖에 있어도, 렌더링 자원을 먹는다</b>는 것이다.<br />(Draw인지, 별다른 처리를 계속 하는것인지 확인을 해야함.)

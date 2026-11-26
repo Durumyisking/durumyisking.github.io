@@ -1,4 +1,9 @@
 ---
+title: "Winsock2 초기화와 해제"
+category: content/categories/topic-08-02.json
+order: 10
+---
+---
 
 ### Winsock2 초기화와 해제
 

@@ -1,3 +1,8 @@
+---
+title: "Init State와 확장 컴포넌트"
+category: content/categories/topic-07-06.json
+order: 60
+---
 Pawn에다가 이것저것 컴포넌트 붙이면 종속성 문제가 크다고 한다<br />(근데 애초에 종속성 줄이려고한게 컴포넌트 방식 아닌가..?>?)<br />아무튼 이거 쓰면 종속성 더 줄일 수 있나보다 써보면서 느껴보자
 
 ---

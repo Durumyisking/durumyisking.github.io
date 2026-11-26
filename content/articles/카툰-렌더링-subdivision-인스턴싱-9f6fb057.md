@@ -1,4 +1,9 @@
 ---
+title: "카툰 렌더링·Subdivision·인스턴싱"
+category: content/categories/topic-05-05.json
+order: 10
+---
+---
 
 <details>
 <summary><b>카툰렌더링</b></summary>

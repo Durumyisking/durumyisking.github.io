@@ -1,4 +1,9 @@
 ---
+title: "AssetScan"
+category: content/categories/topic-07-06-04.json
+order: 20
+---
+---
 
 <img src="../media/75c9436d508030c09fbd.png" alt="" loading="lazy" decoding="async">
 

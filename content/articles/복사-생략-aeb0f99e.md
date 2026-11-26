@@ -1,4 +1,9 @@
 ---
+title: "복사 생략"
+category: content/categories/topic-01-03.json
+order: 110
+---
+---
 
 ### 복사 생략
 

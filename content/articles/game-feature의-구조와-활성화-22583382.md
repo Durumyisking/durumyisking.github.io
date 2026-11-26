@@ -1,3 +1,8 @@
+---
+title: "Game Feature의 구조와 활성화"
+category: content/categories/topic-07-06-08.json
+order: 10
+---
 라이라에서 사용하고 언리얼에서 전폭으로 지원중인 GameFeature플러그인에 대해 알아보자
 
 ---

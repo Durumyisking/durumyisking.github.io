@@ -1,4 +1,9 @@
 ---
+title: "IP"
+category: content/categories/topic-08-01.json
+order: 30
+---
+---
 
 ### <b>IP(Internet Protocal)란?</b>
 

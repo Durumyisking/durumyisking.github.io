@@ -1,3 +1,8 @@
+---
+title: "BSS와 데이터 세그먼트"
+category: content/categories/topic-03-03.json
+order: 20
+---
 전역변수와 정적변수들을 저장하는 영역인 BSS영역과 데이터 영역에 대해 알아보자\~
 
 ---

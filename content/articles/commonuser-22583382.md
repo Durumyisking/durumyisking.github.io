@@ -1,3 +1,8 @@
+---
+title: "CommonUser"
+category: content/categories/topic-07-06-08.json
+order: 20
+---
 Lyra에서는 서버와 연동되어 더 복잡하긴한데 우리는 레벨 전환을 위해 사용한다고 한다.
 
 ---

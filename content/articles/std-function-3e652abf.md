@@ -1,3 +1,8 @@
+---
+title: "std::function"
+category: content/categories/topic-01-04.json
+order: 30
+---
 함수포인터를 대체하기 위해 나온 문법 std::function(펑셔널)을 알아보자
 
 ---

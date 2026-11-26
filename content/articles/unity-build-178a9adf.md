@@ -1,3 +1,8 @@
+---
+title: "Unity Build"
+category: content/categories/topic-01-05.json
+order: 40
+---
 - 원하는 파일들을 합쳐서 하나의 Obj파일을 만들어서 빌드하는것
 - VS 2022 이전에는 직접 헤더들을 지정해줘서 빌드해야했지만
 - VS 2022 부터는 옵션에서 설정 가능함

@@ -1,3 +1,8 @@
+---
+title: "덱(std::deque)"
+category: content/categories/topic-02-02.json
+order: 30
+---
 양방향 큐 덱에 대해서 알아보자\~
 
 ---

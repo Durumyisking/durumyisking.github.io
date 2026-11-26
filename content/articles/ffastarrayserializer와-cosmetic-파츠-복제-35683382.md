@@ -1,3 +1,8 @@
+---
+title: "FFastArraySerializer와 Cosmetic 파츠 복제"
+category: content/categories/topic-07-06-09.json
+order: 20
+---
 ## 핵심 결론
 
 <code>FFastArraySerializer</code>는 복제되는 배열에서 전체 배열을 매번 보내는 대신, 추가/삭제/변경된 Entry만 보내기 위한 언리얼 네트워크 복제 패턴이다.

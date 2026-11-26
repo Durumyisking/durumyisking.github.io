@@ -1,4 +1,9 @@
 ---
+title: "Attribute"
+category: content/categories/topic-07-05.json
+order: 70
+---
+---
 
 우리가 평소에 사용하는 공격범위, 체력, 스테미너 등등 게임에 있어서 사용할 변수들? 이라고 보면된다.
 

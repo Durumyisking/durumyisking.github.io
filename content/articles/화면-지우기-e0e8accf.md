@@ -1,3 +1,8 @@
+---
+title: "화면 지우기"
+category: content/categories/topic-05-06-04-04-05.json
+order: 20
+---
 ```c++
 void CGraphicDevice::Clear()
 	{

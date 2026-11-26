@@ -1,0 +1,87 @@
+media:
+  - name: images
+    label: 이미지
+    input: content/media
+    output: /media
+    categories: [image]
+
+content:
+  - name: articles
+    label: 게시글
+    type: collection
+    path: content/articles
+    format: yaml-frontmatter
+    filename: "{year}{month}{day}-{hour}{minute}{second}-{primary}.md"
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields: [title, order]
+      primary: title
+      sort: [title, order]
+      search: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: category
+        label: 카테고리
+        type: reference
+        required: true
+        options:
+          collection: categories
+          value: "{path}"
+          label: "{primary}"
+      - name: order
+        label: 목차 순서
+        type: number
+        description: 같은 카테고리에서 작은 숫자가 먼저 표시됩니다. 비워 두면 1000으로 처리합니다.
+      - name: body
+        label: 본문
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: images
+          switcher: true
+
+  - name: categories
+    label: 카테고리
+    type: collection
+    path: content/categories
+    format: json
+    filename: "{year}{month}{day}-{hour}{minute}{second}-{primary}.json"
+    operations:
+      create: true
+      rename: false
+      delete: false
+    view:
+      fields: [title, order]
+      primary: title
+      sort: [title, order]
+      search: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 카테고리 이름
+        type: string
+        required: true
+      - name: parent
+        label: 상위 카테고리
+        type: reference
+        description: 최상위 카테고리는 이 항목을 비워 두세요.
+        options:
+          collection: categories
+          value: "{path}"
+          label: "{primary}"
+      - name: order
+        label: 목차 순서
+        type: number
+        description: 같은 위치에서 작은 숫자가 먼저 표시됩니다. 비워 두면 1000으로 처리합니다.

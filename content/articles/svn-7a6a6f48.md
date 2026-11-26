@@ -1,3 +1,8 @@
+---
+title: "SVN"
+category: content/categories/topic-09-01.json
+order: 10
+---
 <a href="https://sm-code.tistory.com/entry/SVN-설치-관련-자료">sm-code.tistory.com</a>
 
 ---

@@ -1,3 +1,8 @@
+---
+title: "vector·list·deque의 구조와 연산 비용"
+category: content/categories/topic-02-02.json
+order: 40
+---
 재미있는 자료구조 3가지의 차이점에 대해 알아보자
 
 ---

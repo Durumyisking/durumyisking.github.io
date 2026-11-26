@@ -1,4 +1,9 @@
 ---
+title: "정점 변환"
+category: content/categories/topic-05-01.json
+order: 20
+---
+---
 
 <a href="https://marmelo12.tistory.com/338">marmelo12.tistory.com</a>
 

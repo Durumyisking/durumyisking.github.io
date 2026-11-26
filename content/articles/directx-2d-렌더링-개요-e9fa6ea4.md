@@ -1,3 +1,8 @@
+---
+title: "DirectX 2D 렌더링 개요"
+category: content/categories/topic-05-06-04.json
+order: 10
+---
 기본 윈도우 프로시저는 api쓰던거 사용한다.
 
 이전에는 하나의 프로젝트로 사용했지만

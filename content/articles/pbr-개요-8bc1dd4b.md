@@ -1,3 +1,8 @@
+---
+title: "PBR 개요"
+category: content/categories/topic-05-04-05.json
+order: 10
+---
 물리 기반 렌더링(Physically Based Rendering, PBR)에 대해 알아보자\~
 
 ---

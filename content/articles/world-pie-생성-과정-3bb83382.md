@@ -1,3 +1,8 @@
+---
+title: "World (PIE) 생성 과정"
+category: content/categories/topic-07-02-04.json
+order: 60
+---
 <details>
 <summary><b>PIE</b></summary>
 

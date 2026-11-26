@@ -1,4 +1,9 @@
 ---
+title: "Niagara User Parameter를 Details에 노출하기"
+category: content/categories/topic-07-07.json
+order: 50
+---
+---
 
 나이아가라 컴포넌트를 사용해보면
 

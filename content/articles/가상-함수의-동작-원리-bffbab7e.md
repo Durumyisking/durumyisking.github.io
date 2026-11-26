@@ -1,3 +1,8 @@
+---
+title: "가상 함수의 동작 원리"
+category: content/categories/topic-01-03.json
+order: 60
+---
 자세한 원리를 알아보자
 
 ---

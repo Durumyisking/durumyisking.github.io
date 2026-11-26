@@ -1,3 +1,8 @@
+---
+title: "변수와 자료형"
+category: content/categories/topic-01-01.json
+order: 10
+---
 <b>컴퓨터의 데이터 저장방식</b>
 
 -데이터를 2진수로 저장함
